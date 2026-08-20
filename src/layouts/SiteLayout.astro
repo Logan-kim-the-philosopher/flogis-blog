@@ -23,6 +23,7 @@ const [site, searchPayload] = await Promise.all([getSiteSettings(), getSearchPay
 const pageTitle = title ? `${title} | ${site.title}` : site.seo?.title || site.title;
 const pageDescription = description || site.seo?.description || site.description;
 const pageImage = image || site.seo?.image;
+const canonical = import.meta.env.PUBLIC_SITE_URL ? new URL(currentPath, import.meta.env.PUBLIC_SITE_URL).toString() : Astro.url.href;
 ---
 
 <!doctype html>
@@ -33,7 +34,7 @@ const pageImage = image || site.seo?.image;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <SEOHead title={pageTitle} description={pageDescription} image={pageImage} />
+    <SEOHead title={pageTitle} description={pageDescription} image={pageImage} canonical={canonical} />
   </head>
   <body class="min-h-screen bg-slate-950 text-slate-100 antialiased">
     <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(34,211,238,0.18),_transparent_35%),linear-gradient(180deg,_rgba(15,23,42,0.95),_rgba(2,6,23,1))]"></div>

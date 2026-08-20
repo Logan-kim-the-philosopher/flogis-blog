@@ -5,6 +5,7 @@ const dataset = import.meta.env.SANITY_DATASET || import.meta.env.SANITY_STUDIO_
 const apiVersion = import.meta.env.SANITY_API_VERSION || '2025-01-01';
 
 export const hasSanityConfig = Boolean(projectId && dataset);
+export const isStrictContentMode = import.meta.env.SANITY_STRICT_CONTENT === 'true';
 
 export const sanityClient = hasSanityConfig
   ? createClient({
@@ -17,11 +18,21 @@ export const sanityClient = hasSanityConfig
   : null;
 
 export async function sanityFetch<T>(query: string, params: Record<string, unknown> = {}) {
-  if (!sanityClient) return null;
+  if (!sanityClient) {
+    if (isStrictContentMode) {
+      throw new Error('Sanity strict mode is enabled, but SANITY_PROJECT_ID / SANITY_DATASET is missing.');
+    }
+
+    return null;
+  }
 
   try {
     return await sanityClient.fetch<T>(query, params);
   } catch (error) {
+    if (isStrictContentMode) {
+      throw error;
+    }
+
     console.warn('Sanity fetch failed. Falling back to local demo content.', error);
     return null;
   }

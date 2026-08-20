@@ -6,6 +6,7 @@ const { payload } = Astro.props as {
     href: string;
     excerpt: string;
     publishedAt: string;
+    searchText: string;
   }[];
 };
 ---
@@ -113,9 +114,7 @@ const { payload } = Astro.props as {
       return;
     }
 
-    const filtered = payload.filter((item) =>
-      [item.title, item.excerpt, item.type].join(' ').toLowerCase().includes(normalized)
-    );
+    const filtered = payload.filter((item) => item.searchText.toLowerCase().includes(normalized));
 
     sectionTitle.textContent = '검색 결과';
     results.innerHTML = filtered.length

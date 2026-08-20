@@ -12,8 +12,9 @@
 ## 데이터 흐름
 1. 페이지가 `src/lib/repositories/*`를 통해 콘텐츠를 조회합니다.
 2. repository는 Sanity 설정이 있으면 Sanity에서 가져오고, 없으면 `src/lib/fallback/*`의 샘플 데이터를 사용합니다.
-3. Markdown 본문은 `src/lib/renderers/markdown.ts`에서 HTML로 렌더링됩니다.
-4. 공통 가공 로직(요약, 검색 payload, 정렬)은 `src/lib/services/*`에 있습니다.
+3. repository 단계에서 title/slug/date/image/body/people 필드를 정규화합니다.
+4. Markdown 본문은 `src/lib/renderers/markdown.ts`에서 HTML로 렌더링됩니다.
+5. 공통 가공 로직(요약, 검색 payload, 정렬)은 `src/lib/services/*`에 있습니다.
 
 ## 주요 레이어
 - `src/lib/cms`: Sanity client, query, image helper
@@ -31,6 +32,8 @@
 - 현재는 정적 빌드 기준 구조입니다.
 - 콘텐츠 수정 후 배포는 Cloudflare Pages 재빌드 기준으로 생각하고 있습니다.
 - 검색은 현재 전역 payload를 클라이언트에서 필터링하는 프로토타입 방식입니다.
+- `SANITY_STRICT_CONTENT=true`를 사용하면 운영 배포에서 Sanity 연결 누락/실패를 조용히 fallback 하지 않고 즉시 실패시킬 수 있습니다.
+- canonical URL은 `PUBLIC_SITE_URL` 기준으로 생성됩니다.
 
 ## 주요 라우트
 - `/study`

@@ -1,6 +1,7 @@
 ---
-import ContentHeader from '../../components/content/ContentHeader.astro';
 import MeetingCard from '../../components/cards/MeetingCard.astro';
+import ContentHeader from '../../components/content/ContentHeader.astro';
+import EmptyState from '../../components/content/EmptyState.astro';
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import { getMeetings } from '../../lib/repositories/meetings';
 
@@ -13,8 +14,17 @@ const meetings = await getMeetings();
   </section>
 
   <section class="mx-auto max-w-5xl px-4 pb-16">
-    <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-      {meetings.map((meeting) => <MeetingCard meeting={meeting} />)}
-    </div>
+    {
+      meetings.length ? (
+        <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {meetings.map((meeting) => <MeetingCard meeting={meeting} />)}
+        </div>
+      ) : (
+        <EmptyState
+          title="아직 회의 기록이 없습니다"
+          description="회의나 인터뷰 문서를 발행하면 이 페이지에 자동으로 표시됩니다."
+        />
+      )
+    }
   </section>
 </SiteLayout>

@@ -1,6 +1,7 @@
 ---
 import WorkCard from '../../components/cards/WorkCard.astro';
 import ContentHeader from '../../components/content/ContentHeader.astro';
+import EmptyState from '../../components/content/EmptyState.astro';
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import { getWorks } from '../../lib/repositories/works';
 
@@ -13,8 +14,17 @@ const works = await getWorks();
   </section>
 
   <section class="mx-auto max-w-5xl px-4 pb-16">
-    <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-      {works.map((work) => <WorkCard work={work} />)}
-    </div>
+    {
+      works.length ? (
+        <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {works.map((work) => <WorkCard work={work} />)}
+        </div>
+      ) : (
+        <EmptyState
+          title="아직 작업 기록이 없습니다"
+          description="작업 문서를 발행하면 이 페이지에 자동으로 쌓이도록 되어 있습니다."
+        />
+      )
+    }
   </section>
 </SiteLayout>

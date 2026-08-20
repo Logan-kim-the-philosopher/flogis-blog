@@ -70,12 +70,13 @@ src/
 ```
 
 ## Notes
-- 이 저장소는 프로토타입입니다.
-- 실제 운영 DB/API는 아직 연결되어 있지 않습니다.
-- 샘플 콘텐츠가 포함되어 있어 바로 실행 가능합니다.
+- 이 저장소는 프로토타입이지만, 데이터 정규화/empty state/SEO fallback/strict content mode까지 포함해 운영 연결 전 마감 작업을 진행한 상태입니다.
+- Sanity가 비어 있거나 느슨한 개발 환경에서는 fallback 샘플 데이터로 동작합니다.
+- 운영 배포에서는 `SANITY_STRICT_CONTENT=true` 설정을 권장합니다.
 - 실제 `.env*` 파일이나 비밀값은 커밋하지 마세요.
 
 ## Docs
 - `docs/architecture.md`
 - `docs/content-model.md`
+- `docs/deployment.md`
 - `docs/handoff.md`
