@@ -43,7 +43,6 @@ npm run studio
   - `SANITY_PROJECT_ID`
   - `SANITY_DATASET`
   - `SANITY_API_VERSION`
-- 레거시 경로 301 redirect는 `public/_redirects`로 관리합니다.
 
 ## 프로젝트 구조
 ```txt
@@ -82,7 +81,6 @@ src/
 5. 필요하면 `npm run studio:deploy`로 Sanity Studio 배포
 
 ## 주요 경로
-새 경로:
 - `/`
 - `/study`
 - `/study/[slug]`
@@ -92,15 +90,6 @@ src/
 - `/work/[slug]`
 - `/search`
 - `/rss.xml`
-
-레거시 호환 경로:
-- `/episodes/[slug]` → `/study/[slug]`
-- `/articles` → `/work`
-- `/articles/[slug]` → `/work/[slug]`
-- `/interviews` → `/meetings`
-- `/interviews/[slug]` → `/meetings/[slug]`
-
-위 구 경로들은 현재 **콘텐츠 중복 페이지가 아니라 redirect 페이지**로 유지됩니다.
 
 ## 문서
 - `docs/architecture.md`

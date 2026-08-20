@@ -31,17 +31,8 @@
 - 현재는 정적 빌드 기준 구조입니다.
 - 콘텐츠 수정 후 배포는 Cloudflare Pages 재빌드 기준으로 생각하고 있습니다.
 - 검색은 현재 전역 payload를 클라이언트에서 필터링하는 프로토타입 방식입니다.
-- 레거시 URL 301 redirect는 `public/_redirects`에서 관리합니다.
 
-## 레거시 호환
-구 경로 호환을 위해 아래 경로는 redirect 전용으로 유지됩니다.
-- `/episodes/[slug]` → `/study/[slug]`
-- `/articles` → `/work`
-- `/articles/[slug]` → `/work/[slug]`
-- `/interviews` → `/meetings`
-- `/interviews/[slug]` → `/meetings/[slug]`
-
-새 구현 기준 경로는 아래입니다.
+## 주요 라우트
 - `/study`
 - `/study/[slug]`
 - `/meetings`

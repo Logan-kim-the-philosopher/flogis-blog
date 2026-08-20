@@ -26,10 +26,9 @@
 3. `src/lib/renderers/markdown.ts`
    - 본문 저장 포맷이 바뀌면 여기부터 조정
 
-## 현재 남겨둔 호환 요소
-- `/episodes`, `/articles`, `/interviews` 경로는 새 경로로 보내는 redirect 페이지로 유지
-- Cloudflare Pages용 `_redirects` 파일은 `public/_redirects`에 두었습니다.
-- 내부 코드는 이제 facade 없이 `repositories / services / cms / types` 직접 import 기준으로 정리되어 있습니다.
+## 현재 구조 메모
+- 내부 코드는 `repositories / services / cms / types` 직접 import 기준으로 정리되어 있습니다.
+- canonical 경로는 `/study`, `/meetings`, `/work` 입니다.
 
 ## 주의
 - 현재 홈의 스터디/회의/작업 섹션은 모두 가로 캐러셀 UI입니다.

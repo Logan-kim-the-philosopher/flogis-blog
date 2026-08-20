@@ -1,5 +1,0 @@
-/articles /work 301
-/articles/* /work/:splat 301
-/episodes/* /study/:splat 301
-/interviews /meetings 301
-/interviews/* /meetings/:splat 301
