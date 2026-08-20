@@ -7,8 +7,9 @@ const { site, currentPath } = Astro.props as { site: SiteSettings; currentPath: 
 <header class="sticky top-0 z-50 border-b border-slate-800/70 bg-slate-950/85 backdrop-blur">
   <div class="mx-auto flex max-w-5xl items-center justify-between gap-6 px-4 py-3">
     <div class="flex min-w-0 items-center gap-6">
-      <a href="/" class="shrink-0 text-lg font-semibold tracking-tight text-white transition hover:text-cyan-300">
-        {site.title}
+      <a href="/" class="flex shrink-0 items-center gap-3 text-white transition hover:text-cyan-300">
+        <img src="/flogi-logo.png" alt={site.title} class="h-10 w-auto rounded-lg object-contain md:h-11" />
+        <span class="text-lg font-semibold tracking-tight">{site.title}</span>
       </a>
       <nav class="hidden items-center gap-4 md:flex">
         {site.nav.map((item) => (
@@ -29,9 +30,14 @@ const { site, currentPath } = Astro.props as { site: SiteSettings; currentPath: 
       <button
         type="button"
         data-search-open
-        class="rounded-full border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-300 transition hover:border-cyan-400 hover:text-white"
+        class="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-300 transition hover:border-cyan-400 hover:text-white"
+        aria-label="검색 열기"
       >
-        검색... <span class="hidden text-slate-500 sm:inline">Ctrl+K</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true" class="h-4 w-4 fill-none stroke-current stroke-[1.8]">
+          <circle cx="11" cy="11" r="6.5"></circle>
+          <path d="M16 16l4.5 4.5"></path>
+        </svg>
+        <span>검색</span>
       </button>
     </div>
   </div>
