@@ -1,5 +1,9 @@
 # Deployment Checklist
 
+## 배포 전제
+이 프로젝트는 `npm run build` 후 생성되는 `dist/`를 정적으로 서빙하는 구조입니다.
+개발자 서버/VPS/nginx/apache/사내 서버 등 어디서든 호스팅할 수 있습니다.
+
 ## 1. Sanity 준비
 1. Sanity project 생성
 2. dataset 생성 (`production` 권장)
@@ -9,7 +13,7 @@
    - `study`, `meeting`, `work`
 
 ## 2. 환경 변수
-Cloudflare Pages 또는 로컬 `.env`에 아래 값을 설정합니다.
+서버 환경 또는 로컬 `.env`에 아래 값을 설정합니다.
 
 - `PUBLIC_SITE_URL`
 - `SANITY_PROJECT_ID`
@@ -44,10 +48,21 @@ npm run studio
 - 본문이 비어 있지 않은지
 - 작성자/참여자 이름이 정상 노출되는지
 
-## 5. Cloudflare Pages
-- Framework preset: `Astro`
-- Build command: `npm run build`
-- Build output directory: `dist`
+## 5. 서버 배포
+기본 절차:
+1. `npm install`
+2. `npm run build`
+3. 생성된 `dist/`를 서버에서 정적 서빙
+
+예시 호스팅 방식:
+- nginx document root로 `dist/` 연결
+- apache 정적 호스팅
+- node 서버 뒤 정적 파일 서빙
+- VPS 또는 사내 서버 업로드
+
+중요:
+- canonical URL이 올바르려면 `PUBLIC_SITE_URL`을 실제 도메인으로 설정해야 합니다.
+- 콘텐츠를 수정한 뒤에는 재빌드/재배포가 필요합니다.
 
 ## 6. 배포 후 확인
 - canonical URL이 실제 도메인으로 잡히는지
