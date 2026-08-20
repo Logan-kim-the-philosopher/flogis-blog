@@ -1,0 +1,38 @@
+---
+import type { SiteSettings } from '../../lib/types/site';
+
+const { site, currentPath } = Astro.props as { site: SiteSettings; currentPath: string };
+---
+
+<header class="sticky top-0 z-50 border-b border-slate-800/70 bg-slate-950/85 backdrop-blur">
+  <div class="mx-auto flex max-w-5xl items-center justify-between gap-6 px-4 py-3">
+    <div class="flex min-w-0 items-center gap-6">
+      <a href="/" class="shrink-0 text-lg font-semibold tracking-tight text-white transition hover:text-cyan-300">
+        {site.title}
+      </a>
+      <nav class="hidden items-center gap-4 md:flex">
+        {site.nav.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              'text-sm font-medium transition',
+              currentPath.startsWith(item.href) ? 'text-white' : 'text-slate-300 hover:text-white'
+            ]}
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <button
+        type="button"
+        data-search-open
+        class="rounded-full border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-300 transition hover:border-cyan-400 hover:text-white"
+      >
+        검색... <span class="hidden text-slate-500 sm:inline">Ctrl+K</span>
+      </button>
+    </div>
+  </div>
+</header>

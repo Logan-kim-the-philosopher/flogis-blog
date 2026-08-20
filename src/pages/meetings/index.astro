@@ -1,0 +1,20 @@
+---
+import ContentHeader from '../../components/content/ContentHeader.astro';
+import MeetingCard from '../../components/cards/MeetingCard.astro';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { getMeetings } from '../../lib/repositories/meetings';
+
+const meetings = await getMeetings();
+---
+
+<SiteLayout title="회의" description="대화, 회의, 논의 기록 아카이브" currentPath="/meetings">
+  <section class="mx-auto max-w-5xl px-4 pb-10 pt-10">
+    <ContentHeader title="회의" description="대화, 논의, 결정 사항을 간결하게 남겨두는 기록입니다." />
+  </section>
+
+  <section class="mx-auto max-w-5xl px-4 pb-16">
+    <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      {meetings.map((meeting) => <MeetingCard meeting={meeting} />)}
+    </div>
+  </section>
+</SiteLayout>

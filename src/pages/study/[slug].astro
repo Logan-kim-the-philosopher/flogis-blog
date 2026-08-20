@@ -1,0 +1,41 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { getStudyBySlug, getStudies } from '../../lib/repositories/studies';
+import { getEntrySummary } from '../../lib/services/summary-service';
+import { formatDate, joinNames } from '../../lib/utils/format';
+
+export async function getStaticPaths() {
+  const studies = await getStudies();
+  return studies.map((study) => ({ params: { slug: study.slug } }));
+}
+
+const { slug } = Astro.params;
+const study = slug ? await getStudyBySlug(slug) : undefined;
+
+if (!study) {
+  throw new Error(`Study not found for slug: ${slug}`);
+}
+---
+
+<SiteLayout title={study.title} description={getEntrySummary(study, 160)} image={study.coverImage}>
+  <article class="mx-auto max-w-4xl px-4 pb-20 pt-12">
+    <div class="space-y-5">
+      <h1 class="text-4xl font-semibold tracking-tight text-white md:text-5xl">{study.title}</h1>
+      <div class="flex flex-wrap gap-3 text-sm text-slate-400">
+        <span>{formatDate(study.publishedAt)}</span>
+        <span>·</span>
+        <span>작성: {joinNames(study.authors)}</span>
+      </div>
+    </div>
+
+    <img src={study.coverImage} alt={study.title} class="mt-10 aspect-video w-full rounded-[2rem] border border-slate-800 object-cover" />
+
+    <div class="mt-10 flex flex-wrap gap-2">
+      {study.tags?.map((tag) => (
+        <span class="rounded-full border border-slate-700 px-3 py-1 text-sm text-slate-300">{tag}</span>
+      ))}
+    </div>
+
+    <div class="rich-text mt-10" set:html={study.body} />
+  </article>
+</SiteLayout>

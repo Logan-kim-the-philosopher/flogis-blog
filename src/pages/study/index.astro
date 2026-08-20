@@ -1,0 +1,20 @@
+---
+import ContentHeader from '../../components/content/ContentHeader.astro';
+import StudyCard from '../../components/cards/StudyCard.astro';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { getStudies } from '../../lib/repositories/studies';
+
+const studies = await getStudies();
+---
+
+<SiteLayout title="스터디" description="학습 메모와 정리 노트 아카이브" currentPath="/study">
+  <section class="mx-auto max-w-5xl px-4 pb-10 pt-10">
+    <ContentHeader title="스터디" description="배운 것과 정리한 것을 차분하게 모아둔 기록입니다." />
+  </section>
+
+  <section class="mx-auto max-w-5xl px-4 pb-16">
+    <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      {studies.map((study) => <StudyCard study={study} />)}
+    </div>
+  </section>
+</SiteLayout>

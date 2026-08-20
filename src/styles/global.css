@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: var(--font-sans);
+  background: #020617;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+.rich-text {
+  color: rgb(203 213 225);
+  line-height: 1.9;
+}
+
+.rich-text h2,
+.rich-text h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: white;
+  line-height: 1.2;
+}
+
+.rich-text p {
+  margin: 1rem 0;
+}
+
+.rich-text ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}

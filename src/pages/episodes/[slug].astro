@@ -1,0 +1,13 @@
+---
+import LegacyRedirect from '../../components/content/LegacyRedirect.astro';
+import { getStudies } from '../../lib/repositories/studies';
+
+export async function getStaticPaths() {
+  const studies = await getStudies();
+  return studies.map((study) => ({ params: { slug: study.slug } }));
+}
+
+const { slug } = Astro.params;
+---
+
+<LegacyRedirect to={`/study/${slug}`} title="스터디 상세로 이동 중" />

@@ -1,0 +1,22 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+
+<SiteLayout title="검색" description="콘텐츠 전체 검색">
+  <section class="mx-auto max-w-3xl px-4 pb-20 pt-16 text-center">
+    <div class="rounded-[2rem] border border-slate-800 bg-slate-900/60 px-6 py-12">
+      <p class="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300">검색</p>
+      <h1 class="mt-4 text-3xl font-semibold tracking-tight text-white md:text-4xl">검색은 이제 모달로 열립니다</h1>
+      <p class="mt-4 text-base leading-7 text-slate-300">
+        상단 검색 버튼을 누르거나 <span class="text-white">Ctrl/Cmd + K</span>를 사용해 레퍼런스에 가까운 오버레이 검색을 열어보세요.
+      </p>
+      <button
+        type="button"
+        data-search-open
+        class="mt-8 inline-flex rounded-full border border-slate-700 bg-slate-950 px-5 py-3 text-sm text-slate-200 transition hover:border-cyan-400 hover:text-white"
+      >
+        검색 열기
+      </button>
+    </div>
+  </section>
+</SiteLayout>

@@ -1,0 +1,70 @@
+---
+import ContentHeader from '../components/content/ContentHeader.astro';
+import StudyMiniCard from '../components/cards/StudyMiniCard.astro';
+import MeetingMiniCard from '../components/cards/MeetingMiniCard.astro';
+import WorkMiniCard from '../components/cards/WorkMiniCard.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { getMeetings } from '../lib/repositories/meetings';
+import { getSiteSettings } from '../lib/repositories/site';
+import { getStudies } from '../lib/repositories/studies';
+import { getWorks } from '../lib/repositories/works';
+
+const [site, studies, works, meetings] = await Promise.all([
+  getSiteSettings(),
+  getStudies(),
+  getWorks(),
+  getMeetings()
+]);
+
+const latestStudies = studies.slice(0, 6);
+---
+
+<SiteLayout>
+  <section class="mx-auto max-w-5xl px-4 pb-16 pt-10 md:pt-14">
+    <div class="space-y-6">
+      <ContentHeader title={site.tagline} description={site.heroText} />
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-4 pb-16">
+    <div class="mb-6 flex items-end justify-between gap-4">
+      <h2 class="text-2xl font-semibold tracking-tight text-white">최신 스터디</h2>
+      <a href="/study" class="text-sm text-slate-400 transition hover:text-white">전체 보기</a>
+    </div>
+    <div class="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+      {latestStudies.map((study) => (
+        <div class="w-[72%] shrink-0 snap-start sm:w-[46%] lg:w-[calc((100%-2rem)/3)]">
+          <StudyMiniCard study={study} />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-4 pb-16">
+    <div class="mb-6 flex items-end justify-between gap-4">
+      <h2 class="text-2xl font-semibold tracking-tight text-white">회의</h2>
+      <a href="/meetings" class="text-sm text-slate-400 transition hover:text-white">전체 보기</a>
+    </div>
+    <div class="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+      {meetings.slice(0, 6).map((meeting) => (
+        <div class="w-[72%] shrink-0 snap-start sm:w-[46%] lg:w-[calc((100%-2rem)/3)]">
+          <MeetingMiniCard meeting={meeting} />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-4 pb-16">
+    <div class="mb-6 flex items-end justify-between gap-4">
+      <h2 class="text-2xl font-semibold tracking-tight text-white">작업</h2>
+      <a href="/work" class="text-sm text-slate-400 transition hover:text-white">전체 보기</a>
+    </div>
+    <div class="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+      {works.slice(0, 6).map((work) => (
+        <div class="w-[72%] shrink-0 snap-start sm:w-[46%] lg:w-[calc((100%-2rem)/3)]">
+          <WorkMiniCard work={work} />
+        </div>
+      ))}
+    </div>
+  </section>
+</SiteLayout>

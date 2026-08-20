@@ -1,0 +1,47 @@
+---
+import '../styles/global.css';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import SEOHead from '../components/content/SEOHead.astro';
+import SearchModal from '../components/layout/SearchModal.astro';
+import { getSiteSettings } from '../lib/repositories/site';
+import { getSearchPayload } from '../lib/services/search-service';
+
+const {
+  title,
+  description,
+  image,
+  currentPath = Astro.url.pathname
+} = Astro.props as {
+  title?: string;
+  description?: string;
+  image?: string;
+  currentPath?: string;
+};
+
+const [site, searchPayload] = await Promise.all([getSiteSettings(), getSearchPayload()]);
+const pageTitle = title ? `${title} | ${site.title}` : site.seo?.title || site.title;
+const pageDescription = description || site.seo?.description || site.description;
+const pageImage = image || site.seo?.image;
+---
+
+<!doctype html>
+<html lang="ko" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <SEOHead title={pageTitle} description={pageDescription} image={pageImage} />
+  </head>
+  <body class="min-h-screen bg-slate-950 text-slate-100 antialiased">
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(34,211,238,0.18),_transparent_35%),linear-gradient(180deg,_rgba(15,23,42,0.95),_rgba(2,6,23,1))]"></div>
+    <Header site={site} currentPath={currentPath} />
+    <main>
+      <slot />
+    </main>
+    <Footer site={site} />
+    <SearchModal payload={searchPayload} />
+  </body>
+</html>

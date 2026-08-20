@@ -1,0 +1,20 @@
+---
+import WorkCard from '../../components/cards/WorkCard.astro';
+import ContentHeader from '../../components/content/ContentHeader.astro';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { getWorks } from '../../lib/repositories/works';
+
+const works = await getWorks();
+---
+
+<SiteLayout title="작업" description="실행 로그와 작업 결과 아카이브" currentPath="/work">
+  <section class="mx-auto max-w-5xl px-4 pb-10 pt-10">
+    <ContentHeader title="작업" description="만들고 있는 것과 실행한 것을 모아둔 작업 기록입니다." />
+  </section>
+
+  <section class="mx-auto max-w-5xl px-4 pb-16">
+    <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      {works.map((work) => <WorkCard work={work} />)}
+    </div>
+  </section>
+</SiteLayout>
