@@ -1,8 +1,9 @@
 ---
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import { getMeetingBySlug, getMeetings } from '../../lib/repositories/meetings';
+import { toArchiveSlug } from '../../lib/services/archive-service';
 import { getEntrySummary } from '../../lib/services/summary-service';
-import { formatDate, joinNames } from '../../lib/utils/format';
+import { formatDate } from '../../lib/utils/format';
 
 export async function getStaticPaths() {
   const meetings = await getMeetings();
@@ -22,7 +23,11 @@ if (!meeting) {
     <div class="space-y-5">
       <h1 class="text-4xl font-semibold tracking-tight text-white md:text-5xl">{meeting.title}</h1>
       <div class="flex flex-wrap gap-3 text-sm text-slate-400">
-        <span>{joinNames(meeting.participants)}</span>
+        <div class="flex flex-wrap items-center gap-2">
+          {meeting.participants.map((participant) => (
+            <a href={`/people/${participant.slug}`} class="transition hover:text-cyan-300">{participant.name}</a>
+          ))}
+        </div>
         <span>·</span>
         <span>{formatDate(meeting.publishedAt)}</span>
       </div>
@@ -31,7 +36,7 @@ if (!meeting) {
     <img src={meeting.coverImage} alt={meeting.title} class="mt-10 aspect-video w-full rounded-[2rem] border border-slate-800 object-cover" />
     <div class="mt-10 flex flex-wrap gap-2">
       {meeting.tags?.map((tag) => (
-        <span class="rounded-full border border-slate-700 px-3 py-1 text-sm text-slate-300">{tag}</span>
+        <a href={`/tags/${encodeURIComponent(toArchiveSlug(tag))}`} class="rounded-full border border-slate-700 px-3 py-1 text-sm text-slate-300 transition hover:border-cyan-400 hover:text-white">{tag}</a>
       ))}
     </div>
     <div class="rich-text mt-10" set:html={meeting.body} />

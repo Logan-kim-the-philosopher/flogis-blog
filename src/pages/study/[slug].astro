@@ -1,8 +1,9 @@
 ---
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import { getStudyBySlug, getStudies } from '../../lib/repositories/studies';
+import { toArchiveSlug } from '../../lib/services/archive-service';
 import { getEntrySummary } from '../../lib/services/summary-service';
-import { formatDate, joinNames } from '../../lib/utils/format';
+import { formatDate } from '../../lib/utils/format';
 
 export async function getStaticPaths() {
   const studies = await getStudies();
@@ -24,7 +25,12 @@ if (!study) {
       <div class="flex flex-wrap gap-3 text-sm text-slate-400">
         <span>{formatDate(study.publishedAt)}</span>
         <span>·</span>
-        <span>작성: {joinNames(study.authors)}</span>
+        <div class="flex flex-wrap items-center gap-2">
+          <span>작성:</span>
+          {study.authors.map((author) => (
+            <a href={`/people/${author.slug}`} class="transition hover:text-cyan-300">{author.name}</a>
+          ))}
+        </div>
       </div>
     </div>
 
@@ -32,7 +38,7 @@ if (!study) {
 
     <div class="mt-10 flex flex-wrap gap-2">
       {study.tags?.map((tag) => (
-        <span class="rounded-full border border-slate-700 px-3 py-1 text-sm text-slate-300">{tag}</span>
+        <a href={`/tags/${encodeURIComponent(toArchiveSlug(tag))}`} class="rounded-full border border-slate-700 px-3 py-1 text-sm text-slate-300 transition hover:border-cyan-400 hover:text-white">{tag}</a>
       ))}
     </div>
 

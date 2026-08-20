@@ -1,0 +1,40 @@
+---
+import ContentHeader from '../../components/content/ContentHeader.astro';
+import EmptyState from '../../components/content/EmptyState.astro';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { getAllPeople } from '../../lib/services/archive-service';
+
+const people = await getAllPeople();
+---
+
+<SiteLayout title="사람" description="작성자와 참여자별로 콘텐츠를 탐색합니다." currentPath="/people">
+  <section class="mx-auto max-w-5xl px-4 pb-10 pt-10">
+    <ContentHeader title="사람" description="작성자와 참여자를 기준으로 관련 기록을 모아볼 수 있습니다." />
+  </section>
+
+  <section class="mx-auto max-w-5xl px-4 pb-16">
+    {people.length ? (
+      <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        {people.map((person) => (
+          <a href={`/people/${person.slug}`} class="rounded-[1.75rem] border border-slate-800 bg-slate-900/50 p-5 transition hover:border-cyan-400/50 hover:bg-slate-900">
+            <div class="flex items-center gap-4">
+              {person.avatar ? (
+                <img src={person.avatar} alt={person.name} class="h-14 w-14 rounded-full border border-slate-800 object-cover" />
+              ) : (
+                <div class="flex h-14 w-14 items-center justify-center rounded-full border border-slate-800 bg-slate-900 text-sm text-slate-500">인물</div>
+              )}
+              <div>
+                <h2 class="text-lg font-semibold text-white">{person.name}</h2>
+                {person.role && <p class="text-sm text-slate-400">{person.role}</p>}
+              </div>
+            </div>
+            {person.bio && <p class="mt-4 text-sm leading-6 text-slate-300">{person.bio}</p>}
+            <p class="mt-4 text-xs text-slate-500">연결된 기록 {person.count}개</p>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <EmptyState title="아직 사람이 없습니다" description="작성자나 참여자를 연결하면 이 페이지에 자동으로 모입니다." />
+    )}
+  </section>
+</SiteLayout>

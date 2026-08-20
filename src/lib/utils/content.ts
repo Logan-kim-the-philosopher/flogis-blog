@@ -41,7 +41,7 @@ export function normalizePeople(people?: Person[]) {
             .filter((link) => link.label && link.href)
         : []
     }))
-    .filter((person) => person.name);
+    .filter((person) => person.name && person.slug);
 }
 
 export function normalizeNavItems(items: NavItem[], fallback: NavItem[]) {

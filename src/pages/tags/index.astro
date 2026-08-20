@@ -1,0 +1,29 @@
+---
+import ContentHeader from '../../components/content/ContentHeader.astro';
+import EmptyState from '../../components/content/EmptyState.astro';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { getAllTags } from '../../lib/services/archive-service';
+
+const tags = await getAllTags();
+---
+
+<SiteLayout title="태그" description="태그별로 콘텐츠를 탐색합니다." currentPath="/tags">
+  <section class="mx-auto max-w-5xl px-4 pb-10 pt-10">
+    <ContentHeader title="태그" description="주제별로 스터디, 회의, 작업 기록을 모아볼 수 있습니다." />
+  </section>
+
+  <section class="mx-auto max-w-5xl px-4 pb-16">
+    {tags.length ? (
+      <div class="flex flex-wrap gap-3">
+        {tags.map((tag) => (
+          <a href={`/tags/${tag.slug}`} class="inline-flex items-center gap-2 rounded-full border border-slate-700 px-4 py-2 text-sm text-slate-300 transition hover:border-cyan-400 hover:text-white">
+            <span>{tag.name}</span>
+            <span class="text-slate-500">{tag.count}</span>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <EmptyState title="아직 태그가 없습니다" description="콘텐츠에 태그를 추가하면 이 페이지에 자동으로 모입니다." />
+    )}
+  </section>
+</SiteLayout>

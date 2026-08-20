@@ -47,6 +47,10 @@ npm run build
 - `/work`
 - `/work/[slug]`
 - `/search`
+- `/tags`
+- `/tags/[slug]`
+- `/people`
+- `/people/[slug]`
 - `/rss.xml`
 
 ## Project structure

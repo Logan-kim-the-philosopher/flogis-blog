@@ -1,0 +1,30 @@
+---
+import ArchiveEntryList from '../../components/content/ArchiveEntryList.astro';
+import ContentHeader from '../../components/content/ContentHeader.astro';
+import EmptyState from '../../components/content/EmptyState.astro';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { getAllTags, getContentByTagSlug } from '../../lib/services/archive-service';
+
+export async function getStaticPaths() {
+  const tags = await getAllTags();
+  return tags.map((tag) => ({ params: { slug: tag.slug }, props: { tag } }));
+}
+
+const { slug } = Astro.params;
+const { tag } = Astro.props as { tag: { name: string; slug: string; count: number } };
+const entries = slug ? await getContentByTagSlug(slug) : [];
+---
+
+<SiteLayout title={`${tag.name} 태그`} description={`${tag.name}와 관련된 콘텐츠 모음입니다.`} currentPath={`/tags/${tag.slug}`}>
+  <section class="mx-auto max-w-5xl px-4 pb-10 pt-10">
+    <ContentHeader title={`# ${tag.name}`} description={`${tag.count}개의 기록이 연결되어 있습니다.`} />
+  </section>
+
+  <section class="mx-auto max-w-5xl px-4 pb-16">
+    {entries.length ? (
+      <ArchiveEntryList entries={entries} />
+    ) : (
+      <EmptyState title="연결된 기록이 없습니다" description="이 태그를 가진 콘텐츠가 아직 없습니다." actionHref="/tags" actionLabel="태그 목록으로" />
+    )}
+  </section>
+</SiteLayout>

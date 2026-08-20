@@ -19,7 +19,7 @@ export const studiesQuery = groq`*[_type == "study"] | order(publishedAt desc) {
   publishedAt,
   tags,
   body,
-  authors[]->{name, slug, role, bio, "avatar": avatar.asset->url}
+  authors[]->{name, "slug": slug.current, role, bio, "avatar": avatar.asset->url, links[]{label, href}}
 }`;
 
 export const worksQuery = groq`*[_type == "work"] | order(publishedAt desc) {
@@ -31,7 +31,7 @@ export const worksQuery = groq`*[_type == "work"] | order(publishedAt desc) {
   publishedAt,
   tags,
   body,
-  authors[]->{name, slug, role, bio, "avatar": avatar.asset->url}
+  authors[]->{name, "slug": slug.current, role, bio, "avatar": avatar.asset->url, links[]{label, href}}
 }`;
 
 export const meetingsQuery = groq`*[_type == "meeting"] | order(publishedAt desc) {
@@ -43,5 +43,5 @@ export const meetingsQuery = groq`*[_type == "meeting"] | order(publishedAt desc
   publishedAt,
   tags,
   body,
-  participants[]->{name, slug, role, bio, "avatar": avatar.asset->url}
+  participants[]->{name, "slug": slug.current, role, bio, "avatar": avatar.asset->url, links[]{label, href}}
 }`;

@@ -1,5 +1,6 @@
 ---
 import { getEntrySummary } from '../../lib/services/summary-service';
+import { toArchiveSlug } from '../../lib/services/archive-service';
 import { formatDate, joinNames } from '../../lib/utils/format';
 import type { Work } from '../../lib/types/content';
 
@@ -15,7 +16,7 @@ const entry = work || article;
     <div class="space-y-4 p-5">
       <div class="flex flex-wrap gap-2">
         {entry.tags?.map((tag) => (
-          <span class="rounded-full border border-slate-700 px-2.5 py-1 text-xs text-slate-300">{tag}</span>
+          <a href={`/tags/${encodeURIComponent(toArchiveSlug(tag))}`} class="rounded-full border border-slate-700 px-2.5 py-1 text-xs text-slate-300 transition hover:border-cyan-400 hover:text-white">{tag}</a>
         ))}
       </div>
       <div>
