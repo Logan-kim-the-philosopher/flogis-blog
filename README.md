@@ -97,27 +97,25 @@ src/
 ## Sanity operating model
 ```mermaid
 flowchart LR
-    A[관리자 3명] -->|기본 포스팅 / 반복 작업| B[CLI / MCP / Pi]
-    A -->|직접 보고 수정할 때| C[Hosted Sanity Studio<br/>flogi-studio.sanity.studio]
+    A[관리자 노트북 1] -->|CLI / MCP| D[Sanity Cloud DB<br/>project: w1jypogd<br/>dataset: production]
+    B[관리자 노트북 2] -->|CLI / MCP| D
+    C[관리자 노트북 3] -->|CLI / MCP| D
 
-    B -->|write| D[Sanity Cloud<br/>project: w1jypogd<br/>dataset: production]
-    C -->|write| D
+    A -->|브라우저로 접속 시| E[Hosted Sanity Studio<br/>flogi-studio.sanity.studio]
+    B -->|브라우저로 접속 시| E
+    C -->|브라우저로 접속 시| E
 
-    D -->|read| E[Astro Frontend]
-    E -->|serve| F[방문자]
+    E -->|같은 DB 수정| D
 
-    D --> G[siteSettings]
-    D --> H[person]
-    D --> I[study]
-    D --> J[meeting]
-    D --> K[work]
+    F[프론트엔드 서버] -->|Sanity 데이터 읽기| D
+    F -->|정적 사이트 제공| G[방문자 브라우저]
 ```
 
-- 관리자 3명이 콘텐츠를 운영합니다.
-- 기본 작업은 **CLI / MCP / Pi**로 진행합니다.
-- 직접 화면을 보며 수정할 때만 **Hosted Sanity Studio**를 사용합니다.
-- 두 경로 모두 같은 **Sanity dataset (`w1jypogd / production`)** 을 수정합니다.
-- **Astro 프론트엔드**는 그 데이터를 읽어 방문자에게 블로그를 제공합니다.
+- 관리자 3명의 **각자 노트북**이 작업의 출발점입니다.
+- 기본 작업은 각 노트북에서 **CLI / MCP / Pi**로 진행합니다.
+- 직접 화면을 보며 수정할 때만 브라우저에서 **Hosted Sanity Studio**를 엽니다.
+- CLI와 Studio는 모두 같은 **Sanity Cloud DB (`w1jypogd / production`)** 를 수정합니다.
+- **프론트엔드 서버**는 그 DB를 읽어 정적 사이트를 만들고 방문자에게 제공합니다.
 
 ### Document ID convention
 ```text
