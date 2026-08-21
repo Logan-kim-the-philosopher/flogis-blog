@@ -31,19 +31,39 @@
 - 수정 제안
 - 실제 publish 권한은 팀 정책에 따라 제한 가능
 
+## 문서 ID / slug 규칙
+권장 문서 ID 규칙:
+- `siteSettings`
+- `person-<slug>`
+- `study-<slug>`
+- `meeting-<slug>`
+- `work-<slug>`
+
+예시:
+- `person-chester-roh`
+- `study-ai-and-alignment`
+- `meeting-nikhil-suresh-interview`
+- `work-distillation-war-2026`
+
+운영 원칙:
+- `_id`는 내부 식별자이므로 slug와 같은 의미 단위를 쓰는 것을 권장합니다.
+- URL은 `_id`가 아니라 `slug`로 결정됩니다.
+- slug를 바꾸면 URL이 바뀌므로 발행 후 변경은 신중히 다룹니다.
+
 ## 글 작성 순서
-1. `person` 문서가 필요하면 먼저 생성
-2. `study`, `meeting`, `work` 중 하나 선택
-3. 아래 필수값 입력
+1. `siteSettings`가 아직 없으면 먼저 생성
+2. `person` 문서가 필요하면 먼저 생성
+3. `study`, `meeting`, `work` 중 하나 선택
+4. 아래 필수값 입력
    - `title`
    - `slug`
    - `publishedAt`
-4. 권장값 입력
+5. 권장값 입력
    - `coverImage`
    - `tags`
    - `authors` 또는 `participants`
    - `body`
-5. 미리보기/검수 후 publish
+6. 미리보기/검수 후 publish
 
 ## 글 수정 순서
 1. Sanity Studio에서 기존 문서 검색

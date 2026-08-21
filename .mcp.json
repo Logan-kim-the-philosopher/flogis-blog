@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "sanity-official": {
+      "type": "http",
+      "url": "https://mcp.sanity.io",
+      "auth": "bearer",
+      "bearerTokenEnv": "SANITY_API_TOKEN"
+    }
+  }
+}

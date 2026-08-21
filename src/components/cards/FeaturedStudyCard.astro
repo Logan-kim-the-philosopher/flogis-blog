@@ -8,12 +8,12 @@ const entry = study || episode;
 ---
 
 {entry && (
-  <article class="grid overflow-hidden rounded-[2rem] border border-slate-800 bg-slate-900/70 shadow-2xl shadow-cyan-950/30 md:grid-cols-[1.15fr_0.85fr]">
-    <a href={`/study/${entry.slug}`} class="order-2 flex flex-col justify-between p-6 md:order-1 md:p-8">
+  <a href={`/study/${entry.slug}`} class="group grid overflow-hidden rounded-[2rem] border border-slate-800 bg-slate-900/70 shadow-2xl shadow-cyan-950/30 transition hover:border-cyan-400/60 md:grid-cols-[1.15fr_0.85fr]">
+    <div class="order-2 flex flex-col justify-between p-6 md:order-1 md:p-8">
       <div class="space-y-4">
         <p class="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">최신 스터디</p>
         <div class="space-y-3">
-          <h2 class="text-3xl font-semibold tracking-tight text-white md:text-4xl">{entry.title}</h2>
+          <h2 class="text-3xl font-semibold tracking-tight text-white transition group-hover:text-cyan-300 md:text-4xl">{entry.title}</h2>
           <p class="max-w-2xl text-base leading-7 text-slate-300">{getEntrySummary(entry, 180)}</p>
         </div>
       </div>
@@ -23,10 +23,10 @@ const entry = study || episode;
         <span>·</span>
         <span>작성: {joinNames(entry.authors)}</span>
       </div>
-    </a>
+    </div>
 
-    <a href={`/study/${entry.slug}`} class="order-1 block min-h-64 overflow-hidden md:order-2">
-      <img src={entry.coverImage} alt={entry.title} class="h-full w-full object-cover transition duration-500 hover:scale-[1.03]" />
-    </a>
-  </article>
+    <div class="order-1 min-h-64 overflow-hidden md:order-2">
+      <img src={entry.coverImage} alt={entry.title} class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]" />
+    </div>
+  </a>
 )}

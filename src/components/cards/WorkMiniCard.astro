@@ -5,14 +5,14 @@ import type { Work } from '../../lib/types/content';
 const { work } = Astro.props as { work: Work };
 ---
 
-<article class="h-full overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60 transition hover:border-cyan-400/60 hover:bg-slate-900">
-  <a href={`/work/${work.slug}`} class="block overflow-hidden">
-    <img src={work.coverImage} alt={work.title} class="aspect-[16/7] w-full object-cover transition duration-500 hover:scale-[1.03]" />
-  </a>
+<a href={`/work/${work.slug}`} class="group block h-full overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60 transition hover:border-cyan-400/60 hover:bg-slate-900">
+  <div class="overflow-hidden">
+    <img src={work.coverImage} alt={work.title} class="aspect-[16/7] w-full object-cover transition duration-500 group-hover:scale-[1.03]" />
+  </div>
   <div class="space-y-2 p-4">
     <p class="text-[11px] text-slate-500">{formatDate(work.publishedAt)}</p>
-    <a href={`/work/${work.slug}`} class="line-clamp-2 min-h-12 text-base font-semibold leading-6 tracking-tight text-white transition hover:text-cyan-300">
+    <span class="line-clamp-2 min-h-12 text-base font-semibold leading-6 tracking-tight text-white transition group-hover:text-cyan-300">
       {work.title}
-    </a>
+    </span>
   </div>
-</article>
+</a>

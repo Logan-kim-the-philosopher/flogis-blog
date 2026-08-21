@@ -31,7 +31,20 @@ cp .env.example .env
 npm run studio
 ```
 
+Hosted Studio:
+- `https://flogi-studio.sanity.studio/`
+
+현재 Sanity 프로젝트 기본값:
+- `SANITY_PROJECT_ID=w1jypogd`
+- `SANITY_DATASET=production`
+- `SANITY_API_VERSION=2025-08-22`
+
 필수 환경 변수는 `.env.example`를 참고하세요.
+
+## Sanity MCP
+- 이 프로젝트는 공식 hosted Sanity MCP `https://mcp.sanity.io` 사용을 기준으로 합니다.
+- Pi에서 사용할 때는 `SANITY_API_TOKEN` 환경변수를 주입한 세션에서 bearer auth로 연결하세요.
+- seed import는 MCP가 아니라 `docs/sanity-import.md`의 Sanity CLI 절차를 사용하세요.
 
 ## Build
 ```bash
@@ -75,9 +88,87 @@ src/
     work/
 ```
 
+## Sharing and operations
+- Flogi 콘텐츠 운영은 **관리자 3명**이 담당합니다.
+- 기본 포스팅 작업은 각자 **CLI**로 진행합니다.
+- 화면을 보며 직접 수정해야 할 때만 Hosted Studio(`https://flogi-studio.sanity.studio/`)를 사용합니다.
+- MCP/CLI 사용자는 각자 자신의 `SANITY_API_TOKEN`을 환경변수로 주입해 공식 Sanity MCP와 Sanity CLI를 사용합니다.
+
+## Sanity operating model
+```mermaid
+flowchart LR
+    A[관리자 3명] -->|기본 포스팅 / 반복 작업| B[CLI / MCP / Pi]
+    A -->|직접 보고 수정할 때| C[Hosted Sanity Studio<br/>flogi-studio.sanity.studio]
+
+    B -->|write| D[Sanity Cloud<br/>project: w1jypogd<br/>dataset: production]
+    C -->|write| D
+
+    D -->|read| E[Astro Frontend]
+    E -->|serve| F[방문자]
+
+    D --> G[siteSettings]
+    D --> H[person]
+    D --> I[study]
+    D --> J[meeting]
+    D --> K[work]
+```
+
+- 관리자 3명이 콘텐츠를 운영합니다.
+- 기본 작업은 **CLI / MCP / Pi**로 진행합니다.
+- 직접 화면을 보며 수정할 때만 **Hosted Sanity Studio**를 사용합니다.
+- 두 경로 모두 같은 **Sanity dataset (`w1jypogd / production`)** 을 수정합니다.
+- **Astro 프론트엔드**는 그 데이터를 읽어 방문자에게 블로그를 제공합니다.
+
+### Document ID convention
+```text
+siteSettings
+person-<slug>
+study-<slug>
+meeting-<slug>
+work-<slug>
+```
+
+## Admin setup shortcuts
+### 1) Sanity API token 발급
+- 프로젝트 API 관리 바로가기: `https://www.sanity.io/manage/project/w1jypogd/api`
+- 위 페이지에서 각 관리자 계정으로 **개인용 token**을 발급하세요.
+- 토큰은 GitHub, 채팅, `.env`에 평문으로 공유하지 마세요.
+
+### 2) CLI 기본 확인
+```bash
+cd /Users/hskim/Projects/aifrontier-media
+npx sanity debug
+npx sanity documents query '*[_type == "study"]{_id,title,slug}'
+```
+
+### 3) Pi + 공식 MCP 실행 예시
+프로젝트 루트 `.mcp.json`은 이미 공식 hosted MCP를 사용하도록 설정되어 있습니다.
+
+Bitwarden 주입 세션에서 Pi 실행:
+```bash
+export BWS_ACCESS_TOKEN="$(security find-generic-password -w -s bitwarden-bws-access-token)"
+bws run -- pi
+```
+
+### 4) Pi에 바로 붙여넣는 프롬프트 예시
+현재 스터디 문서 확인:
+```text
+Use the official Sanity MCP tools only. Connect to project w1jypogd dataset production and list all study documents with _id, title, slug, and published status.
+```
+
+새 문서 작성 전 스키마 확인:
+```text
+Use the official Sanity MCP tools only. Inspect the schema for study, meeting, and work in project w1jypogd / production and summarize the required fields before creating any document.
+```
+
+특정 문서 수정:
+```text
+Use the official Sanity MCP tools only. In project w1jypogd dataset production, load document study-<slug>, show me its current fields, then prepare the exact patch needed to update title, slug, publishedAt, tags, and body.
+```
+
 ## Notes
 - 이 저장소는 프로토타입이지만, 데이터 정규화/empty state/SEO fallback/strict content mode까지 포함해 운영 연결 전 마감 작업을 진행한 상태입니다.
-- Sanity가 비어 있거나 느슨한 개발 환경에서는 fallback 샘플 데이터로 동작합니다.
+- 콘텐츠 fallback 목업 데이터는 제거되어, Sanity가 비어 있으면 목록/상세 대신 빈 상태 UI가 보입니다.
 - 운영 배포에서는 `SANITY_STRICT_CONTENT=true` 설정을 권장합니다.
 - 글 작성/수정은 프론트 서비스 내부가 아니라 `Sanity Studio`에서 수행합니다.
 - 수정 권한은 앱 내부 권한 시스템이 아니라 `Sanity 프로젝트 멤버 권한`으로 관리합니다.

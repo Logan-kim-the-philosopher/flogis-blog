@@ -2,7 +2,7 @@ import { createClient } from '@sanity/client';
 
 const projectId = import.meta.env.SANITY_PROJECT_ID || import.meta.env.SANITY_STUDIO_PROJECT_ID;
 const dataset = import.meta.env.SANITY_DATASET || import.meta.env.SANITY_STUDIO_DATASET;
-const apiVersion = import.meta.env.SANITY_API_VERSION || '2025-01-01';
+const apiVersion = import.meta.env.SANITY_API_VERSION || '2025-08-22';
 
 export const hasSanityConfig = Boolean(projectId && dataset);
 export const isStrictContentMode = import.meta.env.SANITY_STRICT_CONTENT === 'true';
