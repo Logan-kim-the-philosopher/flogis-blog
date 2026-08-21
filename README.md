@@ -97,22 +97,15 @@ src/
 ## Sanity operating model
 ```mermaid
 flowchart LR
-    A[관리자 노트북 1] -->|CLI / MCP| D[Sanity Cloud DB<br/>project: w1jypogd<br/>dataset: production]
-    B[관리자 노트북 2] -->|CLI / MCP| D
-    C[관리자 노트북 3] -->|CLI / MCP| D
-
-    A -->|브라우저로 접속 시| E[Hosted Sanity Studio<br/>flogi-studio.sanity.studio]
-    B -->|브라우저로 접속 시| E
-    C -->|브라우저로 접속 시| E
-
-    E -->|같은 DB 수정| D
-
-    F[프론트엔드 서버] -->|Sanity 데이터 읽기| D
-    F -->|정적 사이트 제공| G[방문자 브라우저]
+    A[관리자 노트북] -->|CLI / MCP| B[Sanity Cloud DB<br/>project: w1jypogd<br/>dataset: production]
+    A -->|브라우저로 접속 시| C[Hosted Sanity Studio<br/>flogi-studio.sanity.studio]
+    C -->|같은 DB 수정| B
+    D[프론트엔드 서버] -->|Sanity 데이터 읽기| B
+    D -->|정적 사이트 제공| E[방문자 브라우저]
 ```
 
-- 관리자 3명의 **각자 노트북**이 작업의 출발점입니다.
-- 기본 작업은 각 노트북에서 **CLI / MCP / Pi**로 진행합니다.
+- 작업의 출발점은 **관리자 노트북 1대**라고 보면 됩니다.
+- 기본 작업은 **CLI / MCP / Pi**로 진행합니다.
 - 직접 화면을 보며 수정할 때만 브라우저에서 **Hosted Sanity Studio**를 엽니다.
 - CLI와 Studio는 모두 같은 **Sanity Cloud DB (`w1jypogd / production`)** 를 수정합니다.
 - **프론트엔드 서버**는 그 DB를 읽어 정적 사이트를 만들고 방문자에게 제공합니다.
