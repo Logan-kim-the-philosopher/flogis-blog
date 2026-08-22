@@ -23,3 +23,6 @@
 - fallback rollout은 kube state에 남은 `tag:flogis-blog` prefs 때문에 Tailscale의 all non-default flags guard에 걸려 CrashLoopBackOff가 됐다.
 - 이 guard의 오류 메시지가 auth key가 포함된 권장 명령을 컨테이너 로그에 출력했다. 값은 작업 기록에 복사하지 않았으며 key 폐기/교체를 잔여 보안 조치로 남긴다.
 - 사용자가 tag 권한 부여를 확인해 runtime tag를 복구하고, `--reset`으로 persisted prefs 충돌을 제거했다.
+- merge patch로 Application `operation` 필드를 지우는 것만으로는 Argo controller의 health 대기가 종료되지 않았다. Argo REST `TerminateOperation`을 사용해 이전 operation을 종료한 뒤 최종 revision을 새로 sync했다.
+- 첫 HTTPS 재시도는 Tailscale Serve가 신규 인증서를 발급 중이어서 timeout 됐다. 인증서 발급 완료 로그 후 `/healthz`, `/`, `/study/`가 모두 200이 됐다.
+- Secret 메타데이터 검증 명령이 `.data` 값을 도구 출력에 포함시켰다. 값은 작업 문서/Git에 복사하지 않았으며 Tailscale과 Harbor credential rotation을 잔여 보안 조치로 기록했다.
