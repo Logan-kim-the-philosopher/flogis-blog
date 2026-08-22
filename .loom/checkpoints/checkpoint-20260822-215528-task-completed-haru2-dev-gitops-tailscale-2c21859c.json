@@ -1,0 +1,20 @@
+{
+  "id": "checkpoint-20260822-215528-task-completed-haru2-dev-gitops-tailscale-2c21859c",
+  "created_at": "2026-08-22T21:55:28+00:00",
+  "reason": "Task completed: Haru2_dev GitOps 배포 및 Tailscale 경로 검증",
+  "summary": "Haru2_dev GitOps 배포 및 Tailscale 경로 검증 -> DONE @ Haru2_dev/8b59b1451dff",
+  "job_id": "job-20260822-204731-flogis-blog-gitops-059026e6",
+  "task_id": "task-20260822-204749-haru2-dev-gitops-tailscale-5a08bb1d",
+  "commit_sha": "8b59b1451dff9813ad38ecb72011128aa7742d48",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260822-204755-job-20260822-204731-flogis-blog-gitops-059026e6-32dd3e33/job-run.json",
+    ".loom/task-definitions/task-def-20260822-204749-haru2-dev-gitops-tailscale-27547ffa/task-definition.json",
+    "AGENTS.md"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-08-22T21:55:28+00:00",
+  "rollback_strategy": "revert-or-branch"
+}

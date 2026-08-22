@@ -34,3 +34,4 @@
 [2026-08-22T21:52:30+00:00] Argo Synced/Healthy, web 2/2, gateway 1/1, Pod restart 0, endpoint 2개 확인. Tailscale Running/Online/tag:flogis-blog/Serve 확인.
 [2026-08-22T21:53:30+00:00] Tailscale 인증서 발급 완료 후 tailnet HTTPS /healthz, /, /study/ 모두 200.
 [2026-08-22T21:54:30+00:00] 현재 gateway log auth-key pattern 없음. 이전 오류/검증 출력 노출로 Tailscale 및 Harbor credential rotation을 잔여 조치로 기록.
+[2026-08-22T21:55:28+00:00] agent=codex task=task-20260822-204749-haru2-dev-gitops-tailscale-5a08bb1d Jenkins build #5 성공, deploy revision 90999835 Argo Synced/Healthy, web 2/2와 gateway 1/1 Ready, tagged Tailscale Serve 및 HTTPS 3개 경로 200 확인. 노출 이력이 있는 Tailscale 및 Harbor credential rotation은 운영 후속 조치로 기록함.
