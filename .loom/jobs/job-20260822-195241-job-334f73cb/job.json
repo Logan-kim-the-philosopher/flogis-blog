@@ -2,13 +2,14 @@
   "id": "job-20260822-195241-job-334f73cb",
   "title": "로컬 개발 환경 확인",
   "goal": "프로젝트 의존성을 준비하고 Astro 개발 서버를 백그라운드로 실행해 로컬 페이지가 정상 응답하는지 확인한다.",
-  "status": "DONE",
+  "status": "RUNNING",
   "created_at": "2026-08-22T19:52:41+00:00",
-  "updated_at": "2026-08-22T20:12:32+00:00",
+  "updated_at": "2026-08-22T20:17:04+00:00",
   "context_refs": [],
   "task_ids": [
     "task-20260822-195246-astro-c51ada7a",
-    "task-20260822-200940-sanity-a93cb896"
+    "task-20260822-200940-sanity-a93cb896",
+    "task-20260822-201701-sanity-a216591f"
   ],
   "branch_name": "main",
   "checkpoint_ids": [

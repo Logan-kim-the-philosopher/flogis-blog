@@ -1,0 +1,7 @@
+[2026-08-22T20:17:04+00:00] agent=codex task=task-20260822-201701-sanity-a216591f Foreground task session started.
+[2026-08-22T20:17:20+00:00] 동일 테스트 문서 ID 없음, person 3개, image asset 0개를 확인했다.
+[2026-08-22T20:17:40+00:00] public/favicon.ico를 Sanity image asset으로 업로드했다.
+[2026-08-22T20:18:00+00:00] study-sanity-connection-test-20260823 published 문서를 생성했다.
+[2026-08-22T20:18:20+00:00] GROQ 조회로 문서, 이미지 URL, 작성자 참조 무결성을 확인했다.
+[2026-08-22T20:18:40+00:00] 홈, 스터디 목록, 상세, 검색 경로 HTTP 200과 제목 노출을 검증했다.
+[2026-08-22T20:19:00+00:00] npm run build 성공: 상세·사람·태그 경로 포함 정적 페이지 12개 생성.
