@@ -7,3 +7,7 @@
 - Public Funnel은 계속 비활성 상태로 두며 tailnet 전용 Serve를 배포 목표로 유지한다.
 - 사용자가 fork를 최종 배포 저장소로 명시했으므로 GitHub source of truth를 `develsvai/flogis-blog`로 변경했다. upstream 원본은 Jenkins·Argo 대상에서 제외한다.
 - fork의 `Haru2_dev`를 build source로, Jenkins가 생성·갱신하는 `deploy`를 Argo desired state로 사용한다.
+- 비민감 Tailscale runtime 값은 ConfigMap, auth key와 state는 Secret으로 분리한다.
+- gateway liveness는 gateway 프로세스 자체만 확인하고 readiness에서 web upstream 상태를 확인한다. web 배포 중 gateway/Tailscale 장치가 재시작되지 않도록 수명과 준비 상태를 분리한다.
+- 신규 서비스는 기존 서비스 tag를 빌리지 않고 `tag:flogis-blog`를 광고한다. tag owner/접근 허용은 Tailscale 전역 정책이므로 사용자 관리 범위에 남긴다.
+- Harbor pull credential은 신규로 가공한 값이 401을 반환해, 클러스터에서 이미 동작이 검증된 pull Secret을 값 노출 없이 namespace에 복제했다.

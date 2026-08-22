@@ -31,7 +31,7 @@ spec:
               containerPort: 8080
           readinessProbe:
             httpGet:
-              path: /healthz
+              path: /readyz
               port: gateway
             initialDelaySeconds: 3
             periodSeconds: 5
@@ -72,9 +72,20 @@ spec:
           imagePullPolicy: IfNotPresent
           env:
             - name: TS_KUBE_SECRET
-              value: flogis-blog-tailscale-state
+              valueFrom:
+                configMapKeyRef:
+                  name: flogis-blog-runtime
+                  key: TS_KUBE_SECRET
             - name: TS_HOSTNAME
-              value: flogis-blog
+              valueFrom:
+                configMapKeyRef:
+                  name: flogis-blog-runtime
+                  key: TS_HOSTNAME
+            - name: TS_ADVERTISE_TAGS
+              valueFrom:
+                configMapKeyRef:
+                  name: flogis-blog-runtime
+                  key: TS_ADVERTISE_TAGS
             - name: TS_AUTHKEY
               valueFrom:
                 secretKeyRef:
@@ -95,6 +106,7 @@ spec:
               tailscale --socket=/tmp/tailscaled.sock up \
                 --authkey="$TS_AUTHKEY" \
                 --hostname="$TS_HOSTNAME" \
+                --advertise-tags="$TS_ADVERTISE_TAGS" \
                 --accept-dns=true
 
               tailscale --socket=/tmp/tailscaled.sock serve \

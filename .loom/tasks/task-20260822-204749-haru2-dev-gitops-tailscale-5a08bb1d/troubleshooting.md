@@ -11,3 +11,8 @@
 - GitHub push dry-run은 재개 후에도 `develsvai` 권한 403으로 실패했다.
 - 사용자가 `develsvai/flogis-blog` fork를 최종 원격으로 지정해 기존 upstream 403을 해소했다. fork 대상 `Haru2_dev` push dry-run은 성공했다.
 - Jenkins 첫 build #1은 image build, Harbor push/re-pull, smoke test, provenance까지 성공했으나 deploy overlay 갱신 Python의 `"\n"`이 Groovy 문자열에서 실제 개행으로 해석돼 `SyntaxError`로 실패했다. newline 표현을 `chr(10)`으로 바꿔 Groovy escaping 의존성을 제거했다.
+- Jenkins build #2는 수정된 pipeline으로 성공했고 Harbor image, smoke test, provenance, deploy branch commit을 모두 생성했다.
+- Argo 첫 rollout에서 web Pod가 Harbor 401로 `ImagePullBackOff`가 됐다. Jenkins credential을 dockerconfigjson으로 변환한 Secret 대신 Portfolio에서 정상 pull 중인 Secret을 값 출력 없이 복제하자 두 web Pod가 Ready가 됐다.
+- gateway liveness가 web upstream 장애를 함께 검사해 502로 한 차례 재시작했다. 로컬 `/healthz`와 upstream `/readyz`를 분리했다.
+- Tailscale peer/Serve는 정상 등록됐지만 tailnet HTTPS가 `no rules matched`로 timeout 됐다. peer가 untagged인 점을 확인해 `tag:flogis-blog` 광고 설정을 추가했다.
+- 초기 배포가 namespace CPU limit quota 1 CPU를 모두 소비했다. rolling update의 surge 여유를 확보하기 위해 quota limit을 2 CPU로 상향했다.

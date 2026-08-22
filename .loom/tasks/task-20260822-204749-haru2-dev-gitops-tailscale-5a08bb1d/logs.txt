@@ -15,3 +15,9 @@
 [2026-08-22T21:25:45+00:00] develsvai/flogis-blog에 Haru2_dev 신규 branch push 성공.
 [2026-08-22T21:26:30+00:00] Jenkins Flogis-Blog Job 생성 및 build #1 시작.
 [2026-08-22T21:28:00+00:00] build #1 image 1-ee5f07a1 Harbor push/re-pull과 smoke test 성공, deploy tag 갱신 Python SyntaxError로 최종 FAILURE.
+[2026-08-22T21:29:30+00:00] Groovy/Python newline escaping을 chr(10)으로 수정한 Haru2_dev commit 8109f0ad push.
+[2026-08-22T21:30:30+00:00] Jenkins build #2 SUCCESS. Harbor image flogy_blog/site:2-8109f0ad와 deploy commit 55a6039d 생성.
+[2026-08-22T21:31:30+00:00] namespace, Tailscale auth Secret, Harbor pull Secret, Argo Application 생성 및 deploy commit 동기화.
+[2026-08-22T21:32:30+00:00] Harbor pull 401을 검증된 cluster pull Secret 복제로 복구. web 2/2, gateway 1/1 Ready와 Service endpoint 2개 확인.
+[2026-08-22T21:33:30+00:00] Tailscale peer/Serve/ping 정상, HTTPS는 untagged peer에 대한 ACL no rules matched로 차단됨을 확인.
+[2026-08-22T21:35:30+00:00] tag:flogis-blog runtime ConfigMap, health/readiness 분리, CPU quota 여유 보완. Kustomize와 cluster server dry-run 검증 통과.

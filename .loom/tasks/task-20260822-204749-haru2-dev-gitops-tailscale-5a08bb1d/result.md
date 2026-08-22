@@ -1,32 +1,32 @@
-# 배포 시도 결과
+# 배포 진행 결과
 
-## 배포 재개
+## Git/Jenkins
 
-- 사용자가 fork 저장소 `https://github.com/develsvai/flogis-blog.git`를 최종 배포 원격으로 지정했다.
-- local origin, Jenkins SCM/push URL, Argo CD repoURL을 모두 fork 저장소로 전환했다.
-- fork에는 현재 `main`만 있고 `Haru2_dev`와 `deploy`는 아직 없다. `Haru2_dev` push dry-run은 새 브랜치 생성으로 정상 통과했다.
+- Git source of truth를 사용자 지정 fork `develsvai/flogis-blog`로 전환했다.
 - 개발 브랜치는 `Haru2_dev`, Jenkins가 갱신하는 GitOps 브랜치는 `deploy`, Argo CD targetRevision은 `deploy`로 유지한다.
+- `Haru2_dev` push와 Jenkins `Flogis-Blog` Job 등록을 완료했다.
+- Jenkins build #1은 이미지 빌드·Harbor push/re-pull·smoke test까지 성공했으나 deploy overlay 갱신 스크립트의 Groovy/Python 개행 escaping 문제로 실패했다.
+- 개행 처리를 `chr(10)` 기반으로 수정한 뒤 Jenkins build #2가 성공했다.
+- build #2는 `flogy_blog/site:2-8109f0ad`를 Harbor에 push하고 `/healthz`, `/`, `/study/` smoke test와 provenance 생성을 통과했다.
+- Jenkins가 `deploy` 브랜치에 commit `55a6039d`를 생성했다.
 
-- 로컬 `Haru2_dev`의 배포 구성은 commit `f79a2f02`까지 준비됐다.
-- `git push --set-upstream origin Haru2_dev`를 실행했으나 GitHub가 현재 계정 `develsvai`에 `Logan-kim-the-philosopher/flogis-blog` 쓰기 권한이 없다고 HTTP 403을 반환했다.
-- 로컬 GitHub CLI도 `develsvai` 계정이고 SSH agent/로컬 RSA key에는 GitHub 인증 권한이 없어 대체 push 경로가 없었다.
-- Jenkins에는 `github-credentials`, `portfolio-github-credentials`, `loom-wiki-deploy-github-credentials`가 있으나 모두 username `develsvai`다. Flogis Blog 전용 credential과 Job은 아직 없다.
-- Jenkins의 `harbor-credentials`와 `docker-build` 패턴은 사용할 수 있으므로 GitHub 권한이 해결되면 이미지 빌드·push 준비는 가능하다.
-- 사용자가 Flogis Blog용 Tailscale auth key를 제공했다. 값은 결과·로그·Git에 기록하지 않고 Kubernetes Secret 생성 시에만 사용한다.
-- 사용자가 생성한 Harbor 프로젝트명에 맞춰 이미지 경로를 `harbor.192.168.0.110.nip.io/flogy_blog/site`로 교정했다.
-- Jenkins pipeline과 Job은 기존 Secret credential `github-credentials`를 참조하도록 맞췄다.
-- 안전한 GitOps 순서를 지키기 위해 Git source branch와 인증이 없는 상태에서 Namespace, Secret, Argo Application 등 클러스터 리소스는 생성하지 않았다. 기존 서비스에도 변경이 없다.
+## Kubernetes/Argo CD
 
-## 계속 진행하려면 필요한 조치
+- namespace `flogis-blog`, Tailscale auth Secret, Harbor image pull Secret, Argo CD Application을 생성했다. 민감값은 로그·Git에 기록하지 않았다.
+- 첫 image pull은 신규로 변환한 Harbor Secret이 401을 반환했다. 이미 정상 검증된 Portfolio의 Harbor pull credential을 값 출력 없이 서비스 namespace에 복제해 해결했다.
+- Argo CD는 `deploy` commit `55a6039d` 동기화에 성공했다.
+- web Deployment는 2/2 Ready, gateway Deployment는 1/1 Ready가 됐고 Service endpoint 2개를 확인했다.
+- 현재 CPU limit quota가 정확히 포화돼 다음 rolling update의 surge Pod가 막힐 수 있어 namespace quota를 1 CPU에서 2 CPU로 보완했다.
 
-1. GitHub 저장소 `Logan-kim-the-philosopher/flogis-blog`에 `develsvai` 계정의 Write 권한을 추가한다. 이 방법이면 기존 Jenkins `github-credentials`도 재사용할 수 있다.
-2. GitHub 권한 확인 후 `Haru2_dev` push → Jenkins Job 등록/첫 build → Harbor image 확인 → Secret 생성 → Argo Application/Sync → Pod/endpoint/Tailscale HTTP 검증을 재개한다.
+## Tailscale
 
-- 위 기존 권한 문제는 fork 저장소 전환으로 해결됐다. 다음 단계는 실제 `Haru2_dev` push와 Jenkins 첫 build다.
+- 신규 peer `flogis-blog.tail2dac17.ts.net` 등록, online 상태와 Tailscale Serve의 443→gateway proxy 구성을 확인했다.
+- 로컬 Tailscale ping은 성공하지만 HTTPS 요청은 ACL 로그의 `no rules matched`로 차단된다. 현재 peer가 untagged로 등록된 것이 원인이다.
+- runtime ConfigMap에 hostname/state Secret name/`tag:flogis-blog`를 두고 gateway가 이 값을 참조해 tag를 광고하도록 보완했다.
+- gateway liveness는 로컬 `/healthz`, upstream 준비 상태는 `/readyz`로 분리해 web rollout 중 Tailscale gateway가 불필요하게 재시작되지 않도록 했다.
+- 변경 매니페스트는 Kustomize 렌더링, 실제 클러스터 OpenAPI server dry-run, 배포 검증 스크립트 및 `git diff --check`를 통과했다.
 
-## 미충족 완료 조건
+## 현재 단계
 
-- Jenkins build 성공: 미실행
-- Argo CD Synced/Healthy: Application 미생성
-- Pod Ready/Service endpoint/rollout: 리소스 미생성
-- Tailscale HTTP 응답: auth key는 제공됐으나 배포 전
+- 위 보완 변경을 `Haru2_dev`에 push하고 Jenkins build #3 → 새 `deploy` commit → Argo 동기화 → Tailscale tag/HTTPS 응답 순으로 최종 검증한다.
+- Tailscale 관리 정책에 `tag:flogis-blog`의 tag owner 또는 접근 규칙이 없으면 마지막 HTTPS 검증은 관리자 ACL 변경이 필요하다. 클러스터 전역 Tailscale ACL은 이 Task 범위에서 변경하지 않는다.

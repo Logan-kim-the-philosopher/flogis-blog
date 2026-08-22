@@ -37,6 +37,7 @@ kubectl -n flogis-blog create secret generic flogis-blog-tailscale-auth \
 ```
 
 Tailscale key는 Flogis Blog 전용 reusable/pre-authorized key를 사용합니다. Portfolio·FlowOps의 auth/state Secret은 재사용하지 않습니다.
+Tailscale ACL의 `tagOwners`와 접근 규칙에는 `tag:flogis-blog`가 등록돼 있어야 하며, runtime ConfigMap이 gateway의 hostname과 advertise tag를 주입합니다.
 
 ## 렌더링과 검증
 
