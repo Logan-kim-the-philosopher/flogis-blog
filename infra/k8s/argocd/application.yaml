@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: flogis-blog
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Logan-kim-the-philosopher/flogis-blog.git
+    targetRevision: deploy
+    path: infra/k8s/overlays/prod
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: flogis-blog
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - PruneLast=true

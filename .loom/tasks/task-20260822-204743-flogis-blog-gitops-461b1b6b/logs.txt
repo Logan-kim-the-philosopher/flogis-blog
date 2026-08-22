@@ -1,0 +1,10 @@
+[2026-08-22T20:57:08+00:00] agent=codex task=task-20260822-204743-flogis-blog-gitops-461b1b6b Foreground task session started.
+[2026-08-22T20:59:00+00:00] Dockerfile, nginx config, Jenkins pipeline/job, Kustomize base/prod overlay, Argo Application, Tailscale Serve gateway를 구현했다.
+[2026-08-22T21:02:48+00:00] token 없는 SANITY_STRICT_CONTENT=true 로컬 build 성공: 정적 페이지 12개 생성.
+[2026-08-22T21:03:33+00:00] Docker 이미지 build 및 /healthz, /, /study/, /rss.xml smoke test 성공.
+[2026-08-22T21:04:20+00:00] Kustomize client dry-run과 Kubernetes server schema dry-run 통과.
+[2026-08-22T21:04:56+00:00] Node 22.20 digest-pinned builder로 Docker image를 재검증했다.
+[2026-08-22T21:05:20+00:00] user 101과 read-only filesystem 조건에서 컨테이너 health check 성공.
+[2026-08-22T21:05:45+00:00] Tailscale v1.98.4 이미지의 Serve CLI 옵션을 확인했다.
+[2026-08-22T21:06:00+00:00] deploy branch image-tag 갱신 로직과 repository secret scan을 검증했다.
+[2026-08-22T21:06:18+00:00] validation summary: build, container smoke, Kustomize client/server dry-run, XML, tag update, secret exclusion 모두 통과.

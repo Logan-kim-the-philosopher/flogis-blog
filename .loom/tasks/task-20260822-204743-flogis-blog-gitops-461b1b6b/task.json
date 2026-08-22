@@ -3,11 +3,11 @@
   "job_id": "job-20260822-204731-flogis-blog-gitops-059026e6",
   "title": "Flogis Blog GitOps 배포 구성 구현",
   "description": "조사 결과를 기준으로 portfolio·flowops의 표준을 계승한 컨테이너 빌드, Kubernetes 매니페스트, Jenkins Haru2_dev 트리거, Argo CD Application 및 Tailscale 노출 구성을 저장소에 구현한다.",
-  "status": "PENDING",
+  "status": "RUNNING",
   "created_at": "2026-08-22T20:47:43+00:00",
-  "updated_at": "2026-08-22T20:47:43+00:00",
+  "updated_at": "2026-08-22T20:57:08+00:00",
   "order_index": 2,
-  "assigned_agent": "",
+  "assigned_agent": "codex",
   "depends_on": [
     "task-20260822-204737-jenkins-argo-71a319ff"
   ],
@@ -22,10 +22,12 @@
   "document_output_exceptions": [],
   "run_attempts": 0,
   "last_error": "",
-  "commit_refs": [],
-  "branch_name": "",
-  "git_dirty": false,
-  "git_snapshot_captured_at": "",
+  "commit_refs": [
+    "9b2032f9cbb38d40f1ff40f740ea23d492c0afcc"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-08-22T20:57:08+00:00",
   "artifacts": [],
   "source_proposal_id": "",
   "source_prompt": ""

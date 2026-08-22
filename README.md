@@ -171,3 +171,5 @@ Use the official Sanity MCP tools only. In project w1jypogd dataset production, 
 - `docs/deployment.md`
 - `docs/editorial-workflow.md`
 - `docs/handoff.md`
+- `infra/jenkins/README.md`
+- `infra/k8s/README.md`

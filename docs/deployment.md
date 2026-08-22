@@ -69,3 +69,13 @@ npm run studio
 - 검색 모달이 정상 동작하는지
 - 빈 컬렉션일 때 empty state가 보이는지
 - Sanity 연결이 끊겼을 때 strict mode가 실패를 감지하는지
+
+## 7. Kubernetes GitOps 배포
+
+운영 클러스터의 Jenkins, Harbor, Argo CD, Tailscale 배포 절차와 Secret 요구사항은 `infra/k8s/README.md`를 따릅니다.
+
+- 소스/트리거 브랜치: `Haru2_dev`
+- 배포 브랜치: `deploy`
+- 이미지: `harbor.192.168.0.110.nip.io/flogis-blog/site`
+- Argo Application: `flogis-blog`
+- tailnet 주소: `https://flogis-blog.tail2dac17.ts.net/`

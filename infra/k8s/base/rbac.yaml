@@ -1,0 +1,30 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: flogis-blog-tailscale-state
+  namespace: flogis-blog
+rules:
+  - apiGroups: [""]
+    resources: ["secrets"]
+    verbs: ["create"]
+  - apiGroups: [""]
+    resources: ["secrets"]
+    resourceNames: ["flogis-blog-tailscale-state"]
+    verbs: ["get", "update", "patch"]
+  - apiGroups: [""]
+    resources: ["events"]
+    verbs: ["create", "get", "patch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: flogis-blog-tailscale-state
+  namespace: flogis-blog
+subjects:
+  - kind: ServiceAccount
+    name: flogis-blog-tailscale
+    namespace: flogis-blog
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: flogis-blog-tailscale-state

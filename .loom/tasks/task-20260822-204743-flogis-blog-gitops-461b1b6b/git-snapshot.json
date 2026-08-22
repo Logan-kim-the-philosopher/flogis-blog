@@ -1,0 +1,20 @@
+{
+  "before": {
+    "available": true,
+    "branch_name": "Haru2_dev",
+    "commit_sha": "9b2032f9cbb38d40f1ff40f740ea23d492c0afcc",
+    "dirty": true,
+    "staged_files": [],
+    "modified_files": [
+      ".loom/events.jsonl",
+      ".loom/job-runs/job-run-20260822-204755-job-20260822-204731-flogis-blog-gitops-059026e6-32dd3e33/job-run.json",
+      ".loom/task-definitions/task-def-20260822-204743-flogis-blog-gitops-8a8cf399/task-definition.json",
+      "AGENTS.md"
+    ],
+    "untracked_files": [
+      ".loom/task-runs/task-run-20260822-205708-task-def-20260822-204743-flogis-blog-gitops-8a8c-2a8727d8/"
+    ],
+    "captured_at": "2026-08-22T20:57:08+00:00"
+  },
+  "after": null
+}
