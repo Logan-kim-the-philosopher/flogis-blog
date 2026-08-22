@@ -103,11 +103,14 @@ spec:
 
               until [ -S /tmp/tailscaled.sock ]; do sleep 1; done
 
-              tailscale --socket=/tmp/tailscaled.sock up \
+              set -- tailscale --socket=/tmp/tailscaled.sock up \
                 --authkey="$TS_AUTHKEY" \
                 --hostname="$TS_HOSTNAME" \
-                --advertise-tags="$TS_ADVERTISE_TAGS" \
                 --accept-dns=true
+              if [ -n "${TS_ADVERTISE_TAGS:-}" ]; then
+                set -- "$@" --advertise-tags="$TS_ADVERTISE_TAGS"
+              fi
+              "$@"
 
               tailscale --socket=/tmp/tailscaled.sock serve \
                 --bg --yes --https=443 http://127.0.0.1:8080
@@ -119,7 +122,7 @@ spec:
               command:
                 - /bin/sh
                 - -c
-                - tailscale --socket=/tmp/tailscaled.sock status --json >/dev/null
+                - tailscale --socket=/tmp/tailscaled.sock status --json | tr -d '[:space:]' | grep -q '"BackendState":"Running"'
             initialDelaySeconds: 5
             periodSeconds: 10
             timeoutSeconds: 3

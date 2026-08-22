@@ -26,7 +26,11 @@
 - gateway liveness는 로컬 `/healthz`, upstream 준비 상태는 `/readyz`로 분리해 web rollout 중 Tailscale gateway가 불필요하게 재시작되지 않도록 했다.
 - 변경 매니페스트는 Kustomize 렌더링, 실제 클러스터 OpenAPI server dry-run, 배포 검증 스크립트 및 `git diff --check`를 통과했다.
 
-## 현재 단계
+## 보완 배포 결과와 현재 단계
 
-- 위 보완 변경을 `Haru2_dev`에 push하고 Jenkins build #3 → 새 `deploy` commit → Argo 동기화 → Tailscale tag/HTTPS 응답 순으로 최종 검증한다.
-- Tailscale 관리 정책에 `tag:flogis-blog`의 tag owner 또는 접근 규칙이 없으면 마지막 HTTPS 검증은 관리자 ACL 변경이 필요하다. 클러스터 전역 Tailscale ACL은 이 Task 범위에서 변경하지 않는다.
+- gateway probe/tag/quota 보완 commit `70ed32a`를 `Haru2_dev`에 push했다.
+- Jenkins build #3이 성공해 image `flogy_blog/site:3-70ed32af`와 deploy commit `97af357a`를 생성했다.
+- Argo CD가 새 deploy commit으로 `Synced/Healthy`가 됐고 web 2/2, gateway 1/1 rollout 및 endpoint 2개를 확인했다.
+- 실제 tag 적용 명령은 `requested tags [tag:flogis-blog] are invalid or not permitted`로 거절됐다. Kubernetes readiness가 JSON 출력 성공만 확인해 이를 잠시 Healthy로 오인한 것도 확인했다.
+- ACL 준비 전 서비스가 재시작 루프에 남지 않도록 advertise tag 기본값을 비우고, 값이 있을 때만 조건부 적용하도록 재보완했다. Tailscale readiness는 `BackendState=Running`을 확인하도록 강화했다.
+- 이 안전 fallback을 Jenkins build #4와 Argo rollout으로 반영한 뒤 untagged Serve 상태를 검증한다. 최종 tailnet HTTPS 접근은 Tailscale 관리자가 `tag:flogis-blog`의 tag owner/접근 규칙을 등록해야 완료된다. 클러스터 전역 ACL은 이 Task 범위에서 변경하지 않는다.

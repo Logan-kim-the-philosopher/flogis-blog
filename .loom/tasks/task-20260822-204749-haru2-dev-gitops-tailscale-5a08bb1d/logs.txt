@@ -21,3 +21,8 @@
 [2026-08-22T21:32:30+00:00] Harbor pull 401을 검증된 cluster pull Secret 복제로 복구. web 2/2, gateway 1/1 Ready와 Service endpoint 2개 확인.
 [2026-08-22T21:33:30+00:00] Tailscale peer/Serve/ping 정상, HTTPS는 untagged peer에 대한 ACL no rules matched로 차단됨을 확인.
 [2026-08-22T21:35:30+00:00] tag:flogis-blog runtime ConfigMap, health/readiness 분리, CPU quota 여유 보완. Kustomize와 cluster server dry-run 검증 통과.
+[2026-08-22T21:37:00+00:00] 보완 commit 70ed32af를 Haru2_dev에 push하고 Jenkins build #3 트리거.
+[2026-08-22T21:37:30+00:00] Jenkins build #3 SUCCESS. Harbor image 3-70ed32af와 deploy commit 97af357a 생성.
+[2026-08-22T21:40:30+00:00] Argo deploy commit 97af357a Synced/Healthy, web 2/2, gateway 1/1 rollout과 endpoint 2개 확인.
+[2026-08-22T21:42:00+00:00] gateway tag 적용 진단 결과 Tailscale가 requested tag invalid or not permitted로 거절하고 BackendState NeedsLogin이 됨을 확인.
+[2026-08-22T21:43:00+00:00] advertise tag를 ACL 준비 전 빈 기본값/조건부 인자로 변경하고 readiness를 BackendState Running 검사로 강화. cluster server dry-run 통과.

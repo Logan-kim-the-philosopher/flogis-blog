@@ -16,3 +16,7 @@
 - gateway liveness가 web upstream 장애를 함께 검사해 502로 한 차례 재시작했다. 로컬 `/healthz`와 upstream `/readyz`를 분리했다.
 - Tailscale peer/Serve는 정상 등록됐지만 tailnet HTTPS가 `no rules matched`로 timeout 됐다. peer가 untagged인 점을 확인해 `tag:flogis-blog` 광고 설정을 추가했다.
 - 초기 배포가 namespace CPU limit quota 1 CPU를 모두 소비했다. rolling update의 surge 여유를 확보하기 위해 quota limit을 2 CPU로 상향했다.
+- Jenkins build #3과 Argo deploy commit 97af357a 동기화는 성공했고 새 image 3-70ed32af의 web 2/2 rollout도 성공했다.
+- gateway가 `tag:flogis-blog` prefs를 반영했지만 Tailscale backend는 NeedsLogin이 됐다. 동일 `tailscale up`을 Secret 노출 없이 진단 실행해 `requested tags [tag:flogis-blog] are invalid or not permitted`를 확인했다.
+- 단순 `tailscale status --json`은 NeedsLogin에서도 exit 0을 반환해 기존 readiness가 false positive였다. BackendState Running 검사로 변경했다.
+- tag 기본값을 비우고 조건부 인자로 바꿔 ACL 준비 전 untagged 장치가 안정적으로 로그인하도록 했다.

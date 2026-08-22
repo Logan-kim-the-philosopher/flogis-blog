@@ -19,7 +19,7 @@ configMapGenerator:
     literals:
       - TS_KUBE_SECRET=flogis-blog-tailscale-state
       - TS_HOSTNAME=flogis-blog
-      - TS_ADVERTISE_TAGS=tag:flogis-blog
+      - TS_ADVERTISE_TAGS=
 
 labels:
   - pairs:
