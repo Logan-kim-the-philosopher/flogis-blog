@@ -24,7 +24,7 @@ Keep code identifiers, file paths, shell commands, URLs, commit hashes, and orig
 - Job ID: `job-20260822-204731-flogis-blog-gitops-059026e6`
 - Title: Flogis Blog GitOps 서버 배포
 - Goal: Kubernetes 클러스터와 Jenkins·Argo CD·Tailscale 게이트웨이 상태를 확인하고 portfolio·flowops의 기존 배포 구조를 계승해 Haru2_dev 트리거 기반 GitOps 배포를 구성·검증한다.
-- Status: `PENDING`
+- Status: `REVIEW_REQUIRED`
 - Required branch: `Haru2_dev`
 - Task count: `3`
 
@@ -41,7 +41,7 @@ Keep code identifiers, file paths, shell commands, URLs, commit hashes, and orig
 - Document outputs: -
 - Document output exceptions: -
 - Source proposal: `-`
-- Status: `PENDING`
+- Status: `REVIEW_REQUIRED`
 - Agent: `codex`
 - Order: `1`
 - Depends on: None
