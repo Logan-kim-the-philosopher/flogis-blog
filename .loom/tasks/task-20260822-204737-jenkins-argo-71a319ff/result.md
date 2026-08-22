@@ -51,3 +51,16 @@
 - Jenkins가 해당 저장소를 읽고 `deploy`에 push할 수 있는 Git credential과 Job 생성/실행 권한이 필요하다.
 - `flogis-blog`용 Tailscale pre-authorized reusable auth key를 Kubernetes Secret으로 별도 등록해야 한다. 기존 서비스의 키/상태 Secret은 재사용하지 않는다.
 - Harbor pull Secret을 새 namespace에 생성하고 Jenkins가 `flogis-blog` 프로젝트에 push할 수 있어야 한다.
+
+## 검증 근거
+
+- `kubectl get nodes` 및 `kubectl top nodes`: 6/6 Ready, CPU 1~5%, 메모리 35~62%.
+- 전체 namespace의 Pod phase/condition과 controller desired/ready/available 값을 JSON으로 비교: 비정상 항목 0개.
+- `kubectl get pvc -A`: PVC 11/11 Bound.
+- `kubectl get events -A --field-selector type=Warning`: 서비스 장애 경고는 없고 `DNSConfigForming`만 확인.
+- `kubectl get applications.argoproj.io -n argocd`: 4/4 Synced/Healthy.
+- `kubectl get pods -n argocd -o wide`: Argo CD component 7종 모두 Ready.
+- `helm list -A`: Jenkins/Harbor/Ingress/KEDA/Prometheus deployed, Argo CD release metadata만 failed.
+- Jenkins·Argo CD·Portfolio·FlowOps Tailscale HTTP endpoint: 모두 HTTP 200. Harbor health endpoint도 내부 CA 조건에서 HTTP 200.
+- Portfolio/FlowOps의 Jenkinsfile, job-config.xml, Argo Application, Kustomize prod overlay, Tailscale gateway manifest를 각 live workload와 교차 확인.
+- Secret은 이름과 참조 관계만 확인했으며 데이터는 조회하지 않았다.
