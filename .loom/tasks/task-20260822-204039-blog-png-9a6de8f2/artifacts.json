@@ -1,0 +1,68 @@
+{
+  "status": "RUNNING",
+  "agent": "codex",
+  "mode": "foreground",
+  "execution_surface": "foreground",
+  "task_run_id": "task-run-20260822-204042-task-def-20260822-204039-blog-png-71cd576d-50ce1e8f",
+  "generated_at": "2026-08-22T20:40:42+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/prompt.md",
+    ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/context.md",
+    ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/previous-results.md",
+    ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/git-snapshot.json",
+    ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/result.md",
+    ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/decision.md",
+    ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/troubleshooting.md",
+    ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/logs.txt",
+    ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/agent-events.jsonl",
+    ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/artifacts.json",
+    "src/styles/global.css",
+    "src/layouts/SiteLayout.astro",
+    "/Users/hongyongjae/Desktop/blog.png"
+  ],
+  "artifact_groups": {
+    "user_outputs": [
+      ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/result.md",
+      ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/decision.md",
+      ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/troubleshooting.md"
+    ],
+    "execution_inputs": [
+      ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/prompt.md",
+      ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/context.md",
+      ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/previous-results.md"
+    ],
+    "execution_audit": [
+      ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/git-snapshot.json",
+      ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/logs.txt",
+      ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/agent-events.jsonl",
+      ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/artifacts.json"
+    ],
+    "work_products": [
+      "src/styles/global.css"
+    ]
+  },
+  "contract_snapshot": {
+    "schema_version": 1,
+    "contract_ids": [
+      "task-execution",
+      "done-guardrail"
+    ],
+    "contracts": [
+      {
+        "id": "task-execution",
+        "title": "Task Execution Context Contract",
+        "source_paths": [
+          "loom/application/context_pack.py",
+          "loom/application/team_policy.py"
+        ]
+      },
+      {
+        "id": "done-guardrail",
+        "title": "Task Completion Guardrail Contract",
+        "source_paths": [
+          "loom/application/services.py"
+        ]
+      }
+    ]
+  }
+}

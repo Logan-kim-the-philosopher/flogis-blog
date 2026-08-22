@@ -1,0 +1,7 @@
+[2026-08-22T20:40:42+00:00] agent=codex task=task-20260822-204039-blog-png-9a6de8f2 Foreground task session started.
+[2026-08-22T20:40:55+00:00] /Users/hongyongjae/Desktop/blog.png 원본을 확인하고 푸터 아래 약 200px의 빈 영역을 식별했다.
+[2026-08-22T20:41:10+00:00] 전역 html, body의 min-height: 100%가 Tailwind min-h-screen을 덮는 cascade 충돌을 확인했다.
+[2026-08-22T20:41:20+00:00] src/styles/global.css에서 충돌하는 min-height를 제거했다.
+[2026-08-22T20:41:25+00:00] /study, /meetings, /work HTTP 200을 확인했다.
+[2026-08-22T20:41:40+00:00] npm run build 성공: 정적 페이지 12개 생성.
+[2026-08-22T20:41:55+00:00] 개발·프로덕션 CSS에서 min-h-screen 100vh와 전역 충돌 제거를 확인했다.
