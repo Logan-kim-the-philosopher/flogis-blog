@@ -4,3 +4,4 @@
 [2026-08-22T21:09:30+00:00] Jenkins Job 이름과 credential ID/username만 확인: GitHub credentials는 모두 develsvai, Flogis Blog 전용 credential 없음.
 [2026-08-22T21:10:00+00:00] 기존 Tailscale 서비스별 tag 구조를 확인하고 신규 tag:flogis-blog auth key 요구사항을 확정했다.
 [2026-08-22T21:10:30+00:00] partial deployment를 방지하기 위해 클러스터 변경 없이 안전 중단했다.
+[2026-08-22T21:11:09+00:00] agent=codex task=task-20260822-204749-haru2-dev-gitops-tailscale-5a08bb1d GitHub 저장소에 현재 develsvai 계정의 Write 권한이 없어 Haru2_dev push가 HTTP 403으로 실패했고, 신규 tag:flogis-blog Tailscale auth key도 없어 Jenkins·Argo·Kubernetes 배포를 안전하게 시작할 수 없다.
