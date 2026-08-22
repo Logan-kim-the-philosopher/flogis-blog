@@ -33,4 +33,7 @@
 - Argo CD가 새 deploy commit으로 `Synced/Healthy`가 됐고 web 2/2, gateway 1/1 rollout 및 endpoint 2개를 확인했다.
 - 실제 tag 적용 명령은 `requested tags [tag:flogis-blog] are invalid or not permitted`로 거절됐다. Kubernetes readiness가 JSON 출력 성공만 확인해 이를 잠시 Healthy로 오인한 것도 확인했다.
 - ACL 준비 전 서비스가 재시작 루프에 남지 않도록 advertise tag 기본값을 비우고, 값이 있을 때만 조건부 적용하도록 재보완했다. Tailscale readiness는 `BackendState=Running`을 확인하도록 강화했다.
-- 이 안전 fallback을 Jenkins build #4와 Argo rollout으로 반영한 뒤 untagged Serve 상태를 검증한다. 최종 tailnet HTTPS 접근은 Tailscale 관리자가 `tag:flogis-blog`의 tag owner/접근 규칙을 등록해야 완료된다. 클러스터 전역 ACL은 이 Task 범위에서 변경하지 않는다.
+- 안전 fallback commit `8c78a5d`의 Jenkins build #4가 성공해 image `4-8c78a5df`와 deploy commit `aa6a6377`을 생성했다.
+- 사용자가 Tailscale 관리 정책에 `tag:flogis-blog` 권한을 부여했다고 확인했다. 따라서 fallback을 최종 상태로 두지 않고 tag를 다시 활성화한다.
+- 저장된 이전 prefs와 선언값 충돌을 막도록 startup에 `--reset`을 추가하고, `BackendState=Running` readiness는 유지한다. 이 최종 변경을 Jenkins/Argo로 반영한 뒤 tagged peer와 tailnet HTTPS를 검증한다.
+- fallback rollout의 설정 충돌 오류에서 Tailscale CLI가 auth key가 포함된 재실행 예시를 컨테이너 로그에 출력했다. 최종 배포 후 해당 key 폐기/교체가 필요하다.

@@ -26,3 +26,6 @@
 [2026-08-22T21:40:30+00:00] Argo deploy commit 97af357a Synced/Healthy, web 2/2, gateway 1/1 rollout과 endpoint 2개 확인.
 [2026-08-22T21:42:00+00:00] gateway tag 적용 진단 결과 Tailscale가 requested tag invalid or not permitted로 거절하고 BackendState NeedsLogin이 됨을 확인.
 [2026-08-22T21:43:00+00:00] advertise tag를 ACL 준비 전 빈 기본값/조건부 인자로 변경하고 readiness를 BackendState Running 검사로 강화. cluster server dry-run 통과.
+[2026-08-22T21:44:30+00:00] fallback commit 8c78a5df push, Jenkins build #4 SUCCESS, image 4-8c78a5df와 deploy commit aa6a6377 생성.
+[2026-08-22T21:46:00+00:00] fallback rollout이 persisted tag prefs와 충돌해 CrashLoopBackOff. Tailscale CLI 오류 로그가 auth key 포함 권장 명령을 출력해 key rotation 필요성을 기록.
+[2026-08-22T21:46:30+00:00] 사용자가 tag:flogis-blog 권한 부여를 확인. runtime tag 복구와 startup --reset 추가 후 cluster server dry-run 통과.

@@ -13,3 +13,5 @@
 - Harbor pull credential은 신규로 가공한 값이 401을 반환해, 클러스터에서 이미 동작이 검증된 pull Secret을 값 노출 없이 namespace에 복제했다.
 - 권한 없는 advertise tag는 Tailscale를 NeedsLogin으로 만들므로 기본값을 비운다. ACL과 tagged auth가 준비되면 runtime ConfigMap에 명시적으로 tag를 넣는다.
 - Tailscale sidecar readiness는 명령 성공 여부가 아니라 `BackendState=Running`을 검사해 로그아웃 상태를 Ready로 오인하지 않는다.
+- 사용자가 tag 권한 부여를 확인했으므로 최종 runtime 값은 `tag:flogis-blog`로 복구한다. startup은 `--reset`으로 persisted prefs와 GitOps 선언을 결정적으로 맞춘다.
+- Tailscale CLI 오류 로그에 노출된 auth key는 배포 완료 후 폐기/교체 대상으로 취급한다.

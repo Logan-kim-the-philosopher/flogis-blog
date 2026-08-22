@@ -20,3 +20,6 @@
 - gateway가 `tag:flogis-blog` prefs를 반영했지만 Tailscale backend는 NeedsLogin이 됐다. 동일 `tailscale up`을 Secret 노출 없이 진단 실행해 `requested tags [tag:flogis-blog] are invalid or not permitted`를 확인했다.
 - 단순 `tailscale status --json`은 NeedsLogin에서도 exit 0을 반환해 기존 readiness가 false positive였다. BackendState Running 검사로 변경했다.
 - tag 기본값을 비우고 조건부 인자로 바꿔 ACL 준비 전 untagged 장치가 안정적으로 로그인하도록 했다.
+- fallback rollout은 kube state에 남은 `tag:flogis-blog` prefs 때문에 Tailscale의 all non-default flags guard에 걸려 CrashLoopBackOff가 됐다.
+- 이 guard의 오류 메시지가 auth key가 포함된 권장 명령을 컨테이너 로그에 출력했다. 값은 작업 기록에 복사하지 않았으며 key 폐기/교체를 잔여 보안 조치로 남긴다.
+- 사용자가 tag 권한 부여를 확인해 runtime tag를 복구하고, `--reset`으로 persisted prefs 충돌을 제거했다.

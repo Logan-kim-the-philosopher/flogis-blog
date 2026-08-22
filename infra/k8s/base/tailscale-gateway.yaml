@@ -104,6 +104,7 @@ spec:
               until [ -S /tmp/tailscaled.sock ]; do sleep 1; done
 
               set -- tailscale --socket=/tmp/tailscaled.sock up \
+                --reset \
                 --authkey="$TS_AUTHKEY" \
                 --hostname="$TS_HOSTNAME" \
                 --accept-dns=true
