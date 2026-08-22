@@ -1,0 +1,6 @@
+[2026-08-22T21:08:11+00:00] agent=codex task=task-20260822-204749-haru2-dev-gitops-tailscale-5a08bb1d Foreground task session started.
+[2026-08-22T21:08:30+00:00] git push origin Haru2_dev 실패: develsvai 계정에 대상 저장소 Write 권한 없음(HTTP 403).
+[2026-08-22T21:09:00+00:00] gh active account와 SSH 대체 인증을 확인했으나 사용 가능한 다른 GitHub 쓰기 자격증명이 없었다.
+[2026-08-22T21:09:30+00:00] Jenkins Job 이름과 credential ID/username만 확인: GitHub credentials는 모두 develsvai, Flogis Blog 전용 credential 없음.
+[2026-08-22T21:10:00+00:00] 기존 Tailscale 서비스별 tag 구조를 확인하고 신규 tag:flogis-blog auth key 요구사항을 확정했다.
+[2026-08-22T21:10:30+00:00] partial deployment를 방지하기 위해 클러스터 변경 없이 안전 중단했다.
