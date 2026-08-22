@@ -3,11 +3,11 @@
   "job_id": "job-20260822-202501-job-8de31470",
   "title": "blog.png 기준 아카이브 하단 공백 재교정",
   "description": "바탕화면 blog.png에서 실제로 보이는 하단 공백 위치와 크기를 확인하고 이전 공통 레이아웃 수정의 오진을 바로잡아 스터디·회의·작업 페이지의 문제 스타일을 교정한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-08-22T20:40:39+00:00",
-  "updated_at": "2026-08-22T20:40:42+00:00",
+  "updated_at": "2026-08-22T20:42:43+00:00",
   "order_index": 2,
-  "assigned_agent": "codex",
+  "assigned_agent": "foreground",
   "depends_on": [],
   "expected_output": "blog.png에서 지적된 아카이브 페이지 하단 공백이 줄어들고 기존 카드·푸터 디자인은 유지된다.",
   "done_condition": "스크린샷 증거에 대응하는 CSS 원인을 수정하고 /study, /meetings, /work 개발 서버 응답과 npm run build가 정상 통과한다.",
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "68a4bc0975ad7c2943ad271344fbbe202e2f8529"
+    "68a4bc0975ad7c2943ad271344fbbe202e2f8529",
+    "1480618af70fa5df2113ed5462d2dd20ec6b3ff5"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-08-22T20:40:42+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-08-22T20:42:43+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/agent-events.jsonl",
+    ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/artifacts.json",
+    ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/context.md",
+    ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/decision.md",
+    ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/git-snapshot.json",
+    ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/logs.txt",
+    ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/previous-results.md",
+    ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/prompt.md",
+    ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/result.md",
+    ".loom/tasks/task-20260822-204039-blog-png-9a6de8f2/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }
