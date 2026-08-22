@@ -7,3 +7,4 @@
 - Jenkins build #7은 image build, 상대 redirect smoke test, Harbor push와 deploy branch 갱신까지 성공했다.
 - 현재 gateway에서 `tailscale funnel --bg --yes --https=443`를 실행했으나 tailnet policy의 allowed nodes에 현재 tagged node가 없다는 오류로 거절됐다. Argo sync를 보류해 운영 gateway는 tailnet 전용 Healthy 상태를 유지했다.
 - 사용자 권한 반영 후 동일 명령은 공개 Funnel 활성화에 성공했다. 다만 command 성공 출력은 `Available on the internet`, 후속 `funnel status` 출력은 `(Funnel on)`이라 readiness가 false negative였다.
+- Docker bridge의 기본 DNS도 host Tailscale split DNS를 따라 100.x 주소를 반환했다. Google/Cloudflare public DNS의 Funnel relay 공인 IP를 강제해 실제 인터넷 공개 경로를 검증했다.

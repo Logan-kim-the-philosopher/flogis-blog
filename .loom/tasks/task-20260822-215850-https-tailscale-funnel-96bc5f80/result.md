@@ -16,4 +16,15 @@
 
 - 사용자가 Funnel node 허용을 완료했고 live command가 `Available on the internet`으로 성공했다.
 - deploy commit `c91bffa6`은 Argo에 실제 적용됐고 web image `7-7be05dec`는 2/2 Ready다.
-- Tailscale v1.98의 `funnel status` 출력은 `(Funnel on)`이므로 기존 readiness 문구 검사만 실패했다. 실제 출력에 맞춰 보정 후 최종 sync가 필요하다.
+- Tailscale v1.98의 `funnel status` 출력은 `(Funnel on)`이므로 기존 readiness 문구 검사만 실패했다. 실제 출력에 맞춰 보정했다.
+
+## 최종 배포
+
+- final source commit `114aa688`을 `Haru2_dev`에 push했다.
+- Jenkins build #8은 SUCCESS이며 image `flogy_blog/site:8-114aa688`, deploy commit `b6d20315`를 생성했다.
+- Argo CD는 revision `b6d20315`에서 `Synced/Healthy`, operation `Succeeded`다.
+- web 2/2, gateway 1/1 Ready이고 Pod restart는 0, Service endpoint는 2개다.
+- gateway의 Tailscale 상태는 `Running`, `tag:flogis-blog`, `Funnel on`이다.
+- Google·Cloudflare public DNS에서 Funnel relay 공인 A/AAAA 레코드를 확인했다.
+- public relay IP를 강제한 비-tailnet 검증에서 `/`, `/healthz`, `/study/`, slash 없는 상세 경로가 최종 HTTPS 200을 반환했다.
+- slash 없는 상세 경로는 `301 Location: /study/<slug>/` 상대 redirect이며 `Strict-Transport-Security: max-age=31536000`을 반환해 HTTP로 이탈하지 않는다.

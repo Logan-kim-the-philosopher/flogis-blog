@@ -8,3 +8,6 @@
 [2026-08-22T22:07:00+00:00] live Funnel 권한 검사에서 tagged node가 tailnet policy allowed nodes에 없어 거절됨. Argo sync 보류, 기존 revision 90999835 Synced/Healthy 및 tailnet only 유지.
 [2026-08-22T22:14:00+00:00] 사용자 Funnel 권한 반영 확인 후 live command 성공. Argo deploy c91bffa6 적용, web 2/2 Ready.
 [2026-08-22T22:14:30+00:00] Tailscale v1.98 funnel status가 (Funnel on)을 반환해 Available on the internet readiness가 false negative임을 확인하고 보정.
+[2026-08-22T22:16:00+00:00] Jenkins build #8 SUCCESS, image 8-114aa688와 deploy commit b6d20315 생성.
+[2026-08-22T22:17:00+00:00] Argo revision b6d20315 Synced/Healthy, web 2/2, gateway 1/1 Ready, restart 0, Funnel on 확인.
+[2026-08-22T22:18:00+00:00] Google/Cloudflare public DNS relay 확인 후 공인 IP 강제 비-tailnet HTTPS 검증: /, /healthz, /study/, 상세 경로 모두 200. 상세 301은 상대 Location과 HSTS 유지.
