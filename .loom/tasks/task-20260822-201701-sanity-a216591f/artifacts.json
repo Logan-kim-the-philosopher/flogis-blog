@@ -1,10 +1,10 @@
 {
-  "status": "RUNNING",
-  "agent": "codex",
+  "status": "DONE",
+  "agent": "foreground",
   "mode": "foreground",
   "execution_surface": "foreground",
   "task_run_id": "task-run-20260822-201704-task-def-20260822-201701-sanity-77499c27-24b84f5e",
-  "generated_at": "2026-08-22T20:17:04+00:00",
+  "generated_at": "2026-08-22T20:19:52+00:00",
   "artifacts": [
     ".loom/tasks/task-20260822-201701-sanity-a216591f/prompt.md",
     ".loom/tasks/task-20260822-201701-sanity-a216591f/context.md",
@@ -15,8 +15,7 @@
     ".loom/tasks/task-20260822-201701-sanity-a216591f/troubleshooting.md",
     ".loom/tasks/task-20260822-201701-sanity-a216591f/logs.txt",
     ".loom/tasks/task-20260822-201701-sanity-a216591f/agent-events.jsonl",
-    ".loom/tasks/task-20260822-201701-sanity-a216591f/artifacts.json",
-    "public/favicon.ico"
+    ".loom/tasks/task-20260822-201701-sanity-a216591f/artifacts.json"
   ],
   "artifact_groups": {
     "user_outputs": [
@@ -35,9 +34,7 @@
       ".loom/tasks/task-20260822-201701-sanity-a216591f/agent-events.jsonl",
       ".loom/tasks/task-20260822-201701-sanity-a216591f/artifacts.json"
     ],
-    "work_products": [
-      "public/favicon.ico"
-    ]
+    "work_products": []
   },
   "contract_snapshot": {
     "schema_version": 1,
