@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/Logan-kim-the-philosopher/flogis-blog.git
+    repoURL: https://github.com/develsvai/flogis-blog.git
     targetRevision: deploy
     path: infra/k8s/overlays/prod
   destination:

@@ -1,5 +1,12 @@
 # 배포 시도 결과
 
+## 배포 재개
+
+- 사용자가 fork 저장소 `https://github.com/develsvai/flogis-blog.git`를 최종 배포 원격으로 지정했다.
+- local origin, Jenkins SCM/push URL, Argo CD repoURL을 모두 fork 저장소로 전환했다.
+- fork에는 현재 `main`만 있고 `Haru2_dev`와 `deploy`는 아직 없다. `Haru2_dev` push dry-run은 새 브랜치 생성으로 정상 통과했다.
+- 개발 브랜치는 `Haru2_dev`, Jenkins가 갱신하는 GitOps 브랜치는 `deploy`, Argo CD targetRevision은 `deploy`로 유지한다.
+
 - 로컬 `Haru2_dev`의 배포 구성은 commit `f79a2f02`까지 준비됐다.
 - `git push --set-upstream origin Haru2_dev`를 실행했으나 GitHub가 현재 계정 `develsvai`에 `Logan-kim-the-philosopher/flogis-blog` 쓰기 권한이 없다고 HTTP 403을 반환했다.
 - 로컬 GitHub CLI도 `develsvai` 계정이고 SSH agent/로컬 RSA key에는 GitHub 인증 권한이 없어 대체 push 경로가 없었다.
@@ -14,6 +21,8 @@
 
 1. GitHub 저장소 `Logan-kim-the-philosopher/flogis-blog`에 `develsvai` 계정의 Write 권한을 추가한다. 이 방법이면 기존 Jenkins `github-credentials`도 재사용할 수 있다.
 2. GitHub 권한 확인 후 `Haru2_dev` push → Jenkins Job 등록/첫 build → Harbor image 확인 → Secret 생성 → Argo Application/Sync → Pod/endpoint/Tailscale HTTP 검증을 재개한다.
+
+- 위 기존 권한 문제는 fork 저장소 전환으로 해결됐다. 다음 단계는 실제 `Haru2_dev` push와 Jenkins 첫 build다.
 
 ## 미충족 완료 조건
 

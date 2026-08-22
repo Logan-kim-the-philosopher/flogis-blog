@@ -9,7 +9,7 @@ pipeline {
         HARBOR_CRED = 'harbor-credentials'
         IMAGE_NAME = 'site'
 
-        REPOSITORY_URL = 'https://github.com/Logan-kim-the-philosopher/flogis-blog.git'
+        REPOSITORY_URL = 'https://github.com/develsvai/flogis-blog.git'
         GIT_CRED = 'github-credentials'
         SOURCE_BRANCH = 'Haru2_dev'
         DEPLOY_BRANCH = 'deploy'
@@ -172,7 +172,7 @@ pipeline {
                         git config user.email "jenkins@flogis-blog.local"
                         git config user.name "Jenkins CI"
                         git remote set-url origin \
-                          "https://$GIT_USER:$GIT_TOKEN@github.com/Logan-kim-the-philosopher/flogis-blog.git"
+                          "https://$GIT_USER:$GIT_TOKEN@github.com/develsvai/flogis-blog.git"
                         trap 'git remote set-url origin "$REPOSITORY_URL"' EXIT
 
                         git fetch --prune origin \

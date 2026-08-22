@@ -9,3 +9,4 @@
 - 재개 후 Harbor 프로젝트명이 `flogy_blog`임을 사용자에게 확인받아 pipeline, Kustomize image, 문서와 검증 스크립트를 일관되게 수정했다.
 - Tailscale auth key는 제공됐지만 민감값을 로그와 Git에 복사하지 않았다.
 - GitHub push dry-run은 재개 후에도 `develsvai` 권한 403으로 실패했다.
+- 사용자가 `develsvai/flogis-blog` fork를 최종 원격으로 지정해 기존 upstream 403을 해소했다. fork 대상 `Haru2_dev` push dry-run은 성공했다.

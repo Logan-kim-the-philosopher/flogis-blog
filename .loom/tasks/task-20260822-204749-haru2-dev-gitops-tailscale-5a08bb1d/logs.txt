@@ -10,3 +10,5 @@
 [2026-08-22T21:16:30+00:00] Harbor 프로젝트명을 flogy_blog로 교정하고 Jenkins 기존 github-credentials 참조로 통일했다.
 [2026-08-22T21:17:00+00:00] Kustomize client dry-run, Jenkins XML, 이미지 경로 일관성 및 git diff 검증 통과.
 [2026-08-22T21:17:30+00:00] GitHub Haru2_dev push dry-run 재시도 결과 develsvai Write 권한 403 지속.
+[2026-08-22T21:24:30+00:00] 사용자가 develsvai/flogis-blog fork를 최종 GitOps 원격으로 지정했다.
+[2026-08-22T21:25:00+00:00] origin, Jenkins SCM/push URL, Argo repoURL을 fork로 변경하고 Haru2_dev push dry-run 성공.
