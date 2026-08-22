@@ -1,0 +1,8 @@
+[2026-08-22T20:09:43+00:00] agent=codex task=task-20260822-200940-sanity-a93cb896 Foreground task session started.
+[2026-08-22T20:10:00+00:00] .env ignore 규칙과 기존 Sanity client 구현을 확인했다.
+[2026-08-22T20:10:20+00:00] .env 생성, 권한 600 설정, 서버 측 토큰 연결을 완료했다.
+[2026-08-22T20:10:40+00:00] 토큰 인증 GROQ 조회 HTTP 200과 문서 수를 확인했다.
+[2026-08-22T20:11:00+00:00] Astro background 서버를 PID 64534로 재시작했다.
+[2026-08-22T20:11:20+00:00] localhost HTTP 200, 실제 Sanity tagline, HTML 토큰 미노출을 검증했다.
+[2026-08-22T20:11:40+00:00] npm run build 성공: 정적 페이지 8개와 sitemap 생성.
+[2026-08-22T20:12:00+00:00] Git 추적 파일과 생성 산출물의 토큰 미포함을 확인했다.
