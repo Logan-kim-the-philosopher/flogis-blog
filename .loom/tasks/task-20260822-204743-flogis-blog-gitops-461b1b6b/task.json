@@ -1,0 +1,32 @@
+{
+  "id": "task-20260822-204743-flogis-blog-gitops-461b1b6b",
+  "job_id": "job-20260822-204731-flogis-blog-gitops-059026e6",
+  "title": "Flogis Blog GitOps 배포 구성 구현",
+  "description": "조사 결과를 기준으로 portfolio·flowops의 표준을 계승한 컨테이너 빌드, Kubernetes 매니페스트, Jenkins Haru2_dev 트리거, Argo CD Application 및 Tailscale 노출 구성을 저장소에 구현한다.",
+  "status": "PENDING",
+  "created_at": "2026-08-22T20:47:43+00:00",
+  "updated_at": "2026-08-22T20:47:43+00:00",
+  "order_index": 2,
+  "assigned_agent": "",
+  "depends_on": [
+    "task-20260822-204737-jenkins-argo-71a319ff"
+  ],
+  "expected_output": "Haru2_dev 변경이 Jenkins 이미지 빌드와 GitOps 리비전 갱신을 거쳐 Argo CD로 배포될 수 있는 재현 가능한 구성 파일이 준비된다.",
+  "done_condition": "구성 파일 문법·참조·이미지 태그 전략·헬스체크·리소스 제한·Secret 참조가 검증되고 실제 비밀값은 저장소에 포함되지 않는다.",
+  "in_scope": "Dockerfile/파이프라인/배포 매니페스트/Argo Application/필요 문서 구현",
+  "out_of_scope": "운영 비밀값 커밋, 기존 portfolio·flowops 리소스 변경, 운영 데이터 변경",
+  "validation_hint": "기존 서비스와 구조를 diff하고 docker/manifest/Jenkins 구문 및 git diff 비밀값 검사를 수행한다.",
+  "required_docs": [],
+  "memory_refs": [],
+  "document_outputs": [],
+  "document_output_exceptions": [],
+  "run_attempts": 0,
+  "last_error": "",
+  "commit_refs": [],
+  "branch_name": "",
+  "git_dirty": false,
+  "git_snapshot_captured_at": "",
+  "artifacts": [],
+  "source_proposal_id": "",
+  "source_prompt": ""
+}
