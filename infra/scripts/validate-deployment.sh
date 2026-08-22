@@ -18,7 +18,7 @@ rg -q 'harbor\.192\.168\.0\.110\.nip\.io/flogy_blog/site:replace-with-jenkins-bu
 rg -q 'name: flogis-blog-tailscale-auth' infra/k8s/base/tailscale-auth.secret.example.yaml
 rg -q 'absolute_redirect off;' infra/docker/nginx.conf
 rg -q 'tailscale --socket=/tmp/tailscaled.sock funnel' infra/k8s/base/tailscale-gateway.yaml
-rg -q 'Available on the internet' infra/k8s/base/tailscale-gateway.yaml
+rg -q '(Funnel on)' infra/k8s/base/tailscale-gateway.yaml
 
 if rg -q 'tailscale-auth\.secret\.example\.yaml' infra/k8s/base/kustomization.yaml; then
   echo "Tailscale Secret example must not be included by Kustomize." >&2

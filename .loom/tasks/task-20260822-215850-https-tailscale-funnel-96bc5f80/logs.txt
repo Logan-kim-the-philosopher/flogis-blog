@@ -4,3 +4,7 @@
 [2026-08-22T22:02:30+00:00] Kustomize, cluster server dry-run, Docker image 상세 redirect smoke test와 git diff 검증 통과.
 [2026-08-22T22:04:00+00:00] commit 62c0745 push 후 Jenkins build #6은 Jenkinsfile awk slash escaping의 Groovy compile error로 FAILURE.
 [2026-08-22T22:04:30+00:00] awk 정규식 제거, path field count 기반 detail index 선택으로 수정.
+[2026-08-22T22:06:00+00:00] Jenkins build #7 SUCCESS. 상대 Location smoke test 통과, image 7-7be05dec와 deploy commit c91bffa6 생성.
+[2026-08-22T22:07:00+00:00] live Funnel 권한 검사에서 tagged node가 tailnet policy allowed nodes에 없어 거절됨. Argo sync 보류, 기존 revision 90999835 Synced/Healthy 및 tailnet only 유지.
+[2026-08-22T22:14:00+00:00] 사용자 Funnel 권한 반영 확인 후 live command 성공. Argo deploy c91bffa6 적용, web 2/2 Ready.
+[2026-08-22T22:14:30+00:00] Tailscale v1.98 funnel status가 (Funnel on)을 반환해 Available on the internet readiness가 false negative임을 확인하고 보정.

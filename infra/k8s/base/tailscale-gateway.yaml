@@ -123,7 +123,7 @@ spec:
               command:
                 - /bin/sh
                 - -c
-                - tailscale --socket=/tmp/tailscaled.sock status --json | tr -d '[:space:]' | grep -q '"BackendState":"Running"' && tailscale --socket=/tmp/tailscaled.sock funnel status | grep -q 'Available on the internet'
+                - tailscale --socket=/tmp/tailscaled.sock status --json | tr -d '[:space:]' | grep -q '"BackendState":"Running"' && tailscale --socket=/tmp/tailscaled.sock funnel status | grep -q '(Funnel on)'
             initialDelaySeconds: 5
             periodSeconds: 10
             timeoutSeconds: 3
