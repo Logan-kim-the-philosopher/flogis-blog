@@ -4,3 +4,4 @@
 [2026-08-22T20:05:00+00:00] 호스트/샌드박스 PID 및 localhost 가시성 차이를 진단하고 중복 서버 PID를 정리했다.
 [2026-08-22T20:06:00+00:00] astro dev --background 완료: http://localhost:4321, pid 59087.
 [2026-08-22T20:06:10+00:00] HTTP 200, text/html, 기본 제목 및 빈 콘텐츠 UI 렌더링을 검증했다.
+[2026-08-22T20:02:30+00:00] agent=foreground task=task-20260822-195246-astro-c51ada7a Foreground task session completed.

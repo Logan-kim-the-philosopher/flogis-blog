@@ -1,10 +1,10 @@
 {
-  "status": "RUNNING",
-  "agent": "codex",
+  "status": "DONE",
+  "agent": "foreground",
   "mode": "foreground",
   "execution_surface": "foreground",
   "task_run_id": "task-run-20260822-195446-task-def-20260822-195246-astro-11e032df-8ad1ef76",
-  "generated_at": "2026-08-22T19:54:46+00:00",
+  "generated_at": "2026-08-22T20:02:30+00:00",
   "artifacts": [
     ".loom/tasks/task-20260822-195246-astro-c51ada7a/prompt.md",
     ".loom/tasks/task-20260822-195246-astro-c51ada7a/context.md",
@@ -15,10 +15,7 @@
     ".loom/tasks/task-20260822-195246-astro-c51ada7a/troubleshooting.md",
     ".loom/tasks/task-20260822-195246-astro-c51ada7a/logs.txt",
     ".loom/tasks/task-20260822-195246-astro-c51ada7a/agent-events.jsonl",
-    ".loom/tasks/task-20260822-195246-astro-c51ada7a/artifacts.json",
-    "package.json",
-    "package-lock.json",
-    ".astro/dev.log"
+    ".loom/tasks/task-20260822-195246-astro-c51ada7a/artifacts.json"
   ],
   "artifact_groups": {
     "user_outputs": [
@@ -37,11 +34,7 @@
       ".loom/tasks/task-20260822-195246-astro-c51ada7a/agent-events.jsonl",
       ".loom/tasks/task-20260822-195246-astro-c51ada7a/artifacts.json"
     ],
-    "work_products": [
-      "package.json",
-      "package-lock.json",
-      ".astro/dev.log"
-    ]
+    "work_products": []
   },
   "contract_snapshot": {
     "schema_version": 1,

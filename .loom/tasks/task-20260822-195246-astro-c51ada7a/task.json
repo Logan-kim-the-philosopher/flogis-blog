@@ -3,11 +3,11 @@
   "job_id": "job-20260822-195241-job-334f73cb",
   "title": "Astro 개발 서버 실행 및 응답 확인",
   "description": "npm 의존성을 설치하고 AGENTS.md 지침에 따라 Astro 개발 서버를 background 모드로 시작한 뒤 상태, 로그, HTTP 응답을 확인한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-08-22T19:52:46+00:00",
-  "updated_at": "2026-08-22T19:54:46+00:00",
+  "updated_at": "2026-08-22T20:02:30+00:00",
   "order_index": 1,
-  "assigned_agent": "codex",
+  "assigned_agent": "foreground",
   "depends_on": [],
   "expected_output": "의존성이 준비되고 background 개발 서버가 로컬 포트에서 실행되며 홈페이지 응답 상태가 확인된다.",
   "done_condition": "astro dev status가 실행 중임을 나타내고 로컬 홈페이지 요청이 성공하거나, 실패 원인과 로그가 명확히 기록된다.",
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "58a00b1d5552bf1e85a462e28be3529f9faac550"
+    "58a00b1d5552bf1e85a462e28be3529f9faac550",
+    "aaef8aee04d6fb04cd617ce2444fd551d08d73df"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-08-22T19:54:46+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-08-22T20:02:30+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260822-195246-astro-c51ada7a/agent-events.jsonl",
+    ".loom/tasks/task-20260822-195246-astro-c51ada7a/artifacts.json",
+    ".loom/tasks/task-20260822-195246-astro-c51ada7a/context.md",
+    ".loom/tasks/task-20260822-195246-astro-c51ada7a/decision.md",
+    ".loom/tasks/task-20260822-195246-astro-c51ada7a/git-snapshot.json",
+    ".loom/tasks/task-20260822-195246-astro-c51ada7a/logs.txt",
+    ".loom/tasks/task-20260822-195246-astro-c51ada7a/previous-results.md",
+    ".loom/tasks/task-20260822-195246-astro-c51ada7a/prompt.md",
+    ".loom/tasks/task-20260822-195246-astro-c51ada7a/result.md",
+    ".loom/tasks/task-20260822-195246-astro-c51ada7a/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }

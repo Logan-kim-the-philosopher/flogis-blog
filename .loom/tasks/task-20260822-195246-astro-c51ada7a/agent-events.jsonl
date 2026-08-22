@@ -1,1 +1,2 @@
 {"id": "event-8e2a03b32401", "type": "foreground_session_started", "message": "Foreground task session started.", "created_at": "2026-08-22T19:54:46+00:00", "agent": "codex", "task_id": "task-20260822-195246-astro-c51ada7a"}
+{"id": "event-d84c3c61f2bb", "type": "foreground_session_done", "message": "Foreground task session completed.", "created_at": "2026-08-22T20:02:30+00:00", "agent": "foreground", "task_id": "task-20260822-195246-astro-c51ada7a"}
