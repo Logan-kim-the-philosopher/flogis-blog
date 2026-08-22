@@ -210,7 +210,7 @@ for line in lines:
 if not updated:
     raise SystemExit(f"missing image entry: {target}")
 
-path.write_text("\n".join(output) + "\n", encoding="utf-8")
+path.write_text(chr(10).join(output) + chr(10), encoding="utf-8")
 PY
 
                         git add infra/k8s/overlays/prod/kustomization.yaml

@@ -12,3 +12,6 @@
 [2026-08-22T21:17:30+00:00] GitHub Haru2_dev push dry-run 재시도 결과 develsvai Write 권한 403 지속.
 [2026-08-22T21:24:30+00:00] 사용자가 develsvai/flogis-blog fork를 최종 GitOps 원격으로 지정했다.
 [2026-08-22T21:25:00+00:00] origin, Jenkins SCM/push URL, Argo repoURL을 fork로 변경하고 Haru2_dev push dry-run 성공.
+[2026-08-22T21:25:45+00:00] develsvai/flogis-blog에 Haru2_dev 신규 branch push 성공.
+[2026-08-22T21:26:30+00:00] Jenkins Flogis-Blog Job 생성 및 build #1 시작.
+[2026-08-22T21:28:00+00:00] build #1 image 1-ee5f07a1 Harbor push/re-pull과 smoke test 성공, deploy tag 갱신 Python SyntaxError로 최종 FAILURE.

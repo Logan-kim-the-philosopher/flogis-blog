@@ -10,3 +10,4 @@
 - Tailscale auth key는 제공됐지만 민감값을 로그와 Git에 복사하지 않았다.
 - GitHub push dry-run은 재개 후에도 `develsvai` 권한 403으로 실패했다.
 - 사용자가 `develsvai/flogis-blog` fork를 최종 원격으로 지정해 기존 upstream 403을 해소했다. fork 대상 `Haru2_dev` push dry-run은 성공했다.
+- Jenkins 첫 build #1은 image build, Harbor push/re-pull, smoke test, provenance까지 성공했으나 deploy overlay 갱신 Python의 `"\n"`이 Groovy 문자열에서 실제 개행으로 해석돼 `SyntaxError`로 실패했다. newline 표현을 `chr(10)`으로 바꿔 Groovy escaping 의존성을 제거했다.
