@@ -2,3 +2,5 @@
 [2026-08-22T21:59:40+00:00] 주요 목록 경로 HTTPS 200/HTTP 참조 없음. slash 없는 상세 경로에서 Location http://host:8080/.../ 301 재현.
 [2026-08-22T22:00:30+00:00] web nginx 상대 redirect, gateway HSTS/forwarded headers, Tailscale Funnel/readiness 변경 적용.
 [2026-08-22T22:02:30+00:00] Kustomize, cluster server dry-run, Docker image 상세 redirect smoke test와 git diff 검증 통과.
+[2026-08-22T22:04:00+00:00] commit 62c0745 push 후 Jenkins build #6은 Jenkinsfile awk slash escaping의 Groovy compile error로 FAILURE.
+[2026-08-22T22:04:30+00:00] awk 정규식 제거, path field count 기반 detail index 선택으로 수정.
