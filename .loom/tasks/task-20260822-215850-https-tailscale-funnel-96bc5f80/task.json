@@ -3,9 +3,9 @@
   "job_id": "job-20260822-204731-flogis-blog-gitops-059026e6",
   "title": "HTTPS 경로 교정 및 Tailscale Funnel 공개 배포",
   "description": "홈 이외 경로가 HTTP로 동작하는 원인을 실제 응답·리다이렉트·생성 링크에서 진단하고 HTTPS를 강제한 뒤, 기존 Tailscale gateway를 Funnel 기반 공개 HTTPS endpoint로 전환해 GitOps로 배포한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-08-22T21:58:50+00:00",
-  "updated_at": "2026-08-22T21:58:53+00:00",
+  "updated_at": "2026-08-22T22:20:07+00:00",
   "order_index": 4,
   "assigned_agent": "codex",
   "depends_on": [
@@ -23,12 +23,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "e05d505cff5c468c5e4230e1e45cd962ed8862ce"
+    "e05d505cff5c468c5e4230e1e45cd962ed8862ce",
+    "7b6081a55ca80f4f4cb150d628becc9caba5f9e1"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-08-22T21:58:53+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-08-22T22:20:07+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/agent-events.jsonl",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/artifacts.json",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/context.md",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/decision.md",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/git-snapshot.json",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/logs.txt",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/previous-results.md",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/prompt.md",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/result.md",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }

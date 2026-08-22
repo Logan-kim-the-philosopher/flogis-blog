@@ -2,9 +2,9 @@
   "id": "task-run-20260822-215853-task-def-20260822-215850-https-tailscale-funnel--c2a59614",
   "job_run_id": "job-run-20260822-215853-job-20260822-204731-flogis-blog-gitops-059026e6-649d03ab",
   "task_definition_id": "task-def-20260822-215850-https-tailscale-funnel-5a2615ce",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-08-22T21:58:53+00:00",
-  "updated_at": "2026-08-22T21:58:53+00:00",
+  "updated_at": "2026-08-22T22:20:07+00:00",
   "legacy_task_id": "task-20260822-215850-https-tailscale-funnel-96bc5f80",
   "attempt": 1,
   "assigned_agent": "codex",
@@ -13,13 +13,29 @@
   "lease_expires_at": "",
   "queued_at": "",
   "started_at": "2026-08-22T21:58:53+00:00",
-  "completed_at": "",
+  "completed_at": "2026-08-22T22:20:07+00:00",
   "last_error": "",
-  "commit_refs": [],
-  "branch_name": "",
-  "git_dirty": false,
-  "git_snapshot_captured_at": "",
-  "artifacts": [],
-  "checkpoint_ids": [],
+  "commit_refs": [
+    "7b6081a55ca80f4f4cb150d628becc9caba5f9e1",
+    "e05d505cff5c468c5e4230e1e45cd962ed8862ce"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-08-22T22:20:07+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/agent-events.jsonl",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/artifacts.json",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/context.md",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/decision.md",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/git-snapshot.json",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/logs.txt",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/previous-results.md",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/prompt.md",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/result.md",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/troubleshooting.md"
+  ],
+  "checkpoint_ids": [
+    "checkpoint-20260822-222007-task-completed-https-tailscale-funnel-e0a34d84"
+  ],
   "review_required_reason": ""
 }

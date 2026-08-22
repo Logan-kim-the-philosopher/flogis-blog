@@ -11,3 +11,4 @@
 [2026-08-22T22:16:00+00:00] Jenkins build #8 SUCCESS, image 8-114aa688와 deploy commit b6d20315 생성.
 [2026-08-22T22:17:00+00:00] Argo revision b6d20315 Synced/Healthy, web 2/2, gateway 1/1 Ready, restart 0, Funnel on 확인.
 [2026-08-22T22:18:00+00:00] Google/Cloudflare public DNS relay 확인 후 공인 IP 강제 비-tailnet HTTPS 검증: /, /healthz, /study/, 상세 경로 모두 200. 상세 301은 상대 Location과 HSTS 유지.
+[2026-08-22T22:20:07+00:00] agent=codex task=task-20260822-215850-https-tailscale-funnel-96bc5f80 Jenkins #8 성공, deploy b6d20315, Argo Synced/Healthy, Pod Ready 및 비-tailnet Funnel HTTPS 200과 상대 redirect/HSTS 검증 완료

@@ -1,10 +1,10 @@
 {
-  "status": "RUNNING",
+  "status": "DONE",
   "agent": "codex",
   "mode": "foreground",
   "execution_surface": "foreground",
   "task_run_id": "task-run-20260822-215853-task-def-20260822-215850-https-tailscale-funnel--c2a59614",
-  "generated_at": "2026-08-22T21:58:53+00:00",
+  "generated_at": "2026-08-22T22:20:07+00:00",
   "artifacts": [
     ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/prompt.md",
     ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/context.md",

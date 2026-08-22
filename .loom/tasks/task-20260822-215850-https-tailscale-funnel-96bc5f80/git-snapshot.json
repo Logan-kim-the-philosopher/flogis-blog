@@ -18,5 +18,18 @@
     ],
     "captured_at": "2026-08-22T21:58:53+00:00"
   },
-  "after": null
+  "after": {
+    "available": true,
+    "branch_name": "Haru2_dev",
+    "commit_sha": "7b6081a55ca80f4f4cb150d628becc9caba5f9e1",
+    "dirty": true,
+    "staged_files": [],
+    "modified_files": [
+      ".loom/job-runs/job-run-20260822-215853-job-20260822-204731-flogis-blog-gitops-059026e6-649d03ab/job-run.json",
+      ".loom/task-definitions/task-def-20260822-215850-https-tailscale-funnel-5a2615ce/task-definition.json",
+      "AGENTS.md"
+    ],
+    "untracked_files": [],
+    "captured_at": "2026-08-22T22:20:07+00:00"
+  }
 }
