@@ -6,3 +6,4 @@
 [2026-08-22T20:11:20+00:00] localhost HTTP 200, 실제 Sanity tagline, HTML 토큰 미노출을 검증했다.
 [2026-08-22T20:11:40+00:00] npm run build 성공: 정적 페이지 8개와 sitemap 생성.
 [2026-08-22T20:12:00+00:00] Git 추적 파일과 생성 산출물의 토큰 미포함을 확인했다.
+[2026-08-22T20:12:32+00:00] agent=foreground task=task-20260822-200940-sanity-a93cb896 Foreground task session completed.

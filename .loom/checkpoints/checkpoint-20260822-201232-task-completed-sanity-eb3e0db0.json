@@ -1,0 +1,20 @@
+{
+  "id": "checkpoint-20260822-201232-task-completed-sanity-eb3e0db0",
+  "created_at": "2026-08-22T20:12:32+00:00",
+  "reason": "Task completed: Sanity 인증 연결 및 로컬 동작 검증",
+  "summary": "Sanity 인증 연결 및 로컬 동작 검증 -> DONE @ Haru2_dev/557e95d0b121",
+  "job_id": "job-20260822-195241-job-334f73cb",
+  "task_id": "task-20260822-200940-sanity-a93cb896",
+  "commit_sha": "557e95d0b121d514faa97b7b528896aa6c5c13fa",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260822-200943-job-20260822-195241-job-334f73cb-4829e28a/job-run.json",
+    ".loom/task-definitions/task-def-20260822-200940-sanity-6af8ef8d/task-definition.json",
+    "AGENTS.md"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-08-22T20:12:32+00:00",
+  "rollback_strategy": "revert-or-branch"
+}

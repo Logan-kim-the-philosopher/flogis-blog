@@ -1,10 +1,10 @@
 {
-  "status": "RUNNING",
-  "agent": "codex",
+  "status": "DONE",
+  "agent": "foreground",
   "mode": "foreground",
   "execution_surface": "foreground",
   "task_run_id": "task-run-20260822-200943-task-def-20260822-200940-sanity-6af8ef8d-0549eab6",
-  "generated_at": "2026-08-22T20:09:43+00:00",
+  "generated_at": "2026-08-22T20:12:32+00:00",
   "artifacts": [
     ".loom/tasks/task-20260822-200940-sanity-a93cb896/prompt.md",
     ".loom/tasks/task-20260822-200940-sanity-a93cb896/context.md",
@@ -15,9 +15,7 @@
     ".loom/tasks/task-20260822-200940-sanity-a93cb896/troubleshooting.md",
     ".loom/tasks/task-20260822-200940-sanity-a93cb896/logs.txt",
     ".loom/tasks/task-20260822-200940-sanity-a93cb896/agent-events.jsonl",
-    ".loom/tasks/task-20260822-200940-sanity-a93cb896/artifacts.json",
-    ".env.example",
-    "src/lib/cms/client.ts"
+    ".loom/tasks/task-20260822-200940-sanity-a93cb896/artifacts.json"
   ],
   "artifact_groups": {
     "user_outputs": [
@@ -36,10 +34,7 @@
       ".loom/tasks/task-20260822-200940-sanity-a93cb896/agent-events.jsonl",
       ".loom/tasks/task-20260822-200940-sanity-a93cb896/artifacts.json"
     ],
-    "work_products": [
-      ".env.example",
-      "src/lib/cms/client.ts"
-    ]
+    "work_products": []
   },
   "contract_snapshot": {
     "schema_version": 1,
