@@ -1,0 +1,17 @@
+{
+  "before": {
+    "available": true,
+    "branch_name": "Haru2_dev",
+    "commit_sha": "58a00b1d5552bf1e85a462e28be3529f9faac550",
+    "dirty": true,
+    "staged_files": [],
+    "modified_files": [
+      "AGENTS.md"
+    ],
+    "untracked_files": [
+      ".loom/"
+    ],
+    "captured_at": "2026-08-22T19:54:46+00:00"
+  },
+  "after": null
+}
