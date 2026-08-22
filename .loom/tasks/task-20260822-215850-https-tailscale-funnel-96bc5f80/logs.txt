@@ -1,0 +1,4 @@
+[2026-08-22T21:58:53+00:00] agent=codex task=task-20260822-215850-https-tailscale-funnel-96bc5f80 Foreground task session started.
+[2026-08-22T21:59:40+00:00] 주요 목록 경로 HTTPS 200/HTTP 참조 없음. slash 없는 상세 경로에서 Location http://host:8080/.../ 301 재현.
+[2026-08-22T22:00:30+00:00] web nginx 상대 redirect, gateway HSTS/forwarded headers, Tailscale Funnel/readiness 변경 적용.
+[2026-08-22T22:02:30+00:00] Kustomize, cluster server dry-run, Docker image 상세 redirect smoke test와 git diff 검증 통과.

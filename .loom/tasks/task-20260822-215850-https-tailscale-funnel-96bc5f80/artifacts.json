@@ -1,0 +1,63 @@
+{
+  "status": "RUNNING",
+  "agent": "codex",
+  "mode": "foreground",
+  "execution_surface": "foreground",
+  "task_run_id": "task-run-20260822-215853-task-def-20260822-215850-https-tailscale-funnel--c2a59614",
+  "generated_at": "2026-08-22T21:58:53+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/prompt.md",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/context.md",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/previous-results.md",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/git-snapshot.json",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/result.md",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/decision.md",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/troubleshooting.md",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/logs.txt",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/agent-events.jsonl",
+    ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/artifacts.json"
+  ],
+  "artifact_groups": {
+    "user_outputs": [
+      ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/result.md",
+      ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/decision.md",
+      ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/troubleshooting.md"
+    ],
+    "execution_inputs": [
+      ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/prompt.md",
+      ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/context.md",
+      ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/previous-results.md"
+    ],
+    "execution_audit": [
+      ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/git-snapshot.json",
+      ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/logs.txt",
+      ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/agent-events.jsonl",
+      ".loom/tasks/task-20260822-215850-https-tailscale-funnel-96bc5f80/artifacts.json"
+    ],
+    "work_products": []
+  },
+  "contract_snapshot": {
+    "schema_version": 1,
+    "contract_ids": [
+      "task-execution",
+      "done-guardrail"
+    ],
+    "contracts": [
+      {
+        "id": "task-execution",
+        "title": "Task Execution Context Contract",
+        "source_paths": [
+          "loom/application/context_pack.py",
+          "loom/application/team_policy.py"
+        ]
+      },
+      {
+        "id": "done-guardrail",
+        "title": "Task Completion Guardrail Contract",
+        "source_paths": [
+          "loom/application/services.py"
+        ]
+      }
+    ]
+  }
+}

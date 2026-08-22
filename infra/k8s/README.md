@@ -11,7 +11,7 @@ Haru2_dev
   -> flogis-blog.tail2dac17.ts.net
 ```
 
-접근 경로는 FlowOps와 같은 tailnet 전용 `tailscale serve`입니다. 공개 `tailscale funnel`은 명시적 승인 없이는 활성화하지 않습니다.
+접근 경로는 Tailscale Funnel 기반 공개 HTTPS입니다. Funnel이 TLS를 종료하고 gateway nginx를 거쳐 web Service로 전달합니다.
 
 ## GitOps 리소스
 
@@ -40,6 +40,17 @@ Tailscale key는 Flogis Blog 전용 reusable/pre-authorized key를 사용합니�
 runtime ConfigMap은 gateway hostname과 `tag:flogis-blog`를 주입합니다. Tailscale ACL의 `tagOwners`와 접근 규칙을 먼저 등록해야 합니다.
 권한 없는 tag를 설정하면 gateway가 로그인되지 않으며 readiness가 이를 실패로 표시합니다. 임시 untagged fallback이 필요하면 `TS_ADVERTISE_TAGS=`로 비우며, startup의 `--reset`이 저장된 이전 prefs와 선언값을 일치시킵니다.
 
+Funnel을 사용하려면 tailnet policy의 `nodeAttrs`에서 `tag:flogis-blog`에 `funnel` attribute를 허용해야 합니다.
+
+```json
+"nodeAttrs": [
+  {
+    "target": ["tag:flogis-blog"],
+    "attr": ["funnel"]
+  }
+]
+```
+
 ## 렌더링과 검증
 
 ```bash
@@ -66,7 +77,7 @@ kubectl -n flogis-blog rollout status deployment/flogis-blog-gateway
 kubectl -n flogis-blog get pods,svc,resourcequota,limitrange
 ```
 
-배포 후 tailnet에 로그인된 장치에서 `https://flogis-blog.tail2dac17.ts.net/`와 `/healthz`를 확인합니다.
+배포 후 tailnet에 로그인하지 않은 외부 네트워크에서 `https://flogis-blog.tail2dac17.ts.net/`와 `/healthz`를 확인합니다. HTTP upstream redirect는 상대 경로로 반환하며 공개 응답에는 HSTS가 포함됩니다.
 
 ## 롤백
 

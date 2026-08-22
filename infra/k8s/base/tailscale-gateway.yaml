@@ -113,9 +113,9 @@ spec:
               fi
               "$@"
 
-              tailscale --socket=/tmp/tailscaled.sock serve \
+              tailscale --socket=/tmp/tailscaled.sock funnel \
                 --bg --yes --https=443 http://127.0.0.1:8080
-              tailscale --socket=/tmp/tailscaled.sock serve status
+              tailscale --socket=/tmp/tailscaled.sock funnel status
 
               wait
           readinessProbe:
@@ -123,7 +123,7 @@ spec:
               command:
                 - /bin/sh
                 - -c
-                - tailscale --socket=/tmp/tailscaled.sock status --json | tr -d '[:space:]' | grep -q '"BackendState":"Running"'
+                - tailscale --socket=/tmp/tailscaled.sock status --json | tr -d '[:space:]' | grep -q '"BackendState":"Running"' && tailscale --socket=/tmp/tailscaled.sock funnel status | grep -q 'Available on the internet'
             initialDelaySeconds: 5
             periodSeconds: 10
             timeoutSeconds: 3

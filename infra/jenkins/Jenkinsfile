@@ -140,6 +140,16 @@ pipeline {
 
                     docker exec "$container" wget -q -O /dev/null http://127.0.0.1:8080/
                     docker exec "$container" wget -q -O /dev/null http://127.0.0.1:8080/study/
+
+                    detail_index="$(docker exec "$container" find /usr/share/nginx/html/study -name index.html | awk '$0 !~ /\/study\/index\.html$/ { print; exit }')"
+                    test -n "$detail_index"
+                    detail_slug="$(basename "$(dirname "$detail_index")")"
+                    redirect_headers="$(docker exec "$container" wget -S --spider "http://127.0.0.1:8080/study/$detail_slug" 2>&1)"
+                    if printf '%s\n' "$redirect_headers" | grep -F 'Location: http://'; then
+                      echo 'Detail route emitted an insecure absolute redirect.' >&2
+                      exit 1
+                    fi
+                    printf '%s\n' "$redirect_headers" | grep -F "Location: /study/$detail_slug/"
                 '''
             }
         }
