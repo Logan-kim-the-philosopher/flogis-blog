@@ -1,10 +1,10 @@
 {
-  "status": "RUNNING",
+  "status": "DONE",
   "agent": "codex",
   "mode": "foreground",
   "execution_surface": "foreground",
   "task_run_id": "task-run-20260822-205708-task-def-20260822-204743-flogis-blog-gitops-8a8c-2a8727d8",
-  "generated_at": "2026-08-22T20:57:08+00:00",
+  "generated_at": "2026-08-22T21:07:56+00:00",
   "artifacts": [
     ".loom/tasks/task-20260822-204743-flogis-blog-gitops-461b1b6b/prompt.md",
     ".loom/tasks/task-20260822-204743-flogis-blog-gitops-461b1b6b/context.md",
@@ -15,21 +15,7 @@
     ".loom/tasks/task-20260822-204743-flogis-blog-gitops-461b1b6b/troubleshooting.md",
     ".loom/tasks/task-20260822-204743-flogis-blog-gitops-461b1b6b/logs.txt",
     ".loom/tasks/task-20260822-204743-flogis-blog-gitops-461b1b6b/agent-events.jsonl",
-    ".loom/tasks/task-20260822-204743-flogis-blog-gitops-461b1b6b/artifacts.json",
-    ".dockerignore",
-    "infra/docker/Dockerfile",
-    "infra/docker/nginx.conf",
-    "infra/jenkins/Jenkinsfile",
-    "infra/jenkins/job-config.xml",
-    "infra/jenkins/README.md",
-    "infra/k8s/base/kustomization.yaml",
-    "infra/k8s/base/web.yaml",
-    "infra/k8s/base/tailscale-gateway.yaml",
-    "infra/k8s/overlays/prod/kustomization.yaml",
-    "infra/k8s/argocd/application.yaml",
-    "infra/k8s/README.md",
-    "infra/scripts/validate-deployment.sh",
-    "docs/deployment.md"
+    ".loom/tasks/task-20260822-204743-flogis-blog-gitops-461b1b6b/artifacts.json"
   ],
   "artifact_groups": {
     "user_outputs": [
@@ -48,22 +34,7 @@
       ".loom/tasks/task-20260822-204743-flogis-blog-gitops-461b1b6b/agent-events.jsonl",
       ".loom/tasks/task-20260822-204743-flogis-blog-gitops-461b1b6b/artifacts.json"
     ],
-    "work_products": [
-      ".dockerignore",
-      "infra/docker/Dockerfile",
-      "infra/docker/nginx.conf",
-      "infra/jenkins/Jenkinsfile",
-      "infra/jenkins/job-config.xml",
-      "infra/jenkins/README.md",
-      "infra/k8s/base/kustomization.yaml",
-      "infra/k8s/base/web.yaml",
-      "infra/k8s/base/tailscale-gateway.yaml",
-      "infra/k8s/overlays/prod/kustomization.yaml",
-      "infra/k8s/argocd/application.yaml",
-      "infra/k8s/README.md",
-      "infra/scripts/validate-deployment.sh",
-      "docs/deployment.md"
-    ]
+    "work_products": []
   },
   "contract_snapshot": {
     "schema_version": 1,

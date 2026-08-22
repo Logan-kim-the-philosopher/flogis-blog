@@ -1,0 +1,20 @@
+{
+  "id": "checkpoint-20260822-210756-task-completed-flogis-blog-gitops-ce44e21b",
+  "created_at": "2026-08-22T21:07:56+00:00",
+  "reason": "Task completed: Flogis Blog GitOps 배포 구성 구현",
+  "summary": "Flogis Blog GitOps 배포 구성 구현 -> DONE @ Haru2_dev/4f2975b9c278",
+  "job_id": "job-20260822-204731-flogis-blog-gitops-059026e6",
+  "task_id": "task-20260822-204743-flogis-blog-gitops-461b1b6b",
+  "commit_sha": "4f2975b9c278d6e8ac87442a052b61f98bb2e0b3",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260822-204755-job-20260822-204731-flogis-blog-gitops-059026e6-32dd3e33/job-run.json",
+    ".loom/task-definitions/task-def-20260822-204743-flogis-blog-gitops-8a8cf399/task-definition.json",
+    "AGENTS.md"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-08-22T21:07:56+00:00",
+  "rollback_strategy": "revert-or-branch"
+}

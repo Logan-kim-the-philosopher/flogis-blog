@@ -2,9 +2,9 @@
   "id": "task-run-20260822-205708-task-def-20260822-204743-flogis-blog-gitops-8a8c-2a8727d8",
   "job_run_id": "job-run-20260822-204755-job-20260822-204731-flogis-blog-gitops-059026e6-32dd3e33",
   "task_definition_id": "task-def-20260822-204743-flogis-blog-gitops-8a8cf399",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-08-22T20:57:08+00:00",
-  "updated_at": "2026-08-22T20:57:08+00:00",
+  "updated_at": "2026-08-22T21:07:56+00:00",
   "legacy_task_id": "task-20260822-204743-flogis-blog-gitops-461b1b6b",
   "attempt": 1,
   "assigned_agent": "codex",
@@ -13,13 +13,29 @@
   "lease_expires_at": "",
   "queued_at": "",
   "started_at": "2026-08-22T20:57:08+00:00",
-  "completed_at": "",
+  "completed_at": "2026-08-22T21:07:56+00:00",
   "last_error": "",
-  "commit_refs": [],
-  "branch_name": "",
-  "git_dirty": false,
-  "git_snapshot_captured_at": "",
-  "artifacts": [],
-  "checkpoint_ids": [],
+  "commit_refs": [
+    "4f2975b9c278d6e8ac87442a052b61f98bb2e0b3",
+    "9b2032f9cbb38d40f1ff40f740ea23d492c0afcc"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-08-22T21:07:56+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260822-204743-flogis-blog-gitops-461b1b6b/agent-events.jsonl",
+    ".loom/tasks/task-20260822-204743-flogis-blog-gitops-461b1b6b/artifacts.json",
+    ".loom/tasks/task-20260822-204743-flogis-blog-gitops-461b1b6b/context.md",
+    ".loom/tasks/task-20260822-204743-flogis-blog-gitops-461b1b6b/decision.md",
+    ".loom/tasks/task-20260822-204743-flogis-blog-gitops-461b1b6b/git-snapshot.json",
+    ".loom/tasks/task-20260822-204743-flogis-blog-gitops-461b1b6b/logs.txt",
+    ".loom/tasks/task-20260822-204743-flogis-blog-gitops-461b1b6b/previous-results.md",
+    ".loom/tasks/task-20260822-204743-flogis-blog-gitops-461b1b6b/prompt.md",
+    ".loom/tasks/task-20260822-204743-flogis-blog-gitops-461b1b6b/result.md",
+    ".loom/tasks/task-20260822-204743-flogis-blog-gitops-461b1b6b/troubleshooting.md"
+  ],
+  "checkpoint_ids": [
+    "checkpoint-20260822-210756-task-completed-flogis-blog-gitops-ce44e21b"
+  ],
   "review_required_reason": ""
 }

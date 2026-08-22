@@ -8,3 +8,4 @@
 [2026-08-22T21:05:45+00:00] Tailscale v1.98.4 이미지의 Serve CLI 옵션을 확인했다.
 [2026-08-22T21:06:00+00:00] deploy branch image-tag 갱신 로직과 repository secret scan을 검증했다.
 [2026-08-22T21:06:18+00:00] validation summary: build, container smoke, Kustomize client/server dry-run, XML, tag update, secret exclusion 모두 통과.
+[2026-08-22T21:07:56+00:00] agent=codex task=task-20260822-204743-flogis-blog-gitops-461b1b6b Haru2_dev 기반 Docker·Jenkins·Kustomize·Argo CD·Tailscale Serve GitOps 구성을 구현하고 build, container, client/server dry-run 및 secret 제외 검증을 완료했다.

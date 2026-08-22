@@ -4,7 +4,7 @@
   "title": "Flogis Blog GitOps 배포 구성 구현",
   "description": "조사 결과를 기준으로 portfolio·flowops의 표준을 계승한 컨테이너 빌드, Kubernetes 매니페스트, Jenkins Haru2_dev 트리거, Argo CD Application 및 Tailscale 노출 구성을 저장소에 구현한다.",
   "created_at": "2026-08-22T20:47:43+00:00",
-  "updated_at": "2026-08-22T20:57:08+00:00",
+  "updated_at": "2026-08-22T21:07:56+00:00",
   "order_index": 2,
   "legacy_task_id": "task-20260822-204743-flogis-blog-gitops-461b1b6b",
   "depends_on": [
@@ -19,7 +19,7 @@
   "memory_refs": [],
   "document_outputs": [],
   "document_output_exceptions": [],
-  "default_agent": "",
+  "default_agent": "codex",
   "context_policy_id": "",
   "executor_policy_id": "",
   "review_policy": "",
