@@ -3,9 +3,9 @@
   "job_id": "job-20260822-204731-flogis-blog-gitops-059026e6",
   "title": "Haru2_dev GitOps 배포 및 Tailscale 경로 검증",
   "description": "구현된 구성을 Haru2_dev 기준으로 빌드·배포 흐름에 반영하고 Jenkins 실행, Argo CD 동기화, Kubernetes 롤아웃 및 Tailscale 게이트웨이 경로를 끝까지 검증한다.",
-  "status": "REVIEW_REQUIRED",
+  "status": "RUNNING",
   "created_at": "2026-08-22T20:47:49+00:00",
-  "updated_at": "2026-08-22T21:11:09+00:00",
+  "updated_at": "2026-08-22T21:15:32+00:00",
   "order_index": 3,
   "assigned_agent": "codex",
   "depends_on": [
@@ -24,11 +24,12 @@
   "last_error": "",
   "commit_refs": [
     "f79a2f0237b275904a1c63e010490b515a0d1082",
-    "2debc9a2aa8ee9eb1d49b77a91af5ce28f4251dc"
+    "2debc9a2aa8ee9eb1d49b77a91af5ce28f4251dc",
+    "133d5cd1aa47d12e206151c935c476f9b21f4757"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-08-22T21:11:09+00:00",
+  "git_snapshot_captured_at": "2026-08-22T21:15:32+00:00",
   "artifacts": [
     ".loom/tasks/task-20260822-204749-haru2-dev-gitops-tailscale-5a08bb1d/agent-events.jsonl",
     ".loom/tasks/task-20260822-204749-haru2-dev-gitops-tailscale-5a08bb1d/artifacts.json",

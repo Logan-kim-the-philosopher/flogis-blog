@@ -6,3 +6,6 @@
 - Jenkins Pod의 credential ID와 username만 조회했고 password/token 값은 출력하지 않았다. GitHub 관련 credential은 모두 `develsvai`로 확인됐다.
 - 기존 Tailscale peer tag는 FlowOps `tag:flowops`, Portfolio `tag:portfolio`, Jenkins `tag:jenkins`, Argo `tag:argocd`, Harbor `tag:harbor`다. 신규 서비스는 별도 `tag:flogis-blog`가 필요하다.
 - 인증 문제를 우회하는 fork, 기존 Secret 재사용, 직접 Kubernetes apply는 수행하지 않았다.
+- 재개 후 Harbor 프로젝트명이 `flogy_blog`임을 사용자에게 확인받아 pipeline, Kustomize image, 문서와 검증 스크립트를 일관되게 수정했다.
+- Tailscale auth key는 제공됐지만 민감값을 로그와 Git에 복사하지 않았다.
+- GitHub push dry-run은 재개 후에도 `develsvai` 권한 403으로 실패했다.

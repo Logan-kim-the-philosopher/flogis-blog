@@ -5,7 +5,7 @@ Flogis Blog는 `flogis-blog` namespace에서 정적 웹 Pod 2개와 Tailscale ga
 ```text
 Haru2_dev
   -> Jenkins docker-build
-  -> Harbor flogis-blog/site:<build>-<sha>
+  -> Harbor flogy_blog/site:<build>-<sha>
   -> deploy 브랜치의 prod overlay 갱신
   -> Argo CD 수동 Sync
   -> flogis-blog.tail2dac17.ts.net

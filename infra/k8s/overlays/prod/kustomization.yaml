@@ -7,7 +7,7 @@ resources:
   - ../../base
 
 images:
-  - name: harbor.192.168.0.110.nip.io/flogis-blog/site
+  - name: harbor.192.168.0.110.nip.io/flogy_blog/site
     newTag: replace-with-jenkins-build
 
 replicas:

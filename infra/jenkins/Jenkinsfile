@@ -5,12 +5,12 @@ pipeline {
 
     environment {
         HARBOR_REGISTRY = 'harbor.192.168.0.110.nip.io'
-        HARBOR_PROJECT = 'flogis-blog'
+        HARBOR_PROJECT = 'flogy_blog'
         HARBOR_CRED = 'harbor-credentials'
         IMAGE_NAME = 'site'
 
         REPOSITORY_URL = 'https://github.com/Logan-kim-the-philosopher/flogis-blog.git'
-        GIT_CRED = 'flogis-blog-github-credentials'
+        GIT_CRED = 'github-credentials'
         SOURCE_BRANCH = 'Haru2_dev'
         DEPLOY_BRANCH = 'deploy'
 
@@ -68,7 +68,7 @@ pipeline {
                           --write-out '%{http_code}' \
                           --user "$HARBOR_USER:$HARBOR_PASSWORD" \
                           --header 'Content-Type: application/json' \
-                          --data '{"project_name":"flogis-blog","public":false}' \
+                          --data '{"project_name":"flogy_blog","public":false}' \
                           "https://$HARBOR_REGISTRY/api/v2.0/projects")
                         case "$response_code" in
                           201|409) ;;
@@ -189,7 +189,7 @@ from pathlib import Path
 
 path = Path(os.environ["KUSTOMIZE_FILE"])
 tag = os.environ["IMAGE_TAG_VALUE"]
-target = "harbor.192.168.0.110.nip.io/flogis-blog/site"
+target = "harbor.192.168.0.110.nip.io/flogy_blog/site"
 
 lines = path.read_text(encoding="utf-8").splitlines()
 current_image = None

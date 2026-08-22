@@ -28,7 +28,7 @@ spec:
         - name: harbor-pull-secret
       containers:
         - name: web
-          image: harbor.192.168.0.110.nip.io/flogis-blog/site:bootstrap
+          image: harbor.192.168.0.110.nip.io/flogy_blog/site:bootstrap
           imagePullPolicy: IfNotPresent
           ports:
             - name: http

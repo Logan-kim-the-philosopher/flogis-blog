@@ -5,3 +5,8 @@
 [2026-08-22T21:10:00+00:00] 기존 Tailscale 서비스별 tag 구조를 확인하고 신규 tag:flogis-blog auth key 요구사항을 확정했다.
 [2026-08-22T21:10:30+00:00] partial deployment를 방지하기 위해 클러스터 변경 없이 안전 중단했다.
 [2026-08-22T21:11:09+00:00] agent=codex task=task-20260822-204749-haru2-dev-gitops-tailscale-5a08bb1d GitHub 저장소에 현재 develsvai 계정의 Write 권한이 없어 Haru2_dev push가 HTTP 403으로 실패했고, 신규 tag:flogis-blog Tailscale auth key도 없어 Jenkins·Argo·Kubernetes 배포를 안전하게 시작할 수 없다.
+[2026-08-22T21:15:32+00:00] agent=codex task=task-20260822-204749-haru2-dev-gitops-tailscale-5a08bb1d Foreground task session started.
+[2026-08-22T21:16:00+00:00] 사용자가 Tailscale auth key를 제공했으며 값은 로그·Git에 기록하지 않고 Secret 주입 대상으로만 취급했다.
+[2026-08-22T21:16:30+00:00] Harbor 프로젝트명을 flogy_blog로 교정하고 Jenkins 기존 github-credentials 참조로 통일했다.
+[2026-08-22T21:17:00+00:00] Kustomize client dry-run, Jenkins XML, 이미지 경로 일관성 및 git diff 검증 통과.
+[2026-08-22T21:17:30+00:00] GitHub Haru2_dev push dry-run 재시도 결과 develsvai Write 권한 403 지속.

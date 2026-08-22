@@ -14,7 +14,7 @@ xmllint --noout infra/jenkins/job-config.xml
 
 rg -q 'name: flogis-blog-web' "$rendered"
 rg -q 'name: flogis-blog-gateway' "$rendered"
-rg -q 'harbor\.192\.168\.0\.110\.nip\.io/flogis-blog/site:replace-with-jenkins-build' "$rendered"
+rg -q 'harbor\.192\.168\.0\.110\.nip\.io/flogy_blog/site:replace-with-jenkins-build' "$rendered"
 rg -q 'name: flogis-blog-tailscale-auth' infra/k8s/base/tailscale-auth.secret.example.yaml
 
 if rg -q 'tailscale-auth\.secret\.example\.yaml' infra/k8s/base/kustomization.yaml; then
