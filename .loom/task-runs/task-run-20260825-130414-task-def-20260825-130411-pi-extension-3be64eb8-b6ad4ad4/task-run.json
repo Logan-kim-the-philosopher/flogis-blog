@@ -2,9 +2,9 @@
   "id": "task-run-20260825-130414-task-def-20260825-130411-pi-extension-3be64eb8-b6ad4ad4",
   "job_run_id": "job-run-20260825-130414-job-20260825-123703-job-6c824053-d7d656c9",
   "task_definition_id": "task-def-20260825-130411-pi-extension-3be64eb8",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-08-25T13:04:14+00:00",
-  "updated_at": "2026-08-25T13:04:14+00:00",
+  "updated_at": "2026-08-25T13:14:15+00:00",
   "legacy_task_id": "task-20260825-130411-pi-extension-9269121f",
   "attempt": 1,
   "assigned_agent": "foreground",
@@ -13,13 +13,29 @@
   "lease_expires_at": "",
   "queued_at": "",
   "started_at": "2026-08-25T13:04:14+00:00",
-  "completed_at": "",
+  "completed_at": "2026-08-25T13:14:15+00:00",
   "last_error": "",
-  "commit_refs": [],
-  "branch_name": "",
-  "git_dirty": false,
-  "git_snapshot_captured_at": "",
-  "artifacts": [],
-  "checkpoint_ids": [],
+  "commit_refs": [
+    "499279241bcc890740910946ed9f4534054e4a38",
+    "df1dff787b1232a20f9d524a680fe5ac4c9beabb"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-08-25T13:14:15+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260825-130411-pi-extension-9269121f/agent-events.jsonl",
+    ".loom/tasks/task-20260825-130411-pi-extension-9269121f/artifacts.json",
+    ".loom/tasks/task-20260825-130411-pi-extension-9269121f/context.md",
+    ".loom/tasks/task-20260825-130411-pi-extension-9269121f/decision.md",
+    ".loom/tasks/task-20260825-130411-pi-extension-9269121f/git-snapshot.json",
+    ".loom/tasks/task-20260825-130411-pi-extension-9269121f/logs.txt",
+    ".loom/tasks/task-20260825-130411-pi-extension-9269121f/previous-results.md",
+    ".loom/tasks/task-20260825-130411-pi-extension-9269121f/prompt.md",
+    ".loom/tasks/task-20260825-130411-pi-extension-9269121f/result.md",
+    ".loom/tasks/task-20260825-130411-pi-extension-9269121f/troubleshooting.md"
+  ],
+  "checkpoint_ids": [
+    "checkpoint-20260825-131415-task-completed-pi-extension-46aed7a7"
+  ],
   "review_required_reason": ""
 }

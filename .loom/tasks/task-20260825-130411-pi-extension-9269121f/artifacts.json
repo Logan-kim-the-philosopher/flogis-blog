@@ -1,10 +1,10 @@
 {
-  "status": "RUNNING",
+  "status": "DONE",
   "agent": "foreground",
   "mode": "foreground",
   "execution_surface": "foreground",
   "task_run_id": "task-run-20260825-130414-task-def-20260825-130411-pi-extension-3be64eb8-b6ad4ad4",
-  "generated_at": "2026-08-25T13:04:15+00:00",
+  "generated_at": "2026-08-25T13:14:15+00:00",
   "artifacts": [
     ".loom/tasks/task-20260825-130411-pi-extension-9269121f/prompt.md",
     ".loom/tasks/task-20260825-130411-pi-extension-9269121f/context.md",

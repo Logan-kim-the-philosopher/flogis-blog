@@ -2,3 +2,4 @@
 [2026-08-25T13:11:18+00:00] project-local Pi extension explicit load smoke passed; preview editor and cancelled publish produced no publish-result.json.
 [2026-08-25T13:12:35+00:00] project auto-discovery smoke passed through Pi RPC; /meeting validate-only completed and final confirmation was cancelled without Sanity write.
 [2026-08-25T13:13:00+00:00] meeting tests 12/12, Astro build, and git diff check passed.
+[2026-08-25T13:14:15+00:00] agent=foreground task=task-20260825-130411-pi-extension-9269121f 프로젝트 로컬 Pi extension과 /meeting 전체 흐름을 구현하고 실제 Pi 자동탐색·fixture preview·validate-only·발행 취소 무쓰기, 테스트 12개와 Astro 빌드를 검증함
