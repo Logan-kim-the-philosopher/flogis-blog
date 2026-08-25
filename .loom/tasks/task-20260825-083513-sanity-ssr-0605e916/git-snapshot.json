@@ -1,0 +1,29 @@
+{
+  "before": {
+    "available": true,
+    "branch_name": "Haru2_dev",
+    "commit_sha": "188084a36d6ac6f6fc7a5f64f4059db71908f00c",
+    "dirty": true,
+    "staged_files": [],
+    "modified_files": [
+      ".loom/events.jsonl",
+      "AGENTS.md"
+    ],
+    "untracked_files": [
+      ".loom/job-runs/job-run-20260825-090527-job-20260825-083734-sanity-a47276c3-527a3f2f/",
+      ".loom/jobs/job-20260825-083644-astro-ssr-86568bc0/",
+      ".loom/jobs/job-20260825-083734-sanity-a47276c3/",
+      ".loom/task-definitions/task-def-20260825-083513-sanity-ssr-0d68d454/",
+      ".loom/task-definitions/task-def-20260825-083527-astro-sanity-node-ssr-647a8139/",
+      ".loom/task-definitions/task-def-20260825-083544-node-ssr-gitops-f3cb907d/",
+      ".loom/task-definitions/task-def-20260825-083602-ssr-e2e-bf61f660/",
+      ".loom/task-runs/task-run-20260825-090527-task-def-20260825-083513-sanity-ssr-0d68d454-46ccbe3b/",
+      ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/",
+      ".loom/tasks/task-20260825-083527-astro-sanity-node-ssr-85576c20/",
+      ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/",
+      ".loom/tasks/task-20260825-083602-ssr-e2e-20e212a8/"
+    ],
+    "captured_at": "2026-08-25T09:05:27+00:00"
+  },
+  "after": null
+}

@@ -1,0 +1,4 @@
+[2026-08-25T09:05:27+00:00] agent=foreground task=task-20260825-083513-sanity-ssr-0605e916 Foreground task session started.
+[2026-08-25T09:20:00+00:00] 현재 Astro route, repository/query, 검색, RSS, Docker, Jenkins, Kubernetes, Argo 구성을 전수 조사했다.
+[2026-08-25T09:21:00+00:00] Astro routing/on-demand/Node adapter와 Sanity published SSR 기준을 대조했다.
+[2026-08-25T09:22:00+00:00] docs/runtime-content-architecture.md에 Node SSR 데이터·route·cache·오류·배포·검증 계약을 기록했다.

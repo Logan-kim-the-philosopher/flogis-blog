@@ -1,0 +1,28 @@
+{
+  "id": "task-def-20260825-083513-sanity-ssr-0d68d454",
+  "job_definition_id": "job-20260825-083734-sanity-a47276c3",
+  "title": "Sanity 런타임 SSR 설계 및 라우트 계약 고정",
+  "description": "Sanity 의존 페이지·저장소·검색·RSS·동적 slug 경로와 현재 정적 Docker/GitOps 경계를 전수 조사하고, Astro Node standalone SSR·런타임 환경 변수·캐시·404·장애 처리·헬스체크·롤백 계약을 문서로 고정한다.",
+  "created_at": "2026-08-25T08:35:13+00:00",
+  "updated_at": "2026-08-25T09:05:27+00:00",
+  "order_index": 1,
+  "legacy_task_id": "task-20260825-083513-sanity-ssr-0605e916",
+  "depends_on": [],
+  "expected_output": "docs/runtime-content-architecture.md에 전체 콘텐츠 라우트 매트릭스, SSR 데이터 흐름, 단건 GROQ 전략, 런타임 환경/비밀값 경계, 캐시·오류·헬스체크 정책, 파일별 변경 목록과 검증 시나리오가 기록된다.",
+  "done_condition": "정적+웹훅, 브라우저 직접 조회, Node SSR 대안을 비교해 Node SSR 선택 근거가 명시되고 홈·목록·상세·사람·태그·검색·RSS·404의 처리 방식과 무재빌드 반영 완료 기준이 빠짐없이 확정된다.",
+  "in_scope": "읽기 전용 저장소·배포 구조 조사, Astro 공식 라우팅/on-demand/Node adapter 및 Sanity published 조회 기준 검토, 설계 문서 작성",
+  "out_of_scope": "애플리케이션 코드 수정, 의존성 설치, 이미지 빌드, Git push, Jenkins·Argo·Kubernetes·Sanity 데이터 변경",
+  "validation_hint": "현재 src/pages와 repository/query 호출 그래프를 전수 대조하고 Astro 공식 문서의 SSR 동적 라우트·Node standalone 동작, Sanity published perspective·CDN 선택을 설계 항목별로 확인한다.",
+  "required_docs": [],
+  "memory_refs": [],
+  "document_outputs": [
+    "docs/runtime-content-architecture.md"
+  ],
+  "document_output_exceptions": [],
+  "default_agent": "codex",
+  "context_policy_id": "",
+  "executor_policy_id": "",
+  "review_policy": "",
+  "source_proposal_id": "",
+  "source_prompt": ""
+}

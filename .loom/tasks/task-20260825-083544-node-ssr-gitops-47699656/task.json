@@ -1,0 +1,32 @@
+{
+  "id": "task-20260825-083544-node-ssr-gitops-47699656",
+  "job_id": "job-20260825-083644-astro-ssr-86568bc0",
+  "title": "Node SSR 컨테이너·GitOps 및 원본 저장소 기준 구성",
+  "description": "정적 nginx web 이미지를 비루트 Astro Node standalone 런타임 이미지로 교체하고 Sanity 설정을 빌드 인자가 아닌 Kubernetes 런타임 환경으로 이동한다. Service·probe·Jenkins smoke test·배포 문서를 SSR 기준으로 갱신하고 Jenkins와 Argo의 저장소 정본을 원본 Logan-kim-the-philosopher/flogis-blog로 준비한다.",
+  "status": "PENDING",
+  "created_at": "2026-08-25T08:35:44+00:00",
+  "updated_at": "2026-08-25T08:36:44+00:00",
+  "order_index": 1,
+  "assigned_agent": "codex",
+  "depends_on": [
+    "task-20260825-083527-astro-sanity-node-ssr-85576c20"
+  ],
+  "expected_output": "Node SSR 이미지가 8080에서 정적 자산과 동적 경로를 서빙하고, Kubernetes web Deployment·Service·health probe와 Jenkins 빌드/검증이 새 런타임에 맞으며, 소스·deploy 브랜치의 정본 URL이 원본 저장소로 일관되게 구성된다.",
+  "done_condition": "로컬 Docker build/run과 /healthz·동적 slug smoke test, Kustomize 렌더링·server dry-run, Jenkins XML/파이프라인 검증, 저장소 URL 전수 검사, Secret·토큰 미포함 검사가 모두 통과하고 기존 Tailscale Funnel 경로와 리소스 제한이 유지된다.",
+  "in_scope": "Dockerfile/runtime image, Jenkinsfile/job XML, Kubernetes Deployment·Service·probe·ConfigMap/env, Argo Application repoURL, 배포 검증 스크립트와 운영 문서",
+  "out_of_scope": "원격 브랜치 push, Jenkins 실제 Job 변경·실행, Argo Sync, 운영 Kubernetes 변경, Sanity 데이터 변경, 기존 타 서비스 변경",
+  "validation_hint": "SSR 이미지를 SANITY_PROJECT_ID/DATASET/API_VERSION/STRICT_CONTENT 런타임 env로 실행해 응답을 확인하고 bash infra/scripts/validate-deployment.sh, kubectl kustomize 및 client/server dry-run, rg 기반 fork URL·placeholder·Secret 검사를 수행한다.",
+  "required_docs": [],
+  "memory_refs": [],
+  "document_outputs": [],
+  "document_output_exceptions": [],
+  "run_attempts": 0,
+  "last_error": "",
+  "commit_refs": [],
+  "branch_name": "",
+  "git_dirty": false,
+  "git_snapshot_captured_at": "",
+  "artifacts": [],
+  "source_proposal_id": "",
+  "source_prompt": ""
+}

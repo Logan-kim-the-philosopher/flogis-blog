@@ -1,0 +1,32 @@
+{
+  "id": "task-20260825-083602-ssr-e2e-20e212a8",
+  "job_id": "job-20260825-083644-astro-ssr-86568bc0",
+  "title": "원본 저장소 전환·SSR 운영 배포 및 무재빌드 E2E 검증",
+  "description": "Haru2_dev와 deploy 흐름을 원본 저장소로 전환하고 Jenkins SSR 이미지 빌드, Harbor push, Argo CD Sync, Kubernetes 롤아웃과 공개 Funnel을 검증한다. 배포 후 전용 Sanity 테스트 문서의 발행·수정·비공개/삭제를 수행해 이미지 재빌드 없이 목록·신규 slug·검색·RSS·SEO가 갱신되는지 확인하고 테스트 데이터를 정리한다.",
+  "status": "PENDING",
+  "created_at": "2026-08-25T08:36:02+00:00",
+  "updated_at": "2026-08-25T08:36:44+00:00",
+  "order_index": 2,
+  "assigned_agent": "codex",
+  "depends_on": [
+    "task-20260825-083544-node-ssr-gitops-47699656"
+  ],
+  "expected_output": "원본 저장소가 source of truth가 되고 Jenkins·Argo가 이를 추적하며 SSR Pod가 정상 서비스된다. 동일한 image tag와 deploy revision을 유지한 채 Sanity 테스트 문서의 생성·수정·제거가 다음 요청에 반영된 증거가 남는다.",
+  "done_condition": "원본 Haru2_dev/deploy push, Jenkins SUCCESS, Harbor immutable image, Argo Synced/Healthy, web·gateway Ready, 비-tailnet HTTPS와 health 응답이 확인되고, 전용 신규 slug가 재빌드 없이 200·갱신 후 새 내용·정리 후 404를 반환하며 목록·검색·RSS·메타가 일관되고 테스트 문서가 남지 않는다.",
+  "in_scope": "원본 저장소 브랜치 push와 정본 전환, Jenkins Job 갱신·빌드, Harbor 이미지, Argo Application 적용·Sync, flogis-blog namespace 롤아웃, 전용 Sanity production 테스트 문서 lifecycle, 공개 HTTP 검증과 운영 문서 결과 기록",
+  "out_of_scope": "실제 운영 콘텐츠 변경, 기존 타 서비스·클러스터 전역 정책 변경, Sanity dataset 공개/비공개 정책 변경, 별도 도메인 변경, 비밀값 출력·커밋",
+  "validation_hint": "source SHA→Jenkins build→image digest→deploy commit→Argo revision을 연결해 기록하고, Sanity 테스트 전후 동일 image tag를 kubectl로 확인하면서 API와 공개 HTML의 목록·상세·검색·RSS·canonical/OG·404를 교차 검증한다.",
+  "required_docs": [],
+  "memory_refs": [],
+  "document_outputs": [],
+  "document_output_exceptions": [],
+  "run_attempts": 0,
+  "last_error": "",
+  "commit_refs": [],
+  "branch_name": "",
+  "git_dirty": false,
+  "git_snapshot_captured_at": "",
+  "artifacts": [],
+  "source_proposal_id": "",
+  "source_prompt": ""
+}
