@@ -3,11 +3,11 @@
   "job_id": "job-20260825-083734-sanity-a47276c3",
   "title": "Astro 콘텐츠 경로를 Sanity Node SSR로 전환",
   "description": "Astro Node standalone adapter와 server output을 적용하고, 모든 Sanity 의존 페이지가 요청 시 published 데이터를 조회하도록 repository·GROQ·동적 라우트를 전환한다. 신규 slug는 getStaticPaths 없이 처리하고 누락 콘텐츠는 404, CMS 장애는 운영 strict mode에서 명시적 오류로 처리한다.",
-  "status": "PENDING",
+  "status": "RUNNING",
   "created_at": "2026-08-25T08:35:27+00:00",
-  "updated_at": "2026-08-25T08:37:34+00:00",
+  "updated_at": "2026-08-25T09:10:23+00:00",
   "order_index": 2,
-  "assigned_agent": "codex",
+  "assigned_agent": "foreground",
   "depends_on": [
     "task-20260825-083513-sanity-ssr-0605e916"
   ],
@@ -22,10 +22,12 @@
   "document_output_exceptions": [],
   "run_attempts": 0,
   "last_error": "",
-  "commit_refs": [],
-  "branch_name": "",
-  "git_dirty": false,
-  "git_snapshot_captured_at": "",
+  "commit_refs": [
+    "42284a69248c882752dfe0c0c8ce9178ae06a0ae"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-08-25T09:10:23+00:00",
   "artifacts": [],
   "source_proposal_id": "",
   "source_prompt": ""

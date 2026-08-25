@@ -1,5 +1,5 @@
-import { sanityFetch } from '../cms/client';
-import { meetingsQuery } from '../cms/queries';
+import { hasSanityConfig, sanityFetch } from '../cms/client';
+import { meetingBySlugQuery, meetingsQuery } from '../cms/queries';
 import { sampleMeetings } from '../fallback/sample-content';
 import { renderMarkdown } from '../renderers/markdown';
 import type { Meeting } from '../types/content';
@@ -18,7 +18,12 @@ export async function getMeetings(): Promise<Meeting[]> {
 }
 
 export async function getMeetingBySlug(slug: string) {
-  return (await getMeetings()).find((entry) => entry.slug === slug);
+  if (!hasSanityConfig) {
+    return normalizeMeetings(sampleMeetings).find((entry) => entry.slug === slug);
+  }
+
+  const data = await sanityFetch<Meeting | null>(meetingBySlugQuery, { slug });
+  return data ? normalizeMeetings([data])[0] : undefined;
 }
 
 function normalizeMeetings(items: Meeting[]) {

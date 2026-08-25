@@ -101,7 +101,7 @@ Astro 서버만 Sanity를 호출한다. 페이지 HTML에는 렌더링 결과만
 | `SANITY_DATASET` | 예, 기본 `production` 허용 | 아니오 | Node server-only client |
 | `SANITY_API_VERSION` | 아니오, 코드의 고정 기본값 허용 | 아니오 | Node server-only client |
 | `SANITY_API_TOKEN` | public dataset에서는 아니오 | **예** | 필요할 때만 Kubernetes Secret -> Node server |
-| `SANITY_STRICT` | production에서 `true` | 아니오 | repository 오류 정책 |
+| `SANITY_STRICT_CONTENT` | production에서 `true` | 아니오 | repository 오류 정책 |
 | `PUBLIC_SITE_URL` | production에서 예 | 아니오 | canonical, RSS, sitemap 절대 URL |
 | `HOST` | 예, `0.0.0.0` | 아니오 | Astro Node standalone |
 | `PORT` | 예, `8080` | 아니오 | Astro Node standalone |

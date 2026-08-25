@@ -1,47 +1,47 @@
 ---
 import DetailBreadcrumb from '../../components/content/DetailBreadcrumb.astro';
+import NotFoundPage from '../../components/content/NotFoundPage.astro';
 import SiteLayout from '../../layouts/SiteLayout.astro';
-import { getWorkBySlug, getWorks } from '../../lib/repositories/works';
+import { getWorkBySlug } from '../../lib/repositories/works';
 import { toArchiveSlug } from '../../lib/services/archive-service';
 import { getEntrySummary } from '../../lib/services/summary-service';
 import { formatDate } from '../../lib/utils/format';
-
-export async function getStaticPaths() {
-  const works = await getWorks();
-  return works.map((work) => ({ params: { slug: work.slug } }));
-}
 
 const { slug } = Astro.params;
 const work = slug ? await getWorkBySlug(slug) : undefined;
 
 if (!work) {
-  throw new Error(`Work not found for slug: ${slug}`);
+  Astro.response.status = 404;
 }
 ---
 
-<SiteLayout title={work.title} description={getEntrySummary(work, 160)} image={work.coverImage}>
-  <article class="mx-auto max-w-4xl px-4 pb-20 pt-12">
-    <div class="space-y-5">
-      <DetailBreadcrumb backHref="/work" items={[{ label: '홈', href: '/' }, { label: '작업', href: '/work' }, { label: work.title }]} />
-      <h1 class="text-4xl font-semibold tracking-tight text-white md:text-5xl">{work.title}</h1>
-      <div class="flex flex-wrap gap-3 text-sm text-slate-400">
-        <span>{formatDate(work.publishedAt)}</span>
-        <span>·</span>
-        <div class="flex flex-wrap items-center gap-2">
-          <span>작성:</span>
-          {work.authors.map((author) => (
-            <a href={`/people/${author.slug}`} class="transition hover:text-cyan-300">{author.name}</a>
-          ))}
+{work ? (
+  <SiteLayout title={work.title} description={getEntrySummary(work, 160)} image={work.coverImage}>
+    <article class="mx-auto max-w-4xl px-4 pb-20 pt-12">
+      <div class="space-y-5">
+        <DetailBreadcrumb backHref="/work" items={[{ label: '홈', href: '/' }, { label: '작업', href: '/work' }, { label: work.title }]} />
+        <h1 class="text-4xl font-semibold tracking-tight text-white md:text-5xl">{work.title}</h1>
+        <div class="flex flex-wrap gap-3 text-sm text-slate-400">
+          <span>{formatDate(work.publishedAt)}</span>
+          <span>·</span>
+          <div class="flex flex-wrap items-center gap-2">
+            <span>작성:</span>
+            {work.authors.map((author) => (
+              <a href={`/people/${author.slug}`} class="transition hover:text-cyan-300">{author.name}</a>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
 
-    <img src={work.coverImage} alt={work.title} class="mt-10 aspect-video w-full rounded-[2rem] border border-slate-800 object-cover" />
-    <div class="mt-10 flex flex-wrap gap-2">
-      {work.tags?.map((tag) => (
-        <a href={`/tags/${encodeURIComponent(toArchiveSlug(tag))}`} class="rounded-full border border-slate-700 px-3 py-1 text-sm text-slate-300 transition hover:border-cyan-400 hover:text-white">{tag}</a>
-      ))}
-    </div>
-    <div class="rich-text mt-10" set:html={work.body} />
-  </article>
-</SiteLayout>
+      <img src={work.coverImage} alt={work.title} class="mt-10 aspect-video w-full rounded-[2rem] border border-slate-800 object-cover" />
+      <div class="mt-10 flex flex-wrap gap-2">
+        {work.tags?.map((tag) => (
+          <a href={`/tags/${encodeURIComponent(toArchiveSlug(tag))}`} class="rounded-full border border-slate-700 px-3 py-1 text-sm text-slate-300 transition hover:border-cyan-400 hover:text-white">{tag}</a>
+        ))}
+      </div>
+      <div class="rich-text mt-10" set:html={work.body} />
+    </article>
+  </SiteLayout>
+) : (
+  <NotFoundPage title="작업 기록을 찾을 수 없습니다" />
+)}

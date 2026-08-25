@@ -4,6 +4,10 @@ import type { Person } from '../types/common';
 
 export async function getAllTags() {
   const content = await getAllContent();
+  return getTagsFromContent(content);
+}
+
+export function getTagsFromContent(content: ContentEntry[]) {
   const counts = new Map<string, number>();
 
   for (const entry of content) {
@@ -24,6 +28,10 @@ export async function getContentByTagSlug(slug: string) {
 
 export async function getAllPeople() {
   const content = await getAllContent();
+  return getPeopleFromContent(content);
+}
+
+export function getPeopleFromContent(content: ContentEntry[]) {
   const people = new Map<string, Person & { count: number }>();
 
   for (const entry of content) {
@@ -48,6 +56,22 @@ export async function getContentByPersonSlug(slug: string) {
 export async function getPersonBySlug(slug: string) {
   const people = await getAllPeople();
   return people.find((person) => person.slug === slug);
+}
+
+export async function getTagArchiveBySlug(slug: string) {
+  const content = await getAllContent();
+  const tag = getTagsFromContent(content).find((entry) => entry.slug === slug);
+  const entries = content.filter((entry) => (entry.tags || []).some((entryTag) => toArchiveSlug(entryTag) === slug));
+
+  return { tag, entries };
+}
+
+export async function getPersonArchiveBySlug(slug: string) {
+  const content = await getAllContent();
+  const person = getPeopleFromContent(content).find((entry) => entry.slug === slug);
+  const entries = content.filter((entry) => getEntryPeople(entry).some((entryPerson) => entryPerson.slug === slug));
+
+  return { person, entries };
 }
 
 export function getEntryPeople(entry: ContentEntry) {

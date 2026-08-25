@@ -2,23 +2,19 @@
 import ArchiveEntryList from '../../components/content/ArchiveEntryList.astro';
 import ContentHeader from '../../components/content/ContentHeader.astro';
 import EmptyState from '../../components/content/EmptyState.astro';
+import NotFoundPage from '../../components/content/NotFoundPage.astro';
 import SiteLayout from '../../layouts/SiteLayout.astro';
-import { getAllPeople, getContentByPersonSlug, getPersonBySlug } from '../../lib/services/archive-service';
-
-export async function getStaticPaths() {
-  const people = await getAllPeople();
-  return people.map((person) => ({ params: { slug: person.slug } }));
-}
+import { getPersonArchiveBySlug } from '../../lib/services/archive-service';
 
 const { slug } = Astro.params;
-const person = slug ? await getPersonBySlug(slug) : undefined;
-const entries = slug ? await getContentByPersonSlug(slug) : [];
+const { person, entries } = slug ? await getPersonArchiveBySlug(slug) : { person: undefined, entries: [] };
 
 if (!person) {
-  throw new Error(`Person not found for slug: ${slug}`);
+  Astro.response.status = 404;
 }
 ---
 
+{person ? (
 <SiteLayout title={person.name} description={person.bio || `${person.name}와 연결된 콘텐츠 모음입니다.`} image={person.avatar} currentPath={`/people/${person.slug}`}>
   <section class="mx-auto max-w-5xl px-4 pb-10 pt-10">
     <div class="rounded-[2rem] border border-slate-800 bg-slate-900/50 p-6 md:p-8">
@@ -53,3 +49,6 @@ if (!person) {
     )}
   </section>
 </SiteLayout>
+) : (
+  <NotFoundPage title="사람을 찾을 수 없습니다" />
+)}

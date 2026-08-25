@@ -1,5 +1,5 @@
-import { sanityFetch } from '../cms/client';
-import { worksQuery } from '../cms/queries';
+import { hasSanityConfig, sanityFetch } from '../cms/client';
+import { workBySlugQuery, worksQuery } from '../cms/queries';
 import { sampleWorks } from '../fallback/sample-content';
 import { renderMarkdown } from '../renderers/markdown';
 import type { Work } from '../types/content';
@@ -18,7 +18,12 @@ export async function getWorks(): Promise<Work[]> {
 }
 
 export async function getWorkBySlug(slug: string) {
-  return (await getWorks()).find((entry) => entry.slug === slug);
+  if (!hasSanityConfig) {
+    return normalizeWorks(sampleWorks).find((entry) => entry.slug === slug);
+  }
+
+  const data = await sanityFetch<Work | null>(workBySlugQuery, { slug });
+  return data ? normalizeWorks([data])[0] : undefined;
 }
 
 function normalizeWorks(items: Work[]) {

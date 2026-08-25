@@ -1,0 +1,116 @@
+{
+  "status": "RUNNING",
+  "agent": "foreground",
+  "mode": "foreground",
+  "execution_surface": "foreground",
+  "task_run_id": "task-run-20260825-091023-task-def-20260825-083527-astro-sanity-node-ssr-6-7cba63db",
+  "generated_at": "2026-08-25T09:10:23+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260825-083527-astro-sanity-node-ssr-85576c20/prompt.md",
+    ".loom/tasks/task-20260825-083527-astro-sanity-node-ssr-85576c20/context.md",
+    ".loom/tasks/task-20260825-083527-astro-sanity-node-ssr-85576c20/previous-results.md",
+    ".loom/tasks/task-20260825-083527-astro-sanity-node-ssr-85576c20/git-snapshot.json",
+    ".loom/tasks/task-20260825-083527-astro-sanity-node-ssr-85576c20/result.md",
+    ".loom/tasks/task-20260825-083527-astro-sanity-node-ssr-85576c20/decision.md",
+    ".loom/tasks/task-20260825-083527-astro-sanity-node-ssr-85576c20/troubleshooting.md",
+    ".loom/tasks/task-20260825-083527-astro-sanity-node-ssr-85576c20/logs.txt",
+    ".loom/tasks/task-20260825-083527-astro-sanity-node-ssr-85576c20/agent-events.jsonl",
+    ".loom/tasks/task-20260825-083527-astro-sanity-node-ssr-85576c20/artifacts.json",
+    "astro.config.mjs",
+    "package.json",
+    "package-lock.json",
+    "docs/runtime-content-architecture.md",
+    "src/middleware.ts",
+    "src/components/content/NotFoundPage.astro",
+    "src/components/layout/SearchModal.astro",
+    "src/layouts/SiteLayout.astro",
+    "src/lib/config/runtime.ts",
+    "src/lib/cms/client.ts",
+    "src/lib/cms/queries.ts",
+    "src/lib/repositories/studies.ts",
+    "src/lib/repositories/works.ts",
+    "src/lib/repositories/meetings.ts",
+    "src/lib/services/archive-service.ts",
+    "src/pages/index.astro",
+    "src/pages/404.astro",
+    "src/pages/study/[slug].astro",
+    "src/pages/work/[slug].astro",
+    "src/pages/meetings/[slug].astro",
+    "src/pages/people/[slug].astro",
+    "src/pages/tags/[slug].astro",
+    "src/pages/api/search.json.ts",
+    "src/pages/healthz.ts",
+    "src/pages/rss.xml.ts",
+    "src/pages/sitemap.xml.ts"
+  ],
+  "artifact_groups": {
+    "user_outputs": [
+      ".loom/tasks/task-20260825-083527-astro-sanity-node-ssr-85576c20/result.md",
+      ".loom/tasks/task-20260825-083527-astro-sanity-node-ssr-85576c20/decision.md",
+      ".loom/tasks/task-20260825-083527-astro-sanity-node-ssr-85576c20/troubleshooting.md"
+    ],
+    "execution_inputs": [
+      ".loom/tasks/task-20260825-083527-astro-sanity-node-ssr-85576c20/prompt.md",
+      ".loom/tasks/task-20260825-083527-astro-sanity-node-ssr-85576c20/context.md",
+      ".loom/tasks/task-20260825-083527-astro-sanity-node-ssr-85576c20/previous-results.md"
+    ],
+    "execution_audit": [
+      ".loom/tasks/task-20260825-083527-astro-sanity-node-ssr-85576c20/git-snapshot.json",
+      ".loom/tasks/task-20260825-083527-astro-sanity-node-ssr-85576c20/logs.txt",
+      ".loom/tasks/task-20260825-083527-astro-sanity-node-ssr-85576c20/agent-events.jsonl",
+      ".loom/tasks/task-20260825-083527-astro-sanity-node-ssr-85576c20/artifacts.json"
+    ],
+    "work_products": [
+      "astro.config.mjs",
+      "package.json",
+      "package-lock.json",
+      "docs/runtime-content-architecture.md",
+      "src/middleware.ts",
+      "src/components/content/NotFoundPage.astro",
+      "src/components/layout/SearchModal.astro",
+      "src/layouts/SiteLayout.astro",
+      "src/lib/config/runtime.ts",
+      "src/lib/cms/client.ts",
+      "src/lib/cms/queries.ts",
+      "src/lib/repositories/studies.ts",
+      "src/lib/repositories/works.ts",
+      "src/lib/repositories/meetings.ts",
+      "src/lib/services/archive-service.ts",
+      "src/pages/index.astro",
+      "src/pages/404.astro",
+      "src/pages/study/[slug].astro",
+      "src/pages/work/[slug].astro",
+      "src/pages/meetings/[slug].astro",
+      "src/pages/people/[slug].astro",
+      "src/pages/tags/[slug].astro",
+      "src/pages/api/search.json.ts",
+      "src/pages/healthz.ts",
+      "src/pages/rss.xml.ts",
+      "src/pages/sitemap.xml.ts"
+    ]
+  },
+  "contract_snapshot": {
+    "schema_version": 1,
+    "contract_ids": [
+      "task-execution",
+      "done-guardrail"
+    ],
+    "contracts": [
+      {
+        "id": "task-execution",
+        "title": "Task Execution Context Contract",
+        "source_paths": [
+          "loom/application/context_pack.py",
+          "loom/application/team_policy.py"
+        ]
+      },
+      {
+        "id": "done-guardrail",
+        "title": "Task Completion Guardrail Contract",
+        "source_paths": [
+          "loom/application/services.py"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+[2026-08-25T09:10:23+00:00] agent=foreground task=task-20260825-083527-astro-sanity-node-ssr-85576c20 Foreground task session started.
+[2026-08-25T09:12:00+00:00] @astrojs/node 11.1.4 설치 및 Astro standalone server output 구성.
+[2026-08-25T09:14:00+00:00] runtime Sanity env, 단건 slug GROQ, 동적 404, 검색 JSON, RSS, sitemap, health, cache middleware 구현.
+[2026-08-25T09:15:00+00:00] npm run build 통과. output=server, adapter=@astrojs/node, dist/server/entry.mjs 생성.
+[2026-08-25T09:16:07+00:00] sandbox local listen이 EPERM으로 실패해 승인된 실행으로 복구.
+[2026-08-25T09:16:43+00:00] strict runtime 서버에서 /healthz와 /api/search.json 200 및 no-store 확인.
+[2026-08-25T09:17:00+00:00] 홈·목록·검색·RSS·sitemap·상세·404 route smoke 통과. 실제 published 신규 slug 200 확인.
+[2026-08-25T09:18:00+00:00] npm run build 재실행 통과 및 git diff --check 통과.
+[2026-08-25T09:18:30+00:00] 21개 route status/cache/client secret 자동 검증 결과 SSR_SMOKE_OK.
+[2026-08-25T09:18:40+00:00] dist/client env identifier 부재와 전체 dist runtime token 값 부재 확인.
+[2026-08-25T09:19:00+00:00] 해시 정적 자산 immutable cache header 확인.

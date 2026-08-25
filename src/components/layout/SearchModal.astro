@@ -1,16 +1,3 @@
----
-const { payload } = Astro.props as {
-  payload: {
-    type: string;
-    title: string;
-    href: string;
-    excerpt: string;
-    publishedAt: string;
-    searchText: string;
-  }[];
-};
----
-
 <div id="search-modal" class="pointer-events-none fixed inset-0 z-[100] hidden" aria-hidden="true">
   <div data-search-backdrop class="absolute inset-0 bg-slate-950/72 backdrop-blur-sm"></div>
   <div class="relative mx-auto flex min-h-screen w-full max-w-4xl items-start justify-center px-4 pt-20">
@@ -46,15 +33,23 @@ const { payload } = Astro.props as {
   </div>
 </div>
 
-<script type="module" define:vars={{ payload }}>
+<script>
   const STORAGE_KEY = 'flogi-search-history';
   const HISTORY_LIMIT = 6;
+  let payload = [];
+  let payloadRequest;
   const modal = document.querySelector('#search-modal');
   const input = document.querySelector('#search-modal-input');
   const results = document.querySelector('#search-modal-results');
   const sectionTitle = document.querySelector('#search-modal-section-title');
   const openerSelectors = '[data-search-open]';
   const panel = modal?.querySelector('[data-search-panel]');
+
+  const escapeHtml = (value = '') =>
+    String(value).replace(
+      /[&<>'"]/g,
+      (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[character]
+    );
 
   const formatDate = (value) => {
     try {
@@ -68,7 +63,8 @@ const { payload } = Astro.props as {
 
   const getHistory = () => {
     try {
-      return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      const history = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      return Array.isArray(history) ? history : [];
     } catch {
       return [];
     }
@@ -87,13 +83,13 @@ const { payload } = Astro.props as {
     items
       .map(
         (item) => `
-          <a href="${item.href}" data-search-item="${item.href}" class="block rounded-[1.25rem] border border-slate-800 bg-slate-900/55 px-4 py-4 transition hover:border-cyan-400/60 hover:bg-slate-900">
+          <a href="${escapeHtml(item.href)}" data-search-item="${escapeHtml(item.href)}" class="block rounded-[1.25rem] border border-slate-800 bg-slate-900/55 px-4 py-4 transition hover:border-cyan-400/60 hover:bg-slate-900">
             <div class="flex items-center justify-between gap-4">
-              <p class="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-300">${item.type}</p>
-              <p class="shrink-0 text-xs text-slate-500">${formatDate(item.publishedAt)}</p>
+              <p class="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-300">${escapeHtml(item.type)}</p>
+              <p class="shrink-0 text-xs text-slate-500">${escapeHtml(formatDate(item.publishedAt))}</p>
             </div>
-            <h2 class="mt-2 text-lg font-semibold tracking-tight text-white">${item.title}</h2>
-            <p class="mt-1 text-sm leading-6 text-slate-300">${item.excerpt}</p>
+            <h2 class="mt-2 text-lg font-semibold tracking-tight text-white">${escapeHtml(item.title)}</h2>
+            <p class="mt-1 text-sm leading-6 text-slate-300">${escapeHtml(item.excerpt)}</p>
           </a>
         `
       )
@@ -122,13 +118,53 @@ const { payload } = Astro.props as {
       : '<div class="flex min-h-44 items-center justify-center rounded-b-[1.5rem] text-sm text-slate-500">검색 결과가 없습니다</div>';
   };
 
-  const openModal = () => {
+  const renderLoading = () => {
+    sectionTitle.textContent = '검색 데이터 불러오는 중';
+    results.innerHTML = '<div class="flex min-h-44 items-center justify-center rounded-b-[1.5rem] text-sm text-slate-500">최신 기록을 불러오고 있습니다...</div>';
+  };
+
+  const renderError = () => {
+    sectionTitle.textContent = '검색을 불러오지 못했습니다';
+    results.innerHTML = '<div class="flex min-h-44 flex-col items-center justify-center gap-4 rounded-b-[1.5rem] text-sm text-slate-400"><p>잠시 후 다시 시도해 주세요.</p><button type="button" data-search-retry class="rounded-full border border-slate-700 px-4 py-2 text-slate-200 transition hover:border-cyan-400 hover:text-white">다시 시도</button></div>';
+  };
+
+  const loadPayload = (force = false) => {
+    if (force) payloadRequest = undefined;
+    if (payloadRequest) return payloadRequest;
+
+    payloadRequest = fetch('/api/search.json', { headers: { Accept: 'application/json' } })
+      .then((response) => {
+        if (!response.ok) throw new Error(`Search request failed with ${response.status}`);
+        return response.json();
+      })
+      .then((items) => {
+        if (!Array.isArray(items)) throw new Error('Search response must be an array.');
+        payload = items;
+        return payload;
+      })
+      .catch((error) => {
+        payloadRequest = undefined;
+        throw error;
+      });
+
+    return payloadRequest;
+  };
+
+  const openModal = async () => {
     modal?.classList.remove('hidden');
     modal?.classList.remove('pointer-events-none');
     modal?.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    renderSearch(input?.value || '');
+    renderLoading();
     requestAnimationFrame(() => input?.focus());
+
+    try {
+      await loadPayload();
+      renderSearch(input?.value || '');
+    } catch (error) {
+      console.error('Unable to load search data.', error);
+      renderError();
+    }
   };
 
   const closeModal = () => {
@@ -145,7 +181,9 @@ const { payload } = Astro.props as {
     });
   });
 
-  input?.addEventListener('input', (event) => renderSearch(event.currentTarget.value));
+  input?.addEventListener('input', (event) => {
+    if (payloadRequest) renderSearch(event.currentTarget.value);
+  });
   modal?.querySelector('[data-search-backdrop]')?.addEventListener('click', closeModal);
   modal?.querySelector('[data-search-close]')?.addEventListener('click', closeModal);
   modal?.addEventListener('click', (event) => {
@@ -155,6 +193,13 @@ const { payload } = Astro.props as {
   });
   results?.addEventListener('click', (event) => {
     const target = event.target;
+    const retry = target instanceof Element ? target.closest('[data-search-retry]') : null;
+    if (retry) {
+      renderLoading();
+      loadPayload(true).then(() => renderSearch(input?.value || '')).catch(renderError);
+      return;
+    }
+
     const link = target instanceof Element ? target.closest('a') : null;
     if (!link) return;
     const item = payload.find((entry) => entry.href === link.getAttribute('href')) || getHistory().find((entry) => entry.href === link.getAttribute('href'));

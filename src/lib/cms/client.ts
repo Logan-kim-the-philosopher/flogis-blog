@@ -1,12 +1,12 @@
 import { createClient } from '@sanity/client';
 
-const projectId = import.meta.env.SANITY_PROJECT_ID || import.meta.env.SANITY_STUDIO_PROJECT_ID;
-const dataset = import.meta.env.SANITY_DATASET || import.meta.env.SANITY_STUDIO_DATASET;
-const apiVersion = import.meta.env.SANITY_API_VERSION || '2025-08-22';
-const token = import.meta.env.SANITY_API_TOKEN;
+const projectId = process.env.SANITY_PROJECT_ID || process.env.SANITY_STUDIO_PROJECT_ID;
+const dataset = process.env.SANITY_DATASET || process.env.SANITY_STUDIO_DATASET || 'production';
+const apiVersion = process.env.SANITY_API_VERSION || '2025-08-22';
+const token = process.env.SANITY_API_TOKEN;
 
 export const hasSanityConfig = Boolean(projectId && dataset);
-export const isStrictContentMode = import.meta.env.SANITY_STRICT_CONTENT === 'true';
+export const isStrictContentMode = process.env.SANITY_STRICT_CONTENT === 'true';
 
 export const sanityClient = hasSanityConfig
   ? createClient({
@@ -14,7 +14,7 @@ export const sanityClient = hasSanityConfig
       dataset,
       apiVersion,
       token: token || undefined,
-      useCdn: !token,
+      useCdn: false,
       perspective: 'published'
     })
   : null;
@@ -35,7 +35,7 @@ export async function sanityFetch<T>(query: string, params: Record<string, unkno
       throw error;
     }
 
-    console.warn('Sanity fetch failed. Falling back to local demo content.', error);
+    console.warn('Sanity fetch failed in non-strict content mode.', error);
     return null;
   }
 }

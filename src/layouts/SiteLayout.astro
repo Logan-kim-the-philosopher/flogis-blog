@@ -4,26 +4,29 @@ import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import SEOHead from '../components/content/SEOHead.astro';
 import SearchModal from '../components/layout/SearchModal.astro';
+import { getRuntimeSiteUrl } from '../lib/config/runtime';
 import { getSiteSettings } from '../lib/repositories/site';
-import { getSearchPayload } from '../lib/services/search-service';
+import type { SiteSettings } from '../lib/types/site';
 
 const {
   title,
   description,
   image,
-  currentPath = Astro.url.pathname
+  currentPath = Astro.url.pathname,
+  site: providedSite
 } = Astro.props as {
   title?: string;
   description?: string;
   image?: string;
   currentPath?: string;
+  site?: SiteSettings;
 };
 
-const [site, searchPayload] = await Promise.all([getSiteSettings(), getSearchPayload()]);
+const site = providedSite || await getSiteSettings();
 const pageTitle = title ? `${title} | ${site.title}` : site.seo?.title || site.title;
 const pageDescription = description || site.seo?.description || site.description;
 const pageImage = image || site.seo?.image;
-const canonical = import.meta.env.PUBLIC_SITE_URL ? new URL(currentPath, import.meta.env.PUBLIC_SITE_URL).toString() : Astro.url.href;
+const canonical = new URL(currentPath, getRuntimeSiteUrl(Astro.url)).toString();
 ---
 
 <!doctype html>
@@ -43,6 +46,6 @@ const canonical = import.meta.env.PUBLIC_SITE_URL ? new URL(currentPath, import.
       <slot />
     </main>
     <Footer site={site} />
-    <SearchModal payload={searchPayload} />
+    <SearchModal />
   </body>
 </html>

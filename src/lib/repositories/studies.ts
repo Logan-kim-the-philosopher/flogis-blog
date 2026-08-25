@@ -1,5 +1,5 @@
-import { sanityFetch } from '../cms/client';
-import { studiesQuery } from '../cms/queries';
+import { hasSanityConfig, sanityFetch } from '../cms/client';
+import { studiesQuery, studyBySlugQuery } from '../cms/queries';
 import { sampleStudies } from '../fallback/sample-content';
 import { renderMarkdown } from '../renderers/markdown';
 import type { Study } from '../types/content';
@@ -18,7 +18,12 @@ export async function getStudies(): Promise<Study[]> {
 }
 
 export async function getStudyBySlug(slug: string) {
-  return (await getStudies()).find((entry) => entry.slug === slug);
+  if (!hasSanityConfig) {
+    return normalizeStudies(sampleStudies).find((entry) => entry.slug === slug);
+  }
+
+  const data = await sanityFetch<Study | null>(studyBySlugQuery, { slug });
+  return data ? normalizeStudies([data])[0] : undefined;
 }
 
 function normalizeStudies(items: Study[]) {

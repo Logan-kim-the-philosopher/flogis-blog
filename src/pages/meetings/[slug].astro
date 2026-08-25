@@ -1,46 +1,46 @@
 ---
 import DetailBreadcrumb from '../../components/content/DetailBreadcrumb.astro';
+import NotFoundPage from '../../components/content/NotFoundPage.astro';
 import SiteLayout from '../../layouts/SiteLayout.astro';
-import { getMeetingBySlug, getMeetings } from '../../lib/repositories/meetings';
+import { getMeetingBySlug } from '../../lib/repositories/meetings';
 import { toArchiveSlug } from '../../lib/services/archive-service';
 import { getEntrySummary } from '../../lib/services/summary-service';
 import { formatDate } from '../../lib/utils/format';
-
-export async function getStaticPaths() {
-  const meetings = await getMeetings();
-  return meetings.map((meeting) => ({ params: { slug: meeting.slug } }));
-}
 
 const { slug } = Astro.params;
 const meeting = slug ? await getMeetingBySlug(slug) : undefined;
 
 if (!meeting) {
-  throw new Error(`Meeting not found for slug: ${slug}`);
+  Astro.response.status = 404;
 }
 ---
 
-<SiteLayout title={meeting.title} description={getEntrySummary(meeting, 160)} image={meeting.coverImage}>
-  <article class="mx-auto max-w-4xl px-4 pb-20 pt-12">
-    <div class="space-y-5">
-      <DetailBreadcrumb backHref="/meetings" items={[{ label: '홈', href: '/' }, { label: '회의', href: '/meetings' }, { label: meeting.title }]} />
-      <h1 class="text-4xl font-semibold tracking-tight text-white md:text-5xl">{meeting.title}</h1>
-      <div class="flex flex-wrap gap-3 text-sm text-slate-400">
-        <div class="flex flex-wrap items-center gap-2">
-          {meeting.participants.map((participant) => (
-            <a href={`/people/${participant.slug}`} class="transition hover:text-cyan-300">{participant.name}</a>
-          ))}
+{meeting ? (
+  <SiteLayout title={meeting.title} description={getEntrySummary(meeting, 160)} image={meeting.coverImage}>
+    <article class="mx-auto max-w-4xl px-4 pb-20 pt-12">
+      <div class="space-y-5">
+        <DetailBreadcrumb backHref="/meetings" items={[{ label: '홈', href: '/' }, { label: '회의', href: '/meetings' }, { label: meeting.title }]} />
+        <h1 class="text-4xl font-semibold tracking-tight text-white md:text-5xl">{meeting.title}</h1>
+        <div class="flex flex-wrap gap-3 text-sm text-slate-400">
+          <div class="flex flex-wrap items-center gap-2">
+            {meeting.participants.map((participant) => (
+              <a href={`/people/${participant.slug}`} class="transition hover:text-cyan-300">{participant.name}</a>
+            ))}
+          </div>
+          <span>·</span>
+          <span>{formatDate(meeting.publishedAt)}</span>
         </div>
-        <span>·</span>
-        <span>{formatDate(meeting.publishedAt)}</span>
       </div>
-    </div>
 
-    <img src={meeting.coverImage} alt={meeting.title} class="mt-10 aspect-video w-full rounded-[2rem] border border-slate-800 object-cover" />
-    <div class="mt-10 flex flex-wrap gap-2">
-      {meeting.tags?.map((tag) => (
-        <a href={`/tags/${encodeURIComponent(toArchiveSlug(tag))}`} class="rounded-full border border-slate-700 px-3 py-1 text-sm text-slate-300 transition hover:border-cyan-400 hover:text-white">{tag}</a>
-      ))}
-    </div>
-    <div class="rich-text mt-10" set:html={meeting.body} />
-  </article>
-</SiteLayout>
+      <img src={meeting.coverImage} alt={meeting.title} class="mt-10 aspect-video w-full rounded-[2rem] border border-slate-800 object-cover" />
+      <div class="mt-10 flex flex-wrap gap-2">
+        {meeting.tags?.map((tag) => (
+          <a href={`/tags/${encodeURIComponent(toArchiveSlug(tag))}`} class="rounded-full border border-slate-700 px-3 py-1 text-sm text-slate-300 transition hover:border-cyan-400 hover:text-white">{tag}</a>
+        ))}
+      </div>
+      <div class="rich-text mt-10" set:html={meeting.body} />
+    </article>
+  </SiteLayout>
+) : (
+  <NotFoundPage title="회의 기록을 찾을 수 없습니다" />
+)}

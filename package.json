@@ -14,8 +14,8 @@
     "studio:deploy": "sanity deploy"
   },
   "dependencies": {
+    "@astrojs/node": "^11.1.4",
     "@astrojs/rss": "^4.0.19",
-    "@astrojs/sitemap": "^3.7.3",
     "@modelcontextprotocol/sdk": "^1.30.0",
     "@portabletext/to-html": "^6.0.0",
     "@sanity/client": "^8.2.0",

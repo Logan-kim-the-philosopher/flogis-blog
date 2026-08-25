@@ -2,19 +2,19 @@
 import ArchiveEntryList from '../../components/content/ArchiveEntryList.astro';
 import ContentHeader from '../../components/content/ContentHeader.astro';
 import EmptyState from '../../components/content/EmptyState.astro';
+import NotFoundPage from '../../components/content/NotFoundPage.astro';
 import SiteLayout from '../../layouts/SiteLayout.astro';
-import { getAllTags, getContentByTagSlug } from '../../lib/services/archive-service';
-
-export async function getStaticPaths() {
-  const tags = await getAllTags();
-  return tags.map((tag) => ({ params: { slug: tag.slug }, props: { tag } }));
-}
+import { getTagArchiveBySlug } from '../../lib/services/archive-service';
 
 const { slug } = Astro.params;
-const { tag } = Astro.props as { tag: { name: string; slug: string; count: number } };
-const entries = slug ? await getContentByTagSlug(slug) : [];
+const { tag, entries } = slug ? await getTagArchiveBySlug(slug) : { tag: undefined, entries: [] };
+
+if (!tag) {
+  Astro.response.status = 404;
+}
 ---
 
+{tag ? (
 <SiteLayout title={`${tag.name} 태그`} description={`${tag.name}와 관련된 콘텐츠 모음입니다.`} currentPath={`/tags/${tag.slug}`}>
   <section class="mx-auto max-w-5xl px-4 pb-10 pt-10">
     <ContentHeader title={`# ${tag.name}`} description={`${tag.count}개의 기록이 연결되어 있습니다.`} />
@@ -28,3 +28,6 @@ const entries = slug ? await getContentByTagSlug(slug) : [];
     )}
   </section>
 </SiteLayout>
+) : (
+  <NotFoundPage title="태그를 찾을 수 없습니다" />
+)}

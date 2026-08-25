@@ -20,7 +20,7 @@ const [site, studies, works, meetings] = await Promise.all([
 const latestStudies = studies.slice(0, 6);
 ---
 
-<SiteLayout>
+<SiteLayout site={site}>
   <section class="mx-auto max-w-5xl px-4 pb-16 pt-10 md:pt-14">
     <div class="space-y-6">
       <ContentHeader title={site.tagline} description={site.heroText} />
