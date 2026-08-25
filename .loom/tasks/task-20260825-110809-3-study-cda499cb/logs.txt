@@ -1,0 +1,6 @@
+[2026-08-25T11:08:14+00:00] agent=foreground task=task-20260825-110809-3-study-cda499cb Foreground task session started.
+[2026-08-25T11:08:30+00:00] 원본 Markdown 2개와 PDF 1개의 크기·형식·SHA-256을 조사하고 대상 study ID/slug 및 기존 작성자 참조를 사전 확인했다.
+[2026-08-25T11:09:40+00:00] Poppler로 PDF 30페이지를 1920x1080 PNG로 렌더링하고 접촉시트 2개와 대표 원본 페이지를 시각 검수했다.
+[2026-08-25T11:13:01+00:00] Sanity transaction Gn5g06M7sPGcctRdTzgvH4로 file asset 1개, image asset 30개, published study 3건을 생성했다.
+[2026-08-25T11:14:50+00:00] production Sanity 원문·자산 응답과 공개 상세·홈·study·search API·RSS·sitemap·canonical·health를 검증했다.
+[2026-08-25T11:15:22+00:00] 원본 SHA-256 보존을 재확인하고 임시 렌더·접촉시트·게시/검증 스크립트를 삭제했다.
