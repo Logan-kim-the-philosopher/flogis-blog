@@ -10,6 +10,7 @@ Flogi's Blog는 스터디, 회의, 작업 기록을 정리하는 **Astro + Sanit
 - 런타임 RSS, sitemap
 - Sanity 스키마 초안
 - Sanity 미연결 시 fallback 샘플 데이터 지원
+- TXT/오디오 회의 원본을 정리하고 검토 후 발행하는 Pi 에이전트
 
 ## Stack
 - Astro 7
@@ -54,6 +55,15 @@ HOST=0.0.0.0 PORT=8080 node --env-file=.env dist/server/entry.mjs
 ```
 
 공개 페이지는 요청 시점에 Sanity의 published 데이터를 SSR하므로 콘텐츠 발행 후 프론트엔드 재빌드가 필요하지 않습니다.
+
+## Meeting source agent
+
+```bash
+npm run meeting:doctor
+npm run meeting:prepare -- "/path/to/meeting.txt" --date 2026-08-25 --people person-id-1,person-id-2
+```
+
+오디오 원본에는 로컬 Whisper 모델이 필요합니다. preview 검토와 Sanity 발행 절차는 `docs/meeting-agent.md`를 따릅니다.
 
 ## Main routes
 - `/`
@@ -174,6 +184,7 @@ Use the official Sanity MCP tools only. In project w1jypogd dataset production, 
 - `docs/content-model.md`
 - `docs/deployment.md`
 - `docs/editorial-workflow.md`
+- `docs/meeting-agent.md`
 - `docs/handoff.md`
 - `infra/jenkins/README.md`
 - `infra/k8s/README.md`

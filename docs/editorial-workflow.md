@@ -58,18 +58,20 @@
    - `title`
    - `slug`
    - `publishedAt`
-5. 권장값 입력
-   - `coverImage`
-   - `tags`
-   - `authors` 또는 `participants`
    - `body`
+   - `authors` 또는 `participants`
+5. 권장값 입력
+   - `tags`
+   - 내용과 정확히 맞는 이미지가 있을 때만 `coverImage`
 6. 미리보기/검수 후 publish
+
+회의 원본을 TXT 또는 오디오에서 자동 정리할 때는 `docs/meeting-agent.md`의 Pi 에이전트를 사용합니다. 에이전트도 preview를 먼저 만들며 명시적인 `meeting:publish` 전에는 Sanity를 변경하지 않습니다.
 
 ## 글 수정 순서
 1. Sanity Studio에서 기존 문서 검색
 2. 제목, 본문, 태그, 사람 연결, 대표 이미지 수정
 3. slug 변경은 신중히 결정
-4. publish 후 사이트 재빌드/재배포
+4. publish 후 런타임 SSR 상세·목록에서 반영 상태 확인(콘텐츠 변경만으로는 재빌드/재배포 불필요)
 
 ## slug 정책
 권장 정책:

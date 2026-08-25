@@ -1,0 +1,78 @@
+{
+  "status": "RUNNING",
+  "agent": "foreground",
+  "mode": "foreground",
+  "execution_surface": "foreground",
+  "task_run_id": "task-run-20260825-123719-task-def-20260825-123716-pi-sanity-32f0329d-316d1581",
+  "generated_at": "2026-08-25T12:37:19+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/prompt.md",
+    ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/context.md",
+    ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/previous-results.md",
+    ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/git-snapshot.json",
+    ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/result.md",
+    ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/decision.md",
+    ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/troubleshooting.md",
+    ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/logs.txt",
+    ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/agent-events.jsonl",
+    ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/artifacts.json"
+  ],
+  "artifact_groups": {
+    "user_outputs": [
+      ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/result.md",
+      ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/decision.md",
+      ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/troubleshooting.md"
+    ],
+    "execution_inputs": [
+      ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/prompt.md",
+      ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/context.md",
+      ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/previous-results.md"
+    ],
+    "execution_audit": [
+      ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/git-snapshot.json",
+      ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/logs.txt",
+      ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/agent-events.jsonl",
+      ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/artifacts.json"
+    ],
+    "work_products": [
+      "scripts/meeting-agent/index.mjs",
+      "scripts/meeting-agent/lib.mjs",
+      "scripts/meeting-agent/system-prompt.md",
+      "scripts/meeting-agent/setup-whisper.mjs",
+      "tests/meeting-agent.test.mjs",
+      "tests/fixtures/meeting-agent/project-meeting.txt",
+      "tests/fixtures/meeting-agent/project-meeting.structured.json",
+      "docs/meeting-agent.md",
+      "docs/editorial-workflow.md",
+      "docs/content-model.md",
+      "README.md",
+      "package.json",
+      ".env.example",
+      ".gitignore"
+    ]
+  },
+  "contract_snapshot": {
+    "schema_version": 1,
+    "contract_ids": [
+      "task-execution",
+      "done-guardrail"
+    ],
+    "contracts": [
+      {
+        "id": "task-execution",
+        "title": "Task Execution Context Contract",
+        "source_paths": [
+          "loom/application/context_pack.py",
+          "loom/application/team_policy.py"
+        ]
+      },
+      {
+        "id": "done-guardrail",
+        "title": "Task Completion Guardrail Contract",
+        "source_paths": [
+          "loom/application/services.py"
+        ]
+      }
+    ]
+  }
+}

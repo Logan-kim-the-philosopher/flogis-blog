@@ -7,15 +7,15 @@
 - `title`: 제목 (**필수**)
 - `slug`: URL slug (**필수**)
 - `publishedAt`: 발행일 (**필수**)
-- `coverImage`: 대표 이미지 URL (권장, 없으면 프론트 fallback 사용)
+- `coverImage`: 실제 내용과 맞는 대표 이미지가 있을 때만 입력하는 선택값
 - `tags`: 태그 배열 (선택)
-- `body`: Markdown 본문 (권장, 비어 있으면 `본문 준비 중입니다.`로 대체)
+- `body`: Markdown 본문 (**필수**)
 
 프론트 동작 규칙:
 - `title` 또는 `slug`가 없는 문서는 목록에서 제외됩니다.
 - 잘못된 날짜는 기본값으로 정규화되며 최신순 정렬에서 뒤로 밀립니다.
-- `coverImage`가 비어 있으면 기본 이미지로 대체됩니다.
-- `authors` / `participants`가 비어 있으면 화면에는 fallback 문구가 표시됩니다.
+- `coverImage`가 비어 있으면 카드·상세·콘텐츠 OG 이미지에서 이미지 요소 자체를 생략합니다.
+- `authors` / `participants`는 최소 1명의 `person` 참조가 필요합니다.
 
 ## study
 스터디/학습 기록용 타입입니다.
@@ -24,7 +24,7 @@
 - `title: string`
 - `slug: string`
 - `publishedAt: string`
-- `coverImage: string`
+- `coverImage?: string`
 - `authors: Person[]`
 - `tags?: string[]`
 - `body: string`
@@ -36,7 +36,7 @@
 - `title: string`
 - `slug: string`
 - `publishedAt: string`
-- `coverImage: string`
+- `coverImage?: string`
 - `authors: Person[]`
 - `tags?: string[]`
 - `body: string`
@@ -48,7 +48,7 @@
 - `title: string`
 - `slug: string`
 - `publishedAt: string`
-- `coverImage: string`
+- `coverImage?: string`
 - `participants: Person[]`
 - `tags?: string[]`
 - `body: string`

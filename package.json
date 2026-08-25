@@ -11,7 +11,12 @@
     "preview": "astro preview",
     "astro": "astro",
     "studio": "sanity dev",
-    "studio:deploy": "sanity deploy"
+    "studio:deploy": "sanity deploy",
+    "meeting:prepare": "node scripts/meeting-agent/index.mjs prepare",
+    "meeting:publish": "node scripts/meeting-agent/index.mjs publish",
+    "meeting:doctor": "node scripts/meeting-agent/index.mjs doctor",
+    "meeting:setup": "node scripts/meeting-agent/setup-whisper.mjs",
+    "meeting:test": "node --test tests/meeting-agent.test.mjs"
   },
   "dependencies": {
     "@astrojs/node": "^11.1.4",

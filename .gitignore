@@ -26,3 +26,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# local meeting-agent runs and Whisper models
+.meeting-agent/

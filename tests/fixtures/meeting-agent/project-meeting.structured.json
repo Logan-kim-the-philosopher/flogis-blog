@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "classification": {
+    "category": "project_meeting",
+    "confidence": 0.97,
+    "rationale": "발표 방식 결정과 담당자별 실행 계획 확정이 중심이다.",
+    "secondaryCategories": []
+  },
+  "metadata": {
+    "title": "Flogy 데모 구성 5차 회의 — 사용자 흐름과 백업 영상",
+    "slug": "flogy-demo-planning-round-5-2026-08-25",
+    "publishedAt": "2026-08-25",
+    "people": [
+      { "name": "김희성", "role": "참석자" },
+      { "name": "홍용재", "role": "참석자" }
+    ],
+    "tags": ["Flogy", "발표", "데모"]
+  },
+  "overview": {
+    "purpose": "10분 발표에서 보여줄 데모 흐름과 장애 대비 방식을 결정한다.",
+    "summary": [
+      "기술 구조 전체 설명보다 사용자 요청부터 결과 확인까지의 흐름을 먼저 보여주기로 했다.",
+      "실시간 데모를 기본으로 하되 동일 시나리오의 녹화 영상을 준비한다.",
+      "홍용재는 데모 시나리오와 영상을, 김희성은 발표 자료를 준비한다.",
+      "세부 기술 설명 범위는 다음 회의에서 결정한다."
+    ],
+    "context": "발표 시간이 10분으로 제한되어 기술 구조 설명과 실제 시연의 우선순위를 정해야 했다."
+  },
+  "agenda": [
+    {
+      "title": "발표의 중심 흐름",
+      "question": "제한된 발표 시간에 무엇을 먼저 보여줄 것인가?",
+      "discussion": [
+        {
+          "speaker": "김희성",
+          "position": "사용자 요청과 결과 확인 흐름을 먼저 보여주자.",
+          "rationale": "10분 안에 기술 구조 전체를 설명하기 어렵기 때문이다."
+        },
+        {
+          "speaker": "홍용재",
+          "position": "실시간 데모 중심으로 구성하고 내부 구조는 한 장으로 요약하자.",
+          "rationale": "제품 흐름을 보여주면서 최소한의 기술 설명을 유지하기 위해서다."
+        }
+      ],
+      "options": [
+        "기술 구조 전체 설명",
+        "사용자 흐름 중심 실시간 데모",
+        "녹화 영상만 상영"
+      ],
+      "conclusion": "사용자 흐름 중심의 실시간 데모를 진행한다.",
+      "status": "decided"
+    },
+    {
+      "title": "데모 장애 대비",
+      "question": "네트워크 문제로 실시간 데모가 실패하면 어떻게 대응할 것인가?",
+      "discussion": [
+        {
+          "speaker": "홍용재",
+          "position": "동일 시나리오의 녹화 영상을 백업으로 준비하자.",
+          "rationale": "네트워크 장애가 발생해도 발표 흐름을 유지할 수 있다."
+        },
+        {
+          "speaker": "김희성",
+          "position": "녹화 영상 준비에 동의한다.",
+          "rationale": null
+        }
+      ],
+      "options": ["실시간 데모만 준비", "실시간 데모와 녹화 영상 병행"],
+      "conclusion": "실시간 데모와 같은 시나리오의 녹화 영상을 함께 준비한다.",
+      "status": "decided"
+    }
+  ],
+  "decisions": [
+    {
+      "decision": "사용자 요청부터 결과 확인까지의 흐름을 중심으로 실시간 데모를 구성한다.",
+      "rationale": "10분 발표에서 제품 목적을 먼저 이해시키기 위해서다.",
+      "status": "decided"
+    },
+    {
+      "decision": "동일 시나리오의 녹화 영상을 장애 대비용으로 준비한다.",
+      "rationale": "네트워크 문제에 대비하기 위해서다.",
+      "status": "decided"
+    }
+  ],
+  "actions": [
+    {
+      "owner": "홍용재",
+      "task": "3분 데모 시나리오와 녹화 영상을 준비한다.",
+      "deliverable": "데모 시나리오 문서와 녹화 영상",
+      "dueDate": "2026-08-26",
+      "status": "planned"
+    },
+    {
+      "owner": "김희성",
+      "task": "사용자 흐름 중심으로 발표 자료를 수정한다.",
+      "deliverable": "수정된 발표 자료",
+      "dueDate": "2026-08-27",
+      "status": "planned"
+    }
+  ],
+  "openQuestions": ["세부 기술 구조를 발표에서 어느 범위까지 설명할지 다음 회의에서 결정해야 한다."],
+  "sourceNotes": {
+    "uncertainties": [],
+    "omittedSmallTalk": []
+  }
+}
