@@ -17,7 +17,7 @@ const {
 } = Astro.props as {
   title?: string;
   description?: string;
-  image?: string;
+  image?: string | null;
   currentPath?: string;
   site?: SiteSettings;
 };
@@ -25,7 +25,7 @@ const {
 const site = providedSite || await getSiteSettings();
 const pageTitle = title ? `${title} | ${site.title}` : site.seo?.title || site.title;
 const pageDescription = description || site.seo?.description || site.description;
-const pageImage = image || site.seo?.image;
+const pageImage = image === null ? undefined : image || site.seo?.image;
 const canonical = new URL(currentPath, getRuntimeSiteUrl(Astro.url)).toString();
 ---
 

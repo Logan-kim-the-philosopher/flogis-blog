@@ -16,7 +16,7 @@ if (!work) {
 ---
 
 {work ? (
-  <SiteLayout title={work.title} description={getEntrySummary(work, 160)} image={work.coverImage}>
+  <SiteLayout title={work.title} description={getEntrySummary(work, 160)} image={work.coverImage ?? null}>
     <article class="mx-auto max-w-4xl px-4 pb-20 pt-12">
       <div class="space-y-5">
         <DetailBreadcrumb backHref="/work" items={[{ label: '홈', href: '/' }, { label: '작업', href: '/work' }, { label: work.title }]} />

@@ -16,7 +16,7 @@ if (!meeting) {
 ---
 
 {meeting ? (
-  <SiteLayout title={meeting.title} description={getEntrySummary(meeting, 160)} image={meeting.coverImage}>
+  <SiteLayout title={meeting.title} description={getEntrySummary(meeting, 160)} image={meeting.coverImage ?? null}>
     <article class="mx-auto max-w-4xl px-4 pb-20 pt-12">
       <div class="space-y-5">
         <DetailBreadcrumb backHref="/meetings" items={[{ label: '홈', href: '/' }, { label: '회의', href: '/meetings' }, { label: meeting.title }]} />
