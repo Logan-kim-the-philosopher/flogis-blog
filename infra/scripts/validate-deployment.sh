@@ -26,7 +26,7 @@ rg -q 'memory: 128Mi' "$rendered"
 rg -q 'name: flogis-blog-tailscale-auth' infra/k8s/base/tailscale-auth.secret.example.yaml
 rg -q 'tailscale --socket=/tmp/tailscaled.sock funnel' infra/k8s/base/tailscale-gateway.yaml
 rg -q '(Funnel on)' infra/k8s/base/tailscale-gateway.yaml
-rg -q '^USER node$' infra/docker/Dockerfile
+rg -q '^USER 1000:1000$' infra/docker/Dockerfile
 rg -q '^CMD \["node", "\./dist/server/entry\.mjs"\]$' infra/docker/Dockerfile
 rg -q "session: false" astro.config.mjs
 rg -q 'https://github\.com/Logan-kim-the-philosopher/flogis-blog\.git' infra/jenkins/Jenkinsfile

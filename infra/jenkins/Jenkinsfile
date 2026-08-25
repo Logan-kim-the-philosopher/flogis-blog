@@ -121,7 +121,7 @@ pipeline {
                     set -eu
                     container="flogis-blog-smoke-$BUILD_NUMBER"
                     reference="$HARBOR_REGISTRY/$HARBOR_PROJECT/$IMAGE_NAME:$IMAGE_TAG"
-                    test "$(docker image inspect --format '{{.Config.User}}' "$reference")" = "node"
+                    test "$(docker image inspect --format '{{.Config.User}}' "$reference")" = "1000:1000"
                     docker run -d \
                       --name "$container" \
                       --read-only \
