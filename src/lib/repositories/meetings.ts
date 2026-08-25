@@ -4,7 +4,6 @@ import { sampleMeetings } from '../fallback/sample-content';
 import { renderMarkdown } from '../renderers/markdown';
 import type { Meeting } from '../types/content';
 import {
-  DEFAULT_COVER_IMAGE,
   normalizeDate,
   normalizeMarkdownBody,
   normalizePeople,
@@ -42,7 +41,7 @@ function normalizeMeetings(items: Meeting[]) {
           ...item,
           title,
           slug,
-          coverImage: item?.coverImage?.trim() || DEFAULT_COVER_IMAGE,
+          coverImage: item?.coverImage?.trim() || undefined,
           publishedAt: normalizeDate(item?.publishedAt),
           participants: normalizePeople(item?.participants),
           tags: normalizeTags(item?.tags),

@@ -33,7 +33,9 @@ if (!work) {
         </div>
       </div>
 
-      <img src={work.coverImage} alt={work.title} class="mt-10 aspect-video w-full rounded-[2rem] border border-slate-800 object-cover" />
+      {work.coverImage && (
+        <img src={work.coverImage} alt={work.title} class="mt-10 aspect-video w-full rounded-[2rem] border border-slate-800 object-cover" />
+      )}
       <div class="mt-10 flex flex-wrap gap-2">
         {work.tags?.map((tag) => (
           <a href={`/tags/${encodeURIComponent(toArchiveSlug(tag))}`} class="rounded-full border border-slate-700 px-3 py-1 text-sm text-slate-300 transition hover:border-cyan-400 hover:text-white">{tag}</a>

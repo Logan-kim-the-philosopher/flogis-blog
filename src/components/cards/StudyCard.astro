@@ -11,13 +11,15 @@ const entry = study || episode;
 {entry && (
   <article class={`group relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/60 transition hover:border-cyan-400/60 hover:bg-slate-900 ${compact ? 'h-full' : ''}`}>
     <a href={`/study/${entry.slug}`} class="absolute inset-0 z-10" aria-label={entry.title}></a>
-    <div class="pointer-events-none overflow-hidden">
-      <img
-        src={entry.coverImage}
-        alt={entry.title}
-        class={`w-full object-cover transition duration-500 group-hover:scale-[1.03] ${compact ? 'aspect-[16/10]' : 'aspect-[16/9]'}`}
-      />
-    </div>
+    {entry.coverImage && (
+      <div class="pointer-events-none overflow-hidden">
+        <img
+          src={entry.coverImage}
+          alt={entry.title}
+          class={`w-full object-cover transition duration-500 group-hover:scale-[1.03] ${compact ? 'aspect-[16/10]' : 'aspect-[16/9]'}`}
+        />
+      </div>
+    )}
     <div class={`pointer-events-none relative z-20 space-y-3 ${compact ? 'p-4' : 'p-5'}`}>
       {!compact && (
         <div class="pointer-events-auto relative z-30 flex flex-wrap gap-2">

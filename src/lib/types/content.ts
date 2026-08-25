@@ -5,7 +5,7 @@ export type BaseEntry = {
   _type: 'study' | 'work' | 'meeting';
   title: string;
   slug: string;
-  coverImage: string;
+  coverImage?: string;
   publishedAt: string;
   tags?: string[];
   body: string;

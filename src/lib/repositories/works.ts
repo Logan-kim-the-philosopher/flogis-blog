@@ -4,7 +4,6 @@ import { sampleWorks } from '../fallback/sample-content';
 import { renderMarkdown } from '../renderers/markdown';
 import type { Work } from '../types/content';
 import {
-  DEFAULT_COVER_IMAGE,
   normalizeDate,
   normalizeMarkdownBody,
   normalizePeople,
@@ -42,7 +41,7 @@ function normalizeWorks(items: Work[]) {
           ...item,
           title,
           slug,
-          coverImage: item?.coverImage?.trim() || DEFAULT_COVER_IMAGE,
+          coverImage: item?.coverImage?.trim() || undefined,
           publishedAt: normalizeDate(item?.publishedAt),
           authors: normalizePeople(item?.authors),
           tags: normalizeTags(item?.tags),

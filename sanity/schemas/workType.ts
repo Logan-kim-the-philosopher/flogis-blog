@@ -31,9 +31,8 @@ export const workType = defineType({
       name: 'coverImage',
       title: 'Cover image',
       type: 'image',
-      description: '카드와 상세 상단에 쓰입니다. 가로형 이미지를 권장합니다.',
-      options: { hotspot: true },
-      validation: (rule) => rule.required()
+      description: '관련 있는 썸네일이 있을 때만 사용합니다. 가로형 이미지를 권장합니다.',
+      options: { hotspot: true }
     }),
     defineField({
       name: 'authors',

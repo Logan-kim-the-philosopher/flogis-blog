@@ -4,7 +4,6 @@ import { sampleStudies } from '../fallback/sample-content';
 import { renderMarkdown } from '../renderers/markdown';
 import type { Study } from '../types/content';
 import {
-  DEFAULT_COVER_IMAGE,
   normalizeDate,
   normalizeMarkdownBody,
   normalizePeople,
@@ -42,7 +41,7 @@ function normalizeStudies(items: Study[]) {
           ...item,
           title,
           slug,
-          coverImage: item?.coverImage?.trim() || DEFAULT_COVER_IMAGE,
+          coverImage: item?.coverImage?.trim() || undefined,
           publishedAt: normalizeDate(item?.publishedAt),
           authors: normalizePeople(item?.authors),
           tags: normalizeTags(item?.tags),

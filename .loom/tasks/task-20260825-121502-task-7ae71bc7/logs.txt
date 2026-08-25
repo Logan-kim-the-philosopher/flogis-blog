@@ -1,0 +1,5 @@
+[2026-08-25T12:15:05+00:00] agent=foreground task=task-20260825-121502-task-7ae71bc7 Foreground task session started.
+[2026-08-25T21:15:00+09:00] 운영 Sanity 전체 콘텐츠 13개와 coverImage reference를 사전 조회했다.
+[2026-08-25T21:16:00+09:00] 객체의 역할과 책임 세션 2개를 유지 대상으로 고정하고 나머지 11개를 제거 대상으로 분류했다.
+[2026-08-25T21:16:30+09:00] coverImage 타입·정규화·Sanity schema와 카드·미니카드·상세의 조건부 렌더링을 구현했다.
+[2026-08-25T21:16:47+09:00] npm run build를 통과했다.

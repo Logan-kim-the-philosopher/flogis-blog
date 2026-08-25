@@ -8,7 +8,7 @@ const entry = study || episode;
 ---
 
 {entry && (
-  <a href={`/study/${entry.slug}`} class="group grid overflow-hidden rounded-[2rem] border border-slate-800 bg-slate-900/70 shadow-2xl shadow-cyan-950/30 transition hover:border-cyan-400/60 md:grid-cols-[1.15fr_0.85fr]">
+  <a href={`/study/${entry.slug}`} class:list={['group grid overflow-hidden rounded-[2rem] border border-slate-800 bg-slate-900/70 shadow-2xl shadow-cyan-950/30 transition hover:border-cyan-400/60', { 'md:grid-cols-[1.15fr_0.85fr]': entry.coverImage }]}>
     <div class="order-2 flex flex-col justify-between p-6 md:order-1 md:p-8">
       <div class="space-y-4">
         <p class="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">최신 스터디</p>
@@ -25,8 +25,10 @@ const entry = study || episode;
       </div>
     </div>
 
-    <div class="order-1 min-h-64 overflow-hidden md:order-2">
-      <img src={entry.coverImage} alt={entry.title} class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]" />
-    </div>
+    {entry.coverImage && (
+      <div class="order-1 min-h-64 overflow-hidden md:order-2">
+        <img src={entry.coverImage} alt={entry.title} class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]" />
+      </div>
+    )}
   </a>
 )}

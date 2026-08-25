@@ -1,8 +1,5 @@
 import type { NavItem, Person } from '../types/common';
 
-export const DEFAULT_COVER_IMAGE =
-  'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80';
-
 export const DEFAULT_BODY_MARKDOWN = '본문 준비 중입니다.';
 export const DEFAULT_PUBLISHED_AT = '1970-01-01';
 
