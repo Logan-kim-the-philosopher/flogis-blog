@@ -10,3 +10,4 @@
 [2026-08-25T09:50:00+00:00] Dedicated document deleted; Sanity remaining=0; public detail=404; aggregate routes clean.
 [2026-08-25T09:50:00+00:00] External HTTPS fetch returned Flogi home and production Sanity content.
 [2026-08-25T09:51:00+00:00] npm run build, deployment validation including server dry-run, and git diff --check passed.
+[2026-08-25T09:52:28+00:00] agent=foreground task=task-20260825-083602-ssr-e2e-20e212a8 Foreground task session completed.

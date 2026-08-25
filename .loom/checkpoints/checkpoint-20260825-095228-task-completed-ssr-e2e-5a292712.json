@@ -1,0 +1,20 @@
+{
+  "id": "checkpoint-20260825-095228-task-completed-ssr-e2e-5a292712",
+  "created_at": "2026-08-25T09:52:28+00:00",
+  "reason": "Task completed: 원본 저장소 전환·SSR 운영 배포 및 무재빌드 E2E 검증",
+  "summary": "원본 저장소 전환·SSR 운영 배포 및 무재빌드 E2E 검증 -> DONE @ Haru2_dev/5160b4235a6a",
+  "job_id": "job-20260825-083644-astro-ssr-86568bc0",
+  "task_id": "task-20260825-083602-ssr-e2e-20e212a8",
+  "commit_sha": "5160b4235a6a3edfcef771167bca6c381d6ff9be",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260825-092047-job-20260825-083644-astro-ssr-86568bc0-82e843a5/job-run.json",
+    ".loom/task-definitions/task-def-20260825-083602-ssr-e2e-bf61f660/task-definition.json",
+    "AGENTS.md"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-08-25T09:52:28+00:00",
+  "rollback_strategy": "revert-or-branch"
+}
