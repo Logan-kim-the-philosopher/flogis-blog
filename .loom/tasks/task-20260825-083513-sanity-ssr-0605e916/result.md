@@ -7,4 +7,10 @@
 - 상세 route의 단건 GROQ, 검색 payload의 지연 endpoint, runtime env/비밀값, `published`/`useCdn: false`, `no-store`, 오류 및 health 정책을 확정했다.
 - 애플리케이션·컨테이너·GitOps 파일별 변경 목록과 무재빌드 E2E/롤백 기준을 기록했다.
 
+검증 근거:
+
+- `git diff --check` 통과
+- `loom task validate task-20260825-083513-sanity-ssr-0605e916 --strict --json` 결과 `OK`
+- `loom validate --strict` 결과 metadata consistency `OK`
+
 남은 위험은 `useCdn: false`의 API latency·요청량과 사람/태그 전체 집계 비용이다. 다음 작업에서 애플리케이션 SSR을 구현하고 build/로컬 runtime 검증으로 계약을 확인한다.
