@@ -202,6 +202,7 @@ pipeline {
 
                         git fetch --prune origin \
                           "+refs/heads/$SOURCE_BRANCH:refs/remotes/origin/$SOURCE_BRANCH"
+                        git update-ref -d "refs/remotes/origin/$DEPLOY_BRANCH"
                         git fetch --prune origin \
                           "+refs/heads/$DEPLOY_BRANCH:refs/remotes/origin/$DEPLOY_BRANCH" || true
                         git checkout -B "$DEPLOY_BRANCH" "refs/remotes/origin/$SOURCE_BRANCH"
