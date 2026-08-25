@@ -52,8 +52,8 @@ Loom 프로젝트 메모리 루트입니다.
 - Document outputs: `docs/runtime-content-architecture.md`
 - Document output exceptions: -
 - Source proposal: `-`
-- Status: PENDING
-- Assigned agent: codex
+- Status: REVIEW_REQUIRED
+- Assigned agent: foreground
 
 ## Advisor Source Prompt
 
