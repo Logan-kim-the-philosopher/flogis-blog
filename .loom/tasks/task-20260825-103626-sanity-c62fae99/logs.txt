@@ -4,3 +4,4 @@
 [2026-08-25T10:39:00+00:00] Detail, home, study list, search JSON, RSS, sitemap, canonical and Open Graph verified on first request.
 [2026-08-25T10:39:00+00:00] Jenkins #11, Argo revision 51d40c767c6a5a1629ec8652bd96e7a08759261e, web Pod UIDs and image digest remained unchanged.
 [2026-08-25T10:40:00+00:00] External public fetch returned the published title and full body. Document intentionally retained for user inspection.
+[2026-08-25T10:38:38+00:00] agent=foreground task=task-20260825-103626-sanity-c62fae99 Foreground task session completed.

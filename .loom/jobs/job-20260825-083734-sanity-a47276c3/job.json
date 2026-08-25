@@ -2,9 +2,9 @@
   "id": "job-20260825-083734-sanity-a47276c3",
   "title": "Sanity 런타임 콘텐츠 렌더링",
   "goal": "Sanity production의 published 콘텐츠를 재빌드 없이 요청 시점에 렌더링하는 Astro Node SSR 애플리케이션을 완성한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-08-25T08:37:34+00:00",
-  "updated_at": "2026-08-25T10:36:29+00:00",
+  "updated_at": "2026-08-25T10:38:38+00:00",
   "context_refs": [],
   "task_ids": [
     "task-20260825-083513-sanity-ssr-0605e916",
@@ -14,6 +14,7 @@
   "branch_name": "Haru2_dev",
   "checkpoint_ids": [
     "checkpoint-20260825-091009-task-completed-sanity-ssr-b9c19f92",
-    "checkpoint-20260825-092030-task-completed-astro-sanity-node-ssr-4a7bb267"
+    "checkpoint-20260825-092030-task-completed-astro-sanity-node-ssr-4a7bb267",
+    "checkpoint-20260825-103838-task-completed-sanity-3340528d"
   ]
 }
