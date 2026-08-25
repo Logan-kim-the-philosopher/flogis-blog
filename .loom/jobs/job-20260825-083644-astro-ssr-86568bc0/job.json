@@ -2,9 +2,9 @@
   "id": "job-20260825-083644-astro-ssr-86568bc0",
   "title": "Astro SSR 운영 배포 전환",
   "goal": "검증된 Astro Node SSR을 원본 저장소 기반 GitOps 운영 환경에서 서비스한다.",
-  "status": "PENDING",
+  "status": "RUNNING",
   "created_at": "2026-08-25T08:36:44+00:00",
-  "updated_at": "2026-08-25T09:30:19+00:00",
+  "updated_at": "2026-08-25T09:30:36+00:00",
   "context_refs": [],
   "task_ids": [
     "task-20260825-083544-node-ssr-gitops-47699656",
