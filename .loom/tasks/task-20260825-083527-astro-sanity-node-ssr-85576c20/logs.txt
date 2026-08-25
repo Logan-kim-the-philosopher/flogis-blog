@@ -9,3 +9,4 @@
 [2026-08-25T09:18:30+00:00] 21개 route status/cache/client secret 자동 검증 결과 SSR_SMOKE_OK.
 [2026-08-25T09:18:40+00:00] dist/client env identifier 부재와 전체 dist runtime token 값 부재 확인.
 [2026-08-25T09:19:00+00:00] 해시 정적 자산 immutable cache header 확인.
+[2026-08-25T09:20:30+00:00] agent=foreground task=task-20260825-083527-astro-sanity-node-ssr-85576c20 Astro Node SSR 전환, runtime Sanity 조회, 단건 slug·404·검색·RSS·sitemap·health 구현 후 build와 21개 route 및 secret 비노출 검증을 통과했다.

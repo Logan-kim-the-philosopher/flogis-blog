@@ -16,5 +16,18 @@
     ],
     "captured_at": "2026-08-25T09:10:23+00:00"
   },
-  "after": null
+  "after": {
+    "available": true,
+    "branch_name": "Haru2_dev",
+    "commit_sha": "66be830cbab1de3bd090158fac25aa2f6525cb59",
+    "dirty": true,
+    "staged_files": [],
+    "modified_files": [
+      ".loom/job-runs/job-run-20260825-090527-job-20260825-083734-sanity-a47276c3-527a3f2f/job-run.json",
+      ".loom/task-definitions/task-def-20260825-083527-astro-sanity-node-ssr-647a8139/task-definition.json",
+      "AGENTS.md"
+    ],
+    "untracked_files": [],
+    "captured_at": "2026-08-25T09:20:30+00:00"
+  }
 }

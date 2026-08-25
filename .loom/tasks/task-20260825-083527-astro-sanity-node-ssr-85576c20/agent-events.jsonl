@@ -1,1 +1,2 @@
 {"id": "event-8eda02d44a74", "type": "foreground_session_started", "message": "Foreground task session started.", "created_at": "2026-08-25T09:10:23+00:00", "agent": "foreground", "task_id": "task-20260825-083527-astro-sanity-node-ssr-85576c20"}
+{"id": "event-fe203e8cf44b", "type": "foreground_session_done", "message": "Astro Node SSR 전환, runtime Sanity 조회, 단건 slug·404·검색·RSS·sitemap·health 구현 후 build와 21개 route 및 secret 비노출 검증을 통과했다.", "created_at": "2026-08-25T09:20:30+00:00", "agent": "foreground", "task_id": "task-20260825-083527-astro-sanity-node-ssr-85576c20"}
