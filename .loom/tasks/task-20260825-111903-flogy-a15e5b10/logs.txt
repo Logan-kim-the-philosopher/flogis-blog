@@ -10,3 +10,4 @@
 [2026-08-25T21:03:00+09:00] Sanity 재조회, 공개 상세 9개, 목록·검색·RSS·sitemap·홈, SEO와 no-store를 검증했다.
 [2026-08-25T21:04:00+09:00] 기존 study·person 보존과 원본 11개 해시 불변을 확인했다.
 [2026-08-25T21:05:00+09:00] 임시 publish/transcription script와 /private/tmp/flogy-whisper를 정리했다.
+[2026-08-25T12:06:50+00:00] agent=foreground task=task-20260825-111903-flogy-a15e5b10 원본 11개를 구분 기준에 따라 회의 9개로 정리해 production Sanity에 발행하고 공개 SSR·집계 경로·SEO·원본 보존 검증을 완료했다.

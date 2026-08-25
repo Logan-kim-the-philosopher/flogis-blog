@@ -1,0 +1,20 @@
+{
+  "id": "checkpoint-20260825-120650-task-completed-flogy-ab213dc7",
+  "created_at": "2026-08-25T12:06:50+00:00",
+  "reason": "Task completed: Flogy 회의 기록 전체를 정리해 발행",
+  "summary": "Flogy 회의 기록 전체를 정리해 발행 -> DONE @ Haru2_dev/2e70f2345bff",
+  "job_id": "job-20260825-111853-flogy-50c9f897",
+  "task_id": "task-20260825-111903-flogy-a15e5b10",
+  "commit_sha": "2e70f2345bff8bfafa7a5f115dca746f7d7391d4",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260825-111911-job-20260825-111853-flogy-50c9f897-7d1733af/job-run.json",
+    ".loom/task-definitions/task-def-20260825-111903-flogy-cacbb6b1/task-definition.json",
+    "AGENTS.md"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-08-25T12:06:50+00:00",
+  "rollback_strategy": "revert-or-branch"
+}

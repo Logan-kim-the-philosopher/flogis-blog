@@ -3,9 +3,9 @@
   "job_id": "job-20260825-111853-flogy-50c9f897",
   "title": "Flogy 회의 기록 전체를 정리해 발행",
   "description": "바탕화면 Flogy/회의 기록 아래의 모든 파일과 하위 폴더를 조사한다. 날짜·회의명·회차가 모두 같은 자료만 하나의 회의로 통합하고, 같은 날짜라도 이름이나 회차가 다르면 독립된 회의로 유지한다. 각 회의는 원문 근거에 따라 회의 안건, 참석자별 의견, 논의 내용, 결정 사항, 후속 행동을 상세히 구조화해 production Sanity meeting으로 발행한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-08-25T11:19:03+00:00",
-  "updated_at": "2026-08-25T11:19:11+00:00",
+  "updated_at": "2026-08-25T12:06:50+00:00",
   "order_index": 1,
   "assigned_agent": "foreground",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "18c4d253d48acd10df60242375836a20cd1669c7"
+    "18c4d253d48acd10df60242375836a20cd1669c7",
+    "2e70f2345bff8bfafa7a5f115dca746f7d7391d4"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-08-25T11:19:11+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-08-25T12:06:50+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260825-111903-flogy-a15e5b10/agent-events.jsonl",
+    ".loom/tasks/task-20260825-111903-flogy-a15e5b10/artifacts.json",
+    ".loom/tasks/task-20260825-111903-flogy-a15e5b10/context.md",
+    ".loom/tasks/task-20260825-111903-flogy-a15e5b10/decision.md",
+    ".loom/tasks/task-20260825-111903-flogy-a15e5b10/git-snapshot.json",
+    ".loom/tasks/task-20260825-111903-flogy-a15e5b10/logs.txt",
+    ".loom/tasks/task-20260825-111903-flogy-a15e5b10/previous-results.md",
+    ".loom/tasks/task-20260825-111903-flogy-a15e5b10/prompt.md",
+    ".loom/tasks/task-20260825-111903-flogy-a15e5b10/result.md",
+    ".loom/tasks/task-20260825-111903-flogy-a15e5b10/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }
