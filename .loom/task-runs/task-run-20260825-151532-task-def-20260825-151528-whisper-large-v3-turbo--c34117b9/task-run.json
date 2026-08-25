@@ -2,9 +2,9 @@
   "id": "task-run-20260825-151532-task-def-20260825-151528-whisper-large-v3-turbo--c34117b9",
   "job_run_id": "job-run-20260825-151532-job-20260825-123703-job-6c824053-afc8d7f0",
   "task_definition_id": "task-def-20260825-151528-whisper-large-v3-turbo-1a316e05",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-08-25T15:15:32+00:00",
-  "updated_at": "2026-08-25T15:15:32+00:00",
+  "updated_at": "2026-08-25T15:17:53+00:00",
   "legacy_task_id": "task-20260825-151528-whisper-large-v3-turbo-4b279158",
   "attempt": 1,
   "assigned_agent": "foreground",
@@ -13,13 +13,29 @@
   "lease_expires_at": "",
   "queued_at": "",
   "started_at": "2026-08-25T15:15:32+00:00",
-  "completed_at": "",
+  "completed_at": "2026-08-25T15:17:53+00:00",
   "last_error": "",
-  "commit_refs": [],
-  "branch_name": "",
-  "git_dirty": false,
-  "git_snapshot_captured_at": "",
-  "artifacts": [],
-  "checkpoint_ids": [],
+  "commit_refs": [
+    "422a88bf0d3acfec8b13f719a463f62b26b2fda4",
+    "bc49458775558d92f805aedd29ed1e2bae414f17"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-08-25T15:17:53+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260825-151528-whisper-large-v3-turbo-4b279158/agent-events.jsonl",
+    ".loom/tasks/task-20260825-151528-whisper-large-v3-turbo-4b279158/artifacts.json",
+    ".loom/tasks/task-20260825-151528-whisper-large-v3-turbo-4b279158/context.md",
+    ".loom/tasks/task-20260825-151528-whisper-large-v3-turbo-4b279158/decision.md",
+    ".loom/tasks/task-20260825-151528-whisper-large-v3-turbo-4b279158/git-snapshot.json",
+    ".loom/tasks/task-20260825-151528-whisper-large-v3-turbo-4b279158/logs.txt",
+    ".loom/tasks/task-20260825-151528-whisper-large-v3-turbo-4b279158/previous-results.md",
+    ".loom/tasks/task-20260825-151528-whisper-large-v3-turbo-4b279158/prompt.md",
+    ".loom/tasks/task-20260825-151528-whisper-large-v3-turbo-4b279158/result.md",
+    ".loom/tasks/task-20260825-151528-whisper-large-v3-turbo-4b279158/troubleshooting.md"
+  ],
+  "checkpoint_ids": [
+    "checkpoint-20260825-151753-task-completed-whisper-large-v3-turbo-37337094"
+  ],
   "review_required_reason": ""
 }

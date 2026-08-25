@@ -1,10 +1,10 @@
 {
-  "status": "RUNNING",
+  "status": "DONE",
   "agent": "foreground",
   "mode": "foreground",
   "execution_surface": "foreground",
   "task_run_id": "task-run-20260825-151532-task-def-20260825-151528-whisper-large-v3-turbo--c34117b9",
-  "generated_at": "2026-08-25T15:15:32+00:00",
+  "generated_at": "2026-08-25T15:17:53+00:00",
   "artifacts": [
     ".loom/tasks/task-20260825-151528-whisper-large-v3-turbo-4b279158/prompt.md",
     ".loom/tasks/task-20260825-151528-whisper-large-v3-turbo-4b279158/context.md",

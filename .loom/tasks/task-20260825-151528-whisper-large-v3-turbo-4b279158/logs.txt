@@ -1,3 +1,4 @@
 [2026-08-25T15:15:32+00:00] agent=foreground task=task-20260825-151528-whisper-large-v3-turbo-4b279158 Foreground task session started.
 [2026-08-25T15:16:00+00:00] npm run meeting:setup -- large-v3-turbo completed; installed 1624555275-byte model at .meeting-agent/models/ggml-large-v3-turbo.bin.
 [2026-08-25T15:16:10+00:00] npm run meeting:doctor reported transcription.ready=true with ffmpeg and whisper-cli available.
+[2026-08-25T15:17:53+00:00] agent=foreground task=task-20260825-151528-whisper-large-v3-turbo-4b279158 공식 large-v3-turbo 모델 1624555275 bytes 설치 및 meeting:doctor transcription.ready=true 검증 완료
