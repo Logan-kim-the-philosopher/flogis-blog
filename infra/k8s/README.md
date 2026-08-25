@@ -1,6 +1,6 @@
 # Flogis Blog Kubernetes GitOps
 
-Flogis Blog는 `flogis-blog` namespace에서 정적 웹 Pod 2개와 Tailscale gateway Pod 1개로 실행됩니다.
+Flogis Blog는 `flogis-blog` namespace에서 Astro Node SSR web Pod 2개와 Tailscale gateway Pod 1개로 실행됩니다.
 
 ```text
 Haru2_dev
@@ -12,6 +12,8 @@ Haru2_dev
 ```
 
 접근 경로는 Tailscale Funnel 기반 공개 HTTPS입니다. Funnel이 TLS를 종료하고 gateway nginx를 거쳐 web Service로 전달합니다.
+
+web Pod는 비루트 사용자와 read-only root filesystem으로 실행되며 `8080`의 Astro standalone server를 제공합니다. `flogis-blog-web-runtime` ConfigMap이 `PUBLIC_SITE_URL`, Sanity 공개 연결 정보, strict mode, `HOST`/`PORT`를 런타임에 주입합니다. dataset이 공개 읽기이므로 web Pod에는 `SANITY_API_TOKEN` Secret이 필요하지 않습니다.
 
 ## GitOps 리소스
 
@@ -58,6 +60,8 @@ bash infra/scripts/validate-deployment.sh
 kubectl kustomize infra/k8s/overlays/prod
 ```
 
+검증 스크립트는 Kustomize 렌더링, client/server dry-run, Jenkins XML, 원본 저장소 URL, 런타임 Sanity 설정, 비밀값 패턴과 Tailscale Funnel 경계를 확인합니다.
+
 소스 브랜치에는 `replace-with-jenkins-build` placeholder가 정상입니다. 실제 `deploy` 브랜치에는 Jenkins가 이를 immutable tag로 치환해야 합니다.
 
 ## 초기 배포
@@ -77,7 +81,7 @@ kubectl -n flogis-blog rollout status deployment/flogis-blog-gateway
 kubectl -n flogis-blog get pods,svc,resourcequota,limitrange
 ```
 
-배포 후 tailnet에 로그인하지 않은 외부 네트워크에서 `https://flogis-blog.tail2dac17.ts.net/`와 `/healthz`를 확인합니다. HTTP upstream redirect는 상대 경로로 반환하며 공개 응답에는 HSTS가 포함됩니다.
+배포 후 tailnet에 로그인하지 않은 외부 네트워크에서 `https://flogis-blog.tail2dac17.ts.net/`, `/healthz`, `/api/search.json`, 최신 published 상세 경로를 확인합니다. 공개 응답에는 HSTS가 포함되며 콘텐츠 변경은 이미지 재빌드 없이 다음 요청에 반영되어야 합니다.
 
 ## 롤백
 

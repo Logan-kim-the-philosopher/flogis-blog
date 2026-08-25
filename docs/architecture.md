@@ -1,17 +1,17 @@
 # Architecture
 
 ## 목적
-이 프로젝트는 **Astro 정적 프론트 프로토타입**입니다. 현재 목적은 UI, 정보 구조, 콘텐츠 모델 초안을 검증하는 것이며, 실제 DB/API는 후속 개발자가 연결할 예정입니다.
+이 프로젝트는 Sanity production의 published 콘텐츠를 요청 시점에 렌더링하는 **Astro Node SSR 애플리케이션**입니다. 콘텐츠 발행과 프론트엔드 이미지 빌드·배포를 분리하면서 초기 HTML, SEO, RSS와 올바른 404를 유지합니다.
 
 ## 스택
-- **Astro**: 정적 사이트 렌더링
+- **Astro + @astrojs/node**: standalone server-side rendering
 - **Tailwind CSS**: UI 스타일링
 - **Sanity**: 운영용 CMS 및 권한 관리 지점
-- **Self-hosted static hosting**: `dist/`를 서빙할 수 있는 임의의 서버 환경
+- **Self-hosted Node runtime**: `dist/server/entry.mjs`와 runtime dependency를 실행하는 환경
 
 ## 데이터 흐름
-1. 페이지가 `src/lib/repositories/*`를 통해 콘텐츠를 조회합니다.
-2. repository는 Sanity 설정이 있으면 Sanity에서 가져오고, 없으면 `src/lib/fallback/*`의 샘플 데이터를 사용합니다.
+1. 각 HTTP 요청에서 페이지/endpoint가 `src/lib/repositories/*`를 통해 콘텐츠를 조회합니다.
+2. repository는 runtime env로 구성된 Sanity client에서 published 데이터를 가져옵니다. non-strict 로컬 환경에서 설정이 없을 때만 fallback을 사용할 수 있습니다.
 3. repository 단계에서 title/slug/date/image/body/people 필드를 정규화합니다.
 4. Markdown 본문은 `src/lib/renderers/markdown.ts`에서 HTML로 렌더링됩니다.
 5. 공통 가공 로직(요약, 검색 payload, 정렬)은 `src/lib/services/*`에 있습니다.
@@ -29,10 +29,9 @@
 - `src/components/content`: 섹션 헤더, SEO 메타
 
 ## 배포/운영 관점
-- 현재는 정적 빌드 기준 구조입니다.
-- 배포 방식은 `npm run build` 후 생성된 `dist/`를 임의의 서버에서 정적 서빙하는 방식입니다.
-- 콘텐츠 수정 후에는 재빌드/재배포가 필요합니다.
-- 검색은 현재 전역 payload를 클라이언트에서 필터링하는 프로토타입 방식입니다.
+- `npm run build`로 Node standalone bundle을 만들고 `node dist/server/entry.mjs`를 실행합니다.
+- 콘텐츠 수정·발행 후에는 재빌드/재배포가 필요하지 않습니다.
+- 검색 모달은 처음 열릴 때 `/api/search.json`의 최신 payload를 받아 클라이언트에서 필터링합니다.
 - `SANITY_STRICT_CONTENT=true`를 사용하면 운영 배포에서 Sanity 연결 누락/실패를 조용히 fallback 하지 않고 즉시 실패시킬 수 있습니다.
 - canonical URL은 `PUBLIC_SITE_URL` 기준으로 생성됩니다.
 
@@ -49,3 +48,6 @@
 - `/meetings/[slug]`
 - `/work`
 - `/work/[slug]`
+- `/people`, `/people/[slug]`
+- `/tags`, `/tags/[slug]`
+- `/api/search.json`, `/rss.xml`, `/sitemap.xml`, `/healthz`

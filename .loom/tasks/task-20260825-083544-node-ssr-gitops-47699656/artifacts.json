@@ -1,0 +1,99 @@
+{
+  "status": "RUNNING",
+  "agent": "foreground",
+  "mode": "foreground",
+  "execution_surface": "foreground",
+  "task_run_id": "task-run-20260825-092047-task-def-20260825-083544-node-ssr-gitops-f3cb907-92232284",
+  "generated_at": "2026-08-25T09:20:47+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/prompt.md",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/context.md",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/previous-results.md",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/git-snapshot.json",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/result.md",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/decision.md",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/troubleshooting.md",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/logs.txt",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/agent-events.jsonl",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/artifacts.json",
+    "astro.config.mjs",
+    "infra/docker/Dockerfile",
+    "infra/docker/nginx.conf",
+    "infra/jenkins/Jenkinsfile",
+    "infra/jenkins/job-config.xml",
+    "infra/jenkins/README.md",
+    "infra/k8s/argocd/application.yaml",
+    "infra/k8s/base/kustomization.yaml",
+    "infra/k8s/base/web.yaml",
+    "infra/k8s/base/tailscale-gateway.yaml",
+    "infra/k8s/README.md",
+    "infra/scripts/validate-deployment.sh",
+    "README.md",
+    "docs/architecture.md",
+    "docs/content-model.md",
+    "docs/deployment.md",
+    "docs/handoff.md",
+    "docs/sanity-qa.md"
+  ],
+  "artifact_groups": {
+    "user_outputs": [
+      ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/result.md",
+      ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/decision.md",
+      ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/troubleshooting.md"
+    ],
+    "execution_inputs": [
+      ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/prompt.md",
+      ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/context.md",
+      ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/previous-results.md"
+    ],
+    "execution_audit": [
+      ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/git-snapshot.json",
+      ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/logs.txt",
+      ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/agent-events.jsonl",
+      ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/artifacts.json"
+    ],
+    "work_products": [
+      "astro.config.mjs",
+      "infra/docker/Dockerfile",
+      "infra/jenkins/Jenkinsfile",
+      "infra/jenkins/job-config.xml",
+      "infra/jenkins/README.md",
+      "infra/k8s/argocd/application.yaml",
+      "infra/k8s/base/kustomization.yaml",
+      "infra/k8s/base/web.yaml",
+      "infra/k8s/base/tailscale-gateway.yaml",
+      "infra/k8s/README.md",
+      "infra/scripts/validate-deployment.sh",
+      "README.md",
+      "docs/architecture.md",
+      "docs/content-model.md",
+      "docs/deployment.md",
+      "docs/handoff.md",
+      "docs/sanity-qa.md"
+    ]
+  },
+  "contract_snapshot": {
+    "schema_version": 1,
+    "contract_ids": [
+      "task-execution",
+      "done-guardrail"
+    ],
+    "contracts": [
+      {
+        "id": "task-execution",
+        "title": "Task Execution Context Contract",
+        "source_paths": [
+          "loom/application/context_pack.py",
+          "loom/application/team_policy.py"
+        ]
+      },
+      {
+        "id": "done-guardrail",
+        "title": "Task Completion Guardrail Contract",
+        "source_paths": [
+          "loom/application/services.py"
+        ]
+      }
+    ]
+  }
+}

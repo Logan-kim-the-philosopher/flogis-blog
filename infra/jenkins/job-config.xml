@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <flow-definition plugin="workflow-job">
   <actions/>
-  <description>Flogis Blog Haru2_dev to Harbor and deploy-branch GitOps pipeline</description>
+  <description>Flogis Blog Astro SSR Haru2_dev to Harbor and deploy-branch GitOps pipeline</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty>
@@ -22,7 +22,7 @@
       <configVersion>2</configVersion>
       <userRemoteConfigs>
         <hudson.plugins.git.UserRemoteConfig>
-          <url>https://github.com/develsvai/flogis-blog.git</url>
+          <url>https://github.com/Logan-kim-the-philosopher/flogis-blog.git</url>
           <credentialsId>github-credentials</credentialsId>
         </hudson.plugins.git.UserRemoteConfig>
       </userRemoteConfigs>

@@ -80,7 +80,7 @@
 
 운영 규칙:
 - `siteSettings`는 운영 배포 전 반드시 1개 있어야 합니다.
-- `SANITY_STRICT_CONTENT=true`일 때 `siteSettings`가 없으면 빌드 실패로 처리됩니다.
+- `SANITY_STRICT_CONTENT=true`일 때 `siteSettings`가 없으면 해당 런타임 요청을 명시적 오류로 처리합니다.
 
 ## 권장 입력 순서
 1. `siteSettings`

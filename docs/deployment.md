@@ -1,8 +1,8 @@
 # Deployment Checklist
 
 ## 배포 전제
-이 프로젝트는 `npm run build` 후 생성되는 `dist/`를 정적으로 서빙하는 구조입니다.
-개발자 서버/VPS/nginx/apache/사내 서버 등 어디서든 호스팅할 수 있습니다.
+이 프로젝트는 `npm run build` 후 생성되는 Astro Node standalone server를 실행하는 SSR 구조입니다.
+Node 22.20 이상을 사용할 수 있는 컨테이너/VPS/Kubernetes 환경에서 호스팅합니다.
 
 ## 1. Sanity 준비
 1. Sanity project 생성
@@ -15,6 +15,8 @@
 ## 2. 환경 변수
 서버 환경 또는 로컬 `.env`에 아래 값을 설정합니다.
 
+- `HOST=0.0.0.0`
+- `PORT=8080`
 - `PUBLIC_SITE_URL`
 - `SANITY_PROJECT_ID`
 - `SANITY_DATASET`
@@ -30,6 +32,7 @@
 ```bash
 npm install
 npm run build
+HOST=0.0.0.0 PORT=8080 node --env-file=.env dist/server/entry.mjs
 npm run studio
 ```
 
@@ -50,19 +53,16 @@ npm run studio
 
 ## 5. 서버 배포
 기본 절차:
-1. `npm install`
+1. `npm ci`
 2. `npm run build`
-3. 생성된 `dist/`를 서버에서 정적 서빙
+3. `HOST`, `PORT`, `PUBLIC_SITE_URL`, Sanity runtime env를 주입
+4. `node dist/server/entry.mjs` 실행
 
-예시 호스팅 방식:
-- nginx document root로 `dist/` 연결
-- apache 정적 호스팅
-- node 서버 뒤 정적 파일 서빙
-- VPS 또는 사내 서버 업로드
+운영 이미지는 `infra/docker/Dockerfile`처럼 `dist/`와 runtime `node_modules`를 포함하고 비루트 사용자로 실행합니다. 정적 `_astro/*` 자산도 Astro Node server가 제공합니다.
 
 중요:
 - canonical URL이 올바르려면 `PUBLIC_SITE_URL`을 실제 도메인으로 설정해야 합니다.
-- 콘텐츠를 수정한 뒤에는 재빌드/재배포가 필요합니다.
+- Sanity published 콘텐츠를 수정한 뒤에는 프론트엔드 재빌드/재배포가 필요하지 않습니다.
 
 ## 6. 배포 후 확인
 - canonical URL이 실제 도메인으로 잡히는지

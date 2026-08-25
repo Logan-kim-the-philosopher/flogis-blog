@@ -1,0 +1,11 @@
+[2026-08-25T09:20:47+00:00] agent=foreground task=task-20260825-083544-node-ssr-gitops-47699656 Foreground task session started.
+[2026-08-25T09:22:00+00:00] Node runtime Dockerfile, session false, runtime ConfigMap, web Deployment, original Jenkins/Argo URL 구성.
+[2026-08-25T09:24:23+00:00] npm run build 통과. Node standalone output과 session filesystem 비활성 확인.
+[2026-08-25T09:24:24+00:00] sandbox OpenAPI 접근 제한으로 manual client dry-run 실패; client validate=false와 server dry-run 분리.
+[2026-08-25T09:25:00+00:00] Docker Desktop daemon 시작 후 flogis-blog:ssr-task3 image build 통과.
+[2026-08-25T09:25:30+00:00] image user=node, size=223458809, cmd=node ./dist/server/entry.mjs 확인.
+[2026-08-25T09:26:00+00:00] read-only/non-root container runtime smoke 결과 DOCKER_SSR_SMOKE_OK, uid=1000 확인.
+[2026-08-25T09:27:00+00:00] deployment validation의 과도한 token identifier 패턴 수정 후 Kustomize client/server dry-run 통과.
+[2026-08-25T09:28:00+00:00] pod seccomp 보강 후 전체 Deployment configuration validation 통과.
+[2026-08-25T09:29:00+00:00] Jenkins remote declarative linter는 인증 403; xmllint와 Groovy 4 groovyc 대체 검증 통과.
+[2026-08-25T09:30:00+00:00] 실제 local token의 image filesystem 비포함 검사 결과 IMAGE_SECRET_VALUE_NOT_FOUND.

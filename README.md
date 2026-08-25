@@ -7,17 +7,18 @@ Flogi's Blog는 스터디, 회의, 작업 기록을 정리하는 **Astro + Sanit
 ## Features
 - 홈, 스터디, 회의, 작업 목록/상세 페이지
 - 모달형 검색 UX
-- RSS, sitemap
+- 런타임 RSS, sitemap
 - Sanity 스키마 초안
 - Sanity 미연결 시 fallback 샘플 데이터 지원
 
 ## Stack
 - Astro 7
+- `@astrojs/node` standalone SSR
 - Tailwind CSS 4
 - Sanity 6
 - Marked (Markdown rendering)
-- `@astrojs/sitemap`, `@astrojs/rss`
-- Self-hosted static hosting or any server that can serve `dist/`
+- `@astrojs/rss`
+- Self-hosted Node runtime
 
 ## Run locally
 ```bash
@@ -49,7 +50,10 @@ Hosted Studio:
 ## Build
 ```bash
 npm run build
+HOST=0.0.0.0 PORT=8080 node --env-file=.env dist/server/entry.mjs
 ```
+
+공개 페이지는 요청 시점에 Sanity의 published 데이터를 SSR하므로 콘텐츠 발행 후 프론트엔드 재빌드가 필요하지 않습니다.
 
 ## Main routes
 - `/`
@@ -100,15 +104,15 @@ flowchart LR
     A[관리자 노트북] -->|CLI / MCP| B[Sanity Cloud DB<br/>project: w1jypogd<br/>dataset: production]
     A -->|브라우저로 접속 시| C[Hosted Sanity Studio<br/>flogi-studio.sanity.studio]
     C -->|같은 DB 수정| B
-    D[프론트엔드 서버] -->|Sanity 데이터 읽기| B
-    D -->|정적 사이트 제공| E[방문자 브라우저]
+    D[Astro Node SSR 서버] -->|요청 시 published 데이터 읽기| B
+    D -->|렌더링된 HTML 제공| E[방문자 브라우저]
 ```
 
 - 작업의 출발점은 **관리자 노트북 1대**라고 보면 됩니다.
 - 기본 작업은 **CLI / MCP / Pi**로 진행합니다.
 - 직접 화면을 보며 수정할 때만 브라우저에서 **Hosted Sanity Studio**를 엽니다.
 - CLI와 Studio는 모두 같은 **Sanity Cloud DB (`w1jypogd / production`)** 를 수정합니다.
-- **프론트엔드 서버**는 그 DB를 읽어 정적 사이트를 만들고 방문자에게 제공합니다.
+- **프론트엔드 서버**는 방문자 요청 시 그 DB를 읽어 HTML을 렌더링합니다.
 
 ### Document ID convention
 ```text

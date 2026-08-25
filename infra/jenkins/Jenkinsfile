@@ -9,7 +9,7 @@ pipeline {
         HARBOR_CRED = 'harbor-credentials'
         IMAGE_NAME = 'site'
 
-        REPOSITORY_URL = 'https://github.com/develsvai/flogis-blog.git'
+        REPOSITORY_URL = 'https://github.com/Logan-kim-the-philosopher/flogis-blog.git'
         GIT_CRED = 'github-credentials'
         SOURCE_BRANCH = 'Haru2_dev'
         DEPLOY_BRANCH = 'deploy'
@@ -88,11 +88,6 @@ pipeline {
                 sh '''
                     set -eu
                     docker build \
-                      --build-arg "PUBLIC_SITE_URL=$PUBLIC_SITE_URL" \
-                      --build-arg "SANITY_PROJECT_ID=$SANITY_PROJECT_ID" \
-                      --build-arg "SANITY_DATASET=$SANITY_DATASET" \
-                      --build-arg "SANITY_API_VERSION=$SANITY_API_VERSION" \
-                      --build-arg "SANITY_STRICT_CONTENT=$SANITY_STRICT_CONTENT" \
                       --tag "$HARBOR_REGISTRY/$HARBOR_PROJECT/$IMAGE_NAME:$IMAGE_TAG" \
                       --file infra/docker/Dockerfile .
                 '''
@@ -126,10 +121,25 @@ pipeline {
                     set -eu
                     container="flogis-blog-smoke-$BUILD_NUMBER"
                     reference="$HARBOR_REGISTRY/$HARBOR_PROJECT/$IMAGE_NAME:$IMAGE_TAG"
-                    docker run -d --name "$container" "$reference"
+                    test "$(docker image inspect --format '{{.Config.User}}' "$reference")" = "node"
+                    docker run -d \
+                      --name "$container" \
+                      --read-only \
+                      --tmpfs /tmp:rw,noexec,nosuid,size=16m \
+                      --env "HOST=0.0.0.0" \
+                      --env "PORT=8080" \
+                      --env "PUBLIC_SITE_URL=$PUBLIC_SITE_URL" \
+                      --env "SANITY_PROJECT_ID=$SANITY_PROJECT_ID" \
+                      --env "SANITY_DATASET=$SANITY_DATASET" \
+                      --env "SANITY_API_VERSION=$SANITY_API_VERSION" \
+                      --env "SANITY_STRICT_CONTENT=$SANITY_STRICT_CONTENT" \
+                      "$reference"
 
                     attempts=30
-                    until docker exec "$container" wget -q -O /dev/null http://127.0.0.1:8080/healthz; do
+                    until docker exec "$container" node --input-type=module -e '
+                      const response = await fetch("http://127.0.0.1:8080/healthz");
+                      if (!response.ok) process.exit(1);
+                    '; do
                       attempts=$((attempts - 1))
                       if [ "$attempts" -le 0 ]; then
                         docker logs "$container" >&2 || true
@@ -138,18 +148,23 @@ pipeline {
                       sleep 1
                     done
 
-                    docker exec "$container" wget -q -O /dev/null http://127.0.0.1:8080/
-                    docker exec "$container" wget -q -O /dev/null http://127.0.0.1:8080/study/
-
-                    detail_index="$(docker exec "$container" find /usr/share/nginx/html/study -name index.html | awk -F/ 'NF > 7 { print; exit }')"
-                    test -n "$detail_index"
-                    detail_slug="$(basename "$(dirname "$detail_index")")"
-                    redirect_headers="$(docker exec "$container" wget -S --spider "http://127.0.0.1:8080/study/$detail_slug" 2>&1)"
-                    if printf '%s\n' "$redirect_headers" | grep -F 'Location: http://'; then
-                      echo 'Detail route emitted an insecure absolute redirect.' >&2
-                      exit 1
-                    fi
-                    printf '%s\n' "$redirect_headers" | grep -F "Location: /study/$detail_slug/"
+                    docker exec "$container" node --input-type=module -e '
+                      const base = "http://127.0.0.1:8080";
+                      const paths = ["/", "/study", "/work", "/meetings", "/people", "/tags", "/search", "/api/search.json", "/rss.xml", "/sitemap.xml", "/healthz"];
+                      for (const path of paths) {
+                        const response = await fetch(base + path);
+                        if (response.status !== 200) throw new Error(path + " returned " + response.status);
+                        if (response.headers.get("cache-control") !== "no-store") throw new Error(path + " is cacheable");
+                        if ((await response.text()).includes("SANITY_API_TOKEN")) throw new Error(path + " exposed an env identifier");
+                      }
+                      const search = await (await fetch(base + "/api/search.json")).json();
+                      const detailPath = search.find((item) => item.href)?.href;
+                      if (!detailPath) throw new Error("Published detail route was not found");
+                      const detail = await fetch(base + detailPath);
+                      if (detail.status !== 200) throw new Error(detailPath + " returned " + detail.status);
+                      const missing = await fetch(base + "/study/jenkins-smoke-does-not-exist");
+                      if (missing.status !== 404) throw new Error("Missing detail did not return 404");
+                    '
                 '''
             }
         }
@@ -182,7 +197,7 @@ pipeline {
                         git config user.email "jenkins@flogis-blog.local"
                         git config user.name "Jenkins CI"
                         git remote set-url origin \
-                          "https://$GIT_USER:$GIT_TOKEN@github.com/develsvai/flogis-blog.git"
+                          "https://$GIT_USER:$GIT_TOKEN@github.com/Logan-kim-the-philosopher/flogis-blog.git"
                         trap 'git remote set-url origin "$REPOSITORY_URL"' EXIT
 
                         git fetch --prune origin \

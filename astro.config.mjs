@@ -7,6 +7,7 @@ export default defineConfig({
   site: process.env.PUBLIC_SITE_URL || 'https://example.com',
   output: 'server',
   adapter: node({ mode: 'standalone' }),
+  session: false,
   vite: {
     plugins: [tailwindcss()]
   }

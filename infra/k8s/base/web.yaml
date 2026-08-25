@@ -24,8 +24,12 @@ spec:
         app.kubernetes.io/component: web
     spec:
       automountServiceAccountToken: false
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
       imagePullSecrets:
         - name: harbor-pull-secret
+      terminationGracePeriodSeconds: 30
       containers:
         - name: web
           image: harbor.192.168.0.110.nip.io/flogy_blog/site:bootstrap
@@ -33,6 +37,9 @@ spec:
           ports:
             - name: http
               containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: flogis-blog-web-runtime
           readinessProbe:
             httpGet:
               path: /healthz
@@ -65,16 +72,8 @@ spec:
           volumeMounts:
             - name: tmp
               mountPath: /tmp
-            - name: nginx-cache
-              mountPath: /var/cache/nginx
-            - name: nginx-run
-              mountPath: /var/run
       volumes:
         - name: tmp
-          emptyDir: {}
-        - name: nginx-cache
-          emptyDir: {}
-        - name: nginx-run
           emptyDir: {}
 ---
 apiVersion: v1

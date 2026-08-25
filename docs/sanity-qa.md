@@ -25,4 +25,4 @@
 ## 5. 운영 전환 전 확인
 - 실제 도메인 반영 전 `PUBLIC_SITE_URL` 값 점검
 - 운영 전 `SANITY_STRICT_CONTENT=true` 전환 여부 점검
-- Sanity 변경 후 정적 재빌드/재배포가 필요한 운영 방식인지 팀에 다시 공유
+- Sanity published 변경이 프론트엔드 재빌드/재배포 없이 다음 요청에 반영되는지 확인
