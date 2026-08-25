@@ -8,6 +8,30 @@ export const MEETING_CATEGORIES = [
   'team_operations'
 ];
 
+const PROGRESS_LABELS = {
+  preparing: '준비 중',
+  preflight: '원본·날짜 확인',
+  loading_transcript: '클로바 전사본 읽는 중',
+  normalizing_audio: '오디오 변환 중',
+  transcribing: 'Whisper 전사 중',
+  transcribed: '전사 완료',
+  structuring: 'Pi 구조화 중',
+  rendering: '본문 생성 중',
+  resolving_people: '사람 연결 확인 중',
+  resuming: '기존 결과 복구 중',
+  preview_ready: 'preview 준비',
+  needs_input: '날짜 입력 필요',
+  error: '오류'
+};
+
+export function formatMeetingProgress(progress, elapsedSeconds = 0) {
+  const seconds = Math.max(0, Math.floor(elapsedSeconds));
+  const minutes = Math.floor(seconds / 60);
+  const elapsed = `${String(minutes).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
+  const label = PROGRESS_LABELS[progress?.phase] || progress?.message || '처리 중';
+  return `회의: ${label} · ${elapsed}`;
+}
+
 const BOOLEAN_OPTIONS = new Set(['offline', 'no-publish']);
 const VALUE_OPTIONS = new Set([
   'date',
@@ -18,6 +42,7 @@ const VALUE_OPTIONS = new Set([
   'model',
   'thinking',
   'whisper-model',
+  'transcript',
   'language',
   'structured-input'
 ]);
@@ -128,10 +153,27 @@ export function buildPrepareArgs(projectRoot, options, runDir) {
     model: '--model',
     thinking: '--thinking',
     whisperModel: '--whisper-model',
+    transcript: '--transcript',
     language: '--language',
     structuredInput: '--structured-input'
   };
 
+  for (const [key, flag] of Object.entries(optionMap)) {
+    if (options[key]) args.push(flag, String(options[key]));
+  }
+  if (options.offline) args.push('--offline');
+  return args;
+}
+
+export function buildResumeArgs(projectRoot, runDir, options = {}) {
+  const args = [resolve(projectRoot, 'scripts/meeting-agent/index.mjs'), 'resume', runDir];
+  const optionMap = {
+    date: '--date',
+    title: '--title',
+    slug: '--slug',
+    category: '--category',
+    people: '--people'
+  };
   for (const [key, flag] of Object.entries(optionMap)) {
     if (options[key]) args.push(flag, String(options[key]));
   }

@@ -99,6 +99,110 @@ const STATUS_LABELS = {
   unknown: '미정'
 };
 
+export function dateFromCreationTime(value, timeZone = 'Asia/Seoul') {
+  const raw = String(value || '').trim();
+  if (!raw) return null;
+  if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) {
+    return PublishedDate.safeParse(raw).success ? raw : null;
+  }
+
+  const instant = new Date(raw);
+  if (Number.isNaN(instant.getTime())) return null;
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).formatToParts(instant);
+  const part = (type) => parts.find((item) => item.type === type)?.value;
+  const date = `${part('year')}-${part('month')}-${part('day')}`;
+  return PublishedDate.safeParse(date).success ? date : null;
+}
+
+export function resolvePublishedDate({ explicitDate, sourceMetadataDate, structuredDate } = {}) {
+  const candidates = [
+    ['explicit', explicitDate],
+    ['source_metadata', sourceMetadataDate],
+    ['structured', structuredDate]
+  ];
+  for (const [source, value] of candidates) {
+    if (!value) continue;
+    const date = dateFromCreationTime(value);
+    if (date) return { date, source };
+  }
+  return { date: null, source: 'unresolved' };
+}
+
+function transcriptSpeaker(segment) {
+  const speaker = segment?.speaker;
+  if (typeof speaker === 'string' || typeof speaker === 'number') return String(speaker).trim();
+  return String(
+    speaker?.name || speaker?.label || speaker?.id ||
+    segment?.speakerName || segment?.speakerLabel || segment?.label || ''
+  ).trim();
+}
+
+function transcriptText(segment) {
+  if (typeof segment === 'string') return segment.trim();
+  return String(
+    segment?.text || segment?.transcript || segment?.utterance ||
+    segment?.content || segment?.recognizedText || ''
+  ).trim();
+}
+
+function transcriptTimestamp(value) {
+  const numeric = Number(value);
+  if (!Number.isFinite(numeric) || numeric < 0) return null;
+  const seconds = Math.floor(numeric / 1000);
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const remainder = seconds % 60;
+  return [hours, minutes, remainder].map((item) => String(item).padStart(2, '0')).join(':');
+}
+
+function findTranscriptSegments(value) {
+  if (!value || typeof value !== 'object') return null;
+  for (const key of ['segments', 'utterances', 'transcripts', 'results']) {
+    if (Array.isArray(value[key]) && value[key].some((item) => transcriptText(item))) return value[key];
+  }
+  for (const key of ['result', 'data', 'recognition', 'transcription']) {
+    const nested = findTranscriptSegments(value[key]);
+    if (nested) return nested;
+  }
+  return null;
+}
+
+export function normalizeTranscriptContent(raw, fileName = 'transcript.txt') {
+  const input = String(raw || '').replace(/^\uFEFF/, '').replace(/\r\n?/g, '\n').trim();
+  if (!input) throw new Error('클로바 전사본이 비어 있습니다.');
+  if (!/\.json$/i.test(fileName)) {
+    return { text: `${input}\n`, format: 'text', segmentCount: null };
+  }
+
+  let parsed;
+  try {
+    parsed = JSON.parse(input);
+  } catch (error) {
+    throw new Error(`클로바 JSON을 읽을 수 없습니다: ${error.message}`);
+  }
+
+  const segments = findTranscriptSegments(parsed);
+  if (segments) {
+    const lines = segments.map((segment) => {
+      const text = transcriptText(segment);
+      if (!text) return null;
+      const speaker = transcriptSpeaker(segment);
+      const timestamp = transcriptTimestamp(segment?.start ?? segment?.startTime ?? segment?.startMs);
+      return `${timestamp ? `[${timestamp}] ` : ''}${speaker ? `${speaker}: ` : ''}${text}`;
+    }).filter(Boolean);
+    if (lines.length) return { text: `${lines.join('\n')}\n`, format: 'clova-json', segmentCount: lines.length };
+  }
+
+  const fallbackText = transcriptText(parsed) || transcriptText(parsed?.result) || transcriptText(parsed?.data);
+  if (fallbackText) return { text: `${fallbackText}\n`, format: 'clova-json-text', segmentCount: null };
+  throw new Error('지원하는 발화 구간이나 text 필드를 클로바 JSON에서 찾지 못했습니다. TXT로 내보내 다시 시도하세요.');
+}
+
 export function normalizeName(value) {
   return String(value || '')
     .normalize('NFKC')
@@ -271,7 +375,7 @@ export function renderMeetingMarkdown(result, source) {
     '## 원본 및 검증 메모',
     '',
     `- 원본 파일: \`${source.originalName}\``,
-    `- 입력 방식: ${source.inputKind === 'audio' ? '오디오 전사 후 정리' : '텍스트 원본 직접 정리'}`,
+    `- 입력 방식: ${source.inputKind === 'audio' ? '오디오 Whisper 전사 후 정리' : source.inputKind === 'external-transcript' ? '외부 전사본(클로바 등) 직접 정리' : '텍스트 원본 직접 정리'}`,
     `- 기록 분류 근거: ${result.classification.rationale}`,
     `- 분류 신뢰도: ${Math.round(result.classification.confidence * 100)}%`
   );

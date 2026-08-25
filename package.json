@@ -13,6 +13,7 @@
     "studio": "sanity dev",
     "studio:deploy": "sanity deploy",
     "meeting:prepare": "node scripts/meeting-agent/index.mjs prepare",
+    "meeting:resume": "node scripts/meeting-agent/index.mjs resume",
     "meeting:publish": "node scripts/meeting-agent/index.mjs publish",
     "meeting:doctor": "node scripts/meeting-agent/index.mjs doctor",
     "meeting:setup": "node scripts/meeting-agent/setup-whisper.mjs",

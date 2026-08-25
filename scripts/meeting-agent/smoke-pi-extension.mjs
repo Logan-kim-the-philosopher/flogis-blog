@@ -54,7 +54,7 @@ lines.on('line', async (line) => {
     const allCommands = message.data?.commands || [];
     const extensionCommands = allCommands.filter((command) => command.sourceInfo?.path === extensionPath);
     const commandNames = extensionCommands.map((command) => command.name);
-    commandsLoaded = commandNames.includes('meeting') && commandNames.includes('meeting-status');
+    commandsLoaded = commandNames.includes('meeting') && commandNames.includes('meeting-resume') && commandNames.includes('meeting-status');
     if (!commandsLoaded) {
       finish(new Error(`Pi에 meeting 명령이 등록되지 않았습니다: ${JSON.stringify(allCommands)}`));
       return;
@@ -122,7 +122,7 @@ async function verifyResult() {
 
   console.log(JSON.stringify({
     ok: true,
-    commands: ['meeting', 'meeting-status'],
+    commands: ['meeting', 'meeting-resume', 'meeting-status'],
     previewEditor: true,
     publishConfirmation: 'cancelled',
     sanityWrite: false,

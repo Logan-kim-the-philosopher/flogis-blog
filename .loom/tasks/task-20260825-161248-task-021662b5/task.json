@@ -1,0 +1,32 @@
+{
+  "id": "task-20260825-161248-task-021662b5",
+  "job_id": "job-20260825-123703-job-6c824053",
+  "title": "실사용 기반 회의 자동화 복구·입력 개선",
+  "description": "개포동 2 실제 음성 처리에서 확인된 날짜 후반 실패, 무진행 표시, 재전사 비용과 로컬 Whisper 화자 품질 문제를 개선한다. 오디오 메타데이터 날짜 자동 추출, Clova 전사본 우선 처리, 단계별 진행 상태, 실패 run 재개를 meeting-agent와 Pi extension에 추가한다.",
+  "status": "RUNNING",
+  "created_at": "2026-08-25T16:12:48+00:00",
+  "updated_at": "2026-08-25T16:12:52+00:00",
+  "order_index": 4,
+  "assigned_agent": "foreground",
+  "depends_on": [],
+  "expected_output": "사용자가 오디오만 주면 메타데이터 날짜가 자동 적용되고, Clova TXT/JSON 전사본을 주면 재전사 없이 화자 정보를 보존해 정리하며, 처리 단계와 경과 시간이 보이고 실패 run을 재개할 수 있는 CLI/Pi 흐름과 문서·테스트가 제공된다.",
+  "done_condition": "오디오 creation_time 날짜 추출, 명시 --date 우선순위, Clova TXT/JSON 정규화, 전사본 우선 경로, 실패 산출물 manifest와 resume, Pi 진행 표시가 자동 테스트로 검증되고 개포동 2 기존 run을 재전사 없이 날짜 보완해 preview 생성하며 npm build와 Loom strict validation을 통과한다.",
+  "in_scope": "meeting-agent CLI/라이브러리, Pi project extension, ffprobe metadata preflight, Clova transcript parser, resume/reuse, progress status, 개포동 2 로컬 fixture성 검증, 문서와 테스트",
+  "out_of_scope": "Clova API 호출·계정 연동, 실제 사용자 게시물 발행, 음성 화자 분리 모델 개발, 썸네일, Whisper 모델 변경, 웹 UI",
+  "validation_hint": "단위 테스트로 날짜 우선순위와 Clova 포맷을 검증하고, 기존 개포동 2 run의 transcript/structured를 resume해 dated preview/run.json을 생성한다. 실제 Sanity 쓰기는 하지 않고 validate-only까지만 허용한다.",
+  "required_docs": [],
+  "memory_refs": [],
+  "document_outputs": [],
+  "document_output_exceptions": [],
+  "run_attempts": 0,
+  "last_error": "",
+  "commit_refs": [
+    "c7af2fa68899a13c7c1eafb50f02e072ca0e3b9b"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-08-25T16:12:52+00:00",
+  "artifacts": [],
+  "source_proposal_id": "",
+  "source_prompt": ""
+}

@@ -4,7 +4,9 @@ import test from 'node:test';
 import {
   buildPrepareArgs,
   buildPublishArgs,
+  buildResumeArgs,
   createExtensionRunDir,
+  formatMeetingProgress,
   mayWriteToSanity,
   parseMeetingCommand,
   publicUrlForDocument,
@@ -55,6 +57,39 @@ test('extension prepare는 프로젝트 내부 run과 기존 엔진 인자를 �
     'person-a,person-b',
     '--offline'
   ]);
+});
+
+test('클로바 전사본과 실패 run 복구 인자를 전달한다', () => {
+  const prepared = buildPrepareArgs(projectRoot, {
+    sourcePath: '/tmp/회의.m4a',
+    transcript: '/tmp/클로바.json'
+  }, '/tmp/run');
+  assert.deepEqual(prepared.slice(-2), ['--transcript', '/tmp/클로바.json']);
+  assert.deepEqual(buildResumeArgs(projectRoot, '/tmp/run', {
+    date: '2026-08-18',
+    people: 'person-a',
+    offline: true
+  }), [
+    resolve(projectRoot, 'scripts/meeting-agent/index.mjs'),
+    'resume',
+    '/tmp/run',
+    '--date',
+    '2026-08-18',
+    '--people',
+    'person-a',
+    '--offline'
+  ]);
+});
+
+test('Pi 진행 상태에 단계명과 경과 시간을 표시한다', () => {
+  assert.equal(
+    formatMeetingProgress({ phase: 'transcribing', message: '전사 중' }, 185),
+    '회의: Whisper 전사 중 · 03:05'
+  );
+  assert.equal(
+    formatMeetingProgress({ phase: 'custom', message: '후처리 중' }, 2),
+    '회의: 후처리 중 · 00:02'
+  );
 });
 
 test('발행 인자는 validate-only와 실제 발행을 명확히 구분한다', () => {

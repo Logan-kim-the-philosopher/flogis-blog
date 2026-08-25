@@ -1,0 +1,82 @@
+{
+  "status": "RUNNING",
+  "agent": "foreground",
+  "mode": "foreground",
+  "execution_surface": "foreground",
+  "task_run_id": "task-run-20260825-161252-task-def-20260825-161248-task-def-c1b45a71-42d5887c",
+  "generated_at": "2026-08-25T16:12:52+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260825-161248-task-021662b5/prompt.md",
+    ".loom/tasks/task-20260825-161248-task-021662b5/context.md",
+    ".loom/tasks/task-20260825-161248-task-021662b5/previous-results.md",
+    ".loom/tasks/task-20260825-161248-task-021662b5/git-snapshot.json",
+    ".loom/tasks/task-20260825-161248-task-021662b5/result.md",
+    ".loom/tasks/task-20260825-161248-task-021662b5/decision.md",
+    ".loom/tasks/task-20260825-161248-task-021662b5/troubleshooting.md",
+    ".loom/tasks/task-20260825-161248-task-021662b5/logs.txt",
+    ".loom/tasks/task-20260825-161248-task-021662b5/agent-events.jsonl",
+    ".loom/tasks/task-20260825-161248-task-021662b5/artifacts.json",
+    "scripts/meeting-agent/index.mjs",
+    "scripts/meeting-agent/lib.mjs",
+    "scripts/meeting-agent/smoke-pi-extension.mjs",
+    ".pi/extensions/meeting-workflow.ts",
+    ".pi/lib/meeting-workflow.mjs",
+    "tests/meeting-agent.test.mjs",
+    "tests/meeting-extension.test.mjs",
+    "docs/meeting-agent.md",
+    "package.json"
+  ],
+  "artifact_groups": {
+    "user_outputs": [
+      ".loom/tasks/task-20260825-161248-task-021662b5/result.md",
+      ".loom/tasks/task-20260825-161248-task-021662b5/decision.md",
+      ".loom/tasks/task-20260825-161248-task-021662b5/troubleshooting.md"
+    ],
+    "execution_inputs": [
+      ".loom/tasks/task-20260825-161248-task-021662b5/prompt.md",
+      ".loom/tasks/task-20260825-161248-task-021662b5/context.md",
+      ".loom/tasks/task-20260825-161248-task-021662b5/previous-results.md"
+    ],
+    "execution_audit": [
+      ".loom/tasks/task-20260825-161248-task-021662b5/git-snapshot.json",
+      ".loom/tasks/task-20260825-161248-task-021662b5/logs.txt",
+      ".loom/tasks/task-20260825-161248-task-021662b5/agent-events.jsonl",
+      ".loom/tasks/task-20260825-161248-task-021662b5/artifacts.json"
+    ],
+    "work_products": [
+      "scripts/meeting-agent/index.mjs",
+      "scripts/meeting-agent/lib.mjs",
+      "scripts/meeting-agent/smoke-pi-extension.mjs",
+      ".pi/extensions/meeting-workflow.ts",
+      ".pi/lib/meeting-workflow.mjs",
+      "tests/meeting-agent.test.mjs",
+      "tests/meeting-extension.test.mjs",
+      "docs/meeting-agent.md",
+      "package.json"
+    ]
+  },
+  "contract_snapshot": {
+    "schema_version": 1,
+    "contract_ids": [
+      "task-execution",
+      "done-guardrail"
+    ],
+    "contracts": [
+      {
+        "id": "task-execution",
+        "title": "Task Execution Context Contract",
+        "source_paths": [
+          "loom/application/context_pack.py",
+          "loom/application/team_policy.py"
+        ]
+      },
+      {
+        "id": "done-guardrail",
+        "title": "Task Completion Guardrail Contract",
+        "source_paths": [
+          "loom/application/services.py"
+        ]
+      }
+    ]
+  }
+}

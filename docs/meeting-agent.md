@@ -1,12 +1,13 @@
 # Pi 회의 원본 정리·발행 에이전트
 
-TXT/Markdown 회의 원본은 바로 정리하고, 오디오 원본은 로컬 `whisper-cli`로 전사한 뒤 Pi가 분류·구조화한다. 결과를 사람이 검토한 후에만 Sanity에 발행한다.
+TXT/Markdown 및 클로바 전사본은 바로 정리하고, 전사본이 없는 오디오만 로컬 `whisper-cli`로 전사한 뒤 Pi가 분류·구조화한다. 결과를 사람이 검토한 후에만 Sanity에 발행한다.
 
 ## 처리 흐름
 
 ```text
 원본 파일
-  ├─ txt/md ──────────────┐
+  ├─ txt/md/Clova JSON ───┐
+  ├─ audio + Clova 전사본 ┤ (Whisper 생략)
   └─ audio → ffmpeg → Whisper 전사
                           ↓
                     Pi 구조화 JSON
@@ -43,16 +44,28 @@ Pi 안에서 다음 명령 하나로 전체 흐름을 시작한다.
 /meeting "/absolute/path/to/회의 녹음.m4a" --people person-heesung-kim,person-yongjae-hong
 ```
 
+클로바에서 전사한 결과가 있다면 다음 방식을 권장한다. 음성은 원본 보존과 `creation_time` 날짜 확인에 사용하고, 실제 정리는 클로바 TXT/JSON으로 진행하므로 Whisper를 다시 돌리지 않는다.
+
+```text
+/meeting "/Users/hongyongjae/Desktop/개포동 2.m4a" --transcript "/absolute/path/to/클로바 전사.txt" --no-publish
+```
+
+클로바 전사본만 가지고 있다면 전사본 자체를 원본으로 지정해도 된다.
+
+```text
+/meeting "/absolute/path/to/클로바 전사.txt" --no-publish
+```
+
 실행 순서는 다음과 같다.
 
-1. 원본을 읽고 오디오이면 Whisper로 전사한다.
+1. 원본을 읽고, 클로바 전사본이 없는 오디오만 Whisper로 전사한다.
 2. Pi가 회의 유형과 안건·사람별 의견·결정·행동 항목을 구조화한다.
 3. 편집 가능한 Markdown preview를 연다.
 4. Sanity 사람 참조와 ID·slug 중복을 검사한다.
 5. 실제 발행 확인창에서 승인받는다.
 6. 승인한 경우에만 Sanity에 생성하고 공개 상세 URL을 확인한다.
 
-preview 화면이나 마지막 발행 확인창에서 취소하면 Sanity 쓰기는 실행되지 않는다. 산출물은 `.meeting-agent/runs/`에 남으므로 내용을 다시 확인할 수 있다. 비대화형 print/JSON 모드에서도 실제 발행은 거부된다.
+preview 화면이나 마지막 발행 확인창에서 취소하면 Sanity 쓰기는 실행되지 않는다. 산출물은 `.meeting-agent/runs/`에 남으므로 내용을 다시 확인할 수 있다. 비대화형 print/JSON 모드에서도 실제 발행은 거부된다. 처리 중에는 Pi 하단 상태에 오디오 변환, Whisper 전사, Pi 구조화, 본문 생성 단계와 경과 시간이 표시된다.
 
 발행하지 않고 preview만 만들려면 다음처럼 실행한다.
 
@@ -117,6 +130,34 @@ npm run meeting:prepare -- "/path/to/회의 녹음.m4a" \
 
 일반적인 회의 녹음은 화자 분리가 보장되지 않는다. 전사문에서 사람을 확실하게 구분할 수 없으면 Pi는 `발화자 미상`으로 기록해야 하며, 사용자가 preview에서 확인해 수정한다.
 
+### 날짜 자동 결정
+
+날짜는 다음 순서로 결정된다.
+
+1. 사용자가 지정한 `--date YYYY-MM-DD`
+2. 오디오 컨테이너의 `creation_time` 또는 `date` 메타데이터를 서울 시간으로 변환한 날짜
+3. 회의 내용에서 Pi가 근거를 가지고 확정한 날짜
+
+파일 수정 시각은 회의 일자와 무관할 수 있어 자동 발행일로 사용하지 않는다. 어느 경로에서도 날짜를 확정할 수 없으면 전사와 구조화 결과를 버리지 않고 `needs_input` 상태로 보존한다.
+
+### 실패한 실행 이어가기
+
+날짜 입력이나 후반 검증에서 실패한 run은 다시 전사하거나 Pi로 재구조화할 필요가 없다.
+
+Pi 안에서는 다음처럼 이어간다.
+
+```text
+/meeting-resume "/absolute/path/to/.meeting-agent/runs/<run-directory>" --date 2026-08-18 --no-publish
+```
+
+터미널에서는 다음 명령을 사용한다. 오디오 메타데이터에 날짜가 있으면 `--date`를 생략해도 자동으로 복구된다.
+
+```bash
+npm run meeting:resume -- ".meeting-agent/runs/<run-directory>" --date 2026-08-18 --offline
+```
+
+`resume`은 기존 `transcript.txt`, `structured.json`, `post.md`를 사용한다. 이미 손으로 편집한 `post.md`를 보존하며 날짜 줄만 갱신한다.
+
 ## 4. 분류 기준
 
 Pi는 기록의 주된 결과에 따라 하나를 선택한다.
@@ -137,13 +178,14 @@ Pi는 기록의 주된 결과에 따라 하나를 선택한다.
 | 파일 | 용도 |
 |---|---|
 | `source.*` | 변경하지 않고 보존한 원본 |
-| `transcript.txt` | 직접 읽은 텍스트 또는 Whisper 전사문 |
+| `transcript.txt` | 직접 읽은 텍스트, 클로바 정규화 결과 또는 Whisper 전사문 |
 | `pi-request.md` | Pi에 전달한 입력 |
 | `pi-events.jsonl` | Pi의 원본 JSON 이벤트 |
 | `structured.json` | 분류와 안건·결정·행동의 구조화 결과 |
 | `post.md` | 실제 블로그 본문 preview |
 | `sanity-document.json` | 발행 예정 Sanity 문서 |
 | `run.json` | 실행 상태, 경고와 발행 가능 여부 |
+| `progress.json` | 현재 처리 단계, 설명과 마지막 갱신 시각 |
 
 `post.md`에서 반드시 확인한다.
 
@@ -193,6 +235,7 @@ npm run meeting:publish -- ".meeting-agent/runs/<run-directory>" \
 --people person-id-1,person-id-2
 --model openai-codex/gpt-5.4-mini
 --thinking medium
+--transcript "/path/to/clova.txt|clova.json"
 --offline
 ```
 

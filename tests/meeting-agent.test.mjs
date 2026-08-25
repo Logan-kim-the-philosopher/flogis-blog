@@ -1,16 +1,19 @@
 import assert from 'node:assert/strict';
-import { execFileSync } from 'node:child_process';
-import { mkdtemp, readFile, rm } from 'node:fs/promises';
+import { execFileSync, spawnSync } from 'node:child_process';
+import { chmod, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import test from 'node:test';
 import {
   MeetingAgentResultSchema,
   buildSanityDocument,
+  dateFromCreationTime,
   isAudioPath,
   isTextPath,
+  normalizeTranscriptContent,
   parsePiEventStream,
   renderMeetingMarkdown,
+  resolvePublishedDate,
   validateRenderedMarkdown
 } from '../scripts/meeting-agent/lib.mjs';
 
@@ -65,6 +68,34 @@ test('텍스트와 오디오 확장자를 구분한다', () => {
   assert.equal(isAudioPath('회의.webm'), true);
 });
 
+test('오디오 creation_time을 서울 날짜로 바꾸고 명시 날짜를 우선한다', () => {
+  assert.equal(dateFromCreationTime('2026-08-18T15:30:42Z'), '2026-08-19');
+  assert.deepEqual(resolvePublishedDate({
+    explicitDate: '2026-08-20',
+    sourceMetadataDate: '2026-08-19',
+    structuredDate: '2026-08-18'
+  }), { date: '2026-08-20', source: 'explicit' });
+  assert.deepEqual(resolvePublishedDate({
+    sourceMetadataDate: '2026-08-19',
+    structuredDate: '2026-08-18'
+  }), { date: '2026-08-19', source: 'source_metadata' });
+});
+
+test('클로바 JSON 발화 구간을 화자·시간이 보존된 텍스트로 정규화한다', () => {
+  const normalized = normalizeTranscriptContent(JSON.stringify({
+    result: {
+      segments: [
+        { start: 1_000, speaker: { name: '홍용재' }, text: '첫 번째 의견입니다.' },
+        { start: 62_000, speaker: { label: '김희성' }, text: '결정하겠습니다.' }
+      ]
+    }
+  }), 'clova.json');
+  assert.equal(normalized.format, 'clova-json');
+  assert.equal(normalized.segmentCount, 2);
+  assert.match(normalized.text, /\[00:00:01\] 홍용재: 첫 번째 의견입니다\./);
+  assert.match(normalized.text, /\[00:01:02\] 김희성: 결정하겠습니다\./);
+});
+
 test('존재하지 않는 발행일은 거부한다', async () => {
   const result = await loadFixture();
   result.metadata.publishedAt = '2026-02-30';
@@ -90,6 +121,80 @@ test('fixture로 prepare dry run을 완료한다', async () => {
     assert.equal(manifest.publishable, true);
     assert.equal(document._id, 'meeting-flogy-demo-planning-round-5-2026-08-25');
     assert.equal(document.participants.length, 2);
+  } finally {
+    await rm(outputDir, { recursive: true, force: true });
+  }
+});
+
+test('오디오와 외부 전사본을 함께 주면 creation_time 날짜를 쓰고 Whisper를 건너뛴다', async () => {
+  const outputDir = await mkdtemp(resolve(tmpdir(), 'flogi-meeting-external-'));
+  const binDir = resolve(outputDir, 'bin');
+  const audioPath = resolve(outputDir, 'meeting.m4a');
+  const transcriptPath = resolve(outputDir, 'clova.txt');
+  try {
+    await mkdir(binDir);
+    await writeFile(audioPath, 'fake audio');
+    await writeFile(transcriptPath, '홍용재: 발표자료를 단순화합시다.\n김희성: 동의합니다.\n');
+    const ffprobePath = resolve(binDir, 'ffprobe');
+    await writeFile(ffprobePath, '#!/bin/sh\nprintf \'%s\\n\' \'{"format":{"duration":"120","tags":{"creation_time":"2026-08-18T11:30:42Z"}}}\'\n');
+    await chmod(ffprobePath, 0o755);
+    execFileSync(process.execPath, [
+      resolve(projectRoot, 'scripts/meeting-agent/index.mjs'),
+      'prepare', audioPath,
+      '--transcript', transcriptPath,
+      '--structured-input', fixtureStructured,
+      '--offline',
+      '--people', 'person-heesung-kim',
+      '--output', outputDir
+    ], {
+      cwd: projectRoot,
+      env: { ...process.env, PATH: `${binDir}:${process.env.PATH}` },
+      stdio: 'pipe'
+    });
+
+    const manifest = JSON.parse(await readFile(resolve(outputDir, 'run.json'), 'utf8'));
+    const structured = JSON.parse(await readFile(resolve(outputDir, 'structured.json'), 'utf8'));
+    assert.equal(structured.metadata.publishedAt, '2026-08-18');
+    assert.equal(manifest.dateResolution.source, 'source_metadata');
+    assert.equal(manifest.transcription.engine, 'external-transcript');
+    assert.equal(manifest.source.inputKind, 'external-transcript');
+  } finally {
+    await rm(outputDir, { recursive: true, force: true });
+  }
+});
+
+test('날짜 실패 run을 기존 전사·구조화 결과로 resume한다', async () => {
+  const outputDir = await mkdtemp(resolve(tmpdir(), 'flogi-meeting-resume-'));
+  const noDateFixture = resolve(outputDir, 'no-date.json');
+  try {
+    const raw = JSON.parse(await readFile(fixtureStructured, 'utf8'));
+    raw.metadata.publishedAt = null;
+    await writeFile(noDateFixture, `${JSON.stringify(raw)}\n`);
+    const failed = spawnSync(process.execPath, [
+      resolve(projectRoot, 'scripts/meeting-agent/index.mjs'),
+      'prepare', fixtureSource,
+      '--structured-input', noDateFixture,
+      '--offline',
+      '--people', 'person-heesung-kim',
+      '--output', outputDir
+    ], { cwd: projectRoot, encoding: 'utf8' });
+    assert.notEqual(failed.status, 0);
+    const failedManifest = JSON.parse(await readFile(resolve(outputDir, 'run.json'), 'utf8'));
+    assert.equal(failedManifest.status, 'needs_input');
+    assert.equal(failedManifest.recoverable, true);
+
+    execFileSync(process.execPath, [
+      resolve(projectRoot, 'scripts/meeting-agent/index.mjs'),
+      'resume', outputDir,
+      '--date', '2026-08-25',
+      '--offline',
+      '--people', 'person-heesung-kim'
+    ], { cwd: projectRoot, stdio: 'pipe' });
+    const recovered = JSON.parse(await readFile(resolve(outputDir, 'run.json'), 'utf8'));
+    const markdown = await readFile(resolve(outputDir, 'post.md'), 'utf8');
+    assert.equal(recovered.status, 'preview');
+    assert.equal(recovered.recoveredWithoutRetranscription, true);
+    assert.match(markdown, /\*\*일자:\*\* 2026-08-25/);
   } finally {
     await rm(outputDir, { recursive: true, force: true });
   }

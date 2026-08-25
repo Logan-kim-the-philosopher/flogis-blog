@@ -7,7 +7,9 @@ import {
   MEETING_CATEGORIES,
   buildPrepareArgs,
   buildPublishArgs,
+  buildResumeArgs,
   createExtensionRunDir,
+  formatMeetingProgress,
   mayWriteToSanity,
   parseMeetingCommand,
   publicUrlForDocument,
@@ -35,6 +37,7 @@ type PrepareOptions = {
   model?: string;
   thinking?: string;
   whisperModel?: string;
+  transcript?: string;
   language?: string;
   offline?: boolean;
   noPublish?: boolean;
@@ -54,9 +57,47 @@ const PrepareParams = Type.Object({
   category: Type.Optional(StringEnum(MEETING_CATEGORIES as [string, ...string[]])),
   people: Type.Optional(Type.String({ description: '쉼표로 구분한 Sanity person 문서 ID' })),
   whisperModel: Type.Optional(Type.String({ description: '오디오 전사용 Whisper ggml 모델 경로' })),
+  transcript: Type.Optional(Type.String({ description: '오디오 대신 사용할 클로바 TXT/JSON 전사본 경로' })),
   language: Type.Optional(Type.String({ description: 'Whisper 언어 코드, 기본값 ko' })),
   offline: Type.Optional(Type.Boolean({ description: 'Sanity 조회 없이 preview만 생성' })),
 });
+
+function elapsedLabel(startedAt: number) {
+  const seconds = Math.max(0, Math.floor((Date.now() - startedAt) / 1000));
+  const minutes = Math.floor(seconds / 60);
+  return `${String(minutes).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
+}
+
+function watchRunProgress(
+  runDir: string,
+  ctx: ExtensionContext,
+  progress?: (message: string) => void,
+) {
+  const startedAt = Date.now();
+  let lastPhase = '';
+  let stopped = false;
+  const tick = async () => {
+    if (stopped) return;
+    try {
+      const current = JSON.parse(await readFile(resolve(runDir, 'progress.json'), 'utf8'));
+      if (ctx.hasUI) ctx.ui.setStatus(STATUS_KEY, formatMeetingProgress(current, (Date.now() - startedAt) / 1000));
+      if (current.phase !== lastPhase) {
+        lastPhase = current.phase;
+        progress?.(`${current.message} (경과 ${elapsedLabel(startedAt)})`);
+      }
+    } catch {
+      if (ctx.hasUI) ctx.ui.setStatus(STATUS_KEY, formatMeetingProgress({ phase: 'preparing' }, (Date.now() - startedAt) / 1000));
+    }
+  };
+  const timer = setInterval(() => void tick(), 1_000);
+  timer.unref?.();
+  void tick();
+  return async () => {
+    await tick();
+    stopped = true;
+    clearInterval(timer);
+  };
+}
 
 const PublishParams = Type.Object({
   runDir: Type.String({ description: 'meeting_prepare가 생성한 run 디렉터리' }),
@@ -98,11 +139,17 @@ export default function meetingWorkflow(pi: ExtensionAPI) {
     setState({ status: 'preparing', runDir, message: '원본을 분석하고 있습니다.' }, ctx);
     progress?.('원본을 읽고, 필요한 경우 전사한 뒤 Pi로 구조화하고 있습니다…');
 
-    const result = await pi.exec(process.execPath, buildPrepareArgs(projectRoot, normalized, runDir), {
-      cwd: projectRoot,
-      signal,
-      timeout: PROCESS_TIMEOUT,
-    });
+    const stopProgress = watchRunProgress(runDir, ctx, progress);
+    let result;
+    try {
+      result = await pi.exec(process.execPath, buildPrepareArgs(projectRoot, normalized, runDir), {
+        cwd: projectRoot,
+        signal,
+        timeout: PROCESS_TIMEOUT,
+      });
+    } finally {
+      await stopProgress();
+    }
     if (result.code !== 0) {
       const detail = result.stderr.trim() || result.stdout.trim() || `exit ${result.code}`;
       setState({ status: 'error', runDir, message: detail }, ctx);
@@ -118,6 +165,43 @@ export default function meetingWorkflow(pi: ExtensionAPI) {
       message: artifacts.manifest.warnings?.join('; ') || 'preview 준비 완료',
     }, ctx);
     progress?.('구조화와 preview 생성이 완료됐습니다.');
+    return { projectRoot, runDir, artifacts };
+  }
+
+  async function resumeMeeting(
+    runDirValue: string,
+    options: PrepareOptions,
+    ctx: ExtensionContext,
+    signal?: AbortSignal,
+    progress?: (message: string) => void,
+  ) {
+    const projectRoot = await findProjectRoot(ctx.cwd);
+    const runDir = isAbsolute(runDirValue) ? runDirValue : resolve(ctx.cwd, runDirValue);
+    setState({ status: 'preparing', runDir, message: '기존 결과를 재전사 없이 복구하고 있습니다.' }, ctx);
+    const stopProgress = watchRunProgress(runDir, ctx, progress);
+    let result;
+    try {
+      result = await pi.exec(process.execPath, buildResumeArgs(projectRoot, runDir, options), {
+        cwd: projectRoot,
+        signal,
+        timeout: PROCESS_TIMEOUT,
+      });
+    } finally {
+      await stopProgress();
+    }
+    if (result.code !== 0) {
+      const detail = result.stderr.trim() || result.stdout.trim() || `exit ${result.code}`;
+      setState({ status: 'error', runDir, message: detail }, ctx);
+      throw new Error(`회의 preview 복구 실패: ${detail}`);
+    }
+    const artifacts = await readRunArtifacts(runDir);
+    setState({
+      status: 'preview',
+      runDir,
+      documentId: artifacts.document._id,
+      slug: artifacts.document.slug.current,
+      message: '재전사 없이 preview 복구 완료',
+    }, ctx);
     return { projectRoot, runDir, artifacts };
   }
 
@@ -181,8 +265,12 @@ export default function meetingWorkflow(pi: ExtensionAPI) {
     return { published, verification };
   }
 
-  async function fullWorkflow(options: PrepareOptions, ctx: ExtensionContext, signal?: AbortSignal) {
-    const prepared = await prepareMeeting(options, ctx, signal);
+  async function continueWorkflow(
+    prepared: Awaited<ReturnType<typeof prepareMeeting>>,
+    options: PrepareOptions,
+    ctx: ExtensionContext,
+    signal?: AbortSignal,
+  ) {
     const { projectRoot, runDir } = prepared;
     let { artifacts } = prepared;
 
@@ -234,6 +322,11 @@ export default function meetingWorkflow(pi: ExtensionAPI) {
     );
   }
 
+  async function fullWorkflow(options: PrepareOptions, ctx: ExtensionContext, signal?: AbortSignal) {
+    const prepared = await prepareMeeting(options, ctx, signal);
+    await continueWorkflow(prepared, options, ctx, signal);
+  }
+
   pi.registerCommand('meeting', {
     description: '회의 원본을 전사·정리하고 preview 승인 후 Sanity에 발행',
     handler: async (args, ctx) => {
@@ -268,6 +361,27 @@ export default function meetingWorkflow(pi: ExtensionAPI) {
         `문서: ${state.documentId || '없음'}`,
         `메시지: ${state.message || '없음'}`,
       ].join('\n'), state.status === 'error' ? 'error' : 'info');
+    },
+  });
+
+  pi.registerCommand('meeting-resume', {
+    description: '실패한 회의 run을 재전사·재구조화 없이 복구하고 발행 흐름 재개',
+    handler: async (args, ctx) => {
+      if (!ctx.hasUI) throw new Error('/meeting-resume은 preview와 발행 승인을 위해 TUI 또는 RPC UI가 필요합니다.');
+      try {
+        const parsed = parseMeetingCommand(args) as PrepareOptions;
+        let runDir = parsed.sourcePath;
+        if (!runDir) {
+          runDir = state.runDir || await ctx.ui.input('복구할 회의 run 디렉터리', '.meeting-agent/runs/...') || '';
+        }
+        if (!runDir) return;
+        const prepared = await resumeMeeting(runDir, parsed, ctx);
+        await continueWorkflow(prepared, parsed, ctx);
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        ctx.ui.notify(message, 'error');
+        setState({ status: 'error', runDir: state.runDir, slug: state.slug, message }, ctx);
+      }
     },
   });
 
