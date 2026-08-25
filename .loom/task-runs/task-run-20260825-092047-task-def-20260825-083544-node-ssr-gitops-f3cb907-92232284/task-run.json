@@ -2,9 +2,9 @@
   "id": "task-run-20260825-092047-task-def-20260825-083544-node-ssr-gitops-f3cb907-92232284",
   "job_run_id": "job-run-20260825-092047-job-20260825-083644-astro-ssr-86568bc0-82e843a5",
   "task_definition_id": "task-def-20260825-083544-node-ssr-gitops-f3cb907d",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-08-25T09:20:47+00:00",
-  "updated_at": "2026-08-25T09:20:47+00:00",
+  "updated_at": "2026-08-25T09:30:19+00:00",
   "legacy_task_id": "task-20260825-083544-node-ssr-gitops-47699656",
   "attempt": 1,
   "assigned_agent": "foreground",
@@ -13,13 +13,29 @@
   "lease_expires_at": "",
   "queued_at": "",
   "started_at": "2026-08-25T09:20:47+00:00",
-  "completed_at": "",
+  "completed_at": "2026-08-25T09:30:19+00:00",
   "last_error": "",
-  "commit_refs": [],
-  "branch_name": "",
-  "git_dirty": false,
-  "git_snapshot_captured_at": "",
-  "artifacts": [],
-  "checkpoint_ids": [],
+  "commit_refs": [
+    "c0ed99f29a7f4bdace297ecd996f515a1b2ca0be",
+    "faa51477cae01ebd0be9dfa3b3bb3f8ff4a9234a"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-08-25T09:30:19+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/agent-events.jsonl",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/artifacts.json",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/context.md",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/decision.md",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/git-snapshot.json",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/logs.txt",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/previous-results.md",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/prompt.md",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/result.md",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/troubleshooting.md"
+  ],
+  "checkpoint_ids": [
+    "checkpoint-20260825-093019-task-completed-node-ssr-gitops-0861fb86"
+  ],
   "review_required_reason": ""
 }

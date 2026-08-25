@@ -9,3 +9,4 @@
 [2026-08-25T09:28:00+00:00] pod seccomp 보강 후 전체 Deployment configuration validation 통과.
 [2026-08-25T09:29:00+00:00] Jenkins remote declarative linter는 인증 403; xmllint와 Groovy 4 groovyc 대체 검증 통과.
 [2026-08-25T09:30:00+00:00] 실제 local token의 image filesystem 비포함 검사 결과 IMAGE_SECRET_VALUE_NOT_FOUND.
+[2026-08-25T09:30:19+00:00] agent=foreground task=task-20260825-083544-node-ssr-gitops-47699656 비루트 read-only Node SSR 이미지, runtime Sanity ConfigMap, 원본 Jenkins/Argo URL과 smoke·문서를 구성하고 Docker/Kustomize server dry-run/Groovy/secret 검증을 통과했다.

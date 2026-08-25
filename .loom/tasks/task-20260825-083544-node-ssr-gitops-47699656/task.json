@@ -3,9 +3,9 @@
   "job_id": "job-20260825-083644-astro-ssr-86568bc0",
   "title": "Node SSR 컨테이너·GitOps 및 원본 저장소 기준 구성",
   "description": "정적 nginx web 이미지를 비루트 Astro Node standalone 런타임 이미지로 교체하고 Sanity 설정을 빌드 인자가 아닌 Kubernetes 런타임 환경으로 이동한다. Service·probe·Jenkins smoke test·배포 문서를 SSR 기준으로 갱신하고 Jenkins와 Argo의 저장소 정본을 원본 Logan-kim-the-philosopher/flogis-blog로 준비한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-08-25T08:35:44+00:00",
-  "updated_at": "2026-08-25T09:20:47+00:00",
+  "updated_at": "2026-08-25T09:30:19+00:00",
   "order_index": 1,
   "assigned_agent": "foreground",
   "depends_on": [
@@ -23,12 +23,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "faa51477cae01ebd0be9dfa3b3bb3f8ff4a9234a"
+    "faa51477cae01ebd0be9dfa3b3bb3f8ff4a9234a",
+    "c0ed99f29a7f4bdace297ecd996f515a1b2ca0be"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-08-25T09:20:47+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-08-25T09:30:19+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/agent-events.jsonl",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/artifacts.json",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/context.md",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/decision.md",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/git-snapshot.json",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/logs.txt",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/previous-results.md",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/prompt.md",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/result.md",
+    ".loom/tasks/task-20260825-083544-node-ssr-gitops-47699656/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }
