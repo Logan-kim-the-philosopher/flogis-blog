@@ -1,0 +1,20 @@
+{
+  "id": "checkpoint-20260825-125017-task-completed-pi-sanity-c282aa79",
+  "created_at": "2026-08-25T12:50:17+00:00",
+  "reason": "Task completed: Pi 회의 원본 정리·Sanity 발행 루프 구현",
+  "summary": "Pi 회의 원본 정리·Sanity 발행 루프 구현 -> DONE @ Haru2_dev/c461f78d68a8",
+  "job_id": "job-20260825-123703-job-6c824053",
+  "task_id": "task-20260825-123716-pi-sanity-a1505825",
+  "commit_sha": "c461f78d68a8021c827b0a34202a2fe306b2d143",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260825-123719-job-20260825-123703-job-6c824053-640083d9/job-run.json",
+    ".loom/task-definitions/task-def-20260825-123716-pi-sanity-32f0329d/task-definition.json",
+    "AGENTS.md"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-08-25T12:50:17+00:00",
+  "rollback_strategy": "revert-or-branch"
+}

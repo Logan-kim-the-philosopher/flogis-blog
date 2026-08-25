@@ -2,9 +2,9 @@
   "id": "task-run-20260825-123719-task-def-20260825-123716-pi-sanity-32f0329d-316d1581",
   "job_run_id": "job-run-20260825-123719-job-20260825-123703-job-6c824053-640083d9",
   "task_definition_id": "task-def-20260825-123716-pi-sanity-32f0329d",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-08-25T12:37:19+00:00",
-  "updated_at": "2026-08-25T12:37:19+00:00",
+  "updated_at": "2026-08-25T12:50:17+00:00",
   "legacy_task_id": "task-20260825-123716-pi-sanity-a1505825",
   "attempt": 1,
   "assigned_agent": "foreground",
@@ -13,13 +13,29 @@
   "lease_expires_at": "",
   "queued_at": "",
   "started_at": "2026-08-25T12:37:19+00:00",
-  "completed_at": "",
+  "completed_at": "2026-08-25T12:50:17+00:00",
   "last_error": "",
-  "commit_refs": [],
-  "branch_name": "",
-  "git_dirty": false,
-  "git_snapshot_captured_at": "",
-  "artifacts": [],
-  "checkpoint_ids": [],
+  "commit_refs": [
+    "7dffef968657f1e22a2934660626f3bbdb388069",
+    "c461f78d68a8021c827b0a34202a2fe306b2d143"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-08-25T12:50:17+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/agent-events.jsonl",
+    ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/artifacts.json",
+    ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/context.md",
+    ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/decision.md",
+    ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/git-snapshot.json",
+    ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/logs.txt",
+    ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/previous-results.md",
+    ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/prompt.md",
+    ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/result.md",
+    ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/troubleshooting.md"
+  ],
+  "checkpoint_ids": [
+    "checkpoint-20260825-125017-task-completed-pi-sanity-c282aa79"
+  ],
   "review_required_reason": ""
 }

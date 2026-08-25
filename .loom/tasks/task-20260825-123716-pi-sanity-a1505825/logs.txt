@@ -8,3 +8,4 @@
 [2026-08-25T21:47:00+09:00] 운영 Sanity person 참조와 ID/slug 중복을 --validate-only로 확인했으며 쓰기는 수행하지 않았다.
 [2026-08-25T21:47:30+09:00] 모델 없음 오류와 공식 large-v3-turbo 모델 URL을 검증했다.
 [2026-08-25T21:48:32+09:00] npm run meeting:test, Node syntax check, npm run build, git diff --check를 통과했다.
+[2026-08-25T12:50:17+00:00] agent=foreground task=task-20260825-123716-pi-sanity-a1505825 TXT/Markdown 직접 처리, ffmpeg+whisper-cli 오디오 전사, Pi 분류·구조화, 표준 회의 Markdown 검증, preview와 명시적 Sanity publish를 분리한 로컬 에이전트 루프를 구현했다. 실제 Pi dry run과 쓰기 없는 운영 Sanity 검증, 자동 테스트와 Astro 빌드를 통과했다.

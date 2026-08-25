@@ -1,10 +1,10 @@
 {
-  "status": "RUNNING",
+  "status": "DONE",
   "agent": "foreground",
   "mode": "foreground",
   "execution_surface": "foreground",
   "task_run_id": "task-run-20260825-123719-task-def-20260825-123716-pi-sanity-32f0329d-316d1581",
-  "generated_at": "2026-08-25T12:37:19+00:00",
+  "generated_at": "2026-08-25T12:50:17+00:00",
   "artifacts": [
     ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/prompt.md",
     ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/context.md",
@@ -34,22 +34,7 @@
       ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/agent-events.jsonl",
       ".loom/tasks/task-20260825-123716-pi-sanity-a1505825/artifacts.json"
     ],
-    "work_products": [
-      "scripts/meeting-agent/index.mjs",
-      "scripts/meeting-agent/lib.mjs",
-      "scripts/meeting-agent/system-prompt.md",
-      "scripts/meeting-agent/setup-whisper.mjs",
-      "tests/meeting-agent.test.mjs",
-      "tests/fixtures/meeting-agent/project-meeting.txt",
-      "tests/fixtures/meeting-agent/project-meeting.structured.json",
-      "docs/meeting-agent.md",
-      "docs/editorial-workflow.md",
-      "docs/content-model.md",
-      "README.md",
-      "package.json",
-      ".env.example",
-      ".gitignore"
-    ]
+    "work_products": []
   },
   "contract_snapshot": {
     "schema_version": 1,
