@@ -1,0 +1,20 @@
+{
+  "id": "checkpoint-20260825-123137-task-completed-3d4854cb",
+  "created_at": "2026-08-25T12:31:37+00:00",
+  "reason": "Task completed: 객체의 역할과 책임 외 썸네일 제거",
+  "summary": "객체의 역할과 책임 외 썸네일 제거 -> DONE @ Haru2_dev/5fddca1bf07f",
+  "job_id": "job-20260825-121452-job-356e2da2",
+  "task_id": "task-20260825-121502-task-7ae71bc7",
+  "commit_sha": "5fddca1bf07fc2004cf0cbd109d3e5fecfe76c8d",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260825-121505-job-20260825-121452-job-356e2da2-bf2c61d2/job-run.json",
+    ".loom/task-definitions/task-def-20260825-121502-task-def-b16d560d/task-definition.json",
+    "AGENTS.md"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-08-25T12:31:37+00:00",
+  "rollback_strategy": "revert-or-branch"
+}

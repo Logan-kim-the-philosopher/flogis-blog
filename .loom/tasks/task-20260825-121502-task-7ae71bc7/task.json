@@ -3,9 +3,9 @@
   "job_id": "job-20260825-121452-job-356e2da2",
   "title": "객체의 역할과 책임 외 썸네일 제거",
   "description": "운영 Sanity의 모든 study, work, meeting 문서를 조사하고 객체의 역할과 책임 게시물 계열만 coverImage를 유지한다. 나머지 문서의 coverImage를 제거하며, Astro 카드·미니카드·상세·SEO와 Sanity 스키마가 이미지 없는 콘텐츠를 올바르게 지원하도록 수정한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-08-25T12:15:02+00:00",
-  "updated_at": "2026-08-25T12:15:05+00:00",
+  "updated_at": "2026-08-25T12:31:37+00:00",
   "order_index": 1,
   "assigned_agent": "foreground",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "04ef1535283892c3a8346b2995e20d98510848ae"
+    "04ef1535283892c3a8346b2995e20d98510848ae",
+    "5fddca1bf07fc2004cf0cbd109d3e5fecfe76c8d"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-08-25T12:15:05+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-08-25T12:31:37+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260825-121502-task-7ae71bc7/agent-events.jsonl",
+    ".loom/tasks/task-20260825-121502-task-7ae71bc7/artifacts.json",
+    ".loom/tasks/task-20260825-121502-task-7ae71bc7/context.md",
+    ".loom/tasks/task-20260825-121502-task-7ae71bc7/decision.md",
+    ".loom/tasks/task-20260825-121502-task-7ae71bc7/git-snapshot.json",
+    ".loom/tasks/task-20260825-121502-task-7ae71bc7/logs.txt",
+    ".loom/tasks/task-20260825-121502-task-7ae71bc7/previous-results.md",
+    ".loom/tasks/task-20260825-121502-task-7ae71bc7/prompt.md",
+    ".loom/tasks/task-20260825-121502-task-7ae71bc7/result.md",
+    ".loom/tasks/task-20260825-121502-task-7ae71bc7/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }

@@ -16,3 +16,4 @@
 [2026-08-25T21:28:30+09:00] 새 스터디 200, 이전 회의 URL 301, 복원 썸네일을 확인한 뒤 기존 meeting 문서를 transaction JiQDiWKJ0ope23uWJhxuSS로 제거했다.
 [2026-08-25T21:29:00+09:00] study-unix-linux-vm-container 작성자를 김희성으로 정정했다(revision JiQDiWKJ0ope23uWJhxy1S).
 [2026-08-25T21:30:00+09:00] 최종 Sanity 5 studies/8 meetings/0 works, 커버 3개와 운영 상세·목록·리다이렉트·주요 엔드포인트를 검증했다.
+[2026-08-25T12:31:37+00:00] agent=foreground task=task-20260825-121502-task-7ae71bc7 이미지 없는 콘텐츠의 카드·상세·SEO 썸네일을 제거하고, 객체 책임 2개 및 사용자 정정 인프라 글 1개의 원본 이미지만 유지했다. 인프라 스터디 회의 기록은 스터디로 이동하고 기존 URL 301, 작성자 정정, 운영 배포와 전체 회귀 검증을 완료했다.
