@@ -3,3 +3,16 @@
 [2026-08-25T21:16:00+09:00] 객체의 역할과 책임 세션 2개를 유지 대상으로 고정하고 나머지 11개를 제거 대상으로 분류했다.
 [2026-08-25T21:16:30+09:00] coverImage 타입·정규화·Sanity schema와 카드·미니카드·상세의 조건부 렌더링을 구현했다.
 [2026-08-25T21:16:47+09:00] npm run build를 통과했다.
+[2026-08-25T21:18:00+09:00] optional thumbnail 구현을 68bb193으로 원본 Haru2_dev에 푸시했다.
+[2026-08-25T21:20:00+09:00] Jenkins deploy 24523d4, image 13-68bb193d를 Argo CD에 동기화했고 Synced/Healthy 2/2를 확인했다.
+[2026-08-25T21:21:58+09:00] Sanity transaction N3j8bt2rxateNdZRom8Fzp로 최초 제거 대상 11개의 coverImage를 해제했다.
+[2026-08-25T21:24:43+09:00] 운영 HTML 검증에서 이미지 없는 상세의 기본 OG 이미지 잔존을 발견해 null 이미지 처리를 구현하고 npm run build를 통과했다.
+[2026-08-25T21:25:00+09:00] SEO 기본 이미지 차단을 b36ee51로 원본 Haru2_dev에 푸시했다.
+[2026-08-25T21:25:30+09:00] 사용자 정정에 따라 study-unix-linux-vm-container 원본 썸네일 복원과 infrastructure-study-2026-08-24 스터디 문서 생성을 transaction N3j8bt2rxateNdZRomA8JB로 반영했다.
+[2026-08-25T21:25:54+09:00] 이전 회의 URL의 301 리다이렉트를 구현하고 npm run build를 통과했다.
+[2026-08-25T21:26:00+09:00] 리다이렉트 구현을 50b33b7로 원본 Haru2_dev에 푸시했다.
+[2026-08-25T21:27:39+09:00] Jenkins deploy 7156d20, image 15-50b33b77 생성을 확인했다.
+[2026-08-25T21:28:00+09:00] Argo CD를 deploy 7156d20에 동기화했고 Synced/Healthy, 웹 2/2 ready/available을 확인했다.
+[2026-08-25T21:28:30+09:00] 새 스터디 200, 이전 회의 URL 301, 복원 썸네일을 확인한 뒤 기존 meeting 문서를 transaction JiQDiWKJ0ope23uWJhxuSS로 제거했다.
+[2026-08-25T21:29:00+09:00] study-unix-linux-vm-container 작성자를 김희성으로 정정했다(revision JiQDiWKJ0ope23uWJhxy1S).
+[2026-08-25T21:30:00+09:00] 최종 Sanity 5 studies/8 meetings/0 works, 커버 3개와 운영 상세·목록·리다이렉트·주요 엔드포인트를 검증했다.
