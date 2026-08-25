@@ -1,0 +1,4 @@
+[2026-08-25T13:04:15+00:00] agent=foreground task=task-20260825-130411-pi-extension-9269121f Foreground task session started.
+[2026-08-25T13:11:18+00:00] project-local Pi extension explicit load smoke passed; preview editor and cancelled publish produced no publish-result.json.
+[2026-08-25T13:12:35+00:00] project auto-discovery smoke passed through Pi RPC; /meeting validate-only completed and final confirmation was cancelled without Sanity write.
+[2026-08-25T13:13:00+00:00] meeting tests 12/12, Astro build, and git diff check passed.

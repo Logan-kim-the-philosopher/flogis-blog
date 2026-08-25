@@ -22,6 +22,55 @@ TXT/Markdown 회의 원본은 바로 정리하고, 오디오 원본은 로컬 `w
 
 Pi는 `--no-tools`로 실행된다. 원본 복사, 전사, 결과 검증, 중복 확인과 Sanity 쓰기는 Node 오케스트레이터가 담당한다.
 
+## Pi extension으로 한 번에 실행
+
+이 저장소를 신뢰한 상태로 루트에서 `pi`를 실행하면 프로젝트 전용 `.pi/extensions/meeting-workflow.ts`가 자동으로 로드된다. 전역 Pi 설정이나 다른 프로젝트에는 영향을 주지 않는다.
+
+```bash
+cd /Users/hongyongjae/Desktop/flogis-blog
+pi
+```
+
+Pi 안에서 다음 명령 하나로 전체 흐름을 시작한다.
+
+```text
+/meeting "/absolute/path/to/회의 원본.txt" --date 2026-08-25
+```
+
+경로를 생략하면 Pi가 입력창을 연다. 오디오는 같은 명령에 `m4a`, `mp3`, `wav` 등의 경로를 넣으면 된다.
+
+```text
+/meeting "/absolute/path/to/회의 녹음.m4a" --people person-heesung-kim,person-yongjae-hong
+```
+
+실행 순서는 다음과 같다.
+
+1. 원본을 읽고 오디오이면 Whisper로 전사한다.
+2. Pi가 회의 유형과 안건·사람별 의견·결정·행동 항목을 구조화한다.
+3. 편집 가능한 Markdown preview를 연다.
+4. Sanity 사람 참조와 ID·slug 중복을 검사한다.
+5. 실제 발행 확인창에서 승인받는다.
+6. 승인한 경우에만 Sanity에 생성하고 공개 상세 URL을 확인한다.
+
+preview 화면이나 마지막 발행 확인창에서 취소하면 Sanity 쓰기는 실행되지 않는다. 산출물은 `.meeting-agent/runs/`에 남으므로 내용을 다시 확인할 수 있다. 비대화형 print/JSON 모드에서도 실제 발행은 거부된다.
+
+발행하지 않고 preview만 만들려면 다음처럼 실행한다.
+
+```text
+/meeting "/absolute/path/to/회의 원본.txt" --no-publish
+```
+
+현재 상태는 `/meeting-status`로 확인한다. 일반 문장으로 Pi에게 요청할 때는 extension이 등록한 다음 도구를 사용한다.
+
+- `meeting_prepare`: 원본 처리와 preview 생성만 수행
+- `meeting_publish`: 기본적으로 validate-only이며, 실제 발행 요청도 UI 재승인 후에만 수행
+
+extension 로딩과 승인 취소 안전장치의 실제 Pi RPC smoke test는 아래 명령으로 확인할 수 있다. fixture를 사용하며 실제 콘텐츠는 발행하지 않는다.
+
+```bash
+npm run meeting:extension:smoke
+```
+
 ## 1. 준비 상태 확인
 
 ```bash
