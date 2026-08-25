@@ -3,9 +3,9 @@
   "job_id": "job-20260825-083734-sanity-a47276c3",
   "title": "Sanity 런타임 SSR 설계 및 라우트 계약 고정",
   "description": "Sanity 의존 페이지·저장소·검색·RSS·동적 slug 경로와 현재 정적 Docker/GitOps 경계를 전수 조사하고, Astro Node standalone SSR·런타임 환경 변수·캐시·404·장애 처리·헬스체크·롤백 계약을 문서로 고정한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-08-25T08:35:13+00:00",
-  "updated_at": "2026-08-25T09:09:55+00:00",
+  "updated_at": "2026-08-25T09:10:09+00:00",
   "order_index": 1,
   "assigned_agent": "foreground",
   "depends_on": [],
@@ -25,11 +25,12 @@
   "commit_refs": [
     "188084a36d6ac6f6fc7a5f64f4059db71908f00c",
     "d0e16d887156b3cd8c65398e2f1d032b20c48712",
-    "1ec79fff07448be6b2da6046f74e260b00dcbb59"
+    "1ec79fff07448be6b2da6046f74e260b00dcbb59",
+    "1211386b68da39e79668bdf7bbe055f28988dd0b"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-08-25T09:09:55+00:00",
+  "git_snapshot_captured_at": "2026-08-25T09:10:09+00:00",
   "artifacts": [
     ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/agent-events.jsonl",
     ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/artifacts.json",

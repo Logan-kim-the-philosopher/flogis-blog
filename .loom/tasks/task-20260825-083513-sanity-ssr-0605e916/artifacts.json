@@ -1,40 +1,43 @@
 {
-  "status": "RUNNING",
+  "status": "DONE",
   "agent": "foreground",
   "mode": "foreground",
   "execution_surface": "foreground",
   "task_run_id": "task-run-20260825-090527-task-def-20260825-083513-sanity-ssr-0d68d454-46ccbe3b",
-  "generated_at": "2026-08-25T09:09:55+00:00",
+  "generated_at": "2026-08-25T09:10:09+00:00",
   "artifacts": [
-    ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/prompt.md",
-    ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/context.md",
-    ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/previous-results.md",
-    ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/git-snapshot.json",
-    ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/result.md",
-    ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/decision.md",
-    ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/troubleshooting.md",
-    ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/logs.txt",
     ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/agent-events.jsonl",
-    ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/artifacts.json"
+    ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/artifacts.json",
+    ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/context.md",
+    ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/decision.md",
+    ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/git-snapshot.json",
+    ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/logs.txt",
+    ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/previous-results.md",
+    ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/prompt.md",
+    ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/result.md",
+    ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/troubleshooting.md",
+    "docs/runtime-content-architecture.md"
   ],
   "artifact_groups": {
     "user_outputs": [
-      ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/result.md",
       ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/decision.md",
+      ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/result.md",
       ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/troubleshooting.md"
     ],
     "execution_inputs": [
-      ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/prompt.md",
       ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/context.md",
-      ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/previous-results.md"
+      ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/previous-results.md",
+      ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/prompt.md"
     ],
     "execution_audit": [
-      ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/git-snapshot.json",
-      ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/logs.txt",
       ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/agent-events.jsonl",
-      ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/artifacts.json"
+      ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/artifacts.json",
+      ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/git-snapshot.json",
+      ".loom/tasks/task-20260825-083513-sanity-ssr-0605e916/logs.txt"
     ],
-    "work_products": []
+    "work_products": [
+      "docs/runtime-content-architecture.md"
+    ]
   },
   "contract_snapshot": {
     "schema_version": 1,
@@ -59,5 +62,8 @@
         ]
       }
     ]
-  }
+  },
+  "document_outputs": [
+    "docs/runtime-content-architecture.md"
+  ]
 }
