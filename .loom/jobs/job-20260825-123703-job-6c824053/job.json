@@ -2,9 +2,9 @@
   "id": "job-20260825-123703-job-6c824053",
   "title": "회의 원본 자동 정리·발행 루프",
   "goal": "TXT 또는 오디오 회의 원본을 입력하면 원본을 보존하고, 오디오는 전사한 뒤 기록 목적에 따라 프로젝트 회의·스터디·대화·팀 운영으로 분류하며, 표준 회의 문서 구조로 정리·검증하고 명시적 승인 시 Sanity 블로그에 발행하는 로컬 Pi 에이전트 루프를 구축한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-08-25T12:37:03+00:00",
-  "updated_at": "2026-08-25T16:12:52+00:00",
+  "updated_at": "2026-08-25T16:22:08+00:00",
   "context_refs": [],
   "task_ids": [
     "task-20260825-123716-pi-sanity-a1505825",
@@ -16,6 +16,7 @@
   "checkpoint_ids": [
     "checkpoint-20260825-125017-task-completed-pi-sanity-c282aa79",
     "checkpoint-20260825-131415-task-completed-pi-extension-46aed7a7",
-    "checkpoint-20260825-151753-task-completed-whisper-large-v3-turbo-37337094"
+    "checkpoint-20260825-151753-task-completed-whisper-large-v3-turbo-37337094",
+    "checkpoint-20260825-162208-task-completed-80ace340"
   ]
 }

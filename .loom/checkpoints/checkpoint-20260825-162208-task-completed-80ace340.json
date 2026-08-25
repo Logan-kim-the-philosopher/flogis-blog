@@ -1,0 +1,20 @@
+{
+  "id": "checkpoint-20260825-162208-task-completed-80ace340",
+  "created_at": "2026-08-25T16:22:08+00:00",
+  "reason": "Task completed: 실사용 기반 회의 자동화 복구·입력 개선",
+  "summary": "실사용 기반 회의 자동화 복구·입력 개선 -> DONE @ Haru2_dev/0ce34d192ba6",
+  "job_id": "job-20260825-123703-job-6c824053",
+  "task_id": "task-20260825-161248-task-021662b5",
+  "commit_sha": "0ce34d192ba647807b4759d775f6c71e63d6d43b",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260825-161252-job-20260825-123703-job-6c824053-73b77de1/job-run.json",
+    ".loom/task-definitions/task-def-20260825-161248-task-def-c1b45a71/task-definition.json",
+    "AGENTS.md"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-08-25T16:22:08+00:00",
+  "rollback_strategy": "revert-or-branch"
+}

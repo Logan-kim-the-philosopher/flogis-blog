@@ -3,3 +3,4 @@
 [2026-08-25T16:19:30+00:00] 개포동 2 기존 run을 재전사 없이 복구. creation_time에서 2026-08-18 확정.
 [2026-08-25T16:20:52+00:00] npm run meeting:test 18개 통과, npm run build 통과, git diff --check 통과.
 [2026-08-25T16:21:10+00:00] 승인된 환경에서 Pi extension smoke 통과. 세 명령 로딩, preview 편집, 발행 취소, Sanity 무쓰기 확인.
+[2026-08-25T16:22:08+00:00] agent=foreground task=task-20260825-161248-task-021662b5 클로바 전사본 우선 처리, 오디오 메타데이터 날짜 자동화, 진행 상태, 실패 run 복구와 실사용 검증을 완료했습니다.
