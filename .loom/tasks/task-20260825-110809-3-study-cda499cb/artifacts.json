@@ -1,10 +1,10 @@
 {
-  "status": "RUNNING",
+  "status": "DONE",
   "agent": "foreground",
   "mode": "foreground",
   "execution_surface": "foreground",
   "task_run_id": "task-run-20260825-110814-task-def-20260825-110809-3-study-b2e154d7-0b2dd1d7",
-  "generated_at": "2026-08-25T11:08:14+00:00",
+  "generated_at": "2026-08-25T11:16:23+00:00",
   "artifacts": [
     ".loom/tasks/task-20260825-110809-3-study-cda499cb/prompt.md",
     ".loom/tasks/task-20260825-110809-3-study-cda499cb/context.md",

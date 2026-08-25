@@ -1,0 +1,20 @@
+{
+  "id": "checkpoint-20260825-111623-task-completed-3-study-370d52cb",
+  "created_at": "2026-08-25T11:16:23+00:00",
+  "reason": "Task completed: 파이썬 심화 자료 3개를 study로 발행",
+  "summary": "파이썬 심화 자료 3개를 study로 발행 -> DONE @ Haru2_dev/e1097b2b2bab",
+  "job_id": "job-20260825-110759-job-b8c77a83",
+  "task_id": "task-20260825-110809-3-study-cda499cb",
+  "commit_sha": "e1097b2b2bab2d7e53f6bcd588067249b52af4ab",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260825-110814-job-20260825-110759-job-b8c77a83-d89948d4/job-run.json",
+    ".loom/task-definitions/task-def-20260825-110809-3-study-b2e154d7/task-definition.json",
+    "AGENTS.md"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-08-25T11:16:23+00:00",
+  "rollback_strategy": "revert-or-branch"
+}

@@ -2,13 +2,15 @@
   "id": "job-20260825-110759-job-b8c77a83",
   "title": "파이썬 심화 세션 콘텐츠 발행",
   "goal": "바탕화면 파이썬심화_세션의 원본 자료 3개를 production Sanity의 독립된 study 콘텐츠로 정확하고 읽기 좋게 발행한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-08-25T11:07:59+00:00",
-  "updated_at": "2026-08-25T11:08:14+00:00",
+  "updated_at": "2026-08-25T11:16:23+00:00",
   "context_refs": [],
   "task_ids": [
     "task-20260825-110809-3-study-cda499cb"
   ],
   "branch_name": "Haru2_dev",
-  "checkpoint_ids": []
+  "checkpoint_ids": [
+    "checkpoint-20260825-111623-task-completed-3-study-370d52cb"
+  ]
 }

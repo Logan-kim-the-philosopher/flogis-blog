@@ -4,3 +4,4 @@
 [2026-08-25T11:13:01+00:00] Sanity transaction Gn5g06M7sPGcctRdTzgvH4로 file asset 1개, image asset 30개, published study 3건을 생성했다.
 [2026-08-25T11:14:50+00:00] production Sanity 원문·자산 응답과 공개 상세·홈·study·search API·RSS·sitemap·canonical·health를 검증했다.
 [2026-08-25T11:15:22+00:00] 원본 SHA-256 보존을 재확인하고 임시 렌더·접촉시트·게시/검증 스크립트를 삭제했다.
+[2026-08-25T11:16:23+00:00] agent=foreground task=task-20260825-110809-3-study-cda499cb 원본 자료 3개를 production Sanity study로 발행하고 PDF 원본·30개 페이지 이미지·공개 SSR 집계 경로 및 원본 보존 검증을 완료했다.
