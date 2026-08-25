@@ -1,0 +1,96 @@
+# Context
+
+## Loom 코드 계약
+
+아래 항목은 Loom 코드에 고정된 runtime 동작 계약입니다. 관련 흐름을 바꾸기 전 `loom contract show <id>`로 확인합니다.
+
+- `task-execution`: Task 실행 전 prompt/context/previous-results에 들어가는 입력 경계입니다. 명령: `loom contract show task-execution`. Source: `loom/application/context_pack.py`, `loom/application/team_policy.py`
+- `done-guardrail`: Task를 DONE으로 인정하기 전에 필요한 산출물과 상태 전이를 검증하는 계약입니다. 명령: `loom contract show done-guardrail`. Source: `loom/application/services.py`
+
+## Project Memory
+
+# flogis-blog
+
+Loom 프로젝트 메모리 루트입니다.
+
+이 파일은 `loom init`으로 생성되며 `loom analyze-repo`로 보강할 수 있습니다.
+
+## Workspace Policy
+
+- Output language: `ko`
+- Agent provider: `claude`
+- Agent model: `adapter-default`
+- Reasoning effort: `high`
+- Required branch: `Haru2_dev`
+- Dirty branch switch: `blocked`
+- Commit policy: `manual`
+- Include `.loom` metadata in Git: `yes`
+- Read-only parallel execution: `allowed`
+- Validation environment: `auto`
+- Previous Task result limit: `2`
+- Workspace required docs: -
+- Loom fixed guardrails and verified Team required policies take precedence over this Workspace Policy.
+
+## Job
+
+- Title: Flogy 전체 회의 기록 발행
+- Goal: 바탕화면 Flogy/회의 기록의 모든 원본 파일을 빠짐없이 조사하고, 날짜·회의명·회차가 모두 같은 자료만 묶어 회의 안건·참석자별 의견·결정 사항·후속 행동이 명확한 production Sanity meeting 콘텐츠로 발행한다.
+- Branch: Haru2_dev
+- Task count: `1`
+
+## Task
+
+- Title: Flogy 회의 기록 전체를 정리해 발행
+- Description: 바탕화면 Flogy/회의 기록 아래의 모든 파일과 하위 폴더를 조사한다. 날짜·회의명·회차가 모두 같은 자료만 하나의 회의로 통합하고, 같은 날짜라도 이름이나 회차가 다르면 독립된 회의로 유지한다. 각 회의는 원문 근거에 따라 회의 안건, 참석자별 의견, 논의 내용, 결정 사항, 후속 행동을 상세히 구조화해 production Sanity meeting으로 발행한다.
+- Expected output: 원본 파일 전체가 누락 없이 회의 단위로 매핑되고, 구분 기준에 맞는 독립 meeting 문서들이 고유 ID/slug로 발행되어 공개 회의 상세·목록·검색·RSS·sitemap에서 재빌드 없이 렌더링된다.
+- Done condition: 모든 원본 파일의 형식·날짜·회의명·회차·내용을 확인하고 source hash와 파일→회의 매핑을 기록한다. 같은 날짜만을 이유로 서로 다른 회의명·회차를 합치지 않는다. 원문에 없는 의견·결정·행동을 만들지 않고 불명확한 항목은 명시한다. 대상 ID/slug의 사전 부재를 확인한 뒤 모든 회의를 발행하고, 각 상세의 제목·날짜·참석자·본문·SEO와 목록·검색·RSS·sitemap 반영 및 기존 운영 콘텐츠·원본 보존을 검증한다.
+- In scope: 회의 기록 전체 재귀 탐색, 문서 형식별 텍스트 추출·검토, 회의 식별·그룹화, 상세 회의록 작성, 기존 person 참조 재사용 또는 근거 있는 참석자 처리, production Sanity meeting 발행, 공개 SSR 검증, Loom 결과 기록
+- Out of scope: 같은 날짜라는 이유만으로 다른 회의명·회차 통합, 원문에 없는 발언·합의·담당자·기한 창작, 원본 파일 수정·삭제, 기존 운영 문서 변경·삭제, 프론트엔드·스키마·Jenkins·Argo 변경
+- Validation hint: 재귀 파일 목록·SHA-256·형식별 추출 결과와 파일→회의 매핑을 대조한다. Sanity 사전 조회 후 문서를 생성하고 각 permalink, 참석자별 의견, 결정·Action Items, 회의 목록·search API·RSS·sitemap·canonical/OG·no-store를 검증한다.
+- Required docs: -
+- Memory refs: -
+- Document outputs: -
+- Document output exceptions: -
+- Source proposal: `-`
+- Status: PENDING
+- Assigned agent: foreground
+
+## Advisor Source Prompt
+
+No Advisor source prompt recorded for this Task.
+
+## Inclusion Policy
+
+- Mandatory execution files: `prompt.md`, `context.md`, and `previous-results.md`.
+- Always included: project memory, current Job/Task metadata, and Job notes.
+- Previous results: up to the latest 2 recorded results from earlier Tasks in this Job.
+- Job context refs: explicit Job-scoped references selected by the controlling agent or user.
+- Task required docs: mandatory Task-scoped documents; missing refs block validation and execution.
+- Task memory refs: mandatory Task-scoped workflow memory references; missing or non-memory refs block validation and execution.
+- Repository documents, validation documents, and skill rules: included only through explicit Job context refs, Task required docs, or Task memory refs.
+- Verified Team Policy Snapshot: included before Active Memory; required policy cannot be overridden by lower-priority context.
+- Active workflow memory with an `always` category is included automatically while its status is `ACTIVE`.
+- `task_selected` and `reference_only` memory is included only through explicit Task memory refs.
+- Consumed proposals, rejected proposals, resolved memory, superseded memory, and archived memory are excluded.
+- Unreferenced repository files and results from other Jobs are not included.
+- `AGENTS.md` and `CLAUDE.md` remain session-level controlling-agent entrypoints and are not treated as task context artifacts by default.
+
+## Job Notes
+
+# Notes
+
+## Context References
+
+No explicit context references recorded for this job.
+
+## Required Documents and Memory
+
+No task-level required docs or memory refs recorded.
+
+## Verified Team Policies
+
+No verified Team Policy Snapshot is active.
+
+## Active Workflow Memory
+
+No active workflow memory recorded.

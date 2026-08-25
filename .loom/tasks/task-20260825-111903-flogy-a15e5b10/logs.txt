@@ -1,0 +1,12 @@
+[2026-08-25T11:19:11+00:00] agent=foreground task=task-20260825-111903-flogy-a15e5b10 Foreground task session started.
+[2026-08-25T20:10:00+09:00] 원본 디렉터리의 텍스트 8개와 M4A 3개를 식별하고 SHA-256을 기록했다.
+[2026-08-25T20:20:00+09:00] 날짜·회의명·회차 기준으로 원본 11개를 회의 9개에 매핑했다.
+[2026-08-25T20:30:00+09:00] 텍스트 원본 전체를 읽고 참석자, 안건, 개인별 의견, 결정, 행동을 추출했다.
+[2026-08-25T20:35:00+09:00] whisper.cpp를 설치하고 임시 WAV·10분 구간을 생성해 음성 전사를 시작했다.
+[2026-08-25T20:40:00+09:00] Metal backend 실패 후 CPU backend와 small-q5_1 모델로 전환했다.
+[2026-08-25T20:55:00+09:00] 음성 12개 구간 전사를 완료하고 4차 회의 및 팀빌딩 화자를 대조했다.
+[2026-08-25T20:58:00+09:00] 대상 ID·slug 부재와 person·asset reference를 검증했다.
+[2026-08-25T21:00:00+09:00] transaction QNF91l7XU7epIoD8PEoss1로 production meeting 9개를 생성했다.
+[2026-08-25T21:03:00+09:00] Sanity 재조회, 공개 상세 9개, 목록·검색·RSS·sitemap·홈, SEO와 no-store를 검증했다.
+[2026-08-25T21:04:00+09:00] 기존 study·person 보존과 원본 11개 해시 불변을 확인했다.
+[2026-08-25T21:05:00+09:00] 임시 publish/transcription script와 /private/tmp/flogy-whisper를 정리했다.

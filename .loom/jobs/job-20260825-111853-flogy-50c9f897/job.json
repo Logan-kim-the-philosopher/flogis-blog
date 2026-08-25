@@ -1,0 +1,14 @@
+{
+  "id": "job-20260825-111853-flogy-50c9f897",
+  "title": "Flogy 전체 회의 기록 발행",
+  "goal": "바탕화면 Flogy/회의 기록의 모든 원본 파일을 빠짐없이 조사하고, 날짜·회의명·회차가 모두 같은 자료만 묶어 회의 안건·참석자별 의견·결정 사항·후속 행동이 명확한 production Sanity meeting 콘텐츠로 발행한다.",
+  "status": "RUNNING",
+  "created_at": "2026-08-25T11:18:53+00:00",
+  "updated_at": "2026-08-25T11:19:11+00:00",
+  "context_refs": [],
+  "task_ids": [
+    "task-20260825-111903-flogy-a15e5b10"
+  ],
+  "branch_name": "Haru2_dev",
+  "checkpoint_ids": []
+}
