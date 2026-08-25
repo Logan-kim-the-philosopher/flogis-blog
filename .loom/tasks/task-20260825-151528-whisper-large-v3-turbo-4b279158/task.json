@@ -1,0 +1,32 @@
+{
+  "id": "task-20260825-151528-whisper-large-v3-turbo-4b279158",
+  "job_id": "job-20260825-123703-job-6c824053",
+  "title": "Whisper large-v3-turbo 모델 설치",
+  "description": "회의 Pi extension의 실제 오디오 전사를 위해 공식 whisper.cpp large-v3-turbo ggml 모델을 프로젝트 로컬 .meeting-agent/models에 설치한다.",
+  "status": "RUNNING",
+  "created_at": "2026-08-25T15:15:28+00:00",
+  "updated_at": "2026-08-25T15:15:32+00:00",
+  "order_index": 3,
+  "assigned_agent": "foreground",
+  "depends_on": [],
+  "expected_output": ".meeting-agent/models/ggml-large-v3-turbo.bin 파일이 정상 크기로 설치되고 meeting:doctor가 전사 준비 완료를 보고한다.",
+  "done_condition": "npm run meeting:setup -- large-v3-turbo가 성공하고 모델 파일 존재·크기와 meeting:doctor transcription.ready=true를 확인한다.",
+  "in_scope": "공식 모델 다운로드, 프로젝트 로컬 ignored 모델 파일, 설치 후 진단, Loom 실행 기록",
+  "out_of_scope": "모델 Git 커밋, 사용자 회의 전사·발행, 다른 모델 다운로드, Pi 글로벌 설정 변경",
+  "validation_hint": "파일 크기를 확인하고 npm run meeting:doctor 결과에서 whisperCli, ffmpeg, model, ready를 확인한다.",
+  "required_docs": [],
+  "memory_refs": [],
+  "document_outputs": [],
+  "document_output_exceptions": [],
+  "run_attempts": 0,
+  "last_error": "",
+  "commit_refs": [
+    "422a88bf0d3acfec8b13f719a463f62b26b2fda4"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-08-25T15:15:32+00:00",
+  "artifacts": [],
+  "source_proposal_id": "",
+  "source_prompt": ""
+}
