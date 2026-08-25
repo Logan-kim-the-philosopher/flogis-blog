@@ -1,1 +1,12 @@
 [2026-08-25T09:30:36+00:00] agent=foreground task=task-20260825-083602-ssr-e2e-20e212a8 Foreground task session started.
+[2026-08-25T09:36:00+00:00] Original Haru2_dev pushed and Jenkins Job migrated to original repository.
+[2026-08-25T09:37:00+00:00] Jenkins #9 built/pushed SSR image; deploy push failed on stale fork tracking ref.
+[2026-08-25T09:39:00+00:00] Jenkinsfile deploy branch initialization fixed and pushed as d8bec4c.
+[2026-08-25T09:40:00+00:00] Jenkins #10 SUCCESS; Argo sync revealed non-numeric image user incompatibility with runAsNonRoot.
+[2026-08-25T09:42:00+00:00] Numeric UID/GID fix pushed as 2cd077d; Jenkins #11 SUCCESS; image 11-2cd077d5 digest sha256:f7adacf46c50b139737621567271b911fab2a674d69f01808b4b82ed0e32d83b.
+[2026-08-25T09:43:00+00:00] deploy 51d40c767c6a5a1629ec8652bd96e7a08759261e synced; Argo Synced/Healthy; web 2/2 and gateway 1/1 Ready.
+[2026-08-25T09:48:00+00:00] Dedicated Sanity document created; A verified on detail/home/list/search/RSS/sitemap/meta on first request.
+[2026-08-25T09:49:00+00:00] Same document updated; B verified on first request with previous title absent; build/revision/image/Pod UIDs unchanged.
+[2026-08-25T09:50:00+00:00] Dedicated document deleted; Sanity remaining=0; public detail=404; aggregate routes clean.
+[2026-08-25T09:50:00+00:00] External HTTPS fetch returned Flogi home and production Sanity content.
+[2026-08-25T09:51:00+00:00] npm run build, deployment validation including server dry-run, and git diff --check passed.
