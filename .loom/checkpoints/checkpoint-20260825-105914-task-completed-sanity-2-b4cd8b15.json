@@ -1,0 +1,20 @@
+{
+  "id": "checkpoint-20260825-105914-task-completed-sanity-2-b4cd8b15",
+  "created_at": "2026-08-25T10:59:14+00:00",
+  "reason": "Task completed: 운영 Sanity 테스트 스터디 2건 제거",
+  "summary": "운영 Sanity 테스트 스터디 2건 제거 -> DONE @ Haru2_dev/713a366cc5f1",
+  "job_id": "job-20260825-083734-sanity-a47276c3",
+  "task_id": "task-20260825-105719-sanity-2-e6bd0d3b",
+  "commit_sha": "713a366cc5f1b3fcb2df6a1ced6fbc2739b14e0d",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260825-105723-job-20260825-083734-sanity-a47276c3-189709d1/job-run.json",
+    ".loom/task-definitions/task-def-20260825-105719-sanity-2-9cc7cf7d/task-definition.json",
+    "AGENTS.md"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-08-25T10:59:14+00:00",
+  "rollback_strategy": "revert-or-branch"
+}

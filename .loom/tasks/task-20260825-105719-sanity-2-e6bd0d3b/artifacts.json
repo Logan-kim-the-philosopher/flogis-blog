@@ -1,10 +1,10 @@
 {
-  "status": "RUNNING",
+  "status": "DONE",
   "agent": "foreground",
   "mode": "foreground",
   "execution_surface": "foreground",
   "task_run_id": "task-run-20260825-105723-task-def-20260825-105719-sanity-2-9cc7cf7d-8a9c89c0",
-  "generated_at": "2026-08-25T10:57:23+00:00",
+  "generated_at": "2026-08-25T10:59:14+00:00",
   "artifacts": [
     ".loom/tasks/task-20260825-105719-sanity-2-e6bd0d3b/prompt.md",
     ".loom/tasks/task-20260825-105719-sanity-2-e6bd0d3b/context.md",

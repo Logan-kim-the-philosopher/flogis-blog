@@ -3,3 +3,4 @@
 [2026-08-25T10:58:00+00:00] Transaction Gn5g06M7sPGcctRdTzdBNK deleted study-sanity-connection-test-20260823 and study-sanity-runtime-render-check-20260825.
 [2026-08-25T10:59:00+00:00] Sanity target count verified as zero; study-unix-linux-vm-container remained unchanged.
 [2026-08-25T10:59:00+00:00] Both public details returned 404; home, study, search JSON, RSS and sitemap returned 200 without deleted titles/slugs; health returned 200 ok.
+[2026-08-25T10:59:14+00:00] agent=foreground task=task-20260825-105719-sanity-2-e6bd0d3b Foreground task session completed.
