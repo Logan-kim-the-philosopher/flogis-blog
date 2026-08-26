@@ -44,5 +44,19 @@ const canonical = import.meta.env.PUBLIC_SITE_URL ? new URL(currentPath, import.
     </main>
     <Footer site={site} />
     <SearchModal payload={searchPayload} />
+    <script type="module">
+      import mermaid from 'mermaid';
+
+      mermaid.initialize({ startOnLoad: false, theme: 'dark', securityLevel: 'loose' });
+
+      const renderMermaid = async () => {
+        const nodes = document.querySelectorAll('.mermaid');
+        if (!nodes.length) return;
+        await mermaid.run({ nodes });
+      };
+
+      renderMermaid();
+      document.addEventListener('astro:page-load', renderMermaid);
+    </script>
   </body>
 </html>

@@ -59,6 +59,7 @@
    - 운영 시에는 서버 검색/인덱스 검색으로 교체 권장
 3. `src/lib/renderers/markdown.ts`
    - 본문 저장 포맷이 바뀌면 여기부터 조정
+   - ` ```mermaid ` 코드 블록은 `<pre class="mermaid">`로 변환되고, 클라이언트에서 Mermaid가 SVG로 렌더링됩니다.
 4. `src/lib/cms/client.ts`
    - `SANITY_STRICT_CONTENT=true`일 때는 운영 배포에서 fallback 대신 실패하도록 되어 있습니다.
 
