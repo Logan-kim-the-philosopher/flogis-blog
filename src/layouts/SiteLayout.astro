@@ -45,14 +45,32 @@ const canonical = import.meta.env.PUBLIC_SITE_URL ? new URL(currentPath, import.
     <Footer site={site} />
     <SearchModal payload={searchPayload} />
     <script type="module">
-      import mermaid from 'mermaid';
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
 
       mermaid.initialize({ startOnLoad: false, theme: 'dark', securityLevel: 'loose' });
 
       const renderMermaid = async () => {
-        const nodes = document.querySelectorAll('.mermaid');
+        const nodes = Array.from(document.querySelectorAll('.mermaid')).filter(
+          (node) => !node.hasAttribute('data-mermaid-rendered')
+        );
         if (!nodes.length) return;
-        await mermaid.run({ nodes });
+
+        for (const node of nodes) {
+          const definition = node.textContent?.trim();
+          if (!definition) continue;
+
+          try {
+            const id = `mermaid-${crypto.randomUUID()}`;
+            const { svg, bindFunctions } = await mermaid.render(id, definition);
+            node.innerHTML = svg;
+            bindFunctions?.(node);
+            node.setAttribute('data-mermaid-rendered', 'true');
+          } catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            node.innerHTML = `<pre>Mermaid render failed\n${message}\n\n${definition}</pre>`;
+            node.setAttribute('data-mermaid-rendered', 'error');
+          }
+        }
       };
 
       renderMermaid();

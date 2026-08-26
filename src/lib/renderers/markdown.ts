@@ -15,7 +15,7 @@ marked.use({
   renderer: {
     code({ text, lang, escaped }: Tokens.Code) {
       if (lang === 'mermaid') {
-        return `<pre class="mermaid">${escapeHtml(text)}</pre>`;
+        return `<div class="mermaid">${escapeHtml(text)}</div>`;
       }
 
       const className = lang ? ` class="language-${escapeHtml(lang)}"` : '';
