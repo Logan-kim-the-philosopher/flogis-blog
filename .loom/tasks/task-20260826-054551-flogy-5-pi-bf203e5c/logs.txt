@@ -1,0 +1,8 @@
+[2026-08-26T05:45:59+00:00] agent=foreground task=task-20260826-054551-flogy-5-pi-bf203e5c Foreground task session started.
+[2026-08-26T05:47:00+00:00] agent=foreground 사용자로부터 로컬 Whisper, 전체 전사문의 Pi/OpenAI 처리, production Sanity 공개 발행에 대한 명시적 승인(`승인`)을 받음.
+[2026-08-26T05:48:15+00:00] agent=foreground meeting:prepare 시작. 원본 M4A 보존 및 16kHz mono WAV 변환 후 local whisper-cli large-v3-turbo 전사.
+[2026-08-26T06:11:11+00:00] agent=foreground transcript.txt/json 생성 완료. Pi structuring 시작.
+[2026-08-26T06:13:04+00:00] agent=foreground Pi preview 생성 완료. 전사와 기존 Flogy/Sanity person 문서를 대조해 제목, slug, 참가자 및 이름 오인식 교정.
+[2026-08-26T06:18:51+00:00] agent=foreground validate-only 통과. document=meeting-flogy-round-5-2026-08-26 people=3 duplicateCount=0 readyToPublish=true.
+[2026-08-26T06:18:59+00:00] agent=foreground production Sanity 신규 발행 완료. revision=SseX7szR4uwwNDZHqDdbge coverImage=false.
+[2026-08-26T06:20:03+00:00] agent=foreground 공개 URL HTTP 200, 제목·본문·날짜·참가자 확인 완료.
