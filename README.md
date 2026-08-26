@@ -43,7 +43,7 @@ Hosted Studio:
 
 ## Sanity MCP
 - 이 프로젝트는 공식 hosted Sanity MCP `https://mcp.sanity.io` 사용을 기준으로 합니다.
-- Pi에서 사용할 때는 `SANITY_API_TOKEN` 환경변수를 주입한 세션에서 bearer auth로 연결하세요.
+- 로컬 CLI 에이전트에서 사용할 때는 `SANITY_API_TOKEN` 환경변수를 주입한 세션에서 bearer auth로 연결하세요.
 - seed import는 MCP가 아니라 `docs/sanity-import.md`의 Sanity CLI 절차를 사용하세요.
 
 ## Build
@@ -105,7 +105,7 @@ flowchart LR
 ```
 
 - 작업의 출발점은 **관리자 노트북 1대**라고 보면 됩니다.
-- 기본 작업은 **CLI / MCP / Pi**로 진행합니다.
+- 기본 작업은 **CLI / MCP / 로컬 CLI 에이전트**로 진행합니다.
 - 직접 화면을 보며 수정할 때만 브라우저에서 **Hosted Sanity Studio**를 엽니다.
 - CLI와 Studio는 모두 같은 **Sanity Cloud DB (`w1jypogd / production`)** 를 수정합니다.
 - **프론트엔드 서버**는 그 DB를 읽어 정적 사이트를 만들고 방문자에게 제공합니다.
@@ -132,16 +132,16 @@ npx sanity debug
 npx sanity documents query '*[_type == "study"]{_id,title,slug}'
 ```
 
-### 3) Pi + 공식 MCP 실행 예시
+### 3) 로컬 CLI 에이전트 + 공식 MCP 실행 예시
 프로젝트 루트 `.mcp.json`은 이미 공식 hosted MCP를 사용하도록 설정되어 있습니다.
 
-Bitwarden 주입 세션에서 Pi 실행:
+Bitwarden 주입 세션에서 로컬 CLI 에이전트 실행:
 ```bash
 export BWS_ACCESS_TOKEN="$(security find-generic-password -w -s bitwarden-bws-access-token)"
-bws run -- pi
+bws run -- <your-local-cli-agent>
 ```
 
-### 4) Pi에 바로 붙여넣는 프롬프트 예시
+### 4) 로컬 CLI 에이전트에 붙여넣는 프롬프트 예시
 현재 스터디 문서 확인:
 ```text
 Use the official Sanity MCP tools only. Connect to project w1jypogd dataset production and list all study documents with _id, title, slug, and published status.
