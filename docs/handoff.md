@@ -8,6 +8,7 @@
 - Hosted Studio가 배포되어 있어 브라우저에서 바로 운영 가능합니다: `https://flogi-studio.sanity.studio/`
 - 프로젝트 루트 `.mcp.json`은 `https://mcp.sanity.io`를 사용하는 Sanity MCP 설정을 포함합니다.
 - 배포는 빌드된 `dist/`를 개발자 서버에서 정적 서빙하는 방식으로 넘기면 됩니다.
+- 썸네일 자동화 규칙 문서는 `docs/thumbnail-agent-workflow.md`에 정리했습니다.
 
 ## 역할별 진입점
 ### 콘텐츠 운영자
@@ -83,3 +84,4 @@
 - CMS 스키마는 최소 필드 기준으로 정리되어 있으며, 미사용 `category` 스키마는 제거했습니다.
 - 운영 배포 전에는 `docs/deployment.md` 체크리스트대로 `siteSettings`와 env를 먼저 확인하세요.
 - 운영 정책은 `docs/editorial-workflow.md`를 기준으로 인수인계하세요.
+- 썸네일 문서는 외부 스킬 복제가 아니라, 본문 이해 → 시각 추상화 → Flogi 스타일 적용 → 프롬프트 생성 순서의 자체 워크플로우를 기준으로 합니다.

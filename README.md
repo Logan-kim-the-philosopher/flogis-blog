@@ -93,6 +93,7 @@ src/
 - 기본 포스팅 작업은 각자 **CLI**로 진행합니다.
 - 화면을 보며 직접 수정해야 할 때만 Hosted Studio(`https://flogi-studio.sanity.studio/`)를 사용합니다.
 - MCP/CLI 사용자는 각자 자신의 `SANITY_API_TOKEN`을 환경변수로 주입해 공식 Sanity MCP와 Sanity CLI를 사용합니다.
+- 글을 작성하거나 다듬을 때는 가능한 한 에이전트가 `skills/flogi-thumbnail-prompt/SKILL.md`를 함께 사용해 **썸네일 훅 추출 → 프롬프트 생성 → 이미지 시안 생성**까지 이어서 처리하는 것을 권장합니다.
 
 ## Sanity operating model
 ```mermaid
@@ -165,9 +166,37 @@ Use the official Sanity MCP tools only. In project w1jypogd dataset production, 
 - 수정 권한은 앱 내부 권한 시스템이 아니라 `Sanity 프로젝트 멤버 권한`으로 관리합니다.
 - 실제 `.env*` 파일이나 비밀값은 커밋하지 마세요.
 
+## Shareable thumbnail skill
+This repo now includes a shareable skill at `skills/flogi-thumbnail-prompt/SKILL.md`.
+
+What it does:
+- reads an article,
+- chooses one strong thumbnail hook,
+- applies the Flogi visual rules,
+- returns a generation-ready image prompt,
+- optionally supports image-variant generation if the host agent has an image tool.
+
+### For Codex users
+If your local Codex setup supports skills, copy or symlink this folder into your skills directory.
+
+Example:
+```bash
+mkdir -p ~/.codex/skills
+ln -s /path/to/this-repo/skills/flogi-thumbnail-prompt ~/.codex/skills/flogi-thumbnail-prompt
+```
+
+Then ask your agent to use the skill on an article or post draft.
+
+### Compatibility note
+- The skill itself is agent-agnostic and document-first.
+- Prompt generation works anywhere.
+- Actual image generation depends on whether the user's Codex/agent environment exposes an image-generation capability.
+- Flogi 운영 기준으로는, 새 글을 작성할 때 본문 초안만 만든 뒤 끝내기보다 이 스킬까지 함께 써서 대표 이미지 방향을 초기에 같이 잡는 워크플로우를 권장합니다.
+
 ## Docs
 - `docs/architecture.md`
 - `docs/content-model.md`
 - `docs/deployment.md`
 - `docs/editorial-workflow.md`
 - `docs/handoff.md`
+- `docs/thumbnail-agent-workflow.md`
