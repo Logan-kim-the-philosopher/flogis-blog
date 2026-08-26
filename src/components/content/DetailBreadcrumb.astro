@@ -22,17 +22,22 @@ const { backHref, backLabel = '뒤로가기', items } = Astro.props as {
   </button>
 
   <nav aria-label="Breadcrumb" class="min-w-0 text-right">
-    <ol class="flex flex-wrap items-center justify-end gap-2">
-      {items.map((item, index) => (
-        <li class="flex min-w-0 items-center gap-2">
-          {index > 0 && <span class="text-slate-600">/</span>}
-          {item.href ? (
-            <a href={item.href} class="truncate transition hover:text-white">{item.label}</a>
-          ) : (
-            <span class="truncate text-slate-200">{item.label}</span>
-          )}
-        </li>
-      ))}
+    <ol class="flex min-w-0 items-center justify-end gap-2 overflow-hidden whitespace-nowrap">
+      {items.map((item, index) => {
+        const isLast = index === items.length - 1;
+        const displayLabel = isLast && item.label.length > 5 ? `${item.label.slice(0, 5)}…` : item.label;
+
+        return (
+          <li class="flex min-w-0 shrink-0 items-center gap-2">
+            {index > 0 && <span class="text-slate-600">/</span>}
+            {item.href ? (
+              <a href={item.href} class={isLast ? 'block text-slate-200 transition hover:text-white' : 'block truncate transition hover:text-white'} title={item.label}>{displayLabel}</a>
+            ) : (
+              <span class={isLast ? 'block text-slate-200' : 'block truncate transition hover:text-white'} title={item.label}>{displayLabel}</span>
+            )}
+          </li>
+        );
+      })}
     </ol>
   </nav>
 </div>

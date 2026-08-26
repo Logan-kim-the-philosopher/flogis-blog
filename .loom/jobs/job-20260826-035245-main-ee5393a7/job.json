@@ -1,0 +1,14 @@
+{
+  "id": "job-20260826-035245-main-ee5393a7",
+  "title": "main 변경사항 안전 통합",
+  "goal": "원격 main의 신규 커밋을 기존 Haru2_dev 작업 이력과 사용자 로컬 변경을 보존하면서 병합하고 검증해 원격 Haru2_dev를 안전하게 갱신한다.",
+  "status": "RUNNING",
+  "created_at": "2026-08-26T03:52:45+00:00",
+  "updated_at": "2026-08-26T03:53:02+00:00",
+  "context_refs": [],
+  "task_ids": [
+    "task-20260826-035256-main-haru2-dev-8aef1a21"
+  ],
+  "branch_name": "Haru2_dev",
+  "checkpoint_ids": []
+}

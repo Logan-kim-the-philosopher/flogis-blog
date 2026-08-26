@@ -1,0 +1,70 @@
+{
+  "status": "RUNNING",
+  "agent": "foreground",
+  "mode": "foreground",
+  "execution_surface": "foreground",
+  "task_run_id": "task-run-20260826-035302-task-def-20260826-035256-main-haru2-dev-c4c80830-4c9f6d44",
+  "generated_at": "2026-08-26T03:53:02+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/prompt.md",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/context.md",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/previous-results.md",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/git-snapshot.json",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/result.md",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/decision.md",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/troubleshooting.md",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/logs.txt",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/agent-events.jsonl",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/artifacts.json"
+  ],
+  "artifact_groups": {
+    "user_outputs": [
+      ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/result.md",
+      ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/decision.md",
+      ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/troubleshooting.md"
+    ],
+    "execution_inputs": [
+      ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/prompt.md",
+      ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/context.md",
+      ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/previous-results.md"
+    ],
+    "execution_audit": [
+      ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/git-snapshot.json",
+      ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/logs.txt",
+      ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/agent-events.jsonl",
+      ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/artifacts.json"
+    ],
+    "work_products": [
+      "README.md",
+      "docs/handoff.md",
+      "docs/thumbnail-agent-workflow.md",
+      "src/layouts/SiteLayout.astro",
+      "src/lib/renderers/markdown.ts",
+      "skills/flogi-thumbnail-prompt/SKILL.md"
+    ]
+  },
+  "contract_snapshot": {
+    "schema_version": 1,
+    "contract_ids": [
+      "task-execution",
+      "done-guardrail"
+    ],
+    "contracts": [
+      {
+        "id": "task-execution",
+        "title": "Task Execution Context Contract",
+        "source_paths": [
+          "loom/application/context_pack.py",
+          "loom/application/team_policy.py"
+        ]
+      },
+      {
+        "id": "done-guardrail",
+        "title": "Task Completion Guardrail Contract",
+        "source_paths": [
+          "loom/application/services.py"
+        ]
+      }
+    ]
+  }
+}

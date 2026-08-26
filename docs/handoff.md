@@ -8,6 +8,8 @@
 - Hosted Studio가 배포되어 있어 브라우저에서 바로 운영 가능합니다: `https://flogi-studio.sanity.studio/`
 - 프로젝트 루트 `.mcp.json`은 `https://mcp.sanity.io`를 사용하는 Sanity MCP 설정을 포함합니다.
 - 배포는 `dist/server/entry.mjs`를 Node 22 runtime에서 실행하며, Kubernetes/Jenkins 절차는 `infra/k8s/README.md`를 따릅니다.
+- 썸네일 자동화 규칙 문서는 `docs/thumbnail-agent-workflow.md`에 정리했습니다.
+- Footer 하단의 GitHub/RSS CTA 링크는 제거하고 저작권 텍스트만 남겼습니다.
 
 ## 역할별 진입점
 ### 콘텐츠 운영자
@@ -59,6 +61,8 @@
    - 규모가 커지면 검색 인덱스 도입 권장
 3. `src/lib/renderers/markdown.ts`
    - 본문 저장 포맷이 바뀌면 여기부터 조정
+   - ` ```mermaid ` 코드 블록은 `<div class="mermaid">`로 변환되고, 클라이언트에서 Mermaid가 SVG로 렌더링됩니다.
+   - Mermaid 클라이언트 로드는 `src/layouts/SiteLayout.astro`에서 CDN ESM import를 사용합니다. 로컬 번들 import는 브라우저에서 module import 실패가 날 수 있어 피합니다.
 4. `src/lib/cms/client.ts`
    - `SANITY_STRICT_CONTENT=true`일 때는 운영 배포에서 fallback 대신 실패하도록 되어 있습니다.
 
@@ -78,6 +82,9 @@
 - 현재 홈의 스터디/회의/작업 섹션은 모두 가로 캐러셀 UI입니다.
 - 검색은 페이지 이동형이 아니라 모달형이며, 헤더에는 돋보기 아이콘 + `검색` 버튼이 노출됩니다.
 - 헤더는 현재 로고 없이 텍스트 사이트명만 사용합니다.
+- 모바일 헤더 내비게이션은 데스크톱과 같은 한 줄 내비게이션을 유지하고, 좁은 화면에서는 가로 스크롤로 대응합니다.
+- 상세 페이지 breadcrumb의 마지막 항목은 모바일에서도 줄바꿈되지 않도록 5글자 기준으로 잘라 `…`를 붙여 표시합니다.
 - CMS 스키마는 최소 필드 기준으로 정리되어 있으며, 미사용 `category` 스키마는 제거했습니다.
 - 운영 배포 전에는 `docs/deployment.md` 체크리스트대로 `siteSettings`와 env를 먼저 확인하세요.
 - 운영 정책은 `docs/editorial-workflow.md`를 기준으로 인수인계하세요.
+- 썸네일 문서는 외부 스킬 복제가 아니라, 본문 이해 → 시각 추상화 → Flogi 스타일 적용 → 프롬프트 생성 순서의 자체 워크플로우를 기준으로 합니다.

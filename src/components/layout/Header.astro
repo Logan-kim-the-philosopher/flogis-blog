@@ -5,17 +5,17 @@ const { site, currentPath } = Astro.props as { site: SiteSettings; currentPath: 
 ---
 
 <header class="sticky top-0 z-50 border-b border-slate-800/70 bg-slate-950/85 backdrop-blur">
-  <div class="mx-auto flex max-w-5xl items-center justify-between gap-6 px-4 py-3">
-    <div class="flex min-w-0 items-center gap-6">
+  <div class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3">
+    <div class="flex min-w-0 items-center gap-4 md:gap-6">
       <a href="/" class="shrink-0 text-lg font-semibold tracking-tight text-white transition hover:text-cyan-300">
         {site.title}
       </a>
-      <nav class="hidden items-center gap-4 md:flex">
+      <nav class="flex min-w-0 items-center gap-3 overflow-x-auto text-sm font-medium whitespace-nowrap [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:gap-4">
         {site.nav.map((item) => (
           <a
             href={item.href}
             class:list={[
-              'text-sm font-medium transition',
+              'shrink-0 transition',
               currentPath.startsWith(item.href) ? 'text-white' : 'text-slate-300 hover:text-white'
             ]}
           >
@@ -25,7 +25,7 @@ const { site, currentPath } = Astro.props as { site: SiteSettings; currentPath: 
       </nav>
     </div>
 
-    <div class="flex items-center gap-2">
+    <div class="flex shrink-0 items-center gap-2">
       <button
         type="button"
         data-search-open

@@ -1,0 +1,32 @@
+{
+  "id": "task-20260826-035256-main-haru2-dev-8aef1a21",
+  "job_id": "job-20260826-035245-main-ee5393a7",
+  "title": "원격 main을 Haru2_dev에 충돌 없이 병합",
+  "description": "원격 브랜치를 fetch한 뒤 main과 Haru2_dev의 분기·변경 파일을 비교하고, 사용자 로컬 변경을 보존한 상태로 origin/main을 Haru2_dev에 merge한다. 충돌 시 양쪽 의도를 파일 단위로 검토해 해결하고 검증 후 원격 Haru2_dev에 push한다.",
+  "status": "RUNNING",
+  "created_at": "2026-08-26T03:52:56+00:00",
+  "updated_at": "2026-08-26T03:53:02+00:00",
+  "order_index": 1,
+  "assigned_agent": "foreground",
+  "depends_on": [],
+  "expected_output": "origin/main의 최신 커밋이 Haru2_dev의 조상이 되고, 기존 Haru2_dev 기능과 사용자 미커밋 변경이 보존되며, 테스트·빌드가 통과한 merge 커밋이 원격 Haru2_dev에 반영된다.",
+  "done_condition": "fetch와 divergence 검토, 로컬 변경 보존, origin/main merge, 충돌 검증, origin/main ancestor 확인, 관련 테스트와 npm build 통과, 비강제 push 및 원격 Haru2_dev 확인을 완료한다.",
+  "in_scope": "Git 원격 조회, main→Haru2_dev merge, 충돌 해결, 테스트·빌드, Loom 기록, 원격 Haru2_dev push",
+  "out_of_scope": "Haru2_dev→main 병합, force push, rebase, 사용자 변경 삭제, main 직접 수정, Argo 수동 Sync, 무관한 기능 변경",
+  "validation_hint": "git status/log/diff와 git merge-base --is-ancestor origin/main Haru2_dev를 확인하고 npm run meeting:test 및 npm run build를 실행한다. push 후 ls-remote로 원격 Haru2_dev SHA를 확인한다.",
+  "required_docs": [],
+  "memory_refs": [],
+  "document_outputs": [],
+  "document_output_exceptions": [],
+  "run_attempts": 0,
+  "last_error": "",
+  "commit_refs": [
+    "25c783ff8305dc9e31e9eea3a3be7361e1f4b100"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-08-26T03:53:02+00:00",
+  "artifacts": [],
+  "source_proposal_id": "",
+  "source_prompt": ""
+}

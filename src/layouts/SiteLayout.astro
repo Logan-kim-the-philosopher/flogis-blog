@@ -47,5 +47,37 @@ const canonical = new URL(currentPath, getRuntimeSiteUrl(Astro.url)).toString();
     </main>
     <Footer site={site} />
     <SearchModal />
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+      mermaid.initialize({ startOnLoad: false, theme: 'dark', securityLevel: 'loose' });
+
+      const renderMermaid = async () => {
+        const nodes = Array.from(document.querySelectorAll('.mermaid')).filter(
+          (node) => !node.hasAttribute('data-mermaid-rendered')
+        );
+        if (!nodes.length) return;
+
+        for (const node of nodes) {
+          const definition = node.textContent?.trim();
+          if (!definition) continue;
+
+          try {
+            const id = `mermaid-${crypto.randomUUID()}`;
+            const { svg, bindFunctions } = await mermaid.render(id, definition);
+            node.innerHTML = svg;
+            bindFunctions?.(node);
+            node.setAttribute('data-mermaid-rendered', 'true');
+          } catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            node.innerHTML = `<pre>Mermaid render failed\n${message}\n\n${definition}</pre>`;
+            node.setAttribute('data-mermaid-rendered', 'error');
+          }
+        }
+      };
+
+      renderMermaid();
+      document.addEventListener('astro:page-load', renderMermaid);
+    </script>
   </body>
 </html>
