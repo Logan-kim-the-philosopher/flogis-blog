@@ -9,6 +9,7 @@
 - 프로젝트 루트 `.mcp.json`은 `https://mcp.sanity.io`를 사용하는 Sanity MCP 설정을 포함합니다.
 - 배포는 빌드된 `dist/`를 개발자 서버에서 정적 서빙하는 방식으로 넘기면 됩니다.
 - 썸네일 자동화 규칙 문서는 `docs/thumbnail-agent-workflow.md`에 정리했습니다.
+- Footer 하단의 GitHub/RSS CTA 링크는 제거하고 저작권 텍스트만 남겼습니다.
 
 ## 역할별 진입점
 ### 콘텐츠 운영자
