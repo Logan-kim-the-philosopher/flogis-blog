@@ -166,32 +166,89 @@ Use the official Sanity MCP tools only. In project w1jypogd dataset production, 
 - 수정 권한은 앱 내부 권한 시스템이 아니라 `Sanity 프로젝트 멤버 권한`으로 관리합니다.
 - 실제 `.env*` 파일이나 비밀값은 커밋하지 마세요.
 
-## Shareable thumbnail skill
-This repo now includes a shareable skill at `skills/flogi-thumbnail-prompt/SKILL.md`.
+## Codex용 썸네일 스킬
+이 저장소에는 **Codex 사용자를 기준으로 만든** 공유용 썸네일 스킬이 포함되어 있습니다.
 
-What it does:
-- reads an article,
-- chooses one strong thumbnail hook,
-- applies the Flogi visual rules,
-- returns a generation-ready image prompt,
-- optionally supports image-variant generation if the host agent has an image tool.
+- 스킬 위치: `skills/flogi-thumbnail-prompt/SKILL.md`
 
-### For Codex users
-If your local Codex setup supports skills, copy or symlink this folder into your skills directory.
+이 스킬은 Codex 기반 로컬 에이전트가:
+- 글 본문을 읽고,
+- 썸네일에 넣을 핵심 훅을 1개 고르고,
+- Flogi 스타일 규칙을 적용해,
+- 바로 이미지 생성에 넣을 수 있는 프롬프트를 만들고,
+- 필요하면 이미지 시안까지 생성하도록 돕습니다.
 
-Example:
+### 왜 이 스킬을 쓰는가
+Flogi에서는 글마다 주제가 달라도 썸네일이 제각각 따로 노는 느낌이 나지 않게,
+**색감 / 구도 / 정보 밀도 / 분위기**를 최대한 같은 시리즈처럼 맞추는 것을 중요하게 봅니다.
+
+즉, 이 스킬의 목적은 단순히 이미지를 한 장 만드는 것이 아니라,
+**Codex가 글을 읽는 단계부터 썸네일을 통일감 있게 만들도록 작업 규칙을 고정하는 것**입니다.
+
+현재 `인프라 입문 정리: Unix에서 Linux, 그리고 VM·컨테이너까지` 글에는 아래 생성 이미지를 대표 이미지로 사용했습니다.
+
+- 예시 이미지: `generated-images/image_1787712504559_1536-1024.png`
+
+앞으로도 새 글을 작성할 때는 본문 작성만 끝내지 말고,
+Codex가 이 스킬을 함께 사용해 **대표 훅 추출 → 프롬프트 생성 → 이미지 시안 생성**까지 이어서 진행하는 것을 권장합니다.
+
+### 이미지 생성 모델
+이 워크플로우에서 기본으로 염두에 둔 이미지 생성 모델은 **OpenAI `gpt-image-2`** 입니다.
+
+즉, 흐름은 아래와 같습니다.
+- Codex가 글을 읽고 스킬 규칙에 따라 썸네일 방향을 정함
+- 스킬이 최종 프롬프트와 negative prompt를 만듦
+- 이미지 생성은 `gpt-image-2` 같은 연결된 이미지 생성 모델로 수행함
+
+### Codex에서 사용하는 방법
+로컬 Codex 환경에서 skills를 읽을 수 있으면, 이 폴더를 그대로 복사하거나 symlink해서 사용할 수 있습니다.
+
+예시:
 ```bash
 mkdir -p ~/.codex/skills
 ln -s /path/to/this-repo/skills/flogi-thumbnail-prompt ~/.codex/skills/flogi-thumbnail-prompt
 ```
 
-Then ask your agent to use the skill on an article or post draft.
+그다음 Codex에게 글 초안이나 게시된 글을 읽히고, 이 스킬을 사용해 썸네일 프롬프트와 이미지 시안을 만들게 하면 됩니다.
 
-### Compatibility note
-- The skill itself is agent-agnostic and document-first.
-- Prompt generation works anywhere.
-- Actual image generation depends on whether the user's Codex/agent environment exposes an image-generation capability.
-- Flogi 운영 기준으로는, 새 글을 작성할 때 본문 초안만 만든 뒤 끝내기보다 이 스킬까지 함께 써서 대표 이미지 방향을 초기에 같이 잡는 워크플로우를 권장합니다.
+### 다른 Codex 유저가 실제 이미지까지 생성하려면
+아래 3가지가 있으면 됩니다.
+
+1. **Codex가 skills를 읽을 수 있어야 함**
+   - 위 예시처럼 `~/.codex/skills` 아래에 이 스킬을 연결합니다.
+
+2. **이미지 생성 도구가 연결되어 있어야 함**
+   - 이 워크플로우의 기본 기준 모델은 `gpt-image-2` 입니다.
+   - 즉, Codex 환경에서 `gpt-image-2`를 호출할 수 있는 image generation tool 또는 wrapper가 있어야 합니다.
+
+3. **Codex/OpenAI 인증이 되어 있어야 함**
+   - 이미지 생성이 가능한 계정/세션이어야 실제 시안 생성까지 진행됩니다.
+
+### 최소 사용 순서
+1. 글 초안 또는 게시된 글 본문을 Codex가 읽게 합니다.
+2. `flogi-thumbnail-prompt` 스킬을 사용해
+   - thesis,
+   - hook,
+   - metaphor,
+   - final prompt,
+   - negative prompt
+   를 먼저 뽑게 합니다.
+3. 그다음 `gpt-image-2`로 2~3개 시안을 생성하게 합니다.
+4. 시안 중에서 가장 썸네일성이 높은 것을 고릅니다.
+
+### Codex에 바로 넣을 수 있는 예시 요청
+```text
+Read this article and use the flogi-thumbnail-prompt skill.
+First extract the thesis, hook, metaphor, composition, final prompt, and negative prompt.
+Then generate 3 thumbnail variants with gpt-image-2 in a calm, minimal, technical Flogi style.
+Rank the 3 variants by thumbnail readability, not by detail richness.
+```
+
+### 호환성 메모
+- 이 스킬은 Codex 사용자 워크플로우를 기준으로 작성했습니다.
+- 다만 스킬 내용 자체는 문서형 규칙이므로 다른 로컬 CLI 에이전트에도 옮겨 쓸 수 있습니다.
+- 프롬프트 생성은 범용적으로 사용할 수 있습니다.
+- 실제 이미지 생성은 `gpt-image-2` 또는 그에 준하는 이미지 생성 기능이 연결되어 있을 때 가장 자연스럽게 동작합니다.
 
 ## Docs
 - `docs/architecture.md`
