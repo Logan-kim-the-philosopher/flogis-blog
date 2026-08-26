@@ -24,7 +24,7 @@ Keep code identifiers, file paths, shell commands, URLs, commit hashes, and orig
 - Job ID: `job-20260825-123703-job-6c824053`
 - Title: 회의 원본 자동 정리·발행 루프
 - Goal: TXT 또는 오디오 회의 원본을 입력하면 원본을 보존하고, 오디오는 전사한 뒤 기록 목적에 따라 프로젝트 회의·스터디·대화·팀 운영으로 분류하며, 표준 회의 문서 구조로 정리·검증하고 명시적 승인 시 Sanity 블로그에 발행하는 로컬 Pi 에이전트 루프를 구축한다.
-- Status: `PENDING`
+- Status: `REVIEW_REQUIRED`
 - Required branch: `Haru2_dev`
 - Task count: `5`
 
@@ -41,7 +41,7 @@ Keep code identifiers, file paths, shell commands, URLs, commit hashes, and orig
 - Document outputs: -
 - Document output exceptions: -
 - Source proposal: `-`
-- Status: `PENDING`
+- Status: `REVIEW_REQUIRED`
 - Agent: `foreground`
 - Order: `5`
 - Depends on: None

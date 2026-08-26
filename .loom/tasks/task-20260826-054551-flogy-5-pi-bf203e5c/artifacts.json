@@ -1,10 +1,10 @@
 {
-  "status": "RUNNING",
+  "status": "DONE",
   "agent": "foreground",
   "mode": "foreground",
   "execution_surface": "foreground",
   "task_run_id": "task-run-20260826-054559-task-def-20260826-054551-flogy-5-pi-dba681dc-05cb7a92",
-  "generated_at": "2026-08-26T05:45:59+00:00",
+  "generated_at": "2026-08-26T06:25:04+00:00",
   "artifacts": [
     ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/prompt.md",
     ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/context.md",
@@ -15,15 +15,7 @@
     ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/troubleshooting.md",
     ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/logs.txt",
     ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/agent-events.jsonl",
-    ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/artifacts.json",
-    ".meeting-agent/runs/flogy-5-20260826/transcript.txt",
-    ".meeting-agent/runs/flogy-5-20260826/transcript.json",
-    ".meeting-agent/runs/flogy-5-20260826/structured.json",
-    ".meeting-agent/runs/flogy-5-20260826/post.md",
-    ".meeting-agent/runs/flogy-5-20260826/sanity-document.json",
-    ".meeting-agent/runs/flogy-5-20260826/publish-validation.json",
-    ".meeting-agent/runs/flogy-5-20260826/publish-result.json",
-    ".meeting-agent/runs/flogy-5-20260826/run.json"
+    ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/artifacts.json"
   ],
   "artifact_groups": {
     "user_outputs": [
@@ -42,16 +34,7 @@
       ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/agent-events.jsonl",
       ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/artifacts.json"
     ],
-    "work_products": [
-      ".meeting-agent/runs/flogy-5-20260826/transcript.txt",
-      ".meeting-agent/runs/flogy-5-20260826/transcript.json",
-      ".meeting-agent/runs/flogy-5-20260826/structured.json",
-      ".meeting-agent/runs/flogy-5-20260826/post.md",
-      ".meeting-agent/runs/flogy-5-20260826/sanity-document.json",
-      ".meeting-agent/runs/flogy-5-20260826/publish-validation.json",
-      ".meeting-agent/runs/flogy-5-20260826/publish-result.json",
-      ".meeting-agent/runs/flogy-5-20260826/run.json"
-    ]
+    "work_products": []
   },
   "contract_snapshot": {
     "schema_version": 1,

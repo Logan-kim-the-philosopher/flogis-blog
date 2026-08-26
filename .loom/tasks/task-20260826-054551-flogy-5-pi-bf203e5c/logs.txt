@@ -6,3 +6,6 @@
 [2026-08-26T06:18:51+00:00] agent=foreground validate-only 통과. document=meeting-flogy-round-5-2026-08-26 people=3 duplicateCount=0 readyToPublish=true.
 [2026-08-26T06:18:59+00:00] agent=foreground production Sanity 신규 발행 완료. revision=SseX7szR4uwwNDZHqDdbge coverImage=false.
 [2026-08-26T06:20:03+00:00] agent=foreground 공개 URL HTTP 200, 제목·본문·날짜·참가자 확인 완료.
+[2026-08-26T06:22:47+00:00] agent=foreground task=task-20260826-054551-flogy-5-pi-bf203e5c Flogy 5차 회의를 로컬 Whisper와 Pi로 정리·검수하고 production Sanity 발행 및 공개 페이지 검증 완료
+[2026-08-26T06:24:37+00:00] agent=foreground task=task-20260826-054551-flogy-5-pi-bf203e5c Foreground task session started.
+[2026-08-26T06:25:04+00:00] agent=foreground task=task-20260826-054551-flogy-5-pi-bf203e5c 검증 섹션에 validate-only, Sanity 재조회, 공개 URL HTTP 200, Loom strict 결과를 명시해 완료 계약 충족

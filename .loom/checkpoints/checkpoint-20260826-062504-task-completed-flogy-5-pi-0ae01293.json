@@ -1,0 +1,32 @@
+{
+  "id": "checkpoint-20260826-062504-task-completed-flogy-5-pi-0ae01293",
+  "created_at": "2026-08-26T06:25:04+00:00",
+  "reason": "Task completed: Flogy 5차 회의 기록 Pi 정리·발행",
+  "summary": "Flogy 5차 회의 기록 Pi 정리·발행 -> DONE @ Haru2_dev/a3cac21c4e4a",
+  "job_id": "job-20260825-123703-job-6c824053",
+  "task_id": "task-20260826-054551-flogy-5-pi-bf203e5c",
+  "commit_sha": "a3cac21c4e4a9daa40e28fdaeacfdce2de0d2fcf",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/events.jsonl",
+    ".loom/job-runs/job-run-20260826-054559-job-20260825-123703-job-6c824053-3316c353/job-run.json",
+    ".loom/jobs/job-20260825-123703-job-6c824053/job.json",
+    ".loom/task-definitions/task-def-20260826-054551-flogy-5-pi-dba681dc/task-definition.json",
+    ".loom/task-runs/task-run-20260826-054559-task-def-20260826-054551-flogy-5-pi-dba681dc-05cb7a92/task-run.json",
+    ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/agent-events.jsonl",
+    ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/artifacts.json",
+    ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/context.md",
+    ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/git-snapshot.json",
+    ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/logs.txt",
+    ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/prompt.md",
+    ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/result.md",
+    ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/task.json",
+    ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/troubleshooting.md",
+    "AGENTS.md"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-08-26T06:25:04+00:00",
+  "rollback_strategy": "revert-or-branch"
+}

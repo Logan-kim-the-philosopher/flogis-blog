@@ -3,9 +3,9 @@
   "job_id": "job-20260825-123703-job-6c824053",
   "title": "Flogy 5차 회의 기록 Pi 정리·발행",
   "description": "사용자가 지정한 26/08/26_Flogy_5차회의 원본 파일을 찾아 Pi 회의 워크플로우로 구조화하고 preview를 검토한 뒤, 사람 참조·중복을 검증해 production Sanity 블로그에 실제 발행한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-08-26T05:45:51+00:00",
-  "updated_at": "2026-08-26T05:45:59+00:00",
+  "updated_at": "2026-08-26T06:25:04+00:00",
   "order_index": 5,
   "assigned_agent": "foreground",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "860220d86592af5d16e357bf71e158af2a5bc050"
+    "860220d86592af5d16e357bf71e158af2a5bc050",
+    "a3cac21c4e4a9daa40e28fdaeacfdce2de0d2fcf"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-08-26T05:45:59+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-08-26T06:25:04+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/agent-events.jsonl",
+    ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/artifacts.json",
+    ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/context.md",
+    ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/decision.md",
+    ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/git-snapshot.json",
+    ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/logs.txt",
+    ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/previous-results.md",
+    ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/prompt.md",
+    ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/result.md",
+    ".loom/tasks/task-20260826-054551-flogy-5-pi-bf203e5c/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }

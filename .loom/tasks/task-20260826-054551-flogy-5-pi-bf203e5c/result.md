@@ -27,3 +27,11 @@
 ## 로컬 산출물
 
 `.meeting-agent/runs/flogy-5-20260826/`에 원본 보존본, 16kHz WAV, transcript.txt/json, whisper.log, Pi 이벤트, structured.json, post.md, Sanity preview, validation과 publish-result를 보존했다.
+
+## 검증
+
+- `npm run meeting:publish -- .meeting-agent/runs/flogy-5-20260826 --confirm flogy-round-5-2026-08-26 --people person-heesung-kim,person-yongjae-hong,person-junghyun-kim --validate-only`: `meeting-flogy-round-5-2026-08-26` 발행 검증 통과, duplicateCount 0, readyToPublish true.
+- production Sanity 재조회: 문서 ID·제목·날짜·슬러그·참가자 3명 일치, bodyLength 3,839, coverImage false.
+- 공개 URL 재조회: HTTP 200, 제목과 `오하요 전체` 본문 표식 확인.
+- `loom task validate task-20260826-054551-flogy-5-pi-bf203e5c --json`: status OK, issues 없음.
+- `loom validate --strict`: Workspace metadata validation OK, consistency issue 없음.
