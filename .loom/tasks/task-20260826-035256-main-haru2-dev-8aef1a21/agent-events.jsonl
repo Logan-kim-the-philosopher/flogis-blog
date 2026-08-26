@@ -1,1 +1,2 @@
 {"id": "event-ef9c514e0159", "type": "foreground_session_started", "message": "Foreground task session started.", "created_at": "2026-08-26T03:53:02+00:00", "agent": "foreground", "task_id": "task-20260826-035256-main-haru2-dev-8aef1a21"}
+{"id": "event-27764670afed", "type": "foreground_session_done", "message": "원격 main 3475b5a를 Haru2_dev에 안전하게 병합하고 충돌 해결, 테스트·빌드, 비강제 push와 원격 SHA 검증을 완료했습니다.", "created_at": "2026-08-26T03:59:20+00:00", "agent": "foreground", "task_id": "task-20260826-035256-main-haru2-dev-8aef1a21"}

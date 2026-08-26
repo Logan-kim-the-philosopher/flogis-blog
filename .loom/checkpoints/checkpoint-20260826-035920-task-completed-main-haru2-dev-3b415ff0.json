@@ -1,0 +1,20 @@
+{
+  "id": "checkpoint-20260826-035920-task-completed-main-haru2-dev-3b415ff0",
+  "created_at": "2026-08-26T03:59:20+00:00",
+  "reason": "Task completed: 원격 main을 Haru2_dev에 충돌 없이 병합",
+  "summary": "원격 main을 Haru2_dev에 충돌 없이 병합 -> DONE @ Haru2_dev/c42c4f7a8cd4",
+  "job_id": "job-20260826-035245-main-ee5393a7",
+  "task_id": "task-20260826-035256-main-haru2-dev-8aef1a21",
+  "commit_sha": "c42c4f7a8cd47dcb6686d79255d6d6053022b510",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260826-035302-job-20260826-035245-main-ee5393a7-662d32bd/job-run.json",
+    ".loom/task-definitions/task-def-20260826-035256-main-haru2-dev-c4c80830/task-definition.json",
+    "AGENTS.md"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-08-26T03:59:20+00:00",
+  "rollback_strategy": "revert-or-branch"
+}

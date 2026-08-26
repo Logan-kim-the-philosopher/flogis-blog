@@ -3,9 +3,9 @@
   "job_id": "job-20260826-035245-main-ee5393a7",
   "title": "원격 main을 Haru2_dev에 충돌 없이 병합",
   "description": "원격 브랜치를 fetch한 뒤 main과 Haru2_dev의 분기·변경 파일을 비교하고, 사용자 로컬 변경을 보존한 상태로 origin/main을 Haru2_dev에 merge한다. 충돌 시 양쪽 의도를 파일 단위로 검토해 해결하고 검증 후 원격 Haru2_dev에 push한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-08-26T03:52:56+00:00",
-  "updated_at": "2026-08-26T03:53:02+00:00",
+  "updated_at": "2026-08-26T03:59:20+00:00",
   "order_index": 1,
   "assigned_agent": "foreground",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "25c783ff8305dc9e31e9eea3a3be7361e1f4b100"
+    "25c783ff8305dc9e31e9eea3a3be7361e1f4b100",
+    "c42c4f7a8cd47dcb6686d79255d6d6053022b510"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-08-26T03:53:02+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-08-26T03:59:20+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/agent-events.jsonl",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/artifacts.json",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/context.md",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/decision.md",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/git-snapshot.json",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/logs.txt",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/previous-results.md",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/prompt.md",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/result.md",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }

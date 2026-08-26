@@ -4,7 +4,7 @@
   "title": "원격 main을 Haru2_dev에 충돌 없이 병합",
   "description": "원격 브랜치를 fetch한 뒤 main과 Haru2_dev의 분기·변경 파일을 비교하고, 사용자 로컬 변경을 보존한 상태로 origin/main을 Haru2_dev에 merge한다. 충돌 시 양쪽 의도를 파일 단위로 검토해 해결하고 검증 후 원격 Haru2_dev에 push한다.",
   "created_at": "2026-08-26T03:52:56+00:00",
-  "updated_at": "2026-08-26T03:53:02+00:00",
+  "updated_at": "2026-08-26T03:59:20+00:00",
   "order_index": 1,
   "legacy_task_id": "task-20260826-035256-main-haru2-dev-8aef1a21",
   "depends_on": [],

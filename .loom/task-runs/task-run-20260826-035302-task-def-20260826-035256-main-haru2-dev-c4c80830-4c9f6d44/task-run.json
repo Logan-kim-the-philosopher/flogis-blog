@@ -2,9 +2,9 @@
   "id": "task-run-20260826-035302-task-def-20260826-035256-main-haru2-dev-c4c80830-4c9f6d44",
   "job_run_id": "job-run-20260826-035302-job-20260826-035245-main-ee5393a7-662d32bd",
   "task_definition_id": "task-def-20260826-035256-main-haru2-dev-c4c80830",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-08-26T03:53:02+00:00",
-  "updated_at": "2026-08-26T03:53:02+00:00",
+  "updated_at": "2026-08-26T03:59:20+00:00",
   "legacy_task_id": "task-20260826-035256-main-haru2-dev-8aef1a21",
   "attempt": 1,
   "assigned_agent": "foreground",
@@ -13,13 +13,29 @@
   "lease_expires_at": "",
   "queued_at": "",
   "started_at": "2026-08-26T03:53:02+00:00",
-  "completed_at": "",
+  "completed_at": "2026-08-26T03:59:20+00:00",
   "last_error": "",
-  "commit_refs": [],
-  "branch_name": "",
-  "git_dirty": false,
-  "git_snapshot_captured_at": "",
-  "artifacts": [],
-  "checkpoint_ids": [],
+  "commit_refs": [
+    "25c783ff8305dc9e31e9eea3a3be7361e1f4b100",
+    "c42c4f7a8cd47dcb6686d79255d6d6053022b510"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-08-26T03:59:20+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/agent-events.jsonl",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/artifacts.json",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/context.md",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/decision.md",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/git-snapshot.json",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/logs.txt",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/previous-results.md",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/prompt.md",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/result.md",
+    ".loom/tasks/task-20260826-035256-main-haru2-dev-8aef1a21/troubleshooting.md"
+  ],
+  "checkpoint_ids": [
+    "checkpoint-20260826-035920-task-completed-main-haru2-dev-3b415ff0"
+  ],
   "review_required_reason": ""
 }
