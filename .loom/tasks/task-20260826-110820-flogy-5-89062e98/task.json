@@ -3,9 +3,9 @@
   "job_id": "job-20260825-123703-job-6c824053",
   "title": "Flogy 5차 전사본 바탕화면 복사",
   "description": "완료된 Flogy 5차 회의 Pi run의 transcript.txt만 바탕화면 최상단에 알아보기 쉬운 이름으로 복사하고 원본 산출물은 보존한다.",
-  "status": "RUNNING",
+  "status": "REVIEW_REQUIRED",
   "created_at": "2026-08-26T11:08:20+00:00",
-  "updated_at": "2026-08-26T11:08:30+00:00",
+  "updated_at": "2026-08-26T11:10:16+00:00",
   "order_index": 6,
   "assigned_agent": "foreground",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "a2ab68467a2990b118ca5bf2ed3617113232ce73"
+    "a2ab68467a2990b118ca5bf2ed3617113232ce73",
+    "7360a4c7216bcad02614138233dd2316db4e119d"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-08-26T11:08:30+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-08-26T11:10:16+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260826-110820-flogy-5-89062e98/agent-events.jsonl",
+    ".loom/tasks/task-20260826-110820-flogy-5-89062e98/artifacts.json",
+    ".loom/tasks/task-20260826-110820-flogy-5-89062e98/context.md",
+    ".loom/tasks/task-20260826-110820-flogy-5-89062e98/decision.md",
+    ".loom/tasks/task-20260826-110820-flogy-5-89062e98/git-snapshot.json",
+    ".loom/tasks/task-20260826-110820-flogy-5-89062e98/logs.txt",
+    ".loom/tasks/task-20260826-110820-flogy-5-89062e98/previous-results.md",
+    ".loom/tasks/task-20260826-110820-flogy-5-89062e98/prompt.md",
+    ".loom/tasks/task-20260826-110820-flogy-5-89062e98/result.md",
+    ".loom/tasks/task-20260826-110820-flogy-5-89062e98/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }
