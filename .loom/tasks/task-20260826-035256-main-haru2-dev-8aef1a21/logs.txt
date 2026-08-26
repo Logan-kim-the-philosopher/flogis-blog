@@ -4,3 +4,5 @@
 [2026-08-26T03:56:00+00:00] origin/main을 --no-ff --no-commit으로 병합하고 README, handoff, SiteLayout 충돌 해결.
 [2026-08-26T03:56:30+00:00] AGENTS.md 사용자 patch가 병합 전후 동일함을 cmp로 검증.
 [2026-08-26T03:57:10+00:00] meeting:test 18개와 Astro Node SSR build 통과, unmerged index 0 확인.
+[2026-08-26T04:00:00+00:00] merge commit 0591a18 생성. origin/main이 HEAD 조상이고 두 parent가 25c783f/3475b5a임을 확인.
+[2026-08-26T04:00:30+00:00] force 없이 origin/Haru2_dev에 push. 원격 Haru2_dev=0591a18, main=3475b5a 확인.
