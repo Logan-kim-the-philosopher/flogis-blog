@@ -1,1 +1,2 @@
 [2026-08-27T17:05:05+00:00] agent=foreground task=task-20260827-170458-flogy-5-58852206 Foreground task session started.
+[2026-08-27T17:10:45+00:00] agent=foreground task=task-20260827-170458-flogy-5-58852206 기존 5차 문서 백업·삭제, Clova 전사본 Pi 구조화·화자 정규화, validate-only와 production Sanity 재발행, 공개 URL HTTP 200 검증 완료
