@@ -1,0 +1,1 @@
+[2026-08-28T18:35:47+00:00] agent=foreground task=task-20260828-183541-2026-08-28-flogy-3-aed1e5da Foreground task session started.
