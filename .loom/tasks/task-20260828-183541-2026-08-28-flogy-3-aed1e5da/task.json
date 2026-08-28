@@ -3,9 +3,9 @@
   "job_id": "job-20260825-123703-job-6c824053",
   "title": "2026-08-28 Flogy 회의 원본 3건 개별 발행",
   "description": "바탕화면 Flogy/회의기록에서 2026-08-28로 식별되는 원본 3개를 각각 독립적으로 구조화하고, 원문에 근거한 안건·사람별 의견·결정·행동 항목으로 검수해 모두 meeting 유형으로 운영 Sanity에 발행한다.",
-  "status": "RUNNING",
+  "status": "REVIEW_REQUIRED",
   "created_at": "2026-08-28T18:35:41+00:00",
-  "updated_at": "2026-08-28T18:35:47+00:00",
+  "updated_at": "2026-08-28T18:46:23+00:00",
   "order_index": 9,
   "assigned_agent": "foreground",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "ca2c9bc6bff0130c3295b392ee3ae3b043cf7de6"
+    "ca2c9bc6bff0130c3295b392ee3ae3b043cf7de6",
+    "04efdb318a5274e445a6cbe86ef488299ffe2d3a"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-08-28T18:35:47+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-08-28T18:46:23+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260828-183541-2026-08-28-flogy-3-aed1e5da/agent-events.jsonl",
+    ".loom/tasks/task-20260828-183541-2026-08-28-flogy-3-aed1e5da/artifacts.json",
+    ".loom/tasks/task-20260828-183541-2026-08-28-flogy-3-aed1e5da/context.md",
+    ".loom/tasks/task-20260828-183541-2026-08-28-flogy-3-aed1e5da/decision.md",
+    ".loom/tasks/task-20260828-183541-2026-08-28-flogy-3-aed1e5da/git-snapshot.json",
+    ".loom/tasks/task-20260828-183541-2026-08-28-flogy-3-aed1e5da/logs.txt",
+    ".loom/tasks/task-20260828-183541-2026-08-28-flogy-3-aed1e5da/previous-results.md",
+    ".loom/tasks/task-20260828-183541-2026-08-28-flogy-3-aed1e5da/prompt.md",
+    ".loom/tasks/task-20260828-183541-2026-08-28-flogy-3-aed1e5da/result.md",
+    ".loom/tasks/task-20260828-183541-2026-08-28-flogy-3-aed1e5da/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }
