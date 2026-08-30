@@ -4,7 +4,7 @@
   "title": "출판된 회의 게시물의 Flogy 표기를 Flogi로 교정",
   "description": "production Sanity에서 출판된 meeting 문서를 전수 조회하고 Flogy/FLOGY/flogy가 포함된 문서를 식별한다. 변경 전 문서 ID·revision·대상 필드를 기록한 뒤 사용자 콘텐츠의 표기를 Flogi/FLOGI/flogi로 수정하고 재조회로 검증한다.",
   "created_at": "2026-08-30T07:19:36+00:00",
-  "updated_at": "2026-08-30T07:19:40+00:00",
+  "updated_at": "2026-08-30T07:24:31+00:00",
   "order_index": 2,
   "legacy_task_id": "task-20260830-071936-flogy-flogi-44756780",
   "depends_on": [],

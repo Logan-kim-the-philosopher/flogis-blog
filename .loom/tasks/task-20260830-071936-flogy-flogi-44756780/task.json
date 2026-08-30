@@ -3,9 +3,9 @@
   "job_id": "job-20260830-071350-flogy-flogi-3c89eaa4",
   "title": "출판된 회의 게시물의 Flogy 표기를 Flogi로 교정",
   "description": "production Sanity에서 출판된 meeting 문서를 전수 조회하고 Flogy/FLOGY/flogy가 포함된 문서를 식별한다. 변경 전 문서 ID·revision·대상 필드를 기록한 뒤 사용자 콘텐츠의 표기를 Flogi/FLOGI/flogi로 수정하고 재조회로 검증한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-08-30T07:19:36+00:00",
-  "updated_at": "2026-08-30T07:19:40+00:00",
+  "updated_at": "2026-08-30T07:24:31+00:00",
   "order_index": 2,
   "assigned_agent": "foreground",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "6aeb54c23ae64f4e57de906ffe6a36ac400feeab"
+    "6aeb54c23ae64f4e57de906ffe6a36ac400feeab",
+    "245ad35759e32df919bb4569ab225bce73cf960f"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-08-30T07:19:40+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-08-30T07:24:31+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/agent-events.jsonl",
+    ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/artifacts.json",
+    ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/context.md",
+    ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/decision.md",
+    ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/git-snapshot.json",
+    ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/logs.txt",
+    ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/previous-results.md",
+    ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/prompt.md",
+    ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/result.md",
+    ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }

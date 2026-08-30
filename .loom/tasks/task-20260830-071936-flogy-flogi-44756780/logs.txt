@@ -2,3 +2,4 @@
 [2026-08-30T07:23:24+00:00] agent=foreground task=task-20260830-071936-flogy-flogi-44756780 production 회의 14개를 전수 조사해 12개 문서의 Flogy 계열 56회를 확인했다.
 [2026-08-30T07:23:24+00:00] agent=foreground task=task-20260830-071936-flogy-flogi-44756780 원본 백업 후 revision 조건부 단일 트랜잭션으로 12개 문서를 교정했다.
 [2026-08-30T07:23:24+00:00] agent=foreground task=task-20260830-071936-flogy-flogi-44756780 production 잔여 0건과 운영 블로그 15개 페이지의 HTTP 200 및 HTML 잔여 0건을 검증했다.
+[2026-08-30T07:24:31+00:00] agent=foreground task=task-20260830-071936-flogy-flogi-44756780 production의 출판 회의 14개를 전수 확인해 12개 문서의 Flogy 계열 56회를 Flogi로 교정했고, Sanity 잔여 0건과 운영 블로그 15개 페이지를 검증했다.

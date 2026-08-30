@@ -1,0 +1,20 @@
+{
+  "id": "checkpoint-20260830-072431-task-completed-flogy-flogi-148c26df",
+  "created_at": "2026-08-30T07:24:31+00:00",
+  "reason": "Task completed: 출판된 회의 게시물의 Flogy 표기를 Flogi로 교정",
+  "summary": "출판된 회의 게시물의 Flogy 표기를 Flogi로 교정 -> DONE @ Haru2_dev/245ad35759e3",
+  "job_id": "job-20260830-071350-flogy-flogi-3c89eaa4",
+  "task_id": "task-20260830-071936-flogy-flogi-44756780",
+  "commit_sha": "245ad35759e32df919bb4569ab225bce73cf960f",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260830-071940-job-20260830-071350-flogy-flogi-3c89eaa4-cad2f397/job-run.json",
+    ".loom/task-definitions/task-def-20260830-071936-flogy-flogi-8398528d/task-definition.json",
+    "AGENTS.md"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-08-30T07:24:31+00:00",
+  "rollback_strategy": "revert-or-branch"
+}
