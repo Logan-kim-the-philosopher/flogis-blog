@@ -1,0 +1,20 @@
+{
+  "id": "checkpoint-20260830-071652-task-completed-flogy-flogi-b6df87b4",
+  "created_at": "2026-08-30T07:16:52+00:00",
+  "reason": "Task completed: 블로그 내 Flogy 표기를 Flogi로 전면 교정",
+  "summary": "블로그 내 Flogy 표기를 Flogi로 전면 교정 -> DONE @ Haru2_dev/f4948221211e",
+  "job_id": "job-20260830-071350-flogy-flogi-3c89eaa4",
+  "task_id": "task-20260830-071358-flogy-flogi-773a6445",
+  "commit_sha": "f4948221211ef2d909bfb36de16785a7d1b1b453",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260830-071400-job-20260830-071350-flogy-flogi-3c89eaa4-be229a9c/job-run.json",
+    ".loom/task-definitions/task-def-20260830-071358-flogy-flogi-9e1909fb/task-definition.json",
+    "AGENTS.md"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-08-30T07:16:52+00:00",
+  "rollback_strategy": "revert-or-branch"
+}

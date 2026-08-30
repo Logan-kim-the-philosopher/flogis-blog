@@ -3,9 +3,9 @@
   "job_id": "job-20260830-071350-flogy-flogi-3c89eaa4",
   "title": "블로그 내 Flogy 표기를 Flogi로 전면 교정",
   "description": "추적 파일과 블로그 소스·문서에서 대소문자를 포함한 Flogy 표기를 조사하고, 제품명 표기를 Flogi로 교정한다. 생성물·의존성·Git 내부 파일은 변경 대상에서 제외하고 문맥상 의도된 값인지 확인한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-08-30T07:13:58+00:00",
-  "updated_at": "2026-08-30T07:14:00+00:00",
+  "updated_at": "2026-08-30T07:16:52+00:00",
   "order_index": 1,
   "assigned_agent": "foreground",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "4624c792d4db3fd1b01253a379527856d6ee65d9"
+    "4624c792d4db3fd1b01253a379527856d6ee65d9",
+    "f4948221211ef2d909bfb36de16785a7d1b1b453"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-08-30T07:14:00+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-08-30T07:16:52+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/agent-events.jsonl",
+    ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/artifacts.json",
+    ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/context.md",
+    ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/decision.md",
+    ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/git-snapshot.json",
+    ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/logs.txt",
+    ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/previous-results.md",
+    ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/prompt.md",
+    ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/result.md",
+    ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }

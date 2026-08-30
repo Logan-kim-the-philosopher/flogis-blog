@@ -1,3 +1,4 @@
 [2026-08-30T07:14:00+00:00] agent=foreground task=task-20260830-071358-flogy-flogi-773a6445 Foreground task session started.
 [2026-08-30T07:15:25+00:00] agent=foreground task=task-20260830-071358-flogy-flogi-773a6445 소스 영역에서 Flogy 계열 오표기 16건을 교정했다.
 [2026-08-30T07:15:25+00:00] agent=foreground task=task-20260830-071358-flogy-flogi-773a6445 잔여 검색 0건, diff 검사, 회의 테스트 18개, 배포 설정 검증, Astro 빌드를 완료했다.
+[2026-08-30T07:16:52+00:00] agent=foreground task=task-20260830-071358-flogy-flogi-773a6445 블로그 소스·문서·테스트·배포 설정의 Flogy 계열 16건을 Flogi 계열로 교정했고 잔여 검색, 테스트, 배포 검증, 빌드를 통과했다.
