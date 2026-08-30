@@ -1,0 +1,75 @@
+{
+  "status": "RUNNING",
+  "agent": "foreground",
+  "mode": "foreground",
+  "execution_surface": "foreground",
+  "task_run_id": "task-run-20260830-071400-task-def-20260830-071358-flogy-flogi-9e1909fb-f7830bc0",
+  "generated_at": "2026-08-30T07:14:00+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/prompt.md",
+    ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/context.md",
+    ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/previous-results.md",
+    ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/git-snapshot.json",
+    ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/result.md",
+    ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/decision.md",
+    ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/troubleshooting.md",
+    ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/logs.txt",
+    ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/agent-events.jsonl",
+    ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/artifacts.json"
+  ],
+  "artifact_groups": {
+    "user_outputs": [
+      ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/result.md",
+      ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/decision.md",
+      ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/troubleshooting.md"
+    ],
+    "execution_inputs": [
+      ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/prompt.md",
+      ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/context.md",
+      ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/previous-results.md"
+    ],
+    "execution_audit": [
+      ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/git-snapshot.json",
+      ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/logs.txt",
+      ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/agent-events.jsonl",
+      ".loom/tasks/task-20260830-071358-flogy-flogi-773a6445/artifacts.json"
+    ],
+    "work_products": [
+      "docs/deployment.md",
+      "docs/meeting-agent.md",
+      "infra/jenkins/Jenkinsfile",
+      "infra/jenkins/README.md",
+      "infra/k8s/README.md",
+      "infra/k8s/base/web.yaml",
+      "infra/k8s/overlays/prod/kustomization.yaml",
+      "infra/scripts/validate-deployment.sh",
+      "tests/fixtures/meeting-agent/project-meeting.structured.json",
+      "tests/fixtures/meeting-agent/project-meeting.txt",
+      "tests/meeting-agent.test.mjs"
+    ]
+  },
+  "contract_snapshot": {
+    "schema_version": 1,
+    "contract_ids": [
+      "task-execution",
+      "done-guardrail"
+    ],
+    "contracts": [
+      {
+        "id": "task-execution",
+        "title": "Task Execution Context Contract",
+        "source_paths": [
+          "loom/application/context_pack.py",
+          "loom/application/team_policy.py"
+        ]
+      },
+      {
+        "id": "done-guardrail",
+        "title": "Task Completion Guardrail Contract",
+        "source_paths": [
+          "loom/application/services.py"
+        ]
+      }
+    ]
+  }
+}

@@ -119,7 +119,7 @@ test('fixture로 prepare dry run을 완료한다', async () => {
     const document = JSON.parse(await readFile(resolve(outputDir, 'sanity-document.json'), 'utf8'));
     assert.equal(manifest.status, 'preview');
     assert.equal(manifest.publishable, true);
-    assert.equal(document._id, 'meeting-flogy-demo-planning-round-5-2026-08-25');
+    assert.equal(document._id, 'meeting-flogi-demo-planning-round-5-2026-08-25');
     assert.equal(document.participants.length, 2);
   } finally {
     await rm(outputDir, { recursive: true, force: true });

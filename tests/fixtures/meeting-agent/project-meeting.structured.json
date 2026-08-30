@@ -7,14 +7,14 @@
     "secondaryCategories": []
   },
   "metadata": {
-    "title": "Flogy 데모 구성 5차 회의 — 사용자 흐름과 백업 영상",
-    "slug": "flogy-demo-planning-round-5-2026-08-25",
+    "title": "Flogi 데모 구성 5차 회의 — 사용자 흐름과 백업 영상",
+    "slug": "flogi-demo-planning-round-5-2026-08-25",
     "publishedAt": "2026-08-25",
     "people": [
       { "name": "김희성", "role": "참석자" },
       { "name": "홍용재", "role": "참석자" }
     ],
-    "tags": ["Flogy", "발표", "데모"]
+    "tags": ["Flogi", "발표", "데모"]
   },
   "overview": {
     "purpose": "10분 발표에서 보여줄 데모 흐름과 장애 대비 방식을 결정한다.",

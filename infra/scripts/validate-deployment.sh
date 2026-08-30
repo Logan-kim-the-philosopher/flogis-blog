@@ -15,7 +15,7 @@ xmllint --noout infra/jenkins/job-config.xml
 
 rg -q 'name: flogis-blog-web' "$rendered"
 rg -q 'name: flogis-blog-gateway' "$rendered"
-rg -q 'harbor\.192\.168\.0\.110\.nip\.io/flogy_blog/site:replace-with-jenkins-build' "$rendered"
+rg -q 'harbor\.192\.168\.0\.110\.nip\.io/flogi_blog/site:replace-with-jenkins-build' "$rendered"
 rg -q 'name: flogis-blog-web-runtime-' "$rendered"
 rg -q 'PUBLIC_SITE_URL: https://flogis-blog\.tail2dac17\.ts\.net' "$rendered"
 rg -q 'SANITY_PROJECT_ID: w1jypogd' "$rendered"

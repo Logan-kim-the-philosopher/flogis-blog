@@ -76,6 +76,6 @@ npm run studio
 
 - 소스/트리거 브랜치: `Haru2_dev`
 - 배포 브랜치: `deploy`
-- 이미지: `harbor.192.168.0.110.nip.io/flogy_blog/site`
+- 이미지: `harbor.192.168.0.110.nip.io/flogi_blog/site`
 - Argo Application: `flogis-blog`
 - tailnet 주소: `https://flogis-blog.tail2dac17.ts.net/`

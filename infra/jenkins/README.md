@@ -3,7 +3,7 @@
 `Haru2_dev`의 변경을 2분 간격으로 확인하고 아래 GitOps 흐름을 실행합니다.
 
 1. Astro Node standalone SSR 이미지를 빌드합니다. Sanity 값은 이미지에 넣지 않습니다.
-2. `harbor.192.168.0.110.nip.io/flogy_blog/site:<build>-<sha>` 이미지를 생성합니다.
+2. `harbor.192.168.0.110.nip.io/flogi_blog/site:<build>-<sha>` 이미지를 생성합니다.
 3. Harbor push 후 다시 pull하고 비루트/read-only 컨테이너에서 health, published 동적 상세, 404, RSS, sitemap을 검사합니다.
 4. `deploy` 브랜치를 최신 `Haru2_dev`에서 만들고 production overlay의 immutable image tag를 갱신합니다.
 5. Argo CD는 `deploy` 브랜치만 추적합니다.

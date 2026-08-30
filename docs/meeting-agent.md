@@ -204,7 +204,7 @@ preview가 출력한 명령을 그대로 사용하되 `--confirm` 값은 slug �
 
 ```bash
 npm run meeting:publish -- ".meeting-agent/runs/<run-directory>" \
-  --confirm flogy-demo-planning-round-5-2026-08-25 \
+  --confirm flogi-demo-planning-round-5-2026-08-25 \
   --validate-only
 ```
 
@@ -212,7 +212,7 @@ npm run meeting:publish -- ".meeting-agent/runs/<run-directory>" \
 
 ```bash
 npm run meeting:publish -- ".meeting-agent/runs/<run-directory>" \
-  --confirm flogy-demo-planning-round-5-2026-08-25
+  --confirm flogi-demo-planning-round-5-2026-08-25
 ```
 
 발행 단계에서 다시 확인하는 항목:

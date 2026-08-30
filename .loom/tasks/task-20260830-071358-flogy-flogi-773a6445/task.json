@@ -1,0 +1,32 @@
+{
+  "id": "task-20260830-071358-flogy-flogi-773a6445",
+  "job_id": "job-20260830-071350-flogy-flogi-3c89eaa4",
+  "title": "블로그 내 Flogy 표기를 Flogi로 전면 교정",
+  "description": "추적 파일과 블로그 소스·문서에서 대소문자를 포함한 Flogy 표기를 조사하고, 제품명 표기를 Flogi로 교정한다. 생성물·의존성·Git 내부 파일은 변경 대상에서 제외하고 문맥상 의도된 값인지 확인한다.",
+  "status": "RUNNING",
+  "created_at": "2026-08-30T07:13:58+00:00",
+  "updated_at": "2026-08-30T07:14:00+00:00",
+  "order_index": 1,
+  "assigned_agent": "foreground",
+  "depends_on": [],
+  "expected_output": "블로그에서 사용자에게 노출되거나 저장소가 관리하는 Flogy/FLOGY/flogy 표기가 각각 Flogi/FLOGI/flogi로 교정된 변경과 검색·빌드 검증 결과",
+  "done_condition": "관리 대상 파일에서 Flogy 계열 오표기가 남지 않고, 의도한 Flogi 표기로 교정되며 관련 테스트 또는 빌드가 통과한다.",
+  "in_scope": "Git 관리 파일의 블로그 UI·콘텐츠·설정·문서에 포함된 Flogy 계열 표기, Loom 작업 기록, 검증",
+  "out_of_scope": "의존성·빌드 산출물·Git 내부 데이터, 원격 배포·푸시, 표기 교정과 무관한 코드 변경",
+  "validation_hint": "git grep/rg로 잔여 Flogy 계열 검색 후 프로젝트 테스트 및 npm 빌드",
+  "required_docs": [],
+  "memory_refs": [],
+  "document_outputs": [],
+  "document_output_exceptions": [],
+  "run_attempts": 0,
+  "last_error": "",
+  "commit_refs": [
+    "4624c792d4db3fd1b01253a379527856d6ee65d9"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-08-30T07:14:00+00:00",
+  "artifacts": [],
+  "source_proposal_id": "",
+  "source_prompt": ""
+}
