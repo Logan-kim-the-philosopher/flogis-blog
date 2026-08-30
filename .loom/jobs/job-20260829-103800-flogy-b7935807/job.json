@@ -1,0 +1,14 @@
+{
+  "id": "job-20260829-103800-flogy-b7935807",
+  "title": "Flogy 발표 시연 실행 흐름",
+  "goal": "실제 발표 타이밍은 유지하면서 테스트 모드에서는 Loom 생성부터 전체 태스크 실행까지 5분 이내에 완료할 수 있도록 실행 시간 프로필을 분리하고 검증한다.",
+  "status": "REVIEW_REQUIRED",
+  "created_at": "2026-08-29T10:38:00+00:00",
+  "updated_at": "2026-08-30T07:11:14+00:00",
+  "context_refs": [],
+  "task_ids": [
+    "task-20260829-103816-5-6934c7cb"
+  ],
+  "branch_name": "Haru2_dev",
+  "checkpoint_ids": []
+}

@@ -1,0 +1,2 @@
+{"id": "event-497ba7a962ea", "type": "foreground_session_started", "message": "Foreground task session started.", "created_at": "2026-08-29T10:38:23+00:00", "agent": "foreground", "task_id": "task-20260829-103816-5-6934c7cb"}
+{"id": "event-27288e17f799", "type": "foreground_session_review_required", "message": "사용자가 블로그 회의 기록의 Flogy 표기를 Flogi로 일괄 수정하는 새 요청으로 작업 우선순위를 변경했습니다. 시연 테스트 모드 구현은 코드 변경 전 중단했으며 별도 재개가 필요합니다.", "created_at": "2026-08-30T07:11:14+00:00", "agent": "foreground", "task_id": "task-20260829-103816-5-6934c7cb"}

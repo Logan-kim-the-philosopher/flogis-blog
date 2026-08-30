@@ -1,0 +1,43 @@
+{
+  "id": "task-20260829-103816-5-6934c7cb",
+  "job_id": "job-20260829-103800-flogy-b7935807",
+  "title": "전체 시연 흐름 5분 테스트 모드 추가",
+  "description": "현재 발표 시연의 단계와 태스크별 실행 시간을 확인하고, 기본 발표 프로필의 시간값은 바꾸지 않은 채 테스트 전용 프로필 또는 명시적 실행 옵션을 추가한다. 테스트 프로필은 Loom 생성부터 전체 태스크 종료까지 실제 경과 시간이 5분 이내가 되도록 구성한다.",
+  "status": "REVIEW_REQUIRED",
+  "created_at": "2026-08-29T10:38:16+00:00",
+  "updated_at": "2026-08-30T07:11:14+00:00",
+  "order_index": 1,
+  "assigned_agent": "foreground",
+  "depends_on": [],
+  "expected_output": "기존 발표 모드와 분리된 테스트 실행 방식, 300초 미만 총 시간 설정, 모드가 드러나는 실행 명령 또는 UI, 관련 검증과 사용 안내",
+  "done_condition": "기존 발표 모드의 시간값이 그대로이며 테스트 모드의 이론상 최대 시간이 300초보다 작고, 실제 전체 테스트 흐름이 300초 안에 종료되며 테스트와 빌드가 통과한다.",
+  "in_scope": "시연 실행 시간 설정, 테스트 모드 선택 방식, 관련 실행 스크립트와 테스트 및 안내, Loom 메타데이터",
+  "out_of_scope": "기존 발표 모드 시간 단축, Sanity 콘텐츠 변경, 배포 및 원격 푸시, 무관한 UI 변경",
+  "validation_hint": "발표/테스트 프로필 설정 비교, 테스트 스위트, 테스트 모드 전체 경과 시간 측정, npm 빌드",
+  "required_docs": [],
+  "memory_refs": [],
+  "document_outputs": [],
+  "document_output_exceptions": [],
+  "run_attempts": 0,
+  "last_error": "",
+  "commit_refs": [
+    "531f7ae2598315a269d0d98d470efd8bdbe9b7df"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-08-30T07:11:14+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260829-103816-5-6934c7cb/agent-events.jsonl",
+    ".loom/tasks/task-20260829-103816-5-6934c7cb/artifacts.json",
+    ".loom/tasks/task-20260829-103816-5-6934c7cb/context.md",
+    ".loom/tasks/task-20260829-103816-5-6934c7cb/decision.md",
+    ".loom/tasks/task-20260829-103816-5-6934c7cb/git-snapshot.json",
+    ".loom/tasks/task-20260829-103816-5-6934c7cb/logs.txt",
+    ".loom/tasks/task-20260829-103816-5-6934c7cb/previous-results.md",
+    ".loom/tasks/task-20260829-103816-5-6934c7cb/prompt.md",
+    ".loom/tasks/task-20260829-103816-5-6934c7cb/result.md",
+    ".loom/tasks/task-20260829-103816-5-6934c7cb/troubleshooting.md"
+  ],
+  "source_proposal_id": "",
+  "source_prompt": ""
+}
