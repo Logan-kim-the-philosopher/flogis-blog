@@ -2,12 +2,13 @@
   "id": "job-20260830-071350-flogy-flogi-3c89eaa4",
   "title": "Flogy 표기 Flogi 교정",
   "goal": "블로그 저장소에서 잘못 사용된 Flogy 표기를 모두 찾아 Flogi로 일관되게 교정하고, 검색과 프로젝트 검증으로 누락 및 회귀가 없음을 확인한다.",
-  "status": "DONE",
+  "status": "RUNNING",
   "created_at": "2026-08-30T07:13:50+00:00",
-  "updated_at": "2026-08-30T07:16:52+00:00",
+  "updated_at": "2026-08-30T07:19:40+00:00",
   "context_refs": [],
   "task_ids": [
-    "task-20260830-071358-flogy-flogi-773a6445"
+    "task-20260830-071358-flogy-flogi-773a6445",
+    "task-20260830-071936-flogy-flogi-44756780"
   ],
   "branch_name": "Haru2_dev",
   "checkpoint_ids": [

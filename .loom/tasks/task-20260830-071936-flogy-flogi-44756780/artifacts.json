@@ -1,0 +1,66 @@
+{
+  "status": "RUNNING",
+  "agent": "foreground",
+  "mode": "foreground",
+  "execution_surface": "foreground",
+  "task_run_id": "task-run-20260830-071940-task-def-20260830-071936-flogy-flogi-8398528d-43722acc",
+  "generated_at": "2026-08-30T07:19:40+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/prompt.md",
+    ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/context.md",
+    ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/previous-results.md",
+    ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/git-snapshot.json",
+    ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/result.md",
+    ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/decision.md",
+    ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/troubleshooting.md",
+    ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/logs.txt",
+    ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/agent-events.jsonl",
+    ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/artifacts.json"
+  ],
+  "artifact_groups": {
+    "user_outputs": [
+      ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/result.md",
+      ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/decision.md",
+      ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/troubleshooting.md"
+    ],
+    "execution_inputs": [
+      ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/prompt.md",
+      ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/context.md",
+      ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/previous-results.md"
+    ],
+    "execution_audit": [
+      ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/git-snapshot.json",
+      ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/logs.txt",
+      ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/agent-events.jsonl",
+      ".loom/tasks/task-20260830-071936-flogy-flogi-44756780/artifacts.json"
+    ],
+    "work_products": [
+      "/private/tmp/flogi-meeting-backup-task-20260830-071936.json",
+      "sanity://w1jypogd/production/meeting"
+    ]
+  },
+  "contract_snapshot": {
+    "schema_version": 1,
+    "contract_ids": [
+      "task-execution",
+      "done-guardrail"
+    ],
+    "contracts": [
+      {
+        "id": "task-execution",
+        "title": "Task Execution Context Contract",
+        "source_paths": [
+          "loom/application/context_pack.py",
+          "loom/application/team_policy.py"
+        ]
+      },
+      {
+        "id": "done-guardrail",
+        "title": "Task Completion Guardrail Contract",
+        "source_paths": [
+          "loom/application/services.py"
+        ]
+      }
+    ]
+  }
+}
