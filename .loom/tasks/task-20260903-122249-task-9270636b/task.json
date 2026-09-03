@@ -1,0 +1,32 @@
+{
+  "id": "task-20260903-122249-task-9270636b",
+  "job_id": "job-20260903-122241-2026-09-03-cody-stat-5d6d1930",
+  "title": "두 회의·발표 자료를 블로그에 게시하고 검증",
+  "description": "저장소 상태와 기존 게시 구조를 조사하고 다운로드 폴더의 두 원본 파일을 판독하여 각각 적절한 블로그 게시물로 등록한다. 게시 후 형식·링크·빌드를 검증한다.",
+  "status": "RUNNING",
+  "created_at": "2026-09-03T12:22:49+00:00",
+  "updated_at": "2026-09-03T12:22:53+00:00",
+  "order_index": 1,
+  "assigned_agent": "codex",
+  "depends_on": [],
+  "expected_output": "기존 규칙에 맞춰 게시된 2026-09-03 날짜의 발표 준비 및 Cody Stat 회의 게시물 2건과 검증 결과",
+  "done_condition": "두 원본의 핵심 내용이 누락 없이 블로그에 등록되고 중복·형식 오류가 없으며 프로젝트 검증 및 로컬 빌드가 통과한다.",
+  "in_scope": "git 상태 점검, 다운로드 원본 2개 판독, 기존 Astro/Sanity 콘텐츠 규칙 조사, 게시물 2건 생성 또는 등록, 관련 검증, Loom 기록 및 커밋",
+  "out_of_scope": "원본 내용의 임의 확장, 기존 무관 콘텐츠 수정, 원격 push, 프로덕션 배포 설정 변경",
+  "validation_hint": "git diff와 콘텐츠 조회, 기존 콘텐츠 스키마 검사, 프로젝트 lint/typecheck/build 및 필요 시 로컬 페이지 렌더 확인",
+  "required_docs": [],
+  "memory_refs": [],
+  "document_outputs": [],
+  "document_output_exceptions": [],
+  "run_attempts": 0,
+  "last_error": "",
+  "commit_refs": [
+    "061ceeb74bfcc41c2e8fb4da820612bb50be3b60"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-09-03T12:22:53+00:00",
+  "artifacts": [],
+  "source_proposal_id": "",
+  "source_prompt": ""
+}

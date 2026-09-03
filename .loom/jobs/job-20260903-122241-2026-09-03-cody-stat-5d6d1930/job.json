@@ -1,0 +1,14 @@
+{
+  "id": "job-20260903-122241-2026-09-03-cody-stat-5d6d1930",
+  "title": "2026-09-03 발표·Cody Stat 회의 자료 게시",
+  "goal": "다운로드 폴더의 26-09-03_최종_발표_준비 및 26-09-03_cody_stat_회의 자료를 기존 블로그 콘텐츠 구조에 맞게 게시하고 로컬 빌드와 콘텐츠 조회로 검증한다.",
+  "status": "RUNNING",
+  "created_at": "2026-09-03T12:22:41+00:00",
+  "updated_at": "2026-09-03T12:22:53+00:00",
+  "context_refs": [],
+  "task_ids": [
+    "task-20260903-122249-task-9270636b"
+  ],
+  "branch_name": "Haru2_dev",
+  "checkpoint_ids": []
+}

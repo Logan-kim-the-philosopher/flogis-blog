@@ -1,0 +1,76 @@
+{
+  "status": "RUNNING",
+  "agent": "codex",
+  "mode": "foreground",
+  "execution_surface": "foreground",
+  "task_run_id": "task-run-20260903-122253-task-def-20260903-122249-task-def-05820b0c-b23809e3",
+  "generated_at": "2026-09-03T12:22:53+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260903-122249-task-9270636b/prompt.md",
+    ".loom/tasks/task-20260903-122249-task-9270636b/context.md",
+    ".loom/tasks/task-20260903-122249-task-9270636b/previous-results.md",
+    ".loom/tasks/task-20260903-122249-task-9270636b/git-snapshot.json",
+    ".loom/tasks/task-20260903-122249-task-9270636b/result.md",
+    ".loom/tasks/task-20260903-122249-task-9270636b/decision.md",
+    ".loom/tasks/task-20260903-122249-task-9270636b/troubleshooting.md",
+    ".loom/tasks/task-20260903-122249-task-9270636b/logs.txt",
+    ".loom/tasks/task-20260903-122249-task-9270636b/agent-events.jsonl",
+    ".loom/tasks/task-20260903-122249-task-9270636b/artifacts.json",
+    ".meeting-agent/runs/20260903T122408Z-26-09-03_최종_발표_준비/structured.json",
+    ".meeting-agent/runs/20260903T122408Z-26-09-03_최종_발표_준비/post.md",
+    ".meeting-agent/runs/20260903T122408Z-26-09-03_최종_발표_준비/publish-result.json",
+    ".meeting-agent/runs/20260903T122408Z-26-09-03_cody_stat_회의/structured.json",
+    ".meeting-agent/runs/20260903T122408Z-26-09-03_cody_stat_회의/post.md",
+    ".meeting-agent/runs/20260903T122408Z-26-09-03_cody_stat_회의/publish-result.json"
+  ],
+  "artifact_groups": {
+    "user_outputs": [
+      ".loom/tasks/task-20260903-122249-task-9270636b/result.md",
+      ".loom/tasks/task-20260903-122249-task-9270636b/decision.md",
+      ".loom/tasks/task-20260903-122249-task-9270636b/troubleshooting.md"
+    ],
+    "execution_inputs": [
+      ".loom/tasks/task-20260903-122249-task-9270636b/prompt.md",
+      ".loom/tasks/task-20260903-122249-task-9270636b/context.md",
+      ".loom/tasks/task-20260903-122249-task-9270636b/previous-results.md"
+    ],
+    "execution_audit": [
+      ".loom/tasks/task-20260903-122249-task-9270636b/git-snapshot.json",
+      ".loom/tasks/task-20260903-122249-task-9270636b/logs.txt",
+      ".loom/tasks/task-20260903-122249-task-9270636b/agent-events.jsonl",
+      ".loom/tasks/task-20260903-122249-task-9270636b/artifacts.json"
+    ],
+    "work_products": [
+      ".meeting-agent/runs/20260903T122408Z-26-09-03_최종_발표_준비/structured.json",
+      ".meeting-agent/runs/20260903T122408Z-26-09-03_최종_발표_준비/post.md",
+      ".meeting-agent/runs/20260903T122408Z-26-09-03_최종_발표_준비/publish-result.json",
+      ".meeting-agent/runs/20260903T122408Z-26-09-03_cody_stat_회의/structured.json",
+      ".meeting-agent/runs/20260903T122408Z-26-09-03_cody_stat_회의/post.md",
+      ".meeting-agent/runs/20260903T122408Z-26-09-03_cody_stat_회의/publish-result.json"
+    ]
+  },
+  "contract_snapshot": {
+    "schema_version": 1,
+    "contract_ids": [
+      "task-execution",
+      "done-guardrail"
+    ],
+    "contracts": [
+      {
+        "id": "task-execution",
+        "title": "Task Execution Context Contract",
+        "source_paths": [
+          "loom/application/context_pack.py",
+          "loom/application/team_policy.py"
+        ]
+      },
+      {
+        "id": "done-guardrail",
+        "title": "Task Completion Guardrail Contract",
+        "source_paths": [
+          "loom/application/services.py"
+        ]
+      }
+    ]
+  }
+}

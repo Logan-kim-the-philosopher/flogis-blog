@@ -1,0 +1,14 @@
+{
+  "id": "job-run-20260903-122253-job-20260903-122241-2026-09-03-cody-stat-5d6d193-2aa603f8",
+  "job_definition_id": "job-20260903-122241-2026-09-03-cody-stat-5d6d1930",
+  "status": "RUNNING",
+  "created_at": "2026-09-03T12:22:53+00:00",
+  "updated_at": "2026-09-03T12:22:53+00:00",
+  "legacy_job_id": "job-20260903-122241-2026-09-03-cody-stat-5d6d1930",
+  "started_at": "2026-09-03T12:22:53+00:00",
+  "completed_at": "",
+  "trigger_mode": "manual",
+  "trigger_ref": "",
+  "worker_pool": "",
+  "last_error": ""
+}
