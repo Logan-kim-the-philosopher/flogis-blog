@@ -3,11 +3,11 @@
   "job_id": "job-20260903-122241-2026-09-03-cody-stat-5d6d1930",
   "title": "두 회의·발표 자료를 블로그에 게시하고 검증",
   "description": "저장소 상태와 기존 게시 구조를 조사하고 다운로드 폴더의 두 원본 파일을 판독하여 각각 적절한 블로그 게시물로 등록한다. 게시 후 형식·링크·빌드를 검증한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-03T12:22:49+00:00",
-  "updated_at": "2026-09-03T12:22:53+00:00",
+  "updated_at": "2026-09-03T12:33:16+00:00",
   "order_index": 1,
-  "assigned_agent": "codex",
+  "assigned_agent": "foreground",
   "depends_on": [],
   "expected_output": "기존 규칙에 맞춰 게시된 2026-09-03 날짜의 발표 준비 및 Cody Stat 회의 게시물 2건과 검증 결과",
   "done_condition": "두 원본의 핵심 내용이 누락 없이 블로그에 등록되고 중복·형식 오류가 없으며 프로젝트 검증 및 로컬 빌드가 통과한다.",
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "061ceeb74bfcc41c2e8fb4da820612bb50be3b60"
+    "061ceeb74bfcc41c2e8fb4da820612bb50be3b60",
+    "d763e7dbab040fae2ae481b66707f393e83c137d"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-09-03T12:22:53+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-09-03T12:33:16+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260903-122249-task-9270636b/agent-events.jsonl",
+    ".loom/tasks/task-20260903-122249-task-9270636b/artifacts.json",
+    ".loom/tasks/task-20260903-122249-task-9270636b/context.md",
+    ".loom/tasks/task-20260903-122249-task-9270636b/decision.md",
+    ".loom/tasks/task-20260903-122249-task-9270636b/git-snapshot.json",
+    ".loom/tasks/task-20260903-122249-task-9270636b/logs.txt",
+    ".loom/tasks/task-20260903-122249-task-9270636b/previous-results.md",
+    ".loom/tasks/task-20260903-122249-task-9270636b/prompt.md",
+    ".loom/tasks/task-20260903-122249-task-9270636b/result.md",
+    ".loom/tasks/task-20260903-122249-task-9270636b/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }
