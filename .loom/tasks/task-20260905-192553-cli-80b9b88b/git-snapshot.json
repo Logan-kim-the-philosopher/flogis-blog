@@ -17,5 +17,17 @@
     ],
     "captured_at": "2026-09-05T19:25:56+00:00"
   },
-  "after": null
+  "after": {
+    "available": true,
+    "branch_name": "Haru2_dev",
+    "commit_sha": "7d84b09049cebce1db2fd25097db50d5ebd27ddc",
+    "dirty": true,
+    "staged_files": [],
+    "modified_files": [
+      ".loom/job-runs/job-run-20260905-192556-job-20260905-192528-pi-sanity-cli-332f6c3a-9af0483a/job-run.json",
+      ".loom/task-definitions/task-def-20260905-192553-cli-7e8aa52b/task-definition.json"
+    ],
+    "untracked_files": [],
+    "captured_at": "2026-09-05T19:34:12+00:00"
+  }
 }

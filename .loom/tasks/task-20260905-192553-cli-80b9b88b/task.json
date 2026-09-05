@@ -3,9 +3,9 @@
   "job_id": "job-20260905-192528-pi-sanity-cli-332f6c3a",
   "title": "저장소 권한 없는 팀원의 CLI 게시 온보딩 가이드 작성",
   "description": "현재 저장소의 meeting agent, Pi extension, Sanity 스키마·환경변수·발행 안전장치와 필요한 런타임 파일을 조사한다. 팀원에게 Git 저장소를 주지 않는 조건에서 사용할 최소 번들 구성, 설치, 자격 증명, 사람 참조, prepare/preview/publish, 검증, 문제 해결, 회수 절차를 상세 Markdown으로 작성하고 동일본을 바탕화면에 제공한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-05T19:25:53+00:00",
-  "updated_at": "2026-09-05T19:25:56+00:00",
+  "updated_at": "2026-09-05T19:34:12+00:00",
   "order_index": 1,
   "assigned_agent": "codex",
   "depends_on": [],
@@ -23,12 +23,25 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "2c03f35bd3f924352093367d947873cf7c976afa"
+    "2c03f35bd3f924352093367d947873cf7c976afa",
+    "7d84b09049cebce1db2fd25097db50d5ebd27ddc"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-09-05T19:25:56+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-09-05T19:34:12+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260905-192553-cli-80b9b88b/agent-events.jsonl",
+    ".loom/tasks/task-20260905-192553-cli-80b9b88b/artifacts.json",
+    ".loom/tasks/task-20260905-192553-cli-80b9b88b/context.md",
+    ".loom/tasks/task-20260905-192553-cli-80b9b88b/decision.md",
+    ".loom/tasks/task-20260905-192553-cli-80b9b88b/git-snapshot.json",
+    ".loom/tasks/task-20260905-192553-cli-80b9b88b/logs.txt",
+    ".loom/tasks/task-20260905-192553-cli-80b9b88b/previous-results.md",
+    ".loom/tasks/task-20260905-192553-cli-80b9b88b/prompt.md",
+    ".loom/tasks/task-20260905-192553-cli-80b9b88b/result.md",
+    ".loom/tasks/task-20260905-192553-cli-80b9b88b/troubleshooting.md",
+    "docs/team-member-meeting-agent-sanity-cli-setup.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }
