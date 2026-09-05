@@ -1,10 +1,10 @@
 {
-  "status": "RUNNING",
-  "agent": "codex",
+  "status": "DONE",
+  "agent": "foreground",
   "mode": "foreground",
   "execution_surface": "foreground",
   "task_run_id": "task-run-20260905-085008-task-def-20260905-085001-cody-stat-2-314b541b-c270312d",
-  "generated_at": "2026-09-05T08:50:08+00:00",
+  "generated_at": "2026-09-05T08:55:39+00:00",
   "artifacts": [
     ".loom/tasks/task-20260905-085001-cody-stat-2-0a8fbdd4/prompt.md",
     ".loom/tasks/task-20260905-085001-cody-stat-2-0a8fbdd4/context.md",

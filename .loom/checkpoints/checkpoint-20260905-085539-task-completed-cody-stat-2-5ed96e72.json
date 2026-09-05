@@ -1,0 +1,20 @@
+{
+  "id": "checkpoint-20260905-085539-task-completed-cody-stat-2-5ed96e72",
+  "created_at": "2026-09-05T08:55:39+00:00",
+  "reason": "Task completed: Cody Stat 2차 회의 원본을 블로그에 게시하고 검증",
+  "summary": "Cody Stat 2차 회의 원본을 블로그에 게시하고 검증 -> DONE @ Haru2_dev/2d61f383d603",
+  "job_id": "job-20260905-084953-2026-09-04-cody-stat-2-e94f266a",
+  "task_id": "task-20260905-085001-cody-stat-2-0a8fbdd4",
+  "commit_sha": "2d61f383d6030d610cd4bc0e5db5cce7eca66280",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260905-085008-job-20260905-084953-2026-09-04-cody-stat-2-e94f2-d797932c/job-run.json",
+    ".loom/task-definitions/task-def-20260905-085001-cody-stat-2-314b541b/task-definition.json",
+    "AGENTS.md"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-09-05T08:55:39+00:00",
+  "rollback_strategy": "revert-or-branch"
+}
