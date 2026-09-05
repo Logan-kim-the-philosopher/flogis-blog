@@ -8,7 +8,7 @@ resources:
 
 images:
   - name: harbor.192.168.0.110.nip.io/flogi_blog/site
-    newTag: replace-with-jenkins-build
+    newTag: 24-2c03f35b
 
 replicas:
   - name: flogis-blog-web
