@@ -4,7 +4,7 @@
   "title": "팀원용 미팅 퍼블리셔 최소 실행 폴더 구성",
   "description": "작성된 가이드의 최소 실행 번들 설계에 따라 현재 저장소에서 필요한 Pi extension과 meeting agent 파일만 추려 안전한 package.json, lockfile, 빈 토큰 환경변수 예시, ignore 규칙, 무결성 목록과 함께 바탕화면 폴더로 구성한다.",
   "created_at": "2026-09-05T19:43:23+00:00",
-  "updated_at": "2026-09-05T19:43:26+00:00",
+  "updated_at": "2026-09-05T19:51:25+00:00",
   "order_index": 2,
   "legacy_task_id": "task-20260905-194323-task-5500a789",
   "depends_on": [],

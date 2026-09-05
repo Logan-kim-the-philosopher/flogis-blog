@@ -3,9 +3,9 @@
   "job_id": "job-20260905-192528-pi-sanity-cli-332f6c3a",
   "title": "팀원용 미팅 퍼블리셔 최소 실행 폴더 구성",
   "description": "작성된 가이드의 최소 실행 번들 설계에 따라 현재 저장소에서 필요한 Pi extension과 meeting agent 파일만 추려 안전한 package.json, lockfile, 빈 토큰 환경변수 예시, ignore 규칙, 무결성 목록과 함께 바탕화면 폴더로 구성한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-05T19:43:23+00:00",
-  "updated_at": "2026-09-05T19:43:26+00:00",
+  "updated_at": "2026-09-05T19:51:25+00:00",
   "order_index": 2,
   "assigned_agent": "codex",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "4c72ffe087b4b20e3a94d0447c67e6a1b9cae91b"
+    "4c72ffe087b4b20e3a94d0447c67e6a1b9cae91b",
+    "6224b7bd04c24a11c548e22b82d3d8b08af6e131"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-09-05T19:43:26+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-09-05T19:51:25+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260905-194323-task-5500a789/agent-events.jsonl",
+    ".loom/tasks/task-20260905-194323-task-5500a789/artifacts.json",
+    ".loom/tasks/task-20260905-194323-task-5500a789/context.md",
+    ".loom/tasks/task-20260905-194323-task-5500a789/decision.md",
+    ".loom/tasks/task-20260905-194323-task-5500a789/git-snapshot.json",
+    ".loom/tasks/task-20260905-194323-task-5500a789/logs.txt",
+    ".loom/tasks/task-20260905-194323-task-5500a789/previous-results.md",
+    ".loom/tasks/task-20260905-194323-task-5500a789/prompt.md",
+    ".loom/tasks/task-20260905-194323-task-5500a789/result.md",
+    ".loom/tasks/task-20260905-194323-task-5500a789/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }

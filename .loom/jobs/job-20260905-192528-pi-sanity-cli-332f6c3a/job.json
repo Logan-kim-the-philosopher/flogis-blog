@@ -2,9 +2,9 @@
   "id": "job-20260905-192528-pi-sanity-cli-332f6c3a",
   "title": "팀원용 Pi 미팅 에이전트·Sanity CLI 게시 세팅 가이드",
   "goal": "Git 저장소 권한이 없는 팀원이 전달받은 최소 실행 번들로 Pi 미팅 에이전트와 production Sanity를 연결하고 CLI에서 안전하게 preview·검증·publish할 수 있도록 상세 온보딩 Markdown을 작성해 바탕화면에 제공한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-05T19:25:28+00:00",
-  "updated_at": "2026-09-05T19:43:26+00:00",
+  "updated_at": "2026-09-05T19:51:25+00:00",
   "context_refs": [],
   "task_ids": [
     "task-20260905-192553-cli-80b9b88b",
