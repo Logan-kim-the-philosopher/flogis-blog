@@ -1,0 +1,34 @@
+{
+  "id": "task-20260905-192553-cli-80b9b88b",
+  "job_id": "job-20260905-192528-pi-sanity-cli-332f6c3a",
+  "title": "저장소 권한 없는 팀원의 CLI 게시 온보딩 가이드 작성",
+  "description": "현재 저장소의 meeting agent, Pi extension, Sanity 스키마·환경변수·발행 안전장치와 필요한 런타임 파일을 조사한다. 팀원에게 Git 저장소를 주지 않는 조건에서 사용할 최소 번들 구성, 설치, 자격 증명, 사람 참조, prepare/preview/publish, 검증, 문제 해결, 회수 절차를 상세 Markdown으로 작성하고 동일본을 바탕화면에 제공한다.",
+  "status": "RUNNING",
+  "created_at": "2026-09-05T19:25:53+00:00",
+  "updated_at": "2026-09-05T19:25:56+00:00",
+  "order_index": 1,
+  "assigned_agent": "codex",
+  "depends_on": [],
+  "expected_output": "docs의 정본과 바탕화면의 동일한 한국어 상세 Markdown 가이드. 팀원이 빈 디렉터리에서 최소 번들과 개별 자격 증명을 받아 Pi 미팅 에이전트로 preview·검증·Sanity publish를 수행할 수 있는 체크리스트와 명령을 포함한다.",
+  "done_condition": "가이드가 실제 저장소 코드와 설정을 반영하고 비밀정보를 포함하지 않으며, 최소 번들 파일 목록·설치 전제·환경변수 템플릿·Sanity 토큰 권한·Pi 인증·TXT/오디오 흐름·사람 참조·validate-only·publish·운영 URL 확인·오류 해결·권한 회수 절차를 포함하고 Markdown 구조·명령 정확성과 두 사본 동일성을 검증한다.",
+  "in_scope": "저장소·현재 문서·스크립트·설정 읽기, 필요한 공식 문서 확인, 팀원용 운영 모델 설계, 상세 Markdown 작성과 바탕화면 복사, 문서 내용·링크·명령 검증, Loom 기록과 커밋",
+  "out_of_scope": "실제 팀원 계정 생성·초대, Sanity 토큰 생성 또는 공유, Pi 설치·로그인 실행, 팀원 장비 변경, 저장소 애플리케이션 코드 수정, production 게시, 원격 push",
+  "validation_hint": "문서의 파일 목록을 실제 저장소와 대조하고 package scripts·CLI usage·환경변수·Sanity 스키마·승인 조건을 코드에서 검증하며 Markdown heading/code fence/link·비밀정보 부재와 바탕화면 사본 SHA-256 일치를 검사한다.",
+  "required_docs": [],
+  "memory_refs": [],
+  "document_outputs": [
+    "docs/team-member-meeting-agent-sanity-cli-setup.md"
+  ],
+  "document_output_exceptions": [],
+  "run_attempts": 0,
+  "last_error": "",
+  "commit_refs": [
+    "2c03f35bd3f924352093367d947873cf7c976afa"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-09-05T19:25:56+00:00",
+  "artifacts": [],
+  "source_proposal_id": "",
+  "source_prompt": ""
+}
