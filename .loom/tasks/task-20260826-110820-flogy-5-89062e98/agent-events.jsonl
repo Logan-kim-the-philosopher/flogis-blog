@@ -1,2 +1,0 @@
-{"id": "event-7430a8b7acab", "type": "foreground_session_started", "message": "Foreground task session started.", "created_at": "2026-08-26T11:08:30+00:00", "agent": "foreground", "task_id": "task-20260826-110820-flogy-5-89062e98"}
-{"id": "event-fff5ac243ede", "type": "foreground_session_done", "message": "바탕화면 전사본 복사 및 SHA-256·크기·cmp 무결성 검증 완료; 결과는 공식 Loom task note로 기록", "created_at": "2026-08-26T11:10:16+00:00", "agent": "foreground", "task_id": "task-20260826-110820-flogy-5-89062e98"}

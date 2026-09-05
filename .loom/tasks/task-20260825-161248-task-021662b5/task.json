@@ -5,7 +5,7 @@
   "description": "개포동 2 실제 음성 처리에서 확인된 날짜 후반 실패, 무진행 표시, 재전사 비용과 로컬 Whisper 화자 품질 문제를 개선한다. 오디오 메타데이터 날짜 자동 추출, Clova 전사본 우선 처리, 단계별 진행 상태, 실패 run 재개를 meeting-agent와 Pi extension에 추가한다.",
   "status": "DONE",
   "created_at": "2026-08-25T16:12:48+00:00",
-  "updated_at": "2026-08-25T16:22:08+00:00",
+  "updated_at": "2026-09-05T10:33:50+00:00",
   "order_index": 4,
   "assigned_agent": "foreground",
   "depends_on": [],

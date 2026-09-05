@@ -1,2 +1,0 @@
-[2026-08-27T17:15:20+00:00] agent=foreground task=task-20260827-171507-flogy-ad141fa3 Foreground task session started.
-[2026-08-27T17:23:59+00:00] agent=foreground task=task-20260827-171507-flogy-ad141fa3 Pi 구조화, 원문 교정, 중복 검증, 운영 Sanity 신규 발행, 공개 URL 검증 완료

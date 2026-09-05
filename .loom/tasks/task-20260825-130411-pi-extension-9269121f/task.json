@@ -5,7 +5,7 @@
   "description": "기존 meeting-agent prepare/publish 엔진을 Pi 0.84.2 프로젝트 extension에 연결한다. Pi 안에서 /meeting 명령 또는 등록 도구로 TXT/오디오 원본을 받아 전사·분류·표준 문서 preview·Sanity 사전 검증을 수행하고, 사용자 확인 UI를 거친 경우에만 발행한 뒤 공개 URL을 확인한다.",
   "status": "DONE",
   "created_at": "2026-08-25T13:04:11+00:00",
-  "updated_at": "2026-08-25T13:14:15+00:00",
+  "updated_at": "2026-09-05T10:33:50+00:00",
   "order_index": 2,
   "assigned_agent": "foreground",
   "depends_on": [],

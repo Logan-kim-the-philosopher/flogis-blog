@@ -1,2 +1,3 @@
 {"id": "event-438979fd8669", "type": "foreground_session_started", "message": "Foreground task session started.", "created_at": "2026-08-22T20:25:09+00:00", "agent": "codex", "task_id": "task-20260822-202507-task-f0211817"}
 {"id": "event-e8cb0f06b8d6", "type": "foreground_session_review_required", "message": "코드·개발 서버·프로덕션 빌드 검증은 완료했지만 연결 가능한 브라우저가 없어 데스크톱·모바일 자동 화면 캡처를 수행하지 못했다. 실행 중인 로컬 세 페이지의 최종 육안 확인이 필요하다.", "created_at": "2026-08-22T20:28:37+00:00", "agent": "foreground", "task_id": "task-20260822-202507-task-f0211817"}
+{"id": "event-bf8b3c5a68a3", "type": "foreground_session_done", "message": "사용자가 산출물과 검증 근거를 직접 확인하고 완료를 확정했습니다.", "created_at": "2026-09-05T10:34:01+00:00", "agent": "web-user", "task_id": "task-20260822-202507-task-f0211817"}
