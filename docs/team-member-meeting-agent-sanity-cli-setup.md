@@ -54,7 +54,7 @@
 | Hosted Studio | `https://flogi-studio.sanity.studio/` |
 | 기본 Pi 모델 | `openai-codex/gpt-5.4-mini` |
 | 검증된 Pi 버전 | `@earendil-works/pi-coding-agent@0.84.2` |
-| 최소 Node.js 버전 | `22.20.0` |
+| 지원 Node.js | `^22.20.0 || ^24.0.0 || >=26.0.0` (24 LTS 권장) |
 
 기본 모델을 팀원 계정에서 사용할 수 없다면 Pi의 `/model`에서 실제 사용 가능한 모델을 고른 뒤 `.env`의 `MEETING_AGENT_PI_MODEL`을 그 모델 ID로 바꾼다.
 
@@ -168,7 +168,7 @@ rsync -R \
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=22.20.0"
+    "node": "^22.20.0 || ^24.0.0 || >=26.0.0"
   },
   "scripts": {
     "meeting:prepare": "node scripts/meeting-agent/index.mjs prepare",
@@ -250,7 +250,7 @@ ZIP과 `.sha256`은 함께 보내고, Sanity 토큰은 별도 보안 채널로 �
 ## 2-1. 준비물
 
 - macOS Terminal 또는 iTerm2
-- Node.js `22.20.0` 이상
+- Node.js `22.20+`, `24` 또는 `26+`의 짝수 메이저 버전. Node 24 LTS 권장
 - npm
 - Pi `0.84.2` 권장
 - 본인의 ChatGPT Plus/Pro(Codex) 또는 승인된 다른 모델 공급자 계정
@@ -259,15 +259,16 @@ ZIP과 `.sha256`은 함께 보내고, Sanity 토큰은 별도 보안 채널로 �
 - 소유자가 확인해 준 `person` 문서 ID
 - 오디오를 직접 전사할 때만 `ffmpeg`, `whisper-cli`, Whisper 모델
 
-Node 설치는 [Node.js 공식 다운로드](https://nodejs.org/en/download)를 사용하거나 macOS에서 Homebrew를 사용한다.
+Node 설치는 [Node.js 공식 다운로드](https://nodejs.org/en/download)에서 Node 24 LTS를 선택하는 방식을 권장한다. macOS에서 Homebrew를 사용한다면 현재 최신 홀수 버전 대신 `node@24`를 지정한다.
 
 ```bash
-brew install node
+brew install node@24
+export PATH="$(brew --prefix node@24)/bin:$PATH"
 node --version
 npm --version
 ```
 
-`node --version`이 `v22.20.0` 이상인지 확인한다. 너무 오래된 기존 Node가 PATH 앞쪽에 있으면 `which node`로 실제 실행 파일 위치를 확인한다.
+`node --version`이 `v24.x`인지 확인한다. 이 번들은 `22.20+`, `24`, `26+`를 지원하지만 일부 의존성이 홀수 메이저인 Node 23/25를 공식 지원하지 않으므로 LTS 짝수 버전을 쓴다. 너무 오래되거나 다른 Node가 PATH 앞쪽에 있으면 `which node`로 실제 실행 파일 위치를 확인한다.
 
 ## 2-2. ZIP 무결성 확인과 압축 해제
 
@@ -757,7 +758,7 @@ Pi에서 `/model`로 팀원 계정이 사용할 수 있는 모델을 확인한�
 ## 팀원
 
 - [ ] ZIP의 SHA-256이 `OK`인지 확인했다.
-- [ ] Node `22.20.0+`, Pi `0.84.2`를 확인했다.
+- [ ] Node 24 LTS(또는 지원되는 `22.20+`/`26+`), Pi `0.84.2`를 확인했다.
 - [ ] 본인 모델 계정으로 Pi에 로그인했다.
 - [ ] `.env` 권한이 `600`이고 토큰을 외부에 공유하지 않았다.
 - [ ] `npm run meeting:doctor`의 핵심 항목을 확인했다.
