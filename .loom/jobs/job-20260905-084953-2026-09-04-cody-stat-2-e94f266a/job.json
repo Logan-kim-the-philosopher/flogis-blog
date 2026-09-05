@@ -1,0 +1,14 @@
+{
+  "id": "job-20260905-084953-2026-09-04-cody-stat-2-e94f266a",
+  "title": "2026-09-04 Cody Stat 2차 회의 게시",
+  "goal": "다운로드 폴더의 26-09-04_코디스텟_2차_회의 원본을 기존 블로그 회의 콘텐츠 형식에 맞게 production Sanity에 게시하고 운영 페이지와 프로젝트 검증으로 확인한다.",
+  "status": "RUNNING",
+  "created_at": "2026-09-05T08:49:53+00:00",
+  "updated_at": "2026-09-05T08:50:08+00:00",
+  "context_refs": [],
+  "task_ids": [
+    "task-20260905-085001-cody-stat-2-0a8fbdd4"
+  ],
+  "branch_name": "Haru2_dev",
+  "checkpoint_ids": []
+}
