@@ -22,12 +22,13 @@
 ```text
 팀원 노트북
   ├─ 회의 TXT/Markdown/Clova 전사본
-  ├─ 선택: 오디오 → 로컬 ffmpeg + whisper-cli 전사
+  ├─ 선택: 오디오 → 로컬 ffmpeg + OpenSuperWhisper 원시 전사
   ├─ 최소 실행 번들
   │    ├─ Pi 프로젝트 확장
   │    └─ Node 게시 오케스트레이터
   └─ Pi TUI
-       ├─ 원문 전체를 선택한 모델 공급자에게 보내 구조화
+       ├─ 오디오 원시 전사를 문맥 검수하고 불명확 표시
+       ├─ 검수 전사 전체를 선택한 모델 공급자에게 보내 구조화
        ├─ 로컬 preview를 사람이 편집
        ├─ person 참조·중복·문서 형식 검증
        └─ 최종 UI 승인 후 Sanity API에 create
@@ -39,7 +40,7 @@
 
 - Pi는 구조화 호출에서 `--no-tools`로 실행되지만, **회의 원문은 모델 입력으로 전송된다**. `--no-tools`는 모델의 도구 사용을 막을 뿐, 공급자에게 보내는 프롬프트를 로컬에 가두는 옵션이 아니다.
 - 회의 참석자의 동의와 조직의 개인정보·기밀정보 정책을 먼저 확인한다. 민감한 회의라면 승인된 공급자/계정인지 확인하거나, 게시 대상이 아닌 내용을 먼저 제거한다.
-- 오디오 전사는 로컬 Whisper로 처리할 수 있지만, 만들어진 전사문은 이후 Pi 구조화 단계에서 모델 공급자에게 전달된다.
+- 오디오 원시 전사는 로컬 OpenSuperWhisper로 처리하지만, 만들어진 전사문은 Pi 문맥 검수와 구조화 단계에서 모델 공급자에게 전달된다.
 - 실행 결과와 원본 복사본은 팀원 PC의 `.meeting-agent/runs/`에 남는다. 이 폴더도 민감정보로 취급한다.
 - Flogi 프론트엔드는 Sanity 데이터를 읽어 렌더링하므로, 새 문서를 만들 때마다 팀원이 저장소를 pull하거나 프론트엔드를 재배포할 필요는 없다.
 
@@ -130,8 +131,9 @@ flogi-meeting-publisher/
 │   └── meeting-agent/
 │       ├── index.mjs
 │       ├── lib.mjs
-│       ├── setup-whisper.mjs
-│       └── system-prompt.md
+│       ├── setup-opensuperwhisper.mjs
+│       ├── system-prompt.md
+│       └── transcript-review-system-prompt.md
 ├── .env.example
 ├── .gitignore
 ├── package.json
@@ -152,8 +154,9 @@ rsync -R \
   ./.pi/lib/meeting-workflow.mjs \
   ./scripts/meeting-agent/index.mjs \
   ./scripts/meeting-agent/lib.mjs \
-  ./scripts/meeting-agent/setup-whisper.mjs \
+  ./scripts/meeting-agent/setup-opensuperwhisper.mjs \
   ./scripts/meeting-agent/system-prompt.md \
+  ./scripts/meeting-agent/transcript-review-system-prompt.md \
   "/absolute/path/to/flogi-meeting-publisher/"
 ```
 
@@ -175,7 +178,7 @@ rsync -R \
     "meeting:resume": "node scripts/meeting-agent/index.mjs resume",
     "meeting:publish": "node scripts/meeting-agent/index.mjs publish",
     "meeting:doctor": "node scripts/meeting-agent/index.mjs doctor",
-    "meeting:setup": "node scripts/meeting-agent/setup-whisper.mjs"
+    "meeting:setup": "node scripts/meeting-agent/setup-opensuperwhisper.mjs"
   },
   "dependencies": {
     "@sanity/client": "8.2.0",
@@ -195,7 +198,9 @@ SANITY_API_VERSION=2025-08-22
 SANITY_API_TOKEN=
 
 MEETING_AGENT_PI_MODEL=openai-codex/gpt-5.4-mini
-MEETING_AGENT_WHISPER_MODEL=.meeting-agent/models/ggml-large-v3-turbo.bin
+MEETING_AGENT_OPENSUPERWHISPER_BIN=/Applications/OpenSuperWhisper.app/Contents/MacOS/OpenSuperWhisper
+MEETING_AGENT_TRANSCRIPT_REVIEW_MODEL=openai-codex/gpt-5.4-mini
+MEETING_AGENT_TRANSCRIPT_REVIEW_THINKING=high
 MEETING_AGENT_OUTPUT_DIR=.meeting-agent/runs
 MEETING_AGENT_PUBLIC_URL=https://flogis-blog.tail2dac17.ts.net
 ```
@@ -257,7 +262,7 @@ ZIP과 `.sha256`은 함께 보내고, Sanity 토큰은 별도 보안 채널로 �
 - 소유자가 준 최소 실행 번들 ZIP과 SHA-256 파일
 - 별도 채널로 받은 Sanity project robot token
 - 소유자가 확인해 준 `person` 문서 ID
-- 오디오를 직접 전사할 때만 `ffmpeg`, `whisper-cli`, Whisper 모델
+- 오디오를 직접 전사할 때만 `ffmpeg`, OpenSuperWhisper 앱과 앱에서 선택한 Whisper 모델
 
 Node 설치는 [Node.js 공식 다운로드](https://nodejs.org/en/download)에서 Node 24 LTS를 선택하는 방식을 권장한다. macOS에서 Homebrew를 사용한다면 현재 최신 홀수 버전 대신 `node@24`를 지정한다.
 
@@ -354,7 +359,9 @@ SANITY_API_VERSION=2025-08-22
 SANITY_API_TOKEN=<별도 전달받은 project robot token>
 
 MEETING_AGENT_PI_MODEL=openai-codex/gpt-5.4-mini
-MEETING_AGENT_WHISPER_MODEL=.meeting-agent/models/ggml-large-v3-turbo.bin
+MEETING_AGENT_OPENSUPERWHISPER_BIN=/Applications/OpenSuperWhisper.app/Contents/MacOS/OpenSuperWhisper
+MEETING_AGENT_TRANSCRIPT_REVIEW_MODEL=openai-codex/gpt-5.4-mini
+MEETING_AGENT_TRANSCRIPT_REVIEW_THINKING=high
 MEETING_AGENT_OUTPUT_DIR=.meeting-agent/runs
 MEETING_AGENT_PUBLIC_URL=https://flogis-blog.tail2dac17.ts.net
 ```
@@ -388,24 +395,23 @@ sanity.writableToken: true
 
 텍스트/전사본만 사용할 때 `transcription.ready: false`여도 된다. 오디오를 직접 전사할 때만 다음 절을 진행한다.
 
-## 2-8. 선택: 오디오 로컬 전사 세팅
+## 2-8. 선택: 오디오 OpenSuperWhisper 전사 세팅
 
-Clova TXT/JSON 전사본이 있으면 그 파일을 사용하는 편이 빠르고 Whisper 모델도 필요 없다. 전사본이 없는 오디오를 직접 처리할 때만 설치한다.
+Clova TXT/JSON 전사본이 있으면 그 파일을 사용하는 편이 빠르고 OpenSuperWhisper도 필요 없다. 전사본이 없는 오디오를 직접 처리할 때만 설정한다. OpenSuperWhisper는 macOS 앱이므로 Windows/Linux 팀원은 외부 전사본 경로를 사용한다.
 
 ```bash
-brew install ffmpeg whisper-cpp
+brew install ffmpeg
 ffmpeg -version
-whisper-cli --help
 ```
 
-다국어 모델을 한 번 내려받는다. 모델 파일은 크고 다운로드에 시간이 걸릴 수 있다.
+OpenSuperWhisper 앱을 설치하고 앱 화면에서 `Whisper` 엔진, 사용할 모델과 언어를 선택한다. meeting agent는 별도 모델을 내려받지 않고 이 설정을 그대로 사용한다.
 
 ```bash
-npm run meeting:setup -- large-v3-turbo
+npm run meeting:setup
 npm run meeting:doctor
 ```
 
-모델은 번들 안의 `.meeting-agent/models/`에 저장된다. 이 폴더를 동기화 서비스나 공유 폴더에 둘 필요는 없다.
+`meeting:setup` 결과에서 `ready: true`, 선택 모델 경로와 언어가 확인돼야 한다.
 
 ---
 
@@ -561,7 +567,7 @@ preview를 검토한 뒤:
 /meeting "/absolute/path/to/회의.m4a" --date 2026-09-06 --people person-id-1,person-id-2
 ```
 
-오디오는 로컬에서 16 kHz mono WAV로 변환한 뒤 한국어 Whisper 전사를 수행한다. 화자 분리가 보장되지 않으므로 사람이 preview에서 화자와 발언을 반드시 대조한다.
+오디오는 로컬에서 16 kHz mono WAV로 변환한 뒤 OpenSuperWhisper로 원시 전사한다. Pi는 발화 순서를 유지하며 문맥상 확실한 오인식만 교정하고 나머지는 `[불명확: ...]`으로 표시한다. 화자 분리가 보장되지는 않으므로 사람이 `transcript.cleaned.md`와 preview에서 화자와 발언을 대조한다.
 
 ## 4-5. 날짜가 없어서 중단된 run 이어가기
 
@@ -645,7 +651,11 @@ Sanity API를 통한 mutation에는 Studio의 스키마 검증이 자동 적용�
 | 파일 | 내용 |
 |---|---|
 | `source.*` | 변경하지 않고 복사한 원본 |
-| `transcript.txt` | 원문 또는 정규화/Whisper 전사문 |
+| `transcript.raw.txt` | OpenSuperWhisper 자동 교정 전 원시 전사 |
+| `transcript.raw.json` | OpenSuperWhisper CLI 원본 JSON |
+| `transcript.cleaned.md` | Pi가 문맥 교정하고 불명확 내용을 표시한 읽기용 전사 |
+| `transcript-review.json` | 자동 교정·불확실성 검수 기록 |
+| `transcript.txt` | 구조화에 사용하는 검수 전사 또는 정규화된 텍스트 |
 | `pi-request.md` | Pi 모델에 전달한 요청과 원문 |
 | `pi-events.jsonl` | Pi 구조화 호출 이벤트 |
 | `structured.json` | 안건·결정·행동 항목 구조화 결과 |
@@ -717,16 +727,18 @@ Pi에서 `/login`을 다시 실행한다. `.env`의 모델 접두사와 로그�
 - 토큰 앞뒤에 공백이나 따옴표를 넣지 않았는지 확인한다.
 - 토큰을 터미널에 출력하지 않는다. 필요하면 기존 토큰을 폐기하고 새로 발급한다.
 
-## `ffmpeg` 또는 `whisper-cli`가 없음
+## `ffmpeg` 또는 OpenSuperWhisper가 없음
 
 텍스트/Clova 전사본을 쓰면 해당 도구가 필요 없다. 오디오 직접 전사가 필요하면:
 
 ```bash
-brew install ffmpeg whisper-cpp
-npm run meeting:setup -- large-v3-turbo
+brew install ffmpeg
+npm run meeting:setup
 ```
 
-## 모델을 찾지 못함
+OpenSuperWhisper 앱이 기본 위치가 아니면 `.env`의 `MEETING_AGENT_OPENSUPERWHISPER_BIN`을 실제 CLI 절대 경로로 바꾼다. 앱에서 Whisper 엔진과 모델을 선택한 뒤 다시 확인한다.
+
+## Pi 구조화·전사 검수 모델을 찾지 못함
 
 Pi에서 `/model`로 팀원 계정이 사용할 수 있는 모델을 확인한다. 선택한 전체 모델 ID를 `.env`의 `MEETING_AGENT_PI_MODEL`에 넣고 `npm run meeting:doctor`를 다시 실행한다.
 

@@ -36,7 +36,7 @@ type PrepareOptions = {
   people?: string;
   model?: string;
   thinking?: string;
-  whisperModel?: string;
+  openSuperWhisperBin?: string;
   transcript?: string;
   language?: string;
   offline?: boolean;
@@ -56,7 +56,7 @@ const PrepareParams = Type.Object({
   slug: Type.Optional(Type.String({ description: '자동 생성 slug를 덮어쓸 ASCII kebab-case 값' })),
   category: Type.Optional(StringEnum(MEETING_CATEGORIES as [string, ...string[]])),
   people: Type.Optional(Type.String({ description: '쉼표로 구분한 Sanity person 문서 ID' })),
-  whisperModel: Type.Optional(Type.String({ description: '오디오 전사용 Whisper ggml 모델 경로' })),
+  openSuperWhisperBin: Type.Optional(Type.String({ description: '오디오 전사용 OpenSuperWhisper CLI 경로' })),
   transcript: Type.Optional(Type.String({ description: '오디오 대신 사용할 클로바 TXT/JSON 전사본 경로' })),
   language: Type.Optional(Type.String({ description: 'Whisper 언어 코드, 기본값 ko' })),
   offline: Type.Optional(Type.Boolean({ description: 'Sanity 조회 없이 preview만 생성' })),
@@ -137,7 +137,7 @@ export default function meetingWorkflow(pi: ExtensionAPI) {
     const normalized = { ...options, sourcePath };
     const runDir = createExtensionRunDir(projectRoot, sourcePath);
     setState({ status: 'preparing', runDir, message: '원본을 분석하고 있습니다.' }, ctx);
-    progress?.('원본을 읽고, 필요한 경우 전사한 뒤 Pi로 구조화하고 있습니다…');
+    progress?.('원본을 읽고, 필요한 경우 OpenSuperWhisper 전사와 Pi 문맥 검수를 거쳐 구조화하고 있습니다…');
 
     const stopProgress = watchRunProgress(runDir, ctx, progress);
     let result;
@@ -388,7 +388,7 @@ export default function meetingWorkflow(pi: ExtensionAPI) {
   pi.registerTool({
     name: 'meeting_prepare',
     label: 'Meeting Prepare',
-    description: '회의 TXT/Markdown를 바로 읽거나 오디오를 Whisper로 전사한 뒤 구조화된 블로그 preview를 만든다. 외부 발행은 하지 않는다.',
+    description: '회의 TXT/Markdown를 바로 읽거나 오디오를 OpenSuperWhisper로 전사하고 Pi가 문맥 검수한 뒤 구조화된 블로그 preview를 만든다. 외부 발행은 하지 않는다.',
     promptSnippet: 'Prepare a meeting source as a validated blog preview without publishing it.',
     promptGuidelines: [
       'Use this tool when the user asks to organize a meeting source or audio file.',

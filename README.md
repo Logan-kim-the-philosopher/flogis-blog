@@ -63,7 +63,7 @@ npm run meeting:doctor
 npm run meeting:prepare -- "/path/to/meeting.txt" --date 2026-08-25 --people person-id-1,person-id-2
 ```
 
-오디오 원본에는 로컬 Whisper 모델이 필요합니다. preview 검토와 Sanity 발행 절차는 `docs/meeting-agent.md`를 따릅니다.
+오디오 원본은 이 Mac의 OpenSuperWhisper 설정 모델로 전사하고 Pi가 문맥 검수한 뒤 정리합니다. 원시·검수 전사를 모두 보존하며, 설정과 Sanity 발행 절차는 `docs/meeting-agent.md`를 따릅니다.
 
 ## Main routes
 - `/`

@@ -44,6 +44,7 @@ test('extension prepare는 프로젝트 내부 run과 기존 엔진 인자를 �
     sourcePath: '/tmp/회의 기록.txt',
     category: 'project_meeting',
     people: 'person-a,person-b',
+    openSuperWhisperBin: '/Applications/OpenSuperWhisper.app/Contents/MacOS/OpenSuperWhisper',
     offline: true
   }, runDir), [
     resolve(projectRoot, 'scripts/meeting-agent/index.mjs'),
@@ -55,6 +56,8 @@ test('extension prepare는 프로젝트 내부 run과 기존 엔진 인자를 �
     'project_meeting',
     '--people',
     'person-a,person-b',
+    '--opensuperwhisper-bin',
+    '/Applications/OpenSuperWhisper.app/Contents/MacOS/OpenSuperWhisper',
     '--offline'
   ]);
 });
@@ -84,7 +87,7 @@ test('클로바 전사본과 실패 run 복구 인자를 전달한다', () => {
 test('Pi 진행 상태에 단계명과 경과 시간을 표시한다', () => {
   assert.equal(
     formatMeetingProgress({ phase: 'transcribing', message: '전사 중' }, 185),
-    '회의: Whisper 전사 중 · 03:05'
+    '회의: OpenSuperWhisper 전사 중 · 03:05'
   );
   assert.equal(
     formatMeetingProgress({ phase: 'custom', message: '후처리 중' }, 2),

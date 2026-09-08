@@ -3,7 +3,6 @@
 import { createHash } from 'node:crypto';
 import { access, copyFile, mkdir, readFile, readdir, stat, writeFile } from 'node:fs/promises';
 import { constants as fsConstants } from 'node:fs';
-import { homedir } from 'node:os';
 import { basename, dirname, extname, isAbsolute, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
@@ -12,6 +11,7 @@ import { createClient } from '@sanity/client';
 import {
   CATEGORY_CONFIG,
   MeetingAgentResultSchema,
+  TranscriptReviewResultSchema,
   buildSanityDocument,
   dateFromCreationTime,
   isAudioPath,
@@ -19,8 +19,11 @@ import {
   normalizeName,
   normalizeTranscriptContent,
   parsePiEventStream,
+  renderReviewedTranscript,
   renderMeetingMarkdown,
   resolvePublishedDate,
+  splitTranscriptForReview,
+  validateTranscriptReview,
   validateRenderedMarkdown
 } from './lib.mjs';
 
@@ -28,6 +31,7 @@ const scriptDir = dirname(fileURLToPath(import.meta.url));
 const projectRoot = resolve(scriptDir, '../..');
 const runtimeRoot = resolve(projectRoot, '.meeting-agent');
 const DEFAULT_MODEL = 'openai-codex/gpt-5.4-mini';
+const DEFAULT_OPENSUPERWHISPER_BIN = '/Applications/OpenSuperWhisper.app/Contents/MacOS/OpenSuperWhisper';
 
 loadProjectEnv();
 
@@ -47,7 +51,7 @@ function usage() {
   npm run meeting:resume -- <run-directory> [옵션]
   npm run meeting:publish -- <run-directory> --confirm <slug|document-id> [옵션]
   npm run meeting:doctor
-  npm run meeting:setup -- [tiny|base|small|medium|large-v3|large-v3-turbo]
+  npm run meeting:setup
 
 prepare 옵션:
   --date YYYY-MM-DD          발행일을 명시적으로 고정
@@ -57,7 +61,7 @@ prepare 옵션:
   --people IDS               person 문서 ID를 쉼표로 지정
   --model MODEL              Pi 모델 (기본: ${DEFAULT_MODEL})
   --thinking LEVEL           Pi thinking 수준 (기본: medium)
-  --whisper-model PATH       오디오 전사용 ggml 모델
+  --opensuperwhisper-bin PATH  OpenSuperWhisper CLI 경로
   --transcript PATH          클로바 TXT/JSON 전사본 사용(오디오는 원본으로 보존)
   --language CODE            Whisper 언어 (기본: ko)
   --output DIRECTORY         run 결과 디렉터리 직접 지정
@@ -93,7 +97,7 @@ function parseCli(argv) {
       people: { type: 'string' },
       model: { type: 'string' },
       thinking: { type: 'string' },
-      'whisper-model': { type: 'string' },
+      'opensuperwhisper-bin': { type: 'string' },
       transcript: { type: 'string' },
       language: { type: 'string' },
       output: { type: 'string' },
@@ -241,35 +245,83 @@ function isTranscriptPath(filePath) {
   return /\.(json|md|markdown|txt)$/i.test(filePath);
 }
 
-function findWhisperModel(explicitPath) {
+function commandPath(command) {
+  const result = spawnSync('/usr/bin/which', [command], { encoding: 'utf8' });
+  return result.status === 0 ? result.stdout.trim().split(/\r?\n/)[0] || null : null;
+}
+
+async function isExecutable(filePath) {
+  try {
+    await access(filePath, fsConstants.F_OK | fsConstants.X_OK);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function findOpenSuperWhisperBinary(explicitPath) {
   const candidates = [
     explicitPath,
-    process.env.MEETING_AGENT_WHISPER_MODEL,
-    resolve(runtimeRoot, 'models/ggml-large-v3-turbo.bin'),
-    resolve(runtimeRoot, 'models/ggml-large-v3.bin'),
-    resolve(runtimeRoot, 'models/ggml-medium.bin'),
-    resolve(homedir(), 'Library/Caches/whisper.cpp/ggml-large-v3-turbo.bin')
+    process.env.MEETING_AGENT_OPENSUPERWHISPER_BIN,
+    DEFAULT_OPENSUPERWHISPER_BIN,
+    commandPath('OpenSuperWhisper')
   ].filter(Boolean).map(absolutePath);
 
-  return candidates;
+  for (const candidate of [...new Set(candidates)]) {
+    if (await isExecutable(candidate)) return candidate;
+  }
+  return null;
+}
+
+function readMacDefault(key) {
+  if (process.platform !== 'darwin') return null;
+  const result = spawnSync('defaults', ['read', 'fr.my-monkey.opensuperwhisper', key], { encoding: 'utf8' });
+  return result.status === 0 ? result.stdout.trim() || null : null;
+}
+
+function readOpenSuperWhisperVersion(executable) {
+  if (!executable || process.platform !== 'darwin') return null;
+  const infoPlist = resolve(dirname(executable), '../Info.plist');
+  const result = spawnSync('/usr/libexec/PlistBuddy', ['-c', 'Print :CFBundleShortVersionString', infoPlist], { encoding: 'utf8' });
+  return result.status === 0 ? result.stdout.trim() || null : null;
+}
+
+async function inspectOpenSuperWhisper(explicitPath) {
+  const executable = await findOpenSuperWhisperBinary(explicitPath);
+  const selectedEngine = readMacDefault('selectedEngine');
+  const modelPath = readMacDefault('selectedWhisperModelPath');
+  const language = readMacDefault('whisperLanguage');
+  const modelReady = modelPath ? await pathExists(modelPath) : null;
+  return {
+    executable,
+    version: readOpenSuperWhisperVersion(executable),
+    selectedEngine,
+    modelPath,
+    modelReady,
+    language,
+    ready: Boolean(executable)
+      && (!selectedEngine || selectedEngine === 'whisper')
+      && (modelReady !== false)
+  };
 }
 
 async function transcribeAudio(inputPath, runDir, values) {
-  if (!commandExists('ffmpeg') || !commandExists('whisper-cli')) {
-    throw new Error('오디오 처리에는 ffmpeg와 whisper-cli가 필요합니다. `npm run meeting:doctor`로 확인하세요.');
+  if (!commandExists('ffmpeg')) {
+    throw new Error('오디오 처리에는 ffmpeg가 필요합니다. `npm run meeting:doctor`로 확인하세요.');
   }
 
-  const modelCandidates = findWhisperModel(values['whisper-model']);
-  let modelPath = null;
-  for (const candidate of modelCandidates) {
-    if (await pathExists(candidate)) {
-      modelPath = candidate;
-      break;
-    }
+  const openSuperWhisper = await inspectOpenSuperWhisper(values['opensuperwhisper-bin']);
+  if (!openSuperWhisper.executable) {
+    throw new Error('OpenSuperWhisper CLI를 찾지 못했습니다. 앱을 설치한 뒤 `npm run meeting:setup`으로 확인하거나 --opensuperwhisper-bin PATH를 지정하세요.');
   }
-
-  if (!modelPath) {
-    throw new Error('Whisper ggml 모델을 찾지 못했습니다. `npm run meeting:setup -- large-v3-turbo`를 실행하거나 --whisper-model PATH를 지정하세요.');
+  if (openSuperWhisper.selectedEngine && openSuperWhisper.selectedEngine !== 'whisper') {
+    throw new Error(`OpenSuperWhisper의 선택 엔진이 whisper가 아닙니다: ${openSuperWhisper.selectedEngine}. 앱 설정에서 Whisper 엔진을 선택하세요.`);
+  }
+  if (openSuperWhisper.modelReady === false) {
+    throw new Error(`OpenSuperWhisper가 선택한 Whisper 모델 파일을 찾지 못했습니다: ${openSuperWhisper.modelPath}`);
+  }
+  if (values.language && values.language !== 'auto' && openSuperWhisper.language && values.language !== openSuperWhisper.language) {
+    throw new Error(`--language ${values.language}와 OpenSuperWhisper 앱 언어 ${openSuperWhisper.language}가 다릅니다. 앱 설정을 맞추거나 --language를 생략하세요.`);
   }
 
   const normalizedAudio = resolve(runDir, 'audio-16k-mono.wav');
@@ -283,34 +335,158 @@ async function transcribeAudio(inputPath, runDir, values) {
     normalizedAudio
   ]);
 
-  const outputBase = resolve(runDir, 'transcript');
-  await writeProgress(runDir, 'transcribing', 'Whisper로 음성을 전사하고 있습니다.', {
-    engine: 'whisper-cli',
-    model: basename(modelPath)
+  await writeProgress(runDir, 'transcribing', 'OpenSuperWhisper로 음성을 전사하고 있습니다.', {
+    engine: 'opensuperwhisper',
+    model: openSuperWhisper.modelPath ? basename(openSuperWhisper.modelPath) : null
   });
-  const whisperResult = await runProcess('whisper-cli', [
-    '-m', modelPath,
-    '-f', normalizedAudio,
-    '-l', values.language || 'ko',
-    '-otxt',
-    '-oj',
-    '-of', outputBase,
-    '-np'
-  ]);
-  await writeFile(resolve(runDir, 'whisper.log'), whisperResult.stderr, 'utf8');
+  const result = await runProcess(openSuperWhisper.executable, ['transcribe', normalizedAudio, '--json'], {
+    cwd: runDir,
+    env: { LLVM_PROFILE_FILE: '/dev/null' }
+  });
+  const rawJsonPath = resolve(runDir, 'transcript.raw.json');
+  const logPath = resolve(runDir, 'opensuperwhisper.log');
+  await writeFile(rawJsonPath, result.stdout, 'utf8');
+  await writeFile(logPath, result.stderr, 'utf8');
 
-  const transcriptPath = `${outputBase}.txt`;
-  if (!await pathExists(transcriptPath)) {
-    throw new Error('Whisper가 transcript.txt를 생성하지 못했습니다. whisper.log를 확인하세요.');
+  let payload;
+  try {
+    payload = JSON.parse(result.stdout.trim());
+  } catch {
+    throw new Error('OpenSuperWhisper가 유효한 JSON을 반환하지 않았습니다. opensuperwhisper.log와 transcript.raw.json을 확인하세요.');
   }
+  const rawTranscript = typeof payload?.text === 'string' ? payload.text.trim() : '';
+  if (!rawTranscript) throw new Error('OpenSuperWhisper 전사 결과가 비어 있습니다. 원본 오디오와 앱의 모델·언어 설정을 확인하세요.');
+  const rawTranscriptPath = resolve(runDir, 'transcript.raw.txt');
+  await writeFile(rawTranscriptPath, `${rawTranscript}\n`, 'utf8');
 
-  await writeProgress(runDir, 'transcribed', '음성 전사가 끝났습니다. Pi 구조화를 준비합니다.');
+  await writeProgress(runDir, 'transcribed', 'OpenSuperWhisper 원시 전사가 끝났습니다. Pi 문맥 검수를 준비합니다.');
 
   return {
-    transcript: await readFile(transcriptPath, 'utf8'),
+    rawTranscript,
+    rawTranscriptPath,
+    rawJsonPath,
+    logPath,
+    normalizedAudio,
+    openSuperWhisper
+  };
+}
+
+async function reviewAudioTranscript(rawTranscript, originalName, runDir, values, openSuperWhisper) {
+  const piBin = process.env.MEETING_AGENT_PI_BIN || 'pi';
+  if (!commandExists(piBin)) throw new Error(`전사 검수에 필요한 Pi 실행 파일을 찾지 못했습니다: ${piBin}`);
+
+  const configuredChunkSize = Number.parseInt(process.env.MEETING_AGENT_TRANSCRIPT_REVIEW_CHARS || '', 10);
+  const chunkSize = Number.isInteger(configuredChunkSize)
+    ? Math.min(24_000, Math.max(4_000, configuredChunkSize))
+    : 12_000;
+  const chunks = splitTranscriptForReview(rawTranscript, chunkSize);
+  if (!chunks.length) throw new Error('Pi가 검수할 OpenSuperWhisper 원시 전사가 비어 있습니다.');
+
+  const reviewDir = resolve(runDir, 'transcript-review');
+  await mkdir(reviewDir, { recursive: true });
+  const systemPrompt = await readFile(resolve(scriptDir, 'transcript-review-system-prompt.md'), 'utf8');
+  const model = process.env.MEETING_AGENT_TRANSCRIPT_REVIEW_MODEL
+    || values.model
+    || process.env.MEETING_AGENT_PI_MODEL
+    || DEFAULT_MODEL;
+  const thinking = process.env.MEETING_AGENT_TRANSCRIPT_REVIEW_THINKING || 'high';
+  const reviewedParts = [];
+
+  for (let index = 0; index < chunks.length; index += 1) {
+    const part = String(index + 1).padStart(3, '0');
+    const requestPath = resolve(reviewDir, `part-${part}-request.md`);
+    const eventPath = resolve(reviewDir, `part-${part}-events.jsonl`);
+    const request = [
+      '# 검수 메타데이터',
+      '',
+      `- 원본 파일명: ${originalName}`,
+      `- 구간: ${index + 1}/${chunks.length}`,
+      `- 전사 엔진: OpenSuperWhisper ${openSuperWhisper.version || ''}`.trim(),
+      `- 선택 모델: ${openSuperWhisper.modelPath ? basename(openSuperWhisper.modelPath) : '앱 설정'}`,
+      `- 언어: ${openSuperWhisper.language || values.language || '앱 설정'}`,
+      '',
+      '# OpenSuperWhisper 원시 전사',
+      '',
+      chunks[index]
+    ].join('\n');
+    await writeFile(requestPath, `${request}\n`, 'utf8');
+    await writeProgress(runDir, 'reviewing_transcript', `Pi가 전사 내용을 검수하고 있습니다 (${index + 1}/${chunks.length}).`, {
+      model,
+      thinking,
+      part: index + 1,
+      totalParts: chunks.length
+    });
+
+    let result;
+    try {
+      result = await runProcess(piBin, [
+        '--model', model,
+        '--thinking', thinking,
+        '--mode', 'json',
+        '--print',
+        '--no-session',
+        '--no-tools',
+        '--no-extensions',
+        '--no-skills',
+        '--no-prompt-templates',
+        '--no-context-files',
+        '--system-prompt', systemPrompt,
+        `@${requestPath}`
+      ], { cwd: projectRoot });
+      await writeFile(eventPath, result.stdout, 'utf8');
+      if (result.stderr.trim()) await writeFile(resolve(reviewDir, `part-${part}-stderr.log`), result.stderr, 'utf8');
+      const parsed = TranscriptReviewResultSchema.parse(parsePiEventStream(result.stdout));
+      const reviewed = validateTranscriptReview(chunks[index], parsed);
+      await writeJson(resolve(reviewDir, `part-${part}.json`), reviewed);
+      reviewedParts.push(reviewed);
+    } catch (error) {
+      throw new Error(`Pi 전사 문맥 검수 실패 (${index + 1}/${chunks.length}): ${error.message} transcript.raw.txt는 보존됐습니다. 인증 오류라면 Pi에서 /login 후 같은 원본으로 다시 실행하고, 그 밖의 오류라면 원시 전사와 transcript-review 로그를 확인하세요.`);
+    }
+  }
+
+  const cleanedText = reviewedParts.map((part) => part.cleanedText.trim()).join('\n\n');
+  const corrections = reviewedParts.flatMap((part) => part.corrections);
+  const uncertainties = reviewedParts.flatMap((part) => part.uncertainties);
+  const transcriptPath = resolve(runDir, 'transcript.txt');
+  const reviewedTranscriptPath = resolve(runDir, 'transcript.cleaned.md');
+  const reviewReportPath = resolve(runDir, 'transcript-review.json');
+  await writeFile(transcriptPath, `${cleanedText}\n`, 'utf8');
+  await writeFile(reviewedTranscriptPath, renderReviewedTranscript({
+    originalName,
+    engine: `OpenSuperWhisper${openSuperWhisper.version ? ` ${openSuperWhisper.version}` : ''} + Pi 문맥 검수`,
+    model: openSuperWhisper.modelPath ? basename(openSuperWhisper.modelPath) : null,
+    language: openSuperWhisper.language || values.language || null,
+    cleanedText,
+    corrections,
+    uncertainties
+  }), 'utf8');
+  await writeJson(reviewReportPath, {
+    version: 1,
+    model,
+    thinking,
+    parts: chunks.length,
+    correctionCount: corrections.length,
+    uncertaintyCount: uncertainties.length,
+    corrections,
+    uncertainties
+  });
+
+  await writeProgress(runDir, 'transcript_reviewed', 'Pi 문맥 검수와 읽기용 전사 생성이 끝났습니다.', {
+    correctionCount: corrections.length,
+    uncertaintyCount: uncertainties.length
+  });
+  return {
+    transcript: cleanedText,
     transcriptPath,
-    modelPath,
-    normalizedAudio
+    reviewedTranscriptPath,
+    reviewReportPath,
+    review: {
+      model,
+      thinking,
+      parts: chunks.length,
+      correctionCount: corrections.length,
+      uncertaintyCount: uncertainties.length
+    }
   };
 }
 
@@ -450,6 +626,10 @@ async function finalizePreview({ runDir, structured, markdown, values, sourceInf
     lastError: null,
     recoverable: false,
     files: {
+      rawTranscript: transcription.rawTranscriptFile || null,
+      transcript: transcription.transcriptFile || 'transcript.txt',
+      reviewedTranscript: transcription.reviewedTranscriptFile || null,
+      transcriptReview: transcription.reviewReportFile || null,
       structured: 'structured.json',
       markdown: 'post.md',
       sanityDocument: basename(documentPath)
@@ -532,11 +712,22 @@ async function prepare(inputValue, values) {
       await writeFile(resolve(runDir, 'transcript.txt'), transcript, 'utf8');
     } else if (inputKind === 'audio') {
       const local = await transcribeAudio(inputPath, runDir, values);
-      transcript = local.transcript;
+      const reviewed = await reviewAudioTranscript(local.rawTranscript, originalName, runDir, values, local.openSuperWhisper);
+      transcript = reviewed.transcript;
       transcription = {
-        engine: 'whisper-cli',
-        modelPath: local.modelPath,
-        transcriptFile: basename(local.transcriptPath)
+        engine: 'opensuperwhisper',
+        provider: 'OpenSuperWhisper',
+        appVersion: local.openSuperWhisper.version,
+        selectedEngine: local.openSuperWhisper.selectedEngine,
+        modelPath: local.openSuperWhisper.modelPath,
+        language: local.openSuperWhisper.language || values.language || null,
+        rawTranscriptFile: basename(local.rawTranscriptPath),
+        rawJsonFile: basename(local.rawJsonPath),
+        logFile: basename(local.logPath),
+        transcriptFile: basename(reviewed.transcriptPath),
+        reviewedTranscriptFile: basename(reviewed.reviewedTranscriptPath),
+        reviewReportFile: basename(reviewed.reviewReportPath),
+        review: reviewed.review
       };
     } else {
       const normalized = normalizeTranscriptContent(await readFile(inputPath, 'utf8'), inputPath);
@@ -558,7 +749,8 @@ async function prepare(inputValue, values) {
       '# 실행 메타데이터',
       '',
       `- 원본 파일명: ${originalName}`,
-      `- 입력 방식: ${inputKind === 'audio' ? '오디오 Whisper 전사' : inputKind === 'external-transcript' ? '외부 전사본(클로바 등)' : '텍스트 직접 입력'}`,
+      `- 입력 방식: ${inputKind === 'audio' ? '오디오 OpenSuperWhisper 전사 + Pi 문맥 검수' : inputKind === 'external-transcript' ? '외부 전사본(클로바 등)' : '텍스트 직접 입력'}`,
+      `- 전사 검수: ${transcription.review ? `Pi 검수 ${transcription.review.parts}구간, 자동 교정 ${transcription.review.correctionCount}건, 불명확 ${transcription.review.uncertaintyCount}건` : '해당 없음'}`,
       `- 날짜 확정값: ${effectiveValues.date || '없음'}`,
       `- 날짜 출처: ${initialDateResolution.source}`,
       `- 원본 creation_time: ${sourceMetadata.creationTime || '없음'}`,
@@ -566,7 +758,7 @@ async function prepare(inputValue, values) {
       `- slug 강제값: ${values.slug || '없음'}`,
       `- 분류 강제값: ${values.category || '없음'}`,
       '',
-      '# 원본 또는 전사문',
+      '# 원본 또는 검수 전사문',
       '',
       transcript
     ].join('\n');
@@ -610,7 +802,15 @@ async function prepare(inputValue, values) {
         publishable: false,
         recoverable: true,
         lastError: message,
-        files: { structured: 'structured.json', markdown: 'post.md', sanityDocument: null }
+        files: {
+          rawTranscript: transcription.rawTranscriptFile || null,
+          transcript: transcription.transcriptFile || 'transcript.txt',
+          reviewedTranscript: transcription.reviewedTranscriptFile || null,
+          transcriptReview: transcription.reviewReportFile || null,
+          structured: 'structured.json',
+          markdown: 'post.md',
+          sanityDocument: null
+        }
       });
       await writeProgress(runDir, 'needs_input', '날짜 입력이 필요합니다. 기존 전사·구조화 결과는 보존됐습니다.');
       throw new Error(message);
@@ -720,7 +920,9 @@ async function resumePreview(runValue, values) {
   await writeFile(resolve(runDir, 'post.md'), markdown, 'utf8');
 
   const transcription = previousManifest?.transcription || {
-    engine: await pathExists(resolve(runDir, 'whisper.log')) ? 'whisper-cli' : 'direct-text',
+    engine: await pathExists(resolve(runDir, 'opensuperwhisper.log'))
+      ? 'opensuperwhisper'
+      : await pathExists(resolve(runDir, 'whisper.log')) ? 'whisper-cli' : 'direct-text',
     transcriptFile: 'transcript.txt',
     recoveredFromLegacyRun: true
   };
@@ -824,22 +1026,15 @@ async function publish(runValue, values) {
 }
 
 async function doctor() {
-  const modelCandidates = findWhisperModel();
-  let foundModel = null;
-  for (const candidate of modelCandidates) {
-    if (await pathExists(candidate)) {
-      foundModel = candidate;
-      break;
-    }
-  }
+  const openSuperWhisper = await inspectOpenSuperWhisper();
 
   const model = process.env.MEETING_AGENT_PI_MODEL || DEFAULT_MODEL;
   const provider = model.includes('/') ? model.split('/')[0] : 'openai-codex';
   let auth = { status: 'unknown', provider };
   if (commandExists('pi')) {
     try {
-      const result = await runProcess('pi', ['auth', 'check', '--provider', provider, '--json', '--no-refresh']);
-      auth = JSON.parse(result.stdout.trim());
+      const result = await runProcess('pi', ['auth', 'check', '--provider', provider, '--json']);
+      auth = { ...JSON.parse(result.stdout.trim()), verification: 'refresh' };
     } catch (error) {
       auth = { status: 'error', provider, message: error.message };
     }
@@ -862,9 +1057,16 @@ async function doctor() {
     pi: { installed: commandExists('pi'), model, auth },
     transcription: {
       ffmpeg: commandExists('ffmpeg'),
-      whisperCli: commandExists('whisper-cli'),
-      model: foundModel,
-      ready: commandExists('ffmpeg') && commandExists('whisper-cli') && Boolean(foundModel)
+      engine: 'opensuperwhisper',
+      executable: openSuperWhisper.executable,
+      appVersion: openSuperWhisper.version,
+      selectedEngine: openSuperWhisper.selectedEngine,
+      model: openSuperWhisper.modelPath,
+      modelReady: openSuperWhisper.modelReady,
+      language: openSuperWhisper.language,
+      transcriptReviewModel: process.env.MEETING_AGENT_TRANSCRIPT_REVIEW_MODEL || model,
+      transcriptReviewThinking: process.env.MEETING_AGENT_TRANSCRIPT_REVIEW_THINKING || 'high',
+      ready: commandExists('ffmpeg') && openSuperWhisper.ready
     },
     sanity
   };

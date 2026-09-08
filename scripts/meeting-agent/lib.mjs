@@ -88,6 +88,20 @@ export const MeetingAgentResultSchema = z.object({
   })
 });
 
+export const TranscriptReviewResultSchema = z.object({
+  version: z.literal(1),
+  cleanedText: z.string().trim().min(1),
+  corrections: z.array(z.object({
+    before: z.string().trim().min(1),
+    after: z.string().trim().min(1),
+    reason: z.string().trim().min(1)
+  })).max(100).default([]),
+  uncertainties: z.array(z.object({
+    excerpt: z.string().trim().min(1),
+    reason: z.string().trim().min(1)
+  })).max(100).default([])
+});
+
 const STATUS_LABELS = {
   decided: '확정',
   tentative: '잠정 합의',
@@ -222,6 +236,7 @@ export function normalizeTags(tags, category) {
 
 export function parsePiEventStream(output) {
   let assistantText = '';
+  let assistantError = '';
 
   for (const line of String(output).split(/\r?\n/)) {
     if (!line.trim()) continue;
@@ -231,6 +246,10 @@ export function parsePiEventStream(output) {
       event = JSON.parse(line);
     } catch {
       continue;
+    }
+
+    if (event.message?.role === 'assistant' && event.message.errorMessage) {
+      assistantError = event.message.errorMessage;
     }
 
     if (event.type !== 'message_end' || event.message?.role !== 'assistant') continue;
@@ -244,6 +263,7 @@ export function parsePiEventStream(output) {
   }
 
   if (!assistantText) {
+    if (assistantError) throw new Error(`Pi 실행 실패: ${assistantError}`);
     throw new Error('Pi 응답에서 assistant JSON 본문을 찾지 못했습니다. pi-events.jsonl을 확인하세요.');
   }
 
@@ -375,7 +395,7 @@ export function renderMeetingMarkdown(result, source) {
     '## 원본 및 검증 메모',
     '',
     `- 원본 파일: \`${source.originalName}\``,
-    `- 입력 방식: ${source.inputKind === 'audio' ? '오디오 Whisper 전사 후 정리' : source.inputKind === 'external-transcript' ? '외부 전사본(클로바 등) 직접 정리' : '텍스트 원본 직접 정리'}`,
+    `- 입력 방식: ${source.inputKind === 'audio' ? '오디오 OpenSuperWhisper 전사·Pi 문맥 검수 후 정리' : source.inputKind === 'external-transcript' ? '외부 전사본(클로바 등) 직접 정리' : '텍스트 원본 직접 정리'}`,
     `- 기록 분류 근거: ${result.classification.rationale}`,
     `- 분류 신뢰도: ${Math.round(result.classification.confidence * 100)}%`
   );
@@ -432,6 +452,104 @@ export function validateRenderedMarkdown(markdown) {
   if (missing.length) throw new Error(`회의 문서 필수 섹션 누락: ${missing.join(', ')}`);
   if (markdown.length < 400) throw new Error('회의 문서가 지나치게 짧습니다. 원본과 Pi 결과를 확인하세요.');
   return true;
+}
+
+export function splitTranscriptForReview(value, maxChars = 12_000) {
+  if (!Number.isInteger(maxChars) || maxChars < 1_000) {
+    throw new Error('전사 검수 분할 크기는 1,000자 이상의 정수여야 합니다.');
+  }
+
+  const text = String(value || '').replace(/\r\n/g, '\n').trim();
+  if (!text) return [];
+
+  const units = text
+    .split(/(?<=[.!?。？！])\s+|\n{2,}/u)
+    .map((item) => item.trim())
+    .filter(Boolean);
+  const chunks = [];
+  let current = '';
+
+  const flush = () => {
+    if (current.trim()) chunks.push(current.trim());
+    current = '';
+  };
+
+  for (const unit of units) {
+    let remaining = unit;
+    while (remaining.length > maxChars) {
+      flush();
+      let splitAt = remaining.lastIndexOf(' ', maxChars);
+      if (splitAt < Math.floor(maxChars * 0.6)) splitAt = maxChars;
+      chunks.push(remaining.slice(0, splitAt).trim());
+      remaining = remaining.slice(splitAt).trim();
+    }
+
+    if (!remaining) continue;
+    const candidate = current ? `${current}\n\n${remaining}` : remaining;
+    if (candidate.length > maxChars) flush();
+    current = current ? `${current}\n\n${remaining}` : remaining;
+  }
+
+  flush();
+  return chunks;
+}
+
+export function validateTranscriptReview(rawText, reviewValue) {
+  const review = TranscriptReviewResultSchema.parse(reviewValue);
+  const rawLength = String(rawText || '').replace(/\s/g, '').length;
+  const cleanedLength = review.cleanedText.replace(/\s/g, '').length;
+
+  if (rawLength >= 200 && cleanedLength < Math.floor(rawLength * 0.45)) {
+    throw new Error('검수 전사문이 원시 전사보다 지나치게 짧습니다. 요약하지 말고 전체 발화를 보존해야 합니다.');
+  }
+  if (cleanedLength > rawLength * 1.8 + 1_000) {
+    throw new Error('검수 전사문이 원시 전사보다 지나치게 길어 새로운 내용을 추가했을 가능성이 있습니다.');
+  }
+  if (review.uncertainties.length && !review.cleanedText.includes('[불명확')) {
+    throw new Error('불확실성이 보고됐지만 검수 전사문에 [불명확] 표시가 없습니다.');
+  }
+  if (/```/.test(review.cleanedText)) {
+    throw new Error('검수 전사문에는 Markdown code fence를 넣을 수 없습니다.');
+  }
+
+  return review;
+}
+
+function inlineReviewText(value) {
+  return String(value).replace(/`/g, "'").replace(/\r?\n/g, ' ');
+}
+
+export function renderReviewedTranscript({ originalName, engine, model, language, cleanedText, corrections = [], uncertainties = [] }) {
+  const lines = [
+    `# ${originalName} — 검수 전사`,
+    '',
+    `- 전사 엔진: ${engine}`,
+    `- 모델: ${model || 'OpenSuperWhisper 앱 설정'}`,
+    `- 언어: ${language || 'OpenSuperWhisper 앱 설정'}`,
+    '- 원시 전사는 같은 run의 `transcript.raw.txt`에 보존됩니다.',
+    '',
+    '## 검수 전사',
+    '',
+    cleanedText.trim(),
+    '',
+    '## 자동 교정 내역',
+    ''
+  ];
+
+  if (corrections.length) {
+    corrections.forEach((item) => lines.push(`- \`${inlineReviewText(item.before)}\` → \`${inlineReviewText(item.after)}\` — ${item.reason}`));
+  } else {
+    lines.push('- 문맥상 확실하게 자동 교정한 항목 없음');
+  }
+
+  lines.push('', '## 확인이 필요한 내용', '');
+  if (uncertainties.length) {
+    uncertainties.forEach((item) => lines.push(`- \`${inlineReviewText(item.excerpt)}\` — ${item.reason}`));
+  } else {
+    lines.push('- 별도로 남은 불명확 항목 없음');
+  }
+
+  return `${lines.join('\n').trim()}\n`;
 }
 
 export function isAudioPath(filePath) {

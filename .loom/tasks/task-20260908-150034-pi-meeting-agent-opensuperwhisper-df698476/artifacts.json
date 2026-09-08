@@ -1,0 +1,63 @@
+{
+  "status": "RUNNING",
+  "agent": "codex",
+  "mode": "foreground",
+  "execution_surface": "foreground",
+  "task_run_id": "task-run-20260908-150040-task-def-20260908-150034-pi-meeting-agent-opensu-8dc92d88",
+  "generated_at": "2026-09-08T15:00:40+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260908-150034-pi-meeting-agent-opensuperwhisper-df698476/prompt.md",
+    ".loom/tasks/task-20260908-150034-pi-meeting-agent-opensuperwhisper-df698476/context.md",
+    ".loom/tasks/task-20260908-150034-pi-meeting-agent-opensuperwhisper-df698476/previous-results.md",
+    ".loom/tasks/task-20260908-150034-pi-meeting-agent-opensuperwhisper-df698476/git-snapshot.json",
+    ".loom/tasks/task-20260908-150034-pi-meeting-agent-opensuperwhisper-df698476/result.md",
+    ".loom/tasks/task-20260908-150034-pi-meeting-agent-opensuperwhisper-df698476/decision.md",
+    ".loom/tasks/task-20260908-150034-pi-meeting-agent-opensuperwhisper-df698476/troubleshooting.md",
+    ".loom/tasks/task-20260908-150034-pi-meeting-agent-opensuperwhisper-df698476/logs.txt",
+    ".loom/tasks/task-20260908-150034-pi-meeting-agent-opensuperwhisper-df698476/agent-events.jsonl",
+    ".loom/tasks/task-20260908-150034-pi-meeting-agent-opensuperwhisper-df698476/artifacts.json"
+  ],
+  "artifact_groups": {
+    "user_outputs": [
+      ".loom/tasks/task-20260908-150034-pi-meeting-agent-opensuperwhisper-df698476/result.md",
+      ".loom/tasks/task-20260908-150034-pi-meeting-agent-opensuperwhisper-df698476/decision.md",
+      ".loom/tasks/task-20260908-150034-pi-meeting-agent-opensuperwhisper-df698476/troubleshooting.md"
+    ],
+    "execution_inputs": [
+      ".loom/tasks/task-20260908-150034-pi-meeting-agent-opensuperwhisper-df698476/prompt.md",
+      ".loom/tasks/task-20260908-150034-pi-meeting-agent-opensuperwhisper-df698476/context.md",
+      ".loom/tasks/task-20260908-150034-pi-meeting-agent-opensuperwhisper-df698476/previous-results.md"
+    ],
+    "execution_audit": [
+      ".loom/tasks/task-20260908-150034-pi-meeting-agent-opensuperwhisper-df698476/git-snapshot.json",
+      ".loom/tasks/task-20260908-150034-pi-meeting-agent-opensuperwhisper-df698476/logs.txt",
+      ".loom/tasks/task-20260908-150034-pi-meeting-agent-opensuperwhisper-df698476/agent-events.jsonl",
+      ".loom/tasks/task-20260908-150034-pi-meeting-agent-opensuperwhisper-df698476/artifacts.json"
+    ],
+    "work_products": []
+  },
+  "contract_snapshot": {
+    "schema_version": 1,
+    "contract_ids": [
+      "task-execution",
+      "done-guardrail"
+    ],
+    "contracts": [
+      {
+        "id": "task-execution",
+        "title": "Task Execution Context Contract",
+        "source_paths": [
+          "loom/application/context_pack.py",
+          "loom/application/team_policy.py"
+        ]
+      },
+      {
+        "id": "done-guardrail",
+        "title": "Task Completion Guardrail Contract",
+        "source_paths": [
+          "loom/application/services.py"
+        ]
+      }
+    ]
+  }
+}

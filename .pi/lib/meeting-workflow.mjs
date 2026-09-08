@@ -13,8 +13,10 @@ const PROGRESS_LABELS = {
   preflight: '원본·날짜 확인',
   loading_transcript: '클로바 전사본 읽는 중',
   normalizing_audio: '오디오 변환 중',
-  transcribing: 'Whisper 전사 중',
-  transcribed: '전사 완료',
+  transcribing: 'OpenSuperWhisper 전사 중',
+  transcribed: '원시 전사 완료',
+  reviewing_transcript: 'Pi 전사 검수 중',
+  transcript_reviewed: '검수 전사 완료',
   structuring: 'Pi 구조화 중',
   rendering: '본문 생성 중',
   resolving_people: '사람 연결 확인 중',
@@ -41,7 +43,7 @@ const VALUE_OPTIONS = new Set([
   'people',
   'model',
   'thinking',
-  'whisper-model',
+  'opensuperwhisper-bin',
   'transcript',
   'language',
   'structured-input'
@@ -152,7 +154,7 @@ export function buildPrepareArgs(projectRoot, options, runDir) {
     people: '--people',
     model: '--model',
     thinking: '--thinking',
-    whisperModel: '--whisper-model',
+    openSuperWhisperBin: '--opensuperwhisper-bin',
     transcript: '--transcript',
     language: '--language',
     structuredInput: '--structured-input'
@@ -216,6 +218,7 @@ export function summarizeArtifacts(artifacts) {
     `분류: ${structured.classification.category}`,
     `문서 ID: ${document._id}`,
     `slug: ${document.slug.current}`,
+    `검수 전사: ${manifest.files?.reviewedTranscript || '해당 없음'}`,
     `연결된 사람: ${(manifest.personIds || []).join(', ') || '없음'}`,
     `경고:\n- ${warningText}`
   ].join('\n');

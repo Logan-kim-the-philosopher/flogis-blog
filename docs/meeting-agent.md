@@ -1,14 +1,16 @@
 # Pi 회의 원본 정리·발행 에이전트
 
-TXT/Markdown 및 클로바 전사본은 바로 정리하고, 전사본이 없는 오디오만 로컬 `whisper-cli`로 전사한 뒤 Pi가 분류·구조화한다. 결과를 사람이 검토한 후에만 Sanity에 발행한다.
+TXT/Markdown 및 클로바 전사본은 바로 정리한다. 전사본이 없는 오디오는 이 Mac의 OpenSuperWhisper 설정 모델로 원시 전사한 뒤 Pi가 문맥을 검수해 읽기용 전사문을 만들고, 그 검수본을 분류·구조화한다. 결과를 사람이 검토한 후에만 Sanity에 발행한다.
 
 ## 처리 흐름
 
 ```text
 원본 파일
   ├─ txt/md/Clova JSON ───┐
-  ├─ audio + Clova 전사본 ┤ (Whisper 생략)
-  └─ audio → ffmpeg → Whisper 전사
+  ├─ audio + Clova 전사본 ┤ (자동 전사 생략)
+  └─ audio → ffmpeg → OpenSuperWhisper 원시 전사
+                          ↓
+             Pi 문맥 검수·오인식 교정·불명확 표시
                           ↓
                     Pi 구조화 JSON
                           ↓
@@ -44,7 +46,7 @@ Pi 안에서 다음 명령 하나로 전체 흐름을 시작한다.
 /meeting "/absolute/path/to/회의 녹음.m4a" --people person-heesung-kim,person-yongjae-hong
 ```
 
-클로바에서 전사한 결과가 있다면 다음 방식을 권장한다. 음성은 원본 보존과 `creation_time` 날짜 확인에 사용하고, 실제 정리는 클로바 TXT/JSON으로 진행하므로 Whisper를 다시 돌리지 않는다.
+클로바에서 전사한 결과가 있다면 다음 방식을 권장한다. 음성은 원본 보존과 `creation_time` 날짜 확인에 사용하고, 실제 정리는 클로바 TXT/JSON으로 진행하므로 OpenSuperWhisper를 다시 돌리지 않는다.
 
 ```text
 /meeting "/Users/hongyongjae/Desktop/개포동 2.m4a" --transcript "/absolute/path/to/클로바 전사.txt" --no-publish
@@ -58,14 +60,15 @@ Pi 안에서 다음 명령 하나로 전체 흐름을 시작한다.
 
 실행 순서는 다음과 같다.
 
-1. 원본을 읽고, 클로바 전사본이 없는 오디오만 Whisper로 전사한다.
-2. Pi가 회의 유형과 안건·사람별 의견·결정·행동 항목을 구조화한다.
-3. 편집 가능한 Markdown preview를 연다.
-4. Sanity 사람 참조와 ID·slug 중복을 검사한다.
-5. 실제 발행 확인창에서 승인받는다.
-6. 승인한 경우에만 Sanity에 생성하고 공개 상세 URL을 확인한다.
+1. 원본을 읽고, 클로바 전사본이 없는 오디오만 OpenSuperWhisper로 전사한다.
+2. 오디오 원시 전사는 그대로 보존하고 Pi가 문맥상 확실한 오인식만 교정한다. 확정하지 못한 표현은 `[불명확: ...]`으로 남긴다.
+3. Pi가 검수된 전사문에서 회의 유형과 안건·사람별 의견·결정·행동 항목을 구조화한다.
+4. 편집 가능한 Markdown preview를 연다.
+5. Sanity 사람 참조와 ID·slug 중복을 검사한다.
+6. 실제 발행 확인창에서 승인받는다.
+7. 승인한 경우에만 Sanity에 생성하고 공개 상세 URL을 확인한다.
 
-preview 화면이나 마지막 발행 확인창에서 취소하면 Sanity 쓰기는 실행되지 않는다. 산출물은 `.meeting-agent/runs/`에 남으므로 내용을 다시 확인할 수 있다. 비대화형 print/JSON 모드에서도 실제 발행은 거부된다. 처리 중에는 Pi 하단 상태에 오디오 변환, Whisper 전사, Pi 구조화, 본문 생성 단계와 경과 시간이 표시된다.
+preview 화면이나 마지막 발행 확인창에서 취소하면 Sanity 쓰기는 실행되지 않는다. 산출물은 `.meeting-agent/runs/`에 남으므로 내용을 다시 확인할 수 있다. 비대화형 print/JSON 모드에서도 실제 발행은 거부된다. 처리 중에는 Pi 하단 상태에 오디오 변환, OpenSuperWhisper 전사, Pi 전사 검수, Pi 구조화, 본문 생성 단계와 경과 시간이 표시된다.
 
 발행하지 않고 preview만 만들려면 다음처럼 실행한다.
 
@@ -90,19 +93,22 @@ npm run meeting:extension:smoke
 npm run meeting:doctor
 ```
 
+`meeting:doctor`의 Pi 인증 검사는 저장된 인증 파일의 존재 여부만 보지 않고 OAuth 갱신을 실제로 확인한다. `refresh_token_invalidated` 또는 세션 종료 오류가 나오면 Pi를 실행해 `/login`으로 다시 로그인한다.
+
 확인 대상:
 
 - Pi 설치 및 선택 모델 인증
-- `ffmpeg`, `whisper-cli`, Whisper 모델
+- `ffmpeg`
+- OpenSuperWhisper 앱과 앱에서 선택한 Whisper 모델·언어
 - Sanity project/dataset와 쓰기 token 존재 여부
 
-텍스트 원본은 Whisper 모델 없이도 처리할 수 있다. 오디오 원본을 처리하려면 다국어 ggml 모델을 한 번 설치한다.
+텍스트 원본은 OpenSuperWhisper 없이도 처리할 수 있다. 오디오 원본을 처리하려면 OpenSuperWhisper 앱에서 Whisper 엔진, 모델, 언어를 먼저 선택한다. 별도의 `.meeting-agent/models` 다운로드는 사용하지 않는다.
 
 ```bash
-npm run meeting:setup -- large-v3-turbo
+npm run meeting:setup
 ```
 
-모델은 `.meeting-agent/models/`에 저장되고 Git에 포함되지 않는다. 다른 모델을 이미 가지고 있다면 `--whisper-model /absolute/path/ggml-model.bin`을 사용한다.
+`meeting:setup`은 앱을 설치하거나 모델을 내려받지 않는다. OpenSuperWhisper CLI, 선택 엔진, 모델 파일과 언어 설정이 실제로 준비됐는지만 확인한다. 앱이 기본 위치가 아니라면 `.env`의 `MEETING_AGENT_OPENSUPERWHISPER_BIN` 또는 `--opensuperwhisper-bin`으로 CLI 절대 경로를 지정한다.
 
 ## 2. TXT/Markdown 원본 준비
 
@@ -126,7 +132,14 @@ npm run meeting:prepare -- "/path/to/회의 녹음.m4a" \
   --people person-heesung-kim,person-yongjae-hong
 ```
 
-오디오는 16 kHz mono WAV로 정규화한 뒤 한국어로 전사한다. 다른 언어 또는 자동 감지는 `--language en`, `--language auto`로 지정한다.
+오디오는 16 kHz mono WAV로 정규화한 뒤 OpenSuperWhisper로 전사한다. CLI는 앱의 현재 Whisper 모델·언어 설정을 그대로 사용한다. `--language`를 지정하면 앱의 언어 설정과 일치하는지 검증하며, 다르면 앱 설정을 먼저 바꿔야 한다.
+
+OpenSuperWhisper의 출력은 다음 단계로 처리한다.
+
+1. 자동 보정 전 원문을 `transcript.raw.txt`와 `transcript.raw.json`에 보존한다.
+2. Pi가 전체 발화 순서를 유지하며 띄어쓰기·문장부호와 문맥상 확실한 음차를 교정한다.
+3. 이름·숫자·날짜·전문용어를 확정할 수 없으면 추측하지 않고 `[불명확: 들린 표현]`으로 표시한다.
+4. 읽기용 `transcript.cleaned.md`, 구조화 입력용 `transcript.txt`, 교정·불확실성 목록 `transcript-review.json`을 생성한다.
 
 일반적인 회의 녹음은 화자 분리가 보장되지 않는다. 전사문에서 사람을 확실하게 구분할 수 없으면 Pi는 `발화자 미상`으로 기록해야 하며, 사용자가 preview에서 확인해 수정한다.
 
@@ -178,7 +191,11 @@ Pi는 기록의 주된 결과에 따라 하나를 선택한다.
 | 파일 | 용도 |
 |---|---|
 | `source.*` | 변경하지 않고 보존한 원본 |
-| `transcript.txt` | 직접 읽은 텍스트, 클로바 정규화 결과 또는 Whisper 전사문 |
+| `transcript.raw.txt` | OpenSuperWhisper가 만든 자동 교정 전 원시 전사(오디오 입력만) |
+| `transcript.raw.json` | OpenSuperWhisper CLI 원본 JSON 응답(오디오 입력만) |
+| `transcript.cleaned.md` | Pi가 문맥을 확인하고 확실한 오류를 교정한 읽기용 전사(오디오 입력만) |
+| `transcript-review.json` | 자동 교정과 남은 불명확 항목의 검수 기록(오디오 입력만) |
+| `transcript.txt` | Pi 구조화에 사용하는 검수 전사, 클로바 정규화 결과 또는 직접 읽은 텍스트 |
 | `pi-request.md` | Pi에 전달한 입력 |
 | `pi-events.jsonl` | Pi의 원본 JSON 이벤트 |
 | `structured.json` | 분류와 안건·결정·행동의 구조화 결과 |
@@ -235,6 +252,7 @@ npm run meeting:publish -- ".meeting-agent/runs/<run-directory>" \
 --people person-id-1,person-id-2
 --model openai-codex/gpt-5.4-mini
 --thinking medium
+--opensuperwhisper-bin "/Applications/OpenSuperWhisper.app/Contents/MacOS/OpenSuperWhisper"
 --transcript "/path/to/clova.txt|clova.json"
 --offline
 ```
