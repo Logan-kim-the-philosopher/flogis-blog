@@ -1,0 +1,65 @@
+{
+  "status": "RUNNING",
+  "agent": "codex",
+  "mode": "foreground",
+  "execution_surface": "foreground",
+  "task_run_id": "task-run-20260908-102243-task-def-20260908-102238-26-09-08-5fc152ea-6bb142a7",
+  "generated_at": "2026-09-08T10:22:43+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/prompt.md",
+    ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/context.md",
+    ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/previous-results.md",
+    ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/git-snapshot.json",
+    ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/result.md",
+    ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/decision.md",
+    ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/troubleshooting.md",
+    ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/logs.txt",
+    ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/agent-events.jsonl",
+    ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/artifacts.json",
+    "/Users/hongyongjae/Desktop/26-09-08_정현님_개인_대화_OpenSuperWhisper_전사.md",
+    "/Users/hongyongjae/Desktop/26-09-08_정현님_개인_대화_OpenSuperWhisper_원시전사.txt"
+  ],
+  "artifact_groups": {
+    "user_outputs": [
+      ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/result.md",
+      ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/decision.md",
+      ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/troubleshooting.md"
+    ],
+    "execution_inputs": [
+      ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/prompt.md",
+      ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/context.md",
+      ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/previous-results.md"
+    ],
+    "execution_audit": [
+      ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/git-snapshot.json",
+      ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/logs.txt",
+      ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/agent-events.jsonl",
+      ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/artifacts.json"
+    ],
+    "work_products": []
+  },
+  "contract_snapshot": {
+    "schema_version": 1,
+    "contract_ids": [
+      "task-execution",
+      "done-guardrail"
+    ],
+    "contracts": [
+      {
+        "id": "task-execution",
+        "title": "Task Execution Context Contract",
+        "source_paths": [
+          "loom/application/context_pack.py",
+          "loom/application/team_policy.py"
+        ]
+      },
+      {
+        "id": "done-guardrail",
+        "title": "Task Completion Guardrail Contract",
+        "source_paths": [
+          "loom/application/services.py"
+        ]
+      }
+    ]
+  }
+}

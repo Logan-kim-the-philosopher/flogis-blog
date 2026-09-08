@@ -1,0 +1,32 @@
+{
+  "id": "task-20260908-102238-26-09-08-24e5d650",
+  "job_id": "job-20260908-102225-2026-09-08-08a2eef9",
+  "title": "26-09-08 정현님 개인 대화 음성 정밀 전사",
+  "description": "바탕화면에서 대상 음성 파일을 정확히 식별하고 포맷·길이를 확인한 뒤, OpenSuperWhisper의 로컬 large-v3-turbo 한국어 설정으로 전체를 구간 전사한다. 경계 중복과 출력 잘림을 검증하고 문맥상 확실한 고유명사만 보정한 정리본과 원시본을 바탕화면에 제공한다.",
+  "status": "RUNNING",
+  "created_at": "2026-09-08T10:22:38+00:00",
+  "updated_at": "2026-09-08T10:22:43+00:00",
+  "order_index": 1,
+  "assigned_agent": "codex",
+  "depends_on": [],
+  "expected_output": "/Users/hongyongjae/Desktop에 26-09-08_정현님_개인_대화 이름의 정리 전사 Markdown과 OpenSuperWhisper 원시 전사 텍스트가 존재한다.",
+  "done_condition": "대상 원본의 전체 길이를 구간으로 빠짐없이 포함하고, 출력 잘림·빈 구간·인코딩·파일 구조를 검증하며 바탕화면 산출물이 임시 완성본과 동일하다.",
+  "in_scope": "대상 음성 읽기, 로컬 오디오 분석·임시 디코딩·분할, OpenSuperWhisper 로컬 전사, 문맥상 확실한 교정, 바탕화면 파일 작성, Loom 기록과 로컬 커밋",
+  "out_of_scope": "원본 변경·삭제, 외부 서비스 업로드, 화자 신원 추정, 내용 사실 검증, 저장소 애플리케이션 코드 수정, 원격 push",
+  "validation_hint": "ffprobe로 원본 길이·코덱을 확인하고 원본 전체를 덮는 분할 구간 수와 JSON 텍스트를 검사한다. 출력 잘림 문자열과 빈 텍스트가 없고 바탕화면 복사본 SHA-256이 완성본과 일치해야 한다.",
+  "required_docs": [],
+  "memory_refs": [],
+  "document_outputs": [],
+  "document_output_exceptions": [],
+  "run_attempts": 0,
+  "last_error": "",
+  "commit_refs": [
+    "f0854846cf15aa2923ca5acab2c37f12dc434a54"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-09-08T10:22:43+00:00",
+  "artifacts": [],
+  "source_proposal_id": "",
+  "source_prompt": ""
+}
