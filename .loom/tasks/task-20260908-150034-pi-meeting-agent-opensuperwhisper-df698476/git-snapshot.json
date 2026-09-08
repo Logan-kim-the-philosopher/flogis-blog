@@ -17,5 +17,17 @@
     ],
     "captured_at": "2026-09-08T15:00:40+00:00"
   },
-  "after": null
+  "after": {
+    "available": true,
+    "branch_name": "Haru2_dev",
+    "commit_sha": "1c705845a08ffebee647975bf63e4ef4013be706",
+    "dirty": true,
+    "staged_files": [],
+    "modified_files": [
+      ".loom/job-runs/job-run-20260826-110830-job-20260825-123703-job-6c824053-9a64f08e/job-run.json",
+      ".loom/task-definitions/task-def-20260908-150034-pi-meeting-agent-opensuperwhisper-2f08bcfa/task-definition.json"
+    ],
+    "untracked_files": [],
+    "captured_at": "2026-09-08T15:58:26+00:00"
+  }
 }

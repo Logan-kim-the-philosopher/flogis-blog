@@ -1,1 +1,2 @@
 [2026-09-08T15:00:40+00:00] agent=codex task=task-20260908-150034-pi-meeting-agent-opensuperwhisper-df698476 Foreground task session started.
+[2026-09-08T15:58:26+00:00] agent=codex task=task-20260908-150034-pi-meeting-agent-opensuperwhisper-df698476 구현·테스트·Pi 확장 적용은 완료했습니다. 실제 OpenSuperWhisper 합성 음성 전사는 성공했고 원시본이 보존됐지만, 후속 Pi 검수 모델 호출은 openai-codex OAuth refresh_token_invalidated로 중단됐습니다. Pi에서 /login 재인증 후 실제 검수 호출 확인이 필요합니다. 사용자 음성은 외부 모델에 보내지 않았고 Sanity 쓰기는 없었습니다.

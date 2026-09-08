@@ -24,3 +24,9 @@ Flogy 5차 기존 문서 meeting-flogy-round-5-2026-08-26(rev SseX7szR4uwwNDZHqD
 
 - Task: `task-20260828-183541-2026-08-28-flogy-3-aed1e5da`
 - Tags: `결과`, `검증`, `Sanity`, `Pi`, `회의록`, `3건`
+## 2026-09-08T15:59:00+00:00
+
+OpenSuperWhisper meeting agent 적용 검증: OpenSuperWhisper 0.12.2/ggml-large-v3-turbo/ko 준비 확인, 합성 오디오 실제 원시 전사 성공, meeting:test 23/23, Astro build 성공, Pi extension smoke 성공(/meeting 계열 3개·preview·발행 취소·Sanity write 0). 실제 Pi 문맥 검수는 openai-codex OAuth refresh_token_invalidated로 중단되어 /login 후 재확인 필요. 사용자 음성은 모델 공급자에 전송하지 않음.
+
+- Task: `task-20260908-150034-pi-meeting-agent-opensuperwhisper-df698476`
+- Tags: `opensuperwhisper`, `meeting-agent`, `validation`, `auth-blocker`
