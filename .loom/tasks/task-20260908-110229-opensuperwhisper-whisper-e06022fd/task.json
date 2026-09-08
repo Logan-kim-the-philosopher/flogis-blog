@@ -1,0 +1,32 @@
+{
+  "id": "task-20260908-110229-opensuperwhisper-whisper-e06022fd",
+  "job_id": "job-20260908-110216-opensuperwhisper-whisper-0dcd627b",
+  "title": "OpenSuperWhisper 제외 Whisper 모델 제거",
+  "description": "사용자 홈, 저장소, 일반 캐시 경로에서 Whisper 음성 인식 모델 파일을 읽기 전용으로 전수 조사한다. OpenSuperWhisper 앱 번들과 전용 Application Support 모델 경로는 보존 목록으로 고정하고, 나머지 식별된 Whisper 모델만 명시 경로로 제거한 뒤 보존 모델과 앱 설정을 검증한다.",
+  "status": "RUNNING",
+  "created_at": "2026-09-08T11:02:29+00:00",
+  "updated_at": "2026-09-08T11:02:34+00:00",
+  "order_index": 1,
+  "assigned_agent": "codex",
+  "depends_on": [],
+  "expected_output": "OpenSuperWhisper 앱 및 /Users/hongyongjae/Library/Application Support/fr.my-monkey.opensuperwhisper 아래의 전용 모델은 남아 있고, 그 밖에 확인된 Whisper 모델 파일·캐시는 제거되어 회수 용량과 삭제 경로가 기록된다.",
+  "done_condition": "삭제 전 정확한 대상 목록·크기·Git 추적 여부를 확인하고, OpenSuperWhisper 보존 경로를 삭제 명령에서 제외하며, 삭제 후 같은 검색으로 비보존 Whisper 모델이 0건인지 확인한다. OpenSuperWhisper 선택 모델 파일과 앱 CLI 도움말이 정상이고 Loom 검증과 로컬 커밋이 완료된다.",
+  "in_scope": "사용자 홈과 현재 저장소의 Whisper 모델 파일·관련 모델 캐시 읽기 전용 조사, OpenSuperWhisper 전용 경로를 제외한 명시 대상 삭제, 회수 용량 계산, 앱 설정·모델 존재 검증, Loom 기록과 로컬 커밋",
+  "out_of_scope": "OpenSuperWhisper 앱 삭제·재설정, OpenSuperWhisper 전용 모델·VAD 리소스 삭제, 원본 음성·전사본 삭제, Whisper 실행 바이너리·Homebrew 패키지 제거, 관련 없는 AI 모델·캐시 삭제, 원격 push",
+  "validation_hint": "find와 du로 삭제 전후 후보를 비교하고, realpath 기준 보존 루트 밖만 삭제한다. defaults selectedWhisperModelPath가 존재하고 OpenSuperWhisper --help가 성공하는지 확인한다. Git 추적 모델 삭제는 git diff로 정확히 검토한다.",
+  "required_docs": [],
+  "memory_refs": [],
+  "document_outputs": [],
+  "document_output_exceptions": [],
+  "run_attempts": 0,
+  "last_error": "",
+  "commit_refs": [
+    "f1dfedaba6975352e92eccd0906ab2cd5ad9e03f"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-09-08T11:02:34+00:00",
+  "artifacts": [],
+  "source_proposal_id": "",
+  "source_prompt": ""
+}
