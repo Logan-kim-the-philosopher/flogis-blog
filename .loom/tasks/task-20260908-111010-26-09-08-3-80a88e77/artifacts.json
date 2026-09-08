@@ -1,10 +1,10 @@
 {
-  "status": "RUNNING",
+  "status": "DONE",
   "agent": "codex",
   "mode": "foreground",
   "execution_surface": "foreground",
   "task_run_id": "task-run-20260908-111014-task-def-20260908-111010-26-09-08-3-b04eb858-5ea6c51a",
-  "generated_at": "2026-09-08T11:10:15+00:00",
+  "generated_at": "2026-09-08T11:20:57+00:00",
   "artifacts": [
     ".loom/tasks/task-20260908-111010-26-09-08-3-80a88e77/prompt.md",
     ".loom/tasks/task-20260908-111010-26-09-08-3-80a88e77/context.md",
@@ -15,9 +15,7 @@
     ".loom/tasks/task-20260908-111010-26-09-08-3-80a88e77/troubleshooting.md",
     ".loom/tasks/task-20260908-111010-26-09-08-3-80a88e77/logs.txt",
     ".loom/tasks/task-20260908-111010-26-09-08-3-80a88e77/agent-events.jsonl",
-    ".loom/tasks/task-20260908-111010-26-09-08-3-80a88e77/artifacts.json",
-    "/Users/hongyongjae/Desktop/26-09-08_정현님_개인_대화_3_OpenSuperWhisper_전사.md",
-    "/Users/hongyongjae/Desktop/26-09-08_정현님_개인_대화_3_OpenSuperWhisper_원시전사.txt"
+    ".loom/tasks/task-20260908-111010-26-09-08-3-80a88e77/artifacts.json"
   ],
   "artifact_groups": {
     "user_outputs": [
@@ -36,10 +34,7 @@
       ".loom/tasks/task-20260908-111010-26-09-08-3-80a88e77/agent-events.jsonl",
       ".loom/tasks/task-20260908-111010-26-09-08-3-80a88e77/artifacts.json"
     ],
-    "work_products": [
-      "/Users/hongyongjae/Desktop/26-09-08_정현님_개인_대화_3_OpenSuperWhisper_전사.md",
-      "/Users/hongyongjae/Desktop/26-09-08_정현님_개인_대화_3_OpenSuperWhisper_원시전사.txt"
-    ]
+    "work_products": []
   },
   "contract_snapshot": {
     "schema_version": 1,
