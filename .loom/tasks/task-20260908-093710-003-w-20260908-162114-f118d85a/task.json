@@ -3,9 +3,9 @@
   "job_id": "job-20260908-093646-2026-09-08-85af400e",
   "title": "003_W_20260908_162114 음성 정밀 전사",
   "description": "바탕화면에서 대상 음성 파일을 찾아 포맷·길이·음질을 확인하고, 사용 가능한 로컬 음성 인식 도구로 한국어 전사를 생성한 뒤 재검토하여 문장부호와 고유명사를 보정하고 불확실 구간에 타임스탬프를 표시한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-08T09:37:10+00:00",
-  "updated_at": "2026-09-08T09:37:15+00:00",
+  "updated_at": "2026-09-08T10:05:25+00:00",
   "order_index": 1,
   "assigned_agent": "codex",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "004b84a8d0e64db423dc2c6c519f288356f8a7f8"
+    "004b84a8d0e64db423dc2c6c519f288356f8a7f8",
+    "3b8241b28be29e4860fe5033715d3fd476f21033"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-09-08T09:37:15+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-09-08T10:05:25+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/agent-events.jsonl",
+    ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/artifacts.json",
+    ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/context.md",
+    ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/decision.md",
+    ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/git-snapshot.json",
+    ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/logs.txt",
+    ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/previous-results.md",
+    ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/prompt.md",
+    ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/result.md",
+    ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }

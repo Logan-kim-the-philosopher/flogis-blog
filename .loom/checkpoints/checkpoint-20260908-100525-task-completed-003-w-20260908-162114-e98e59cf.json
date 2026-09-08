@@ -1,0 +1,19 @@
+{
+  "id": "checkpoint-20260908-100525-task-completed-003-w-20260908-162114-e98e59cf",
+  "created_at": "2026-09-08T10:05:25+00:00",
+  "reason": "Task completed: 003_W_20260908_162114 음성 정밀 전사",
+  "summary": "003_W_20260908_162114 음성 정밀 전사 -> DONE @ Haru2_dev/3b8241b28be2",
+  "job_id": "job-20260908-093646-2026-09-08-85af400e",
+  "task_id": "task-20260908-093710-003-w-20260908-162114-f118d85a",
+  "commit_sha": "3b8241b28be29e4860fe5033715d3fd476f21033",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260908-093715-job-20260908-093646-2026-09-08-85af400e-f15659f5/job-run.json",
+    ".loom/task-definitions/task-def-20260908-093710-003-w-20260908-162114-5382da4b/task-definition.json"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-09-08T10:05:25+00:00",
+  "rollback_strategy": "revert-or-branch"
+}
