@@ -1,0 +1,65 @@
+{
+  "status": "RUNNING",
+  "agent": "codex",
+  "mode": "foreground",
+  "execution_surface": "foreground",
+  "task_run_id": "task-run-20260908-093715-task-def-20260908-093710-003-w-20260908-162114-5-9d57c2e0",
+  "generated_at": "2026-09-08T09:37:15+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/prompt.md",
+    ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/context.md",
+    ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/previous-results.md",
+    ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/git-snapshot.json",
+    ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/result.md",
+    ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/decision.md",
+    ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/troubleshooting.md",
+    ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/logs.txt",
+    ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/agent-events.jsonl",
+    ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/artifacts.json",
+    "/Users/hongyongjae/Desktop/003_W_20260908_162114_OpenSuperWhisper_전사.md",
+    "/Users/hongyongjae/Desktop/003_W_20260908_162114_OpenSuperWhisper_원시전사.txt"
+  ],
+  "artifact_groups": {
+    "user_outputs": [
+      ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/result.md",
+      ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/decision.md",
+      ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/troubleshooting.md"
+    ],
+    "execution_inputs": [
+      ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/prompt.md",
+      ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/context.md",
+      ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/previous-results.md"
+    ],
+    "execution_audit": [
+      ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/git-snapshot.json",
+      ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/logs.txt",
+      ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/agent-events.jsonl",
+      ".loom/tasks/task-20260908-093710-003-w-20260908-162114-f118d85a/artifacts.json"
+    ],
+    "work_products": []
+  },
+  "contract_snapshot": {
+    "schema_version": 1,
+    "contract_ids": [
+      "task-execution",
+      "done-guardrail"
+    ],
+    "contracts": [
+      {
+        "id": "task-execution",
+        "title": "Task Execution Context Contract",
+        "source_paths": [
+          "loom/application/context_pack.py",
+          "loom/application/team_policy.py"
+        ]
+      },
+      {
+        "id": "done-guardrail",
+        "title": "Task Completion Guardrail Contract",
+        "source_paths": [
+          "loom/application/services.py"
+        ]
+      }
+    ]
+  }
+}
