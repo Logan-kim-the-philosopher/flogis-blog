@@ -2,9 +2,9 @@
   "id": "task-run-20260908-110234-task-def-20260908-110229-opensuperwhisper-whispe-7c3ceb3c",
   "job_run_id": "job-run-20260908-110234-job-20260908-110216-opensuperwhisper-whisper-0dc-0413b271",
   "task_definition_id": "task-def-20260908-110229-opensuperwhisper-whisper-25cfeb2a",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-08T11:02:34+00:00",
-  "updated_at": "2026-09-08T11:02:34+00:00",
+  "updated_at": "2026-09-08T11:07:20+00:00",
   "legacy_task_id": "task-20260908-110229-opensuperwhisper-whisper-e06022fd",
   "attempt": 1,
   "assigned_agent": "codex",
@@ -13,13 +13,29 @@
   "lease_expires_at": "",
   "queued_at": "",
   "started_at": "2026-09-08T11:02:34+00:00",
-  "completed_at": "",
+  "completed_at": "2026-09-08T11:07:20+00:00",
   "last_error": "",
-  "commit_refs": [],
-  "branch_name": "",
-  "git_dirty": false,
-  "git_snapshot_captured_at": "",
-  "artifacts": [],
-  "checkpoint_ids": [],
+  "commit_refs": [
+    "ee300a374932a33bada0fca056be2524d9fd3286",
+    "f1dfedaba6975352e92eccd0906ab2cd5ad9e03f"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-09-08T11:07:20+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260908-110229-opensuperwhisper-whisper-e06022fd/agent-events.jsonl",
+    ".loom/tasks/task-20260908-110229-opensuperwhisper-whisper-e06022fd/artifacts.json",
+    ".loom/tasks/task-20260908-110229-opensuperwhisper-whisper-e06022fd/context.md",
+    ".loom/tasks/task-20260908-110229-opensuperwhisper-whisper-e06022fd/decision.md",
+    ".loom/tasks/task-20260908-110229-opensuperwhisper-whisper-e06022fd/git-snapshot.json",
+    ".loom/tasks/task-20260908-110229-opensuperwhisper-whisper-e06022fd/logs.txt",
+    ".loom/tasks/task-20260908-110229-opensuperwhisper-whisper-e06022fd/previous-results.md",
+    ".loom/tasks/task-20260908-110229-opensuperwhisper-whisper-e06022fd/prompt.md",
+    ".loom/tasks/task-20260908-110229-opensuperwhisper-whisper-e06022fd/result.md",
+    ".loom/tasks/task-20260908-110229-opensuperwhisper-whisper-e06022fd/troubleshooting.md"
+  ],
+  "checkpoint_ids": [
+    "checkpoint-20260908-110720-task-completed-opensuperwhisper-whisper-95301a4b"
+  ],
   "review_required_reason": ""
 }

@@ -1,3 +1,4 @@
 [2026-09-08T11:02:34+00:00] agent=codex task=task-20260908-110229-opensuperwhisper-whisper-e06022fd Foreground task session started.
 [2026-09-08T11:06:13+00:00] agent=codex task=task-20260908-110229-opensuperwhisper-whisper-e06022fd OpenSuperWhisper 전용 모델을 보존하고 프로젝트의 동일한 중복 모델 1개(1,624,555,275바이트)를 삭제했다.
 [2026-09-08T11:06:13+00:00] agent=codex task=task-20260908-110229-opensuperwhisper-whisper-e06022fd 홈 및 Homebrew 모델 재검색, 설정 모델 경로, 보존 파일 크기와 OpenSuperWhisper CLI 실행을 검증했다.
+[2026-09-08T11:07:20+00:00] agent=codex task=task-20260908-110229-opensuperwhisper-whisper-e06022fd OpenSuperWhisper 전용 모델은 보존하고 프로젝트 중복 Whisper 모델 1개를 삭제했으며 전체 재검색과 앱 실행을 검증했다.

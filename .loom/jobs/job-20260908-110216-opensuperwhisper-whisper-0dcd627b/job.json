@@ -2,13 +2,15 @@
   "id": "job-20260908-110216-opensuperwhisper-whisper-0dcd627b",
   "title": "OpenSuperWhisper 외 Whisper 모델 정리",
   "goal": "로컬에 설치된 Whisper 모델을 전수 확인하고 OpenSuperWhisper 앱과 그 전용 모델·필수 리소스만 보존한 채 나머지 Whisper 모델 파일과 캐시를 제거한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-08T11:02:16+00:00",
-  "updated_at": "2026-09-08T11:02:34+00:00",
+  "updated_at": "2026-09-08T11:07:20+00:00",
   "context_refs": [],
   "task_ids": [
     "task-20260908-110229-opensuperwhisper-whisper-e06022fd"
   ],
   "branch_name": "Haru2_dev",
-  "checkpoint_ids": []
+  "checkpoint_ids": [
+    "checkpoint-20260908-110720-task-completed-opensuperwhisper-whisper-95301a4b"
+  ]
 }

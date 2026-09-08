@@ -1,10 +1,10 @@
 {
-  "status": "RUNNING",
+  "status": "DONE",
   "agent": "codex",
   "mode": "foreground",
   "execution_surface": "foreground",
   "task_run_id": "task-run-20260908-110234-task-def-20260908-110229-opensuperwhisper-whispe-7c3ceb3c",
-  "generated_at": "2026-09-08T11:02:34+00:00",
+  "generated_at": "2026-09-08T11:07:20+00:00",
   "artifacts": [
     ".loom/tasks/task-20260908-110229-opensuperwhisper-whisper-e06022fd/prompt.md",
     ".loom/tasks/task-20260908-110229-opensuperwhisper-whisper-e06022fd/context.md",

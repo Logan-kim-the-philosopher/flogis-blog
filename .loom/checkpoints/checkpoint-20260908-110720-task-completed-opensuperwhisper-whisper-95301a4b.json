@@ -1,0 +1,19 @@
+{
+  "id": "checkpoint-20260908-110720-task-completed-opensuperwhisper-whisper-95301a4b",
+  "created_at": "2026-09-08T11:07:20+00:00",
+  "reason": "Task completed: OpenSuperWhisper 제외 Whisper 모델 제거",
+  "summary": "OpenSuperWhisper 제외 Whisper 모델 제거 -> DONE @ Haru2_dev/ee300a374932",
+  "job_id": "job-20260908-110216-opensuperwhisper-whisper-0dcd627b",
+  "task_id": "task-20260908-110229-opensuperwhisper-whisper-e06022fd",
+  "commit_sha": "ee300a374932a33bada0fca056be2524d9fd3286",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260908-110234-job-20260908-110216-opensuperwhisper-whisper-0dc-0413b271/job-run.json",
+    ".loom/task-definitions/task-def-20260908-110229-opensuperwhisper-whisper-25cfeb2a/task-definition.json"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-09-08T11:07:20+00:00",
+  "rollback_strategy": "revert-or-branch"
+}

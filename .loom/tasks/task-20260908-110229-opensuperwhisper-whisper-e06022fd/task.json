@@ -3,9 +3,9 @@
   "job_id": "job-20260908-110216-opensuperwhisper-whisper-0dcd627b",
   "title": "OpenSuperWhisper 제외 Whisper 모델 제거",
   "description": "사용자 홈, 저장소, 일반 캐시 경로에서 Whisper 음성 인식 모델 파일을 읽기 전용으로 전수 조사한다. OpenSuperWhisper 앱 번들과 전용 Application Support 모델 경로는 보존 목록으로 고정하고, 나머지 식별된 Whisper 모델만 명시 경로로 제거한 뒤 보존 모델과 앱 설정을 검증한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-08T11:02:29+00:00",
-  "updated_at": "2026-09-08T11:02:34+00:00",
+  "updated_at": "2026-09-08T11:07:20+00:00",
   "order_index": 1,
   "assigned_agent": "codex",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "f1dfedaba6975352e92eccd0906ab2cd5ad9e03f"
+    "f1dfedaba6975352e92eccd0906ab2cd5ad9e03f",
+    "ee300a374932a33bada0fca056be2524d9fd3286"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-09-08T11:02:34+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-09-08T11:07:20+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260908-110229-opensuperwhisper-whisper-e06022fd/agent-events.jsonl",
+    ".loom/tasks/task-20260908-110229-opensuperwhisper-whisper-e06022fd/artifacts.json",
+    ".loom/tasks/task-20260908-110229-opensuperwhisper-whisper-e06022fd/context.md",
+    ".loom/tasks/task-20260908-110229-opensuperwhisper-whisper-e06022fd/decision.md",
+    ".loom/tasks/task-20260908-110229-opensuperwhisper-whisper-e06022fd/git-snapshot.json",
+    ".loom/tasks/task-20260908-110229-opensuperwhisper-whisper-e06022fd/logs.txt",
+    ".loom/tasks/task-20260908-110229-opensuperwhisper-whisper-e06022fd/previous-results.md",
+    ".loom/tasks/task-20260908-110229-opensuperwhisper-whisper-e06022fd/prompt.md",
+    ".loom/tasks/task-20260908-110229-opensuperwhisper-whisper-e06022fd/result.md",
+    ".loom/tasks/task-20260908-110229-opensuperwhisper-whisper-e06022fd/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }
