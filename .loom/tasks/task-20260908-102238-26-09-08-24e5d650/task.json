@@ -3,9 +3,9 @@
   "job_id": "job-20260908-102225-2026-09-08-08a2eef9",
   "title": "26-09-08 정현님 개인 대화 음성 정밀 전사",
   "description": "바탕화면에서 대상 음성 파일을 정확히 식별하고 포맷·길이를 확인한 뒤, OpenSuperWhisper의 로컬 large-v3-turbo 한국어 설정으로 전체를 구간 전사한다. 경계 중복과 출력 잘림을 검증하고 문맥상 확실한 고유명사만 보정한 정리본과 원시본을 바탕화면에 제공한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-08T10:22:38+00:00",
-  "updated_at": "2026-09-08T10:22:43+00:00",
+  "updated_at": "2026-09-08T10:27:25+00:00",
   "order_index": 1,
   "assigned_agent": "codex",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "f0854846cf15aa2923ca5acab2c37f12dc434a54"
+    "f0854846cf15aa2923ca5acab2c37f12dc434a54",
+    "cf3d9275e1fd4b44252c6c0fd0813c425a31d9b3"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-09-08T10:22:43+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-09-08T10:27:25+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/agent-events.jsonl",
+    ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/artifacts.json",
+    ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/context.md",
+    ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/decision.md",
+    ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/git-snapshot.json",
+    ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/logs.txt",
+    ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/previous-results.md",
+    ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/prompt.md",
+    ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/result.md",
+    ".loom/tasks/task-20260908-102238-26-09-08-24e5d650/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }

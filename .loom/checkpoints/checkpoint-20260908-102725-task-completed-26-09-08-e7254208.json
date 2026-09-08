@@ -1,0 +1,19 @@
+{
+  "id": "checkpoint-20260908-102725-task-completed-26-09-08-e7254208",
+  "created_at": "2026-09-08T10:27:25+00:00",
+  "reason": "Task completed: 26-09-08 정현님 개인 대화 음성 정밀 전사",
+  "summary": "26-09-08 정현님 개인 대화 음성 정밀 전사 -> DONE @ Haru2_dev/cf3d9275e1fd",
+  "job_id": "job-20260908-102225-2026-09-08-08a2eef9",
+  "task_id": "task-20260908-102238-26-09-08-24e5d650",
+  "commit_sha": "cf3d9275e1fd4b44252c6c0fd0813c425a31d9b3",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260908-102243-job-20260908-102225-2026-09-08-08a2eef9-b7ef75a8/job-run.json",
+    ".loom/task-definitions/task-def-20260908-102238-26-09-08-5fc152ea/task-definition.json"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-09-08T10:27:25+00:00",
+  "rollback_strategy": "revert-or-branch"
+}
