@@ -1,0 +1,19 @@
+{
+  "id": "checkpoint-20260910-110246-task-completed-ohayo-3-3e3879ab",
+  "created_at": "2026-09-10T11:02:46+00:00",
+  "reason": "Task completed: OHAYO 회의 음성 3건 전사·교정본 생성",
+  "summary": "OHAYO 회의 음성 3건 전사·교정본 생성 -> DONE @ Haru2_dev/688d725cb6f2",
+  "job_id": "job-20260910-101526-ohayo-3-30a4161f",
+  "task_id": "task-20260910-101551-ohayo-3-236f30b5",
+  "commit_sha": "688d725cb6f21a93276ec8e4a4168708f27e154e",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260910-101556-job-20260910-101526-ohayo-3-30a4161f-acf6d069/job-run.json",
+    ".loom/task-definitions/task-def-20260910-101551-ohayo-3-cd897767/task-definition.json"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-09-10T11:02:46+00:00",
+  "rollback_strategy": "revert-or-branch"
+}
