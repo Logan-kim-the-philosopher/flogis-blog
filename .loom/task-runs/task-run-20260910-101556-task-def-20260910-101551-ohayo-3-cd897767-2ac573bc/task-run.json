@@ -2,9 +2,9 @@
   "id": "task-run-20260910-101556-task-def-20260910-101551-ohayo-3-cd897767-2ac573bc",
   "job_run_id": "job-run-20260910-101556-job-20260910-101526-ohayo-3-30a4161f-acf6d069",
   "task_definition_id": "task-def-20260910-101551-ohayo-3-cd897767",
-  "status": "RUNNING",
+  "status": "REVIEW_REQUIRED",
   "created_at": "2026-09-10T10:15:56+00:00",
-  "updated_at": "2026-09-10T10:15:56+00:00",
+  "updated_at": "2026-09-10T11:00:59+00:00",
   "legacy_task_id": "task-20260910-101551-ohayo-3-236f30b5",
   "attempt": 1,
   "assigned_agent": "codex",
@@ -13,13 +13,27 @@
   "lease_expires_at": "",
   "queued_at": "",
   "started_at": "2026-09-10T10:15:56+00:00",
-  "completed_at": "",
+  "completed_at": "2026-09-10T11:00:59+00:00",
   "last_error": "",
-  "commit_refs": [],
-  "branch_name": "",
-  "git_dirty": false,
-  "git_snapshot_captured_at": "",
-  "artifacts": [],
+  "commit_refs": [
+    "523a7f6507837af8994742ce6d92cdb5517ce0e2",
+    "6854ce3d742d19b9f8f77e52955634f91f781dbd"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-09-10T11:00:59+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260910-101551-ohayo-3-236f30b5/agent-events.jsonl",
+    ".loom/tasks/task-20260910-101551-ohayo-3-236f30b5/artifacts.json",
+    ".loom/tasks/task-20260910-101551-ohayo-3-236f30b5/context.md",
+    ".loom/tasks/task-20260910-101551-ohayo-3-236f30b5/decision.md",
+    ".loom/tasks/task-20260910-101551-ohayo-3-236f30b5/git-snapshot.json",
+    ".loom/tasks/task-20260910-101551-ohayo-3-236f30b5/logs.txt",
+    ".loom/tasks/task-20260910-101551-ohayo-3-236f30b5/previous-results.md",
+    ".loom/tasks/task-20260910-101551-ohayo-3-236f30b5/prompt.md",
+    ".loom/tasks/task-20260910-101551-ohayo-3-236f30b5/result.md",
+    ".loom/tasks/task-20260910-101551-ohayo-3-236f30b5/troubleshooting.md"
+  ],
   "checkpoint_ids": [],
-  "review_required_reason": ""
+  "review_required_reason": "DONE guardrail requires review: result.md, decision.md, troubleshooting.md, validation evidence. 완료 계약을 증명하는 기록이 부족하거나 미해결 요청이 있어 검토가 필요합니다. result/decision/troubleshooting/log/event/artifact와 검증 근거를 보강하거나 요청을 해결한 뒤 다시 완료 처리하세요."
 }

@@ -24,7 +24,7 @@ Keep code identifiers, file paths, shell commands, URLs, commit hashes, and orig
 - Job ID: `job-20260910-101526-ohayo-3-30a4161f`
 - Title: OHAYO 회의 음성 3건 정밀 전사
 - Goal: 바탕화면에 있는 2026-09-09~10 OHAYO 방향성·구조 회의 음성 3건을 OpenSuperWhisper로 전사하고, 원문 의미를 보존하면서 문맥상 명확한 오류만 교정한 읽기 쉬운 Markdown 전사본을 각 원본과 같은 경로에 생성한다.
-- Status: `PENDING`
+- Status: `REVIEW_REQUIRED`
 - Required branch: `Haru2_dev`
 - Task count: `1`
 
@@ -41,7 +41,7 @@ Keep code identifiers, file paths, shell commands, URLs, commit hashes, and orig
 - Document outputs: -
 - Document output exceptions: -
 - Source proposal: `-`
-- Status: `PENDING`
+- Status: `REVIEW_REQUIRED`
 - Agent: `codex`
 - Order: `1`
 - Depends on: None
