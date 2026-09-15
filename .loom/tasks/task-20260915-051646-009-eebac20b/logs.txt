@@ -1,0 +1,3 @@
+[2026-09-15T05:16:50+00:00] agent=codex task=task-20260915-051646-009-eebac20b Foreground task session started.
+agent=codex task=task-20260915-051646-009-eebac20b OpenSuperWhisper 한국어 large-v3-turbo로 5분 9구간 전사 및 1분 42구간 대조를 완료하고 원본 옆 TXT를 저장했다.
+validation=pass ffprobe_duration=2501.800159 pcm_duration=2501.787563 output_bytes=40502 output_sections=9 output_cmp=match original_sha256=unchanged final_utterance=present page_example=present uncertainty_markers=present
