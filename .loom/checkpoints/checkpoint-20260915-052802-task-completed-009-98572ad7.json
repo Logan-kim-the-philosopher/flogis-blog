@@ -1,0 +1,19 @@
+{
+  "id": "checkpoint-20260915-052802-task-completed-009-98572ad7",
+  "created_at": "2026-09-15T05:28:02+00:00",
+  "reason": "Task completed: 음성 009 전사본을 원본 옆에 저장",
+  "summary": "음성 009 전사본을 원본 옆에 저장 -> DONE @ Haru2_dev/7e9d8e1556bb",
+  "job_id": "job-20260915-051639-2026-09-15-009-22e2c98f",
+  "task_id": "task-20260915-051646-009-eebac20b",
+  "commit_sha": "7e9d8e1556bb56367fa0f250f49d380cefd503f5",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260915-051650-job-20260915-051639-2026-09-15-009-22e2c98f-9eff501f/job-run.json",
+    ".loom/task-definitions/task-def-20260915-051646-009-17c16eb8/task-definition.json"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-09-15T05:28:02+00:00",
+  "rollback_strategy": "revert-or-branch"
+}

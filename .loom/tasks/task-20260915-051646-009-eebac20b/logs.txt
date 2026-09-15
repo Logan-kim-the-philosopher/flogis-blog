@@ -3,3 +3,4 @@ agent=codex task=task-20260915-051646-009-eebac20b OpenSuperWhisper 한국어 la
 validation=pass ffprobe_duration=2501.800159 pcm_duration=2501.787563 output_bytes=40502 output_sections=9 output_cmp=match original_sha256=unchanged final_utterance=present page_example=present uncertainty_markers=present
 [2026-09-15T05:27:27+00:00] agent=codex task=task-20260915-051646-009-eebac20b 음성 009 전체 전사·구간 대조를 완료하고 원본 옆 TXT 40,502바이트를 저장했다. 원본 불변·출력 일치·전체 구간·본문을 검증했고 실행 기록을 로컬 커밋했다.
 [2026-09-15T05:27:55+00:00] agent=codex task=task-20260915-051646-009-eebac20b Foreground task session started.
+[2026-09-15T05:28:02+00:00] agent=codex task=task-20260915-051646-009-eebac20b 전체 전사 TXT 저장 및 원본 불변·구간·본문·출력 일치 검증을 완료했고, Loom 검증 구획을 보강하여 기록을 로컬 커밋했다.
