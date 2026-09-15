@@ -24,7 +24,7 @@ Keep code identifiers, file paths, shell commands, URLs, commit hashes, and orig
 - Job ID: `job-20260915-051639-2026-09-15-009-22e2c98f`
 - Title: 2026-09-15 음성 009 전사
 - Goal: 바탕화면의 음성 009_W_20260915_124101.m4a를 한국어로 전사하고 원본과 같은 경로에 읽기 쉬운 전사 파일을 저장한다.
-- Status: `PENDING`
+- Status: `REVIEW_REQUIRED`
 - Required branch: `Haru2_dev`
 - Task count: `1`
 
@@ -41,7 +41,7 @@ Keep code identifiers, file paths, shell commands, URLs, commit hashes, and orig
 - Document outputs: -
 - Document output exceptions: -
 - Source proposal: `-`
-- Status: `PENDING`
+- Status: `REVIEW_REQUIRED`
 - Agent: `codex`
 - Order: `1`
 - Depends on: None

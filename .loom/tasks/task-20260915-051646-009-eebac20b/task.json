@@ -5,7 +5,7 @@
   "description": "지정 m4a를 로컬 한국어 모델로 구간별 전사하고 발화 순서를 보존하면서 명확한 문장부호·띄어쓰기만 보정한다. 불확실한 발화는 표시하고 바탕화면의 원본과 같은 기본 이름으로 텍스트 전사본을 제공한다.",
   "status": "RUNNING",
   "created_at": "2026-09-15T05:16:46+00:00",
-  "updated_at": "2026-09-15T05:16:50+00:00",
+  "updated_at": "2026-09-15T05:27:55+00:00",
   "order_index": 1,
   "assigned_agent": "codex",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "653f83d1a1e83b04a0d37aa95e1e22a8828fb9c0"
+    "653f83d1a1e83b04a0d37aa95e1e22a8828fb9c0",
+    "a3a62b2285307eaca56e2ecc0add9961f3a4bf63"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-09-15T05:16:50+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-09-15T05:27:55+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260915-051646-009-eebac20b/agent-events.jsonl",
+    ".loom/tasks/task-20260915-051646-009-eebac20b/artifacts.json",
+    ".loom/tasks/task-20260915-051646-009-eebac20b/context.md",
+    ".loom/tasks/task-20260915-051646-009-eebac20b/decision.md",
+    ".loom/tasks/task-20260915-051646-009-eebac20b/git-snapshot.json",
+    ".loom/tasks/task-20260915-051646-009-eebac20b/logs.txt",
+    ".loom/tasks/task-20260915-051646-009-eebac20b/previous-results.md",
+    ".loom/tasks/task-20260915-051646-009-eebac20b/prompt.md",
+    ".loom/tasks/task-20260915-051646-009-eebac20b/result.md",
+    ".loom/tasks/task-20260915-051646-009-eebac20b/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }
