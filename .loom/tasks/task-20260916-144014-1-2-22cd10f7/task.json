@@ -3,9 +3,9 @@
   "job_id": "job-20260916-144007-2026-09-16-2-0b6875e1",
   "title": "정현님 대화 1·2 통합 전사본 저장",
   "description": "바탕화면의 지정 음성 2건을 파일 번호 순으로 각각 전체 구간 로컬 한국어 모델로 전사한다. 발화 순서와 의미를 유지해 문장부호·띄어쓰기와 문맥상 명확한 오인식만 정리하고 불확실한 부분은 표시한다. 파일별 경계와 원본 기준 시각을 명시한 통합 TXT 하나를 바탕화면에 저장한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-16T14:40:14+00:00",
-  "updated_at": "2026-09-16T14:40:18+00:00",
+  "updated_at": "2026-09-16T15:21:25+00:00",
   "order_index": 1,
   "assigned_agent": "codex",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "ebb7ee0a89214d7ff413cb3bb7a45f7b8c0fbac4"
+    "ebb7ee0a89214d7ff413cb3bb7a45f7b8c0fbac4",
+    "1b63d72ee5c7491319a855a5e04262d5297ab4f1"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-09-16T14:40:18+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-09-16T15:21:25+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260916-144014-1-2-22cd10f7/agent-events.jsonl",
+    ".loom/tasks/task-20260916-144014-1-2-22cd10f7/artifacts.json",
+    ".loom/tasks/task-20260916-144014-1-2-22cd10f7/context.md",
+    ".loom/tasks/task-20260916-144014-1-2-22cd10f7/decision.md",
+    ".loom/tasks/task-20260916-144014-1-2-22cd10f7/git-snapshot.json",
+    ".loom/tasks/task-20260916-144014-1-2-22cd10f7/logs.txt",
+    ".loom/tasks/task-20260916-144014-1-2-22cd10f7/previous-results.md",
+    ".loom/tasks/task-20260916-144014-1-2-22cd10f7/prompt.md",
+    ".loom/tasks/task-20260916-144014-1-2-22cd10f7/result.md",
+    ".loom/tasks/task-20260916-144014-1-2-22cd10f7/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }

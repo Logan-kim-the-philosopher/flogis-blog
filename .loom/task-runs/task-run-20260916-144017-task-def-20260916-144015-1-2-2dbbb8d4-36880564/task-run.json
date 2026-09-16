@@ -2,9 +2,9 @@
   "id": "task-run-20260916-144017-task-def-20260916-144015-1-2-2dbbb8d4-36880564",
   "job_run_id": "job-run-20260916-144017-job-20260916-144007-2026-09-16-2-0b6875e1-2a6ffa23",
   "task_definition_id": "task-def-20260916-144015-1-2-2dbbb8d4",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-16T14:40:17+00:00",
-  "updated_at": "2026-09-16T14:40:17+00:00",
+  "updated_at": "2026-09-16T15:21:25+00:00",
   "legacy_task_id": "task-20260916-144014-1-2-22cd10f7",
   "attempt": 1,
   "assigned_agent": "codex",
@@ -13,13 +13,29 @@
   "lease_expires_at": "",
   "queued_at": "",
   "started_at": "2026-09-16T14:40:17+00:00",
-  "completed_at": "",
+  "completed_at": "2026-09-16T15:21:25+00:00",
   "last_error": "",
-  "commit_refs": [],
-  "branch_name": "",
-  "git_dirty": false,
-  "git_snapshot_captured_at": "",
-  "artifacts": [],
-  "checkpoint_ids": [],
+  "commit_refs": [
+    "1b63d72ee5c7491319a855a5e04262d5297ab4f1",
+    "ebb7ee0a89214d7ff413cb3bb7a45f7b8c0fbac4"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-09-16T15:21:25+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260916-144014-1-2-22cd10f7/agent-events.jsonl",
+    ".loom/tasks/task-20260916-144014-1-2-22cd10f7/artifacts.json",
+    ".loom/tasks/task-20260916-144014-1-2-22cd10f7/context.md",
+    ".loom/tasks/task-20260916-144014-1-2-22cd10f7/decision.md",
+    ".loom/tasks/task-20260916-144014-1-2-22cd10f7/git-snapshot.json",
+    ".loom/tasks/task-20260916-144014-1-2-22cd10f7/logs.txt",
+    ".loom/tasks/task-20260916-144014-1-2-22cd10f7/previous-results.md",
+    ".loom/tasks/task-20260916-144014-1-2-22cd10f7/prompt.md",
+    ".loom/tasks/task-20260916-144014-1-2-22cd10f7/result.md",
+    ".loom/tasks/task-20260916-144014-1-2-22cd10f7/troubleshooting.md"
+  ],
+  "checkpoint_ids": [
+    "checkpoint-20260916-152125-task-completed-1-2-e19e2cb2"
+  ],
   "review_required_reason": ""
 }

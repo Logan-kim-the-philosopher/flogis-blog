@@ -2,13 +2,15 @@
   "id": "job-20260916-144007-2026-09-16-2-0b6875e1",
   "title": "2026-09-16 정현님 대화 2건 통합 전사",
   "goal": "바탕화면의 26-09-16_정현님_대화_1.m4a와 _2.m4a를 각 전체 길이만큼 한국어로 전사하고 1번 다음 2번 순서로 합친 단일 텍스트 전사본을 바탕화면에 저장한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-16T14:40:07+00:00",
-  "updated_at": "2026-09-16T14:40:18+00:00",
+  "updated_at": "2026-09-16T15:21:25+00:00",
   "context_refs": [],
   "task_ids": [
     "task-20260916-144014-1-2-22cd10f7"
   ],
   "branch_name": "Haru2_dev",
-  "checkpoint_ids": []
+  "checkpoint_ids": [
+    "checkpoint-20260916-152125-task-completed-1-2-e19e2cb2"
+  ]
 }

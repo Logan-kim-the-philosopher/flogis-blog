@@ -1,0 +1,19 @@
+{
+  "id": "checkpoint-20260916-152125-task-completed-1-2-e19e2cb2",
+  "created_at": "2026-09-16T15:21:25+00:00",
+  "reason": "Task completed: 정현님 대화 1·2 통합 전사본 저장",
+  "summary": "정현님 대화 1·2 통합 전사본 저장 -> DONE @ Haru2_dev/1b63d72ee5c7",
+  "job_id": "job-20260916-144007-2026-09-16-2-0b6875e1",
+  "task_id": "task-20260916-144014-1-2-22cd10f7",
+  "commit_sha": "1b63d72ee5c7491319a855a5e04262d5297ab4f1",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260916-144017-job-20260916-144007-2026-09-16-2-0b6875e1-2a6ffa23/job-run.json",
+    ".loom/task-definitions/task-def-20260916-144015-1-2-2dbbb8d4/task-definition.json"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-09-16T15:21:25+00:00",
+  "rollback_strategy": "revert-or-branch"
+}
