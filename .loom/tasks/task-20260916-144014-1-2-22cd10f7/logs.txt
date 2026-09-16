@@ -1,0 +1,8 @@
+[2026-09-16T14:40:18+00:00] agent=codex task=task-20260916-144014-1-2-22cd10f7 Foreground task session started.
+ffprobe: 원본 길이 5924.594649초, 1544.266304초 확인.
+ffmpeg: 16 kHz mono WAV로 변환하고 120초 구간 50개와 13개 생성. 구간 길이 합은 각 원본 길이와 0.0001초 이내로 일치.
+OpenSuperWhisper bench: 한국어 large-v3-turbo 로컬 모델로 63개 구간 전사 완료. 불안정한 원본 1 구간 7개는 60초 단위 14개로 추가 확인.
+assemble.py: 원본 1 다음 원본 2 순으로 63개 시각 구간을 결합. 출력 91453바이트, SHA-256 6bccfa27c3a77c324a024c87cf6b403c9ac2579a42cba39d28c3d4957945609e.
+Desktop: 26-09-16_정현님_대화_통합_전사.txt 복사 및 임시 완성본과 cmp 바이트 일치 확인.
+원본 SHA-256: 8288ab39a593543c50c6434131de80688b653d082e2c6b82a4c3a2ddd2ed7a55; aeb06e761213fb69ead44740c0258126bac912369a56406551c9cfd21b2d023c.
+loom task validate: Boundary validation [OK]. loom validate --strict: Workspace metadata validation [OK].
