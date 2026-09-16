@@ -1,0 +1,19 @@
+{
+  "id": "checkpoint-20260916-055117-task-completed-42f90db4",
+  "created_at": "2026-09-16T05:51:17+00:00",
+  "reason": "Task completed: 소크 방향성 회의 전사본 저장",
+  "summary": "소크 방향성 회의 전사본 저장 -> DONE @ Haru2_dev/7d2d67c84c1d",
+  "job_id": "job-20260916-054456-2026-09-16-2e03d991",
+  "task_id": "task-20260916-054503-task-e7b60b20",
+  "commit_sha": "7d2d67c84c1d68a9388ecf7a2b8b67c5ea3ddf5c",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260916-054505-job-20260916-054456-2026-09-16-2e03d991-33fd8349/job-run.json",
+    ".loom/task-definitions/task-def-20260916-054503-task-def-8e4a408e/task-definition.json"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-09-16T05:51:17+00:00",
+  "rollback_strategy": "revert-or-branch"
+}
