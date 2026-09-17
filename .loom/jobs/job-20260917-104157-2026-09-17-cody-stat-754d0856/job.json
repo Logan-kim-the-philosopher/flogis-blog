@@ -2,13 +2,15 @@
   "id": "job-20260917-104157-2026-09-17-cody-stat-754d0856",
   "title": "2026-09-17 Cody stat 회의 전사",
   "goal": "바탕화면의 26-09-17_Cody_stat_회의.m4a 전체를 한국어로 전사하고 원본 기준 시각이 있는 단일 UTF-8 텍스트 파일을 같은 바탕화면에 저장한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-17T10:41:57+00:00",
-  "updated_at": "2026-09-17T10:42:07+00:00",
+  "updated_at": "2026-09-17T11:53:54+00:00",
   "context_refs": [],
   "task_ids": [
     "task-20260917-104205-cody-stat-c76102a3"
   ],
   "branch_name": "Haru2_dev",
-  "checkpoint_ids": []
+  "checkpoint_ids": [
+    "checkpoint-20260917-115354-task-completed-cody-stat-0e8c06e4"
+  ]
 }
