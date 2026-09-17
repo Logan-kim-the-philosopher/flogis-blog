@@ -1,0 +1,8 @@
+[2026-09-17T10:42:07+00:00] agent=codex task=task-20260917-104205-cody-stat-c76102a3 Foreground task session started.
+ffprobe: 원본 5287.044354초, AAC mono 44.1 kHz, 43883916바이트.
+ffmpeg: 16 kHz mono WAV 45개 구간 생성. 구간 길이 합 5287.044375초.
+OpenSuperWhisper bench: 로컬 large-v3-turbo 한국어 전사 45개 구간 완료. 14개 구간 재분할, 7개 구간 음량 보정, 3개 구간 최종 재검수.
+assemble.py: 전 구간 원본 순서로 통합. 45개 시각 구획, 55723바이트, SHA-256 706f0fb2c79d24573b470e5504190fd935991a2d0bda05ac2fc303ded0fd376f.
+Desktop: 26-09-17_Cody_stat_회의_전사.txt 저장 후 임시 완성본과 cmp 일치.
+원본 SHA-256: c9c061bdfeb37ef13350b6a28e85121cd38dfae15b4a6d5c1dfc04c481baa8ee. 전사 전후 일치.
+loom task validate: Boundary validation [OK]. loom validate --strict: Workspace metadata validation [OK].
