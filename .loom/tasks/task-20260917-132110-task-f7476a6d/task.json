@@ -3,9 +3,9 @@
   "job_id": "job-20260917-132103-2026-09-17-88acf855",
   "title": "희성님 솔직 대화 전체 전사본 저장",
   "description": "바탕화면의 지정된 녹음 전체를 로컬 한국어 모델로 전사하고 불안정한 구간은 재분할·음량 보정 결과와 비교한다. 확인되지 않는 발화는 추측하지 않고 표시하며 원본 기준 시각을 넣은 단일 TXT 파일을 바탕화면에 저장한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-17T13:21:10+00:00",
-  "updated_at": "2026-09-17T13:21:12+00:00",
+  "updated_at": "2026-09-17T13:28:39+00:00",
   "order_index": 1,
   "assigned_agent": "codex",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "8f2e43efa88083e52c74461fc92e7149cce2a3b3"
+    "8f2e43efa88083e52c74461fc92e7149cce2a3b3",
+    "75ae2bac61bc3ca8dcfbffe388a1b2bdfb05e0b2"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-09-17T13:21:12+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-09-17T13:28:39+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260917-132110-task-f7476a6d/agent-events.jsonl",
+    ".loom/tasks/task-20260917-132110-task-f7476a6d/artifacts.json",
+    ".loom/tasks/task-20260917-132110-task-f7476a6d/context.md",
+    ".loom/tasks/task-20260917-132110-task-f7476a6d/decision.md",
+    ".loom/tasks/task-20260917-132110-task-f7476a6d/git-snapshot.json",
+    ".loom/tasks/task-20260917-132110-task-f7476a6d/logs.txt",
+    ".loom/tasks/task-20260917-132110-task-f7476a6d/previous-results.md",
+    ".loom/tasks/task-20260917-132110-task-f7476a6d/prompt.md",
+    ".loom/tasks/task-20260917-132110-task-f7476a6d/result.md",
+    ".loom/tasks/task-20260917-132110-task-f7476a6d/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }

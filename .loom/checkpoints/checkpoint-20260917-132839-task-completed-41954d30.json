@@ -1,0 +1,19 @@
+{
+  "id": "checkpoint-20260917-132839-task-completed-41954d30",
+  "created_at": "2026-09-17T13:28:39+00:00",
+  "reason": "Task completed: 희성님 솔직 대화 전체 전사본 저장",
+  "summary": "희성님 솔직 대화 전체 전사본 저장 -> DONE @ Haru2_dev/75ae2bac61bc",
+  "job_id": "job-20260917-132103-2026-09-17-88acf855",
+  "task_id": "task-20260917-132110-task-f7476a6d",
+  "commit_sha": "75ae2bac61bc3ca8dcfbffe388a1b2bdfb05e0b2",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260917-132112-job-20260917-132103-2026-09-17-88acf855-e04d57be/job-run.json",
+    ".loom/task-definitions/task-def-20260917-132110-task-def-2162aa91/task-definition.json"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-09-17T13:28:39+00:00",
+  "rollback_strategy": "revert-or-branch"
+}
