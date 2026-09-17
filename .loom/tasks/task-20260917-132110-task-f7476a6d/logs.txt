@@ -1,0 +1,8 @@
+[2026-09-17T13:21:12+00:00] agent=codex task=task-20260917-132110-task-f7476a6d Foreground task session started.
+ffprobe: 원본 1581.581315초, AAC mono 44.1 kHz, 25935011바이트.
+ffmpeg: 원본 음질 120초 구간 14개와 음량 보정 60초 구간 27개 생성. 각 구간 길이 합 1581.580812초.
+OpenSuperWhisper bench: 로컬 large-v3-turbo 한국어 모델로 두 방식의 전사를 완료하고 구간별 비교.
+assemble.py: 선택한 발화를 원본 순서로 결합. 14개 시각 구획, 24824바이트, SHA-256 12f6c0a13d04f20982a7599b6dcc9d0b917b0a444a892e9b7685659e355ea101.
+Desktop: 26-09-17_희성님_ 솔직_대화_전사.txt 저장 후 임시 완성본과 cmp 일치.
+원본 SHA-256: b5b13b9eb96df86c10d0980869d9eafae9523f14d7a9502605fd056dcc04a2af. 전사 전후 동일.
+loom task validate: Boundary validation [OK]. loom validate --strict: Workspace metadata validation [OK].

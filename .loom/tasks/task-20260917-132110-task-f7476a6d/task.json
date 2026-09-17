@@ -1,0 +1,32 @@
+{
+  "id": "task-20260917-132110-task-f7476a6d",
+  "job_id": "job-20260917-132103-2026-09-17-88acf855",
+  "title": "희성님 솔직 대화 전체 전사본 저장",
+  "description": "바탕화면의 지정된 녹음 전체를 로컬 한국어 모델로 전사하고 불안정한 구간은 재분할·음량 보정 결과와 비교한다. 확인되지 않는 발화는 추측하지 않고 표시하며 원본 기준 시각을 넣은 단일 TXT 파일을 바탕화면에 저장한다.",
+  "status": "RUNNING",
+  "created_at": "2026-09-17T13:21:10+00:00",
+  "updated_at": "2026-09-17T13:21:12+00:00",
+  "order_index": 1,
+  "assigned_agent": "codex",
+  "depends_on": [],
+  "expected_output": "바탕화면의 26-09-17_희성님_ 솔직_대화_전사.txt 한 파일",
+  "done_condition": "원본 전체 길이를 구간별로 전사하고 가능한 범위에서 불안정한 구간을 재검토한다. 단일 비어 있지 않은 TXT 파일을 같은 바탕화면에 저장하며 구간 길이 합, 출력 바이트 일치, 원본 SHA-256 불변, Loom 검증과 로컬 작업 기록 커밋을 완료한다.",
+  "in_scope": "지정 녹음 읽기, 설치된 로컬 한국어 모델로 전체 및 문제 구간 재전사, 임시 오디오 변환·비교, 바탕화면 단일 TXT 저장, Loom 기록·검증·로컬 커밋",
+  "out_of_scope": "원본 변경·삭제, 다른 녹음 전사, 모델 설치·변경, 외부 공유, 블로그 코드 변경·게시, 원격 push",
+  "validation_hint": "결과의 ## 검증 구획에 원본 길이와 구간 길이 합, 처음과 끝 발화, 전사 파일 크기·바이트 일치, 원본 SHA-256 불변, loom validate 통과를 기록한다.",
+  "required_docs": [],
+  "memory_refs": [],
+  "document_outputs": [],
+  "document_output_exceptions": [],
+  "run_attempts": 0,
+  "last_error": "",
+  "commit_refs": [
+    "8f2e43efa88083e52c74461fc92e7149cce2a3b3"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-09-17T13:21:12+00:00",
+  "artifacts": [],
+  "source_proposal_id": "",
+  "source_prompt": ""
+}
