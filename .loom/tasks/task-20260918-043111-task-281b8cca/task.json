@@ -3,9 +3,9 @@
   "job_id": "job-20260918-043102-2026-09-18-69f9c079",
   "title": "코디스탯 회의·연진님 사담 두 원본의 개별 전사본 저장",
   "description": "바탕화면의 두 지정 녹음을 각각 전 구간 로컬 한국어 모델로 전사한다. 인식이 희박하거나 반복·비문인 구간은 재분할 또는 음량 보정 결과와 비교하고, 불확실한 발화는 표시한다. 각 원본 시작 기준 시각이 있는 별도 TXT 두 파일을 바탕화면에 저장한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-18T04:31:11+00:00",
-  "updated_at": "2026-09-18T04:31:15+00:00",
+  "updated_at": "2026-09-18T04:48:41+00:00",
   "order_index": 1,
   "assigned_agent": "codex",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "7d49815767380db65dbd0e1373b1238d0e793d94"
+    "7d49815767380db65dbd0e1373b1238d0e793d94",
+    "970f5c2a36079eb38a77ce915f36d80beb6b875c"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-09-18T04:31:15+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-09-18T04:48:41+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260918-043111-task-281b8cca/agent-events.jsonl",
+    ".loom/tasks/task-20260918-043111-task-281b8cca/artifacts.json",
+    ".loom/tasks/task-20260918-043111-task-281b8cca/context.md",
+    ".loom/tasks/task-20260918-043111-task-281b8cca/decision.md",
+    ".loom/tasks/task-20260918-043111-task-281b8cca/git-snapshot.json",
+    ".loom/tasks/task-20260918-043111-task-281b8cca/logs.txt",
+    ".loom/tasks/task-20260918-043111-task-281b8cca/previous-results.md",
+    ".loom/tasks/task-20260918-043111-task-281b8cca/prompt.md",
+    ".loom/tasks/task-20260918-043111-task-281b8cca/result.md",
+    ".loom/tasks/task-20260918-043111-task-281b8cca/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }

@@ -6,3 +6,4 @@ assemble.py: 회의 23구간/44112바이트/SHA-256 86bd1c6ef9f8a541e0fdf0297f23
 Desktop: 각각 별도 TXT 저장. 두 저장본 모두 임시 완성본과 cmp 일치.
 원본 SHA-256: 회의 65fb44872a359b055c4ce8e0529c4195199a144a621997205a1811348e2a44d3; 사담 26ee849d018b5815d58d292aad5c28bc3f437dc49619acc1fde22bdd80344636. 전사 전후 불변.
 loom task validate: Boundary validation [OK]. loom validate --strict: Workspace metadata validation [OK].
+[2026-09-18T04:48:41+00:00] agent=codex task=task-20260918-043111-task-281b8cca 두 지정 녹음을 각각 전체 전사·비교해 바탕화면에 별도 텍스트 파일로 저장하고 검증했다.

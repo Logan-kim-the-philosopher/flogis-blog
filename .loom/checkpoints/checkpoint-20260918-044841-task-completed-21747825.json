@@ -1,0 +1,19 @@
+{
+  "id": "checkpoint-20260918-044841-task-completed-21747825",
+  "created_at": "2026-09-18T04:48:41+00:00",
+  "reason": "Task completed: 코디스탯 회의·연진님 사담 두 원본의 개별 전사본 저장",
+  "summary": "코디스탯 회의·연진님 사담 두 원본의 개별 전사본 저장 -> DONE @ Haru2_dev/970f5c2a3607",
+  "job_id": "job-20260918-043102-2026-09-18-69f9c079",
+  "task_id": "task-20260918-043111-task-281b8cca",
+  "commit_sha": "970f5c2a36079eb38a77ce915f36d80beb6b875c",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260918-043115-job-20260918-043102-2026-09-18-69f9c079-e2e94a5b/job-run.json",
+    ".loom/task-definitions/task-def-20260918-043111-task-def-99771959/task-definition.json"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-09-18T04:48:41+00:00",
+  "rollback_strategy": "revert-or-branch"
+}
