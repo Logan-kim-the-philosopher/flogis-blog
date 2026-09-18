@@ -1,0 +1,8 @@
+[2026-09-18T04:31:15+00:00] agent=codex task=task-20260918-043111-task-281b8cca Foreground task session started.
+ffprobe: 회의 2684.219932초/44014888바이트, 사담 1610.541247초/26409808바이트. 두 원본 모두 AAC mono 44.1 kHz.
+ffmpeg: 원본 음질 120초 구간 23+14개, 음량 보정 60초 구간 45+27개 생성. 사담 소음 보정 120초 구간 14개 추가 생성.
+OpenSuperWhisper bench: 로컬 large-v3-turbo 모델로 전체 원본·보정 구간 전사 후 결과 비교.
+assemble.py: 회의 23구간/44112바이트/SHA-256 86bd1c6ef9f8a541e0fdf0297f238a86a0c149700cf89b24bf56c0f0be74b05a. 사담 14구간/11505바이트/SHA-256 41483b0b2d63179863a65270f0f28c51917b805b774ae856f42e154402b0418a.
+Desktop: 각각 별도 TXT 저장. 두 저장본 모두 임시 완성본과 cmp 일치.
+원본 SHA-256: 회의 65fb44872a359b055c4ce8e0529c4195199a144a621997205a1811348e2a44d3; 사담 26ee849d018b5815d58d292aad5c28bc3f437dc49619acc1fde22bdd80344636. 전사 전후 불변.
+loom task validate: Boundary validation [OK]. loom validate --strict: Workspace metadata validation [OK].
