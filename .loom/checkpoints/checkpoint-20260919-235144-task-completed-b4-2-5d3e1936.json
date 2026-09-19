@@ -1,0 +1,19 @@
+{
+  "id": "checkpoint-20260919-235144-task-completed-b4-2-5d3e1936",
+  "created_at": "2026-09-19T23:51:44+00:00",
+  "reason": "Task completed: B4-2 평가 전체 전사본 저장",
+  "summary": "B4-2 평가 전체 전사본 저장 -> DONE @ Haru2_dev/a8f5e78f82a9",
+  "job_id": "job-20260919-234105-2026-09-20-b4-2-1f356c0b",
+  "task_id": "task-20260919-234113-b4-2-b74fc471",
+  "commit_sha": "a8f5e78f82a96deca751a936dcd9e49f3d7b2a14",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260919-234116-job-20260919-234105-2026-09-20-b4-2-1f356c0b-1aa8700b/job-run.json",
+    ".loom/task-definitions/task-def-20260919-234113-b4-2-6aa70957/task-definition.json"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-09-19T23:51:44+00:00",
+  "rollback_strategy": "revert-or-branch"
+}

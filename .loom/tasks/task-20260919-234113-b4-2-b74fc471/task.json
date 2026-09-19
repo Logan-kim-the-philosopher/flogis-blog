@@ -3,9 +3,9 @@
   "job_id": "job-20260919-234105-2026-09-20-b4-2-1f356c0b",
   "title": "B4-2 평가 전체 전사본 저장",
   "description": "바탕화면의 지정 녹음 전체를 로컬 한국어 음성 인식 모델로 전사한다. 인식이 희박하거나 반복·비문인 구간은 재분할 또는 음량 보정 결과와 비교하고 불확실한 발화는 표시한다. 원본 시작 기준 시각이 있는 단일 TXT를 바탕화면에 저장한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-19T23:41:13+00:00",
-  "updated_at": "2026-09-19T23:41:16+00:00",
+  "updated_at": "2026-09-19T23:51:44+00:00",
   "order_index": 1,
   "assigned_agent": "codex",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "e5168c0b2f1f67873d8a21f134ef16cb5906548e"
+    "e5168c0b2f1f67873d8a21f134ef16cb5906548e",
+    "a8f5e78f82a96deca751a936dcd9e49f3d7b2a14"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-09-19T23:41:16+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-09-19T23:51:44+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260919-234113-b4-2-b74fc471/agent-events.jsonl",
+    ".loom/tasks/task-20260919-234113-b4-2-b74fc471/artifacts.json",
+    ".loom/tasks/task-20260919-234113-b4-2-b74fc471/context.md",
+    ".loom/tasks/task-20260919-234113-b4-2-b74fc471/decision.md",
+    ".loom/tasks/task-20260919-234113-b4-2-b74fc471/git-snapshot.json",
+    ".loom/tasks/task-20260919-234113-b4-2-b74fc471/logs.txt",
+    ".loom/tasks/task-20260919-234113-b4-2-b74fc471/previous-results.md",
+    ".loom/tasks/task-20260919-234113-b4-2-b74fc471/prompt.md",
+    ".loom/tasks/task-20260919-234113-b4-2-b74fc471/result.md",
+    ".loom/tasks/task-20260919-234113-b4-2-b74fc471/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }
