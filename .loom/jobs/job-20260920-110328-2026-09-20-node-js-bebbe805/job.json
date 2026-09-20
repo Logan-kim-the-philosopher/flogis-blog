@@ -2,13 +2,15 @@
   "id": "job-20260920-110328-2026-09-20-node-js-bebbe805",
   "title": "2026-09-20 Node.js 세션 리허설 전사",
   "goal": "바탕화면의 26-09-20_node_js_세션_리허설.m4a 전체를 가능한 정확하게 한국어로 전사하고 원본 기준 시각이 있는 단일 UTF-8 텍스트 파일을 같은 바탕화면에 저장한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-20T11:03:28+00:00",
-  "updated_at": "2026-09-20T11:03:39+00:00",
+  "updated_at": "2026-09-20T11:23:13+00:00",
   "context_refs": [],
   "task_ids": [
     "task-20260920-110336-node-js-1b0815bd"
   ],
   "branch_name": "Haru2_dev",
-  "checkpoint_ids": []
+  "checkpoint_ids": [
+    "checkpoint-20260920-112313-task-completed-node-js-2288965f"
+  ]
 }

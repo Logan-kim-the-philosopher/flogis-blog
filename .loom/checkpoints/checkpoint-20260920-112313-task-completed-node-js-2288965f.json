@@ -1,0 +1,19 @@
+{
+  "id": "checkpoint-20260920-112313-task-completed-node-js-2288965f",
+  "created_at": "2026-09-20T11:23:13+00:00",
+  "reason": "Task completed: Node.js 세션 리허설 전체 전사본 저장",
+  "summary": "Node.js 세션 리허설 전체 전사본 저장 -> DONE @ Haru2_dev/7a62ab276d1e",
+  "job_id": "job-20260920-110328-2026-09-20-node-js-bebbe805",
+  "task_id": "task-20260920-110336-node-js-1b0815bd",
+  "commit_sha": "7a62ab276d1e4308bc39f7acbce6048af70f9abc",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260920-110339-job-20260920-110328-2026-09-20-node-js-bebbe805-fb9b1232/job-run.json",
+    ".loom/task-definitions/task-def-20260920-110336-node-js-8627a75e/task-definition.json"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-09-20T11:23:13+00:00",
+  "rollback_strategy": "revert-or-branch"
+}

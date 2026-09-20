@@ -3,9 +3,9 @@
   "job_id": "job-20260920-110328-2026-09-20-node-js-bebbe805",
   "title": "Node.js 세션 리허설 전체 전사본 저장",
   "description": "바탕화면의 지정 녹음 전체를 로컬 한국어 음성 인식 모델로 전사한다. 인식이 희박하거나 반복·비문인 구간은 재분할 또는 음량 보정 결과와 비교하고 불확실한 발화는 표시한다. 원본 시작 기준 시각이 있는 단일 TXT를 바탕화면에 저장한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-20T11:03:36+00:00",
-  "updated_at": "2026-09-20T11:03:39+00:00",
+  "updated_at": "2026-09-20T11:23:13+00:00",
   "order_index": 1,
   "assigned_agent": "codex",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "cb1d1ae104995935623090867a8cf0f133790700"
+    "cb1d1ae104995935623090867a8cf0f133790700",
+    "7a62ab276d1e4308bc39f7acbce6048af70f9abc"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-09-20T11:03:39+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-09-20T11:23:13+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260920-110336-node-js-1b0815bd/agent-events.jsonl",
+    ".loom/tasks/task-20260920-110336-node-js-1b0815bd/artifacts.json",
+    ".loom/tasks/task-20260920-110336-node-js-1b0815bd/context.md",
+    ".loom/tasks/task-20260920-110336-node-js-1b0815bd/decision.md",
+    ".loom/tasks/task-20260920-110336-node-js-1b0815bd/git-snapshot.json",
+    ".loom/tasks/task-20260920-110336-node-js-1b0815bd/logs.txt",
+    ".loom/tasks/task-20260920-110336-node-js-1b0815bd/previous-results.md",
+    ".loom/tasks/task-20260920-110336-node-js-1b0815bd/prompt.md",
+    ".loom/tasks/task-20260920-110336-node-js-1b0815bd/result.md",
+    ".loom/tasks/task-20260920-110336-node-js-1b0815bd/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }
