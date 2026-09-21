@@ -3,9 +3,9 @@
   "job_id": "job-20260921-101602-2026-09-21-447cbab1",
   "title": "연진님 사담 음성 파일 정밀 전사·바탕화면 저장",
   "description": "요청한 파일을 바탕화면에서 Unicode 정규화로 식별하고 설치된 전사 전용 에이전트의 accurate 모드로 전체 음성을 전사한다. 원본 의미를 보존하고 불확실한 표현을 표시해 같은 바탕화면에 TXT를 안전하게 저장한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-21T10:16:09+00:00",
-  "updated_at": "2026-09-21T10:16:15+00:00",
+  "updated_at": "2026-09-21T10:29:19+00:00",
   "order_index": 1,
   "assigned_agent": "codex",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "d0b54dd2294e2bb70a3b539d18dd79ebbef5af3e"
+    "d0b54dd2294e2bb70a3b539d18dd79ebbef5af3e",
+    "4f55f4b87c3e1849f13a435d8dadc7a9f523e5c9"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-09-21T10:16:15+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-09-21T10:29:19+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260921-101609-task-d96e61a2/agent-events.jsonl",
+    ".loom/tasks/task-20260921-101609-task-d96e61a2/artifacts.json",
+    ".loom/tasks/task-20260921-101609-task-d96e61a2/context.md",
+    ".loom/tasks/task-20260921-101609-task-d96e61a2/decision.md",
+    ".loom/tasks/task-20260921-101609-task-d96e61a2/git-snapshot.json",
+    ".loom/tasks/task-20260921-101609-task-d96e61a2/logs.txt",
+    ".loom/tasks/task-20260921-101609-task-d96e61a2/previous-results.md",
+    ".loom/tasks/task-20260921-101609-task-d96e61a2/prompt.md",
+    ".loom/tasks/task-20260921-101609-task-d96e61a2/result.md",
+    ".loom/tasks/task-20260921-101609-task-d96e61a2/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }

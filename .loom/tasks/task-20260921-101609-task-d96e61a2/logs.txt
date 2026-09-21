@@ -1,3 +1,4 @@
 [2026-09-21T10:16:15+00:00] agent=codex task=task-20260921-101609-task-d96e61a2 Foreground task session started.
 [2026-09-21T10:27:45+00:00] agent=codex task=task-20260921-101609-task-d96e61a2 osw_candidates=105 windows=21 duration_seconds=1209.241837 pi_cli=failed_invalid_refresh_token fallback=Codex_candidate_comparison output=/Users/hongyongjae/Desktop/26-09-21_연진님_사담_전사.txt
 [2026-09-21T10:27:45+00:00] agent=codex task=task-20260921-101609-task-d96e61a2 verification=pass source_sha256=7ff52aa4ce4f7994fae8d83a61ae5ff78bab7f766c41b5346fa8a7e9b524eda8 output_sha256=1bedfeee092e2ecfe6fd816921789288a7ab5d3340e2f8f66c8dc6cff1f8e588 output_bytes=16867 timestamps=21 uncertainties=12 utf8_replacement=none
+[2026-09-21T10:29:19+00:00] agent=codex task=task-20260921-101609-task-d96e61a2 요청한 음성 20분 9초를 OpenSuperWhisper 105개 후보로 전사하고, Pi OAuth 오류로 자동 검수 대신 Codex가 후보를 직접 대조했다. 바탕화면 TXT 21구간·확인 필요 12곳, 원본/결과 해시·크기·UTF-8 검증을 완료했다.

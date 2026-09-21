@@ -1,0 +1,19 @@
+{
+  "id": "checkpoint-20260921-102920-task-completed-1879bf5c",
+  "created_at": "2026-09-21T10:29:20+00:00",
+  "reason": "Task completed: 연진님 사담 음성 파일 정밀 전사·바탕화면 저장",
+  "summary": "연진님 사담 음성 파일 정밀 전사·바탕화면 저장 -> DONE @ Haru2_dev/4f55f4b87c3e",
+  "job_id": "job-20260921-101602-2026-09-21-447cbab1",
+  "task_id": "task-20260921-101609-task-d96e61a2",
+  "commit_sha": "4f55f4b87c3e1849f13a435d8dadc7a9f523e5c9",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260921-101615-job-20260921-101602-2026-09-21-447cbab1-0734d9ea/job-run.json",
+    ".loom/task-definitions/task-def-20260921-101609-task-def-3dcaa25f/task-definition.json"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-09-21T10:29:19+00:00",
+  "rollback_strategy": "revert-or-branch"
+}
