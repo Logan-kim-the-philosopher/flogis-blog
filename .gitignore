@@ -29,3 +29,4 @@ pnpm-debug.log*
 
 # local meeting-agent runs and private transcription artifacts
 .meeting-agent/
+.transcribe-agent/

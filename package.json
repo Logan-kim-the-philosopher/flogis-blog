@@ -18,7 +18,12 @@
     "meeting:doctor": "node scripts/meeting-agent/index.mjs doctor",
     "meeting:setup": "node scripts/meeting-agent/setup-opensuperwhisper.mjs",
     "meeting:test": "node --test tests/meeting-agent.test.mjs tests/meeting-extension.test.mjs",
-    "meeting:extension:smoke": "node scripts/meeting-agent/smoke-pi-extension.mjs"
+    "meeting:extension:smoke": "node scripts/meeting-agent/smoke-pi-extension.mjs",
+    "transcribe": "node scripts/transcribe-agent/index.mjs run",
+    "transcribe:resume": "node scripts/transcribe-agent/index.mjs resume",
+    "transcribe:doctor": "node scripts/transcribe-agent/index.mjs doctor",
+    "transcribe:test": "node --test tests/transcribe-agent.test.mjs tests/transcribe-extension.test.mjs",
+    "transcribe:extension:smoke": "node scripts/transcribe-agent/smoke-pi-extension.mjs"
   },
   "dependencies": {
     "@astrojs/node": "^11.1.4",

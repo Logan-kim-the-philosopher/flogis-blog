@@ -1,0 +1,28 @@
+{
+  "id": "task-def-20260921-005251-pi-e79aa30e",
+  "job_definition_id": "job-20260921-005241-pi-10a0c96f",
+  "title": "파일명 기반 Pi 전사 에이전트 구현·검증",
+  "description": "독립 전사 CLI와 Pi extension을 추가해 파일명 또는 경로로 바탕화면 음성을 찾고, 원음·음량 보정·정밀 후보를 OpenSuperWhisper로 전사한 뒤 Pi가 문맥상 확실한 오류만 교정하여 타임스탬프 TXT를 바탕화면에 원자적으로 저장한다. 상태·재개·자연어 tool 호출, 충돌 방지와 원본·사본 검증을 포함한다.",
+  "created_at": "2026-09-21T00:52:51+00:00",
+  "updated_at": "2026-09-21T00:52:54+00:00",
+  "order_index": 1,
+  "legacy_task_id": "task-20260921-005251-pi-e7754e81",
+  "depends_on": [],
+  "expected_output": "scripts/transcribe-agent, .pi/extensions/transcribe-workflow.ts, .pi/lib/transcribe-workflow.mjs, tests, docs/transcribe-agent.md와 package scripts",
+  "done_condition": "/transcribe 파일명, /transcribe-status, /transcribe-resume와 transcribe_audio tool이 동작하고, 한글 NFC/NFD 파일 검색·다중 후보 전사·Pi 검수·불명확 표기·바탕화면 출력·기존 파일 보호·원본 해시 불변·재개를 자동 테스트와 extension smoke test로 검증하며 문서화하고 커밋한다.",
+  "in_scope": "전사 전용 CLI·Pi extension·순수 helper·검수 프롬프트·테스트·사용 문서·package scripts 구현, 기존 meeting agent의 안전한 helper 패턴 재사용",
+  "out_of_scope": "Sanity 게시, 블로그 콘텐츠 생성, 기존 /meeting 동작 변경, OpenSuperWhisper 모델 설치·변경, 실제 사용자 음성 재전사, 외부 공유, 원격 push",
+  "validation_hint": "node unit tests, Pi extension smoke, npm run build, npm run transcribe:doctor, git diff --check, loom task validate와 loom validate --strict를 통과한다.",
+  "required_docs": [],
+  "memory_refs": [],
+  "document_outputs": [
+    "docs/transcribe-agent.md"
+  ],
+  "document_output_exceptions": [],
+  "default_agent": "codex",
+  "context_policy_id": "",
+  "executor_policy_id": "",
+  "review_policy": "",
+  "source_proposal_id": "",
+  "source_prompt": ""
+}
