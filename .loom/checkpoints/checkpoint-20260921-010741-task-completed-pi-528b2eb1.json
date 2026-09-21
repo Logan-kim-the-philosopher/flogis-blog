@@ -1,0 +1,19 @@
+{
+  "id": "checkpoint-20260921-010741-task-completed-pi-528b2eb1",
+  "created_at": "2026-09-21T01:07:41+00:00",
+  "reason": "Task completed: 파일명 기반 Pi 전사 에이전트 구현·검증",
+  "summary": "파일명 기반 Pi 전사 에이전트 구현·검증 -> DONE @ Haru2_dev/ea1e00f308c8",
+  "job_id": "job-20260921-005241-pi-10a0c96f",
+  "task_id": "task-20260921-005251-pi-e7754e81",
+  "commit_sha": "ea1e00f308c8aec3d983b0434197f74d4d3e9656",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260921-005254-job-20260921-005241-pi-10a0c96f-5eb2a4a0/job-run.json",
+    ".loom/task-definitions/task-def-20260921-005251-pi-e79aa30e/task-definition.json"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-09-21T01:07:41+00:00",
+  "rollback_strategy": "revert-or-branch"
+}

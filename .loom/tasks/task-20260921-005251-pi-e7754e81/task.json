@@ -3,9 +3,9 @@
   "job_id": "job-20260921-005241-pi-10a0c96f",
   "title": "파일명 기반 Pi 전사 에이전트 구현·검증",
   "description": "독립 전사 CLI와 Pi extension을 추가해 파일명 또는 경로로 바탕화면 음성을 찾고, 원음·음량 보정·정밀 후보를 OpenSuperWhisper로 전사한 뒤 Pi가 문맥상 확실한 오류만 교정하여 타임스탬프 TXT를 바탕화면에 원자적으로 저장한다. 상태·재개·자연어 tool 호출, 충돌 방지와 원본·사본 검증을 포함한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-21T00:52:51+00:00",
-  "updated_at": "2026-09-21T00:52:54+00:00",
+  "updated_at": "2026-09-21T01:07:41+00:00",
   "order_index": 1,
   "assigned_agent": "codex",
   "depends_on": [],
@@ -23,12 +23,25 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "bc22753d5880703b8825278d03298e63394a5a07"
+    "bc22753d5880703b8825278d03298e63394a5a07",
+    "ea1e00f308c8aec3d983b0434197f74d4d3e9656"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-09-21T00:52:54+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-09-21T01:07:41+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260921-005251-pi-e7754e81/agent-events.jsonl",
+    ".loom/tasks/task-20260921-005251-pi-e7754e81/artifacts.json",
+    ".loom/tasks/task-20260921-005251-pi-e7754e81/context.md",
+    ".loom/tasks/task-20260921-005251-pi-e7754e81/decision.md",
+    ".loom/tasks/task-20260921-005251-pi-e7754e81/git-snapshot.json",
+    ".loom/tasks/task-20260921-005251-pi-e7754e81/logs.txt",
+    ".loom/tasks/task-20260921-005251-pi-e7754e81/previous-results.md",
+    ".loom/tasks/task-20260921-005251-pi-e7754e81/prompt.md",
+    ".loom/tasks/task-20260921-005251-pi-e7754e81/result.md",
+    ".loom/tasks/task-20260921-005251-pi-e7754e81/troubleshooting.md",
+    "docs/transcribe-agent.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }
