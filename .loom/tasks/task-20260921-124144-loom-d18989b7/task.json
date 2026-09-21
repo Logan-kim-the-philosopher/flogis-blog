@@ -3,9 +3,9 @@
   "job_id": "job-20260921-124136-2026-09-21-loom-3d998dbc",
   "title": "연진님 Loom 피드백 음성 단독 전사",
   "description": "바탕화면의 26-09-21_연진님_Loom_피드백 음성 한 건을 Unicode 정규화로 확인하고 OpenSuperWhisper 다중 후보로 전사한 뒤 문맥상 명확한 부분만 교정해 별도 TXT로 저장한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-21T12:41:44+00:00",
-  "updated_at": "2026-09-21T12:41:56+00:00",
+  "updated_at": "2026-09-21T12:51:45+00:00",
   "order_index": 1,
   "assigned_agent": "codex",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "7476d8db7bd3f706ad58304f1256e0c04b6f5a37"
+    "7476d8db7bd3f706ad58304f1256e0c04b6f5a37",
+    "52d8affabf36af4dc2915d23d01f6ba20ba6eaa0"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-09-21T12:41:56+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-09-21T12:51:45+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260921-124144-loom-d18989b7/agent-events.jsonl",
+    ".loom/tasks/task-20260921-124144-loom-d18989b7/artifacts.json",
+    ".loom/tasks/task-20260921-124144-loom-d18989b7/context.md",
+    ".loom/tasks/task-20260921-124144-loom-d18989b7/decision.md",
+    ".loom/tasks/task-20260921-124144-loom-d18989b7/git-snapshot.json",
+    ".loom/tasks/task-20260921-124144-loom-d18989b7/logs.txt",
+    ".loom/tasks/task-20260921-124144-loom-d18989b7/previous-results.md",
+    ".loom/tasks/task-20260921-124144-loom-d18989b7/prompt.md",
+    ".loom/tasks/task-20260921-124144-loom-d18989b7/result.md",
+    ".loom/tasks/task-20260921-124144-loom-d18989b7/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }
