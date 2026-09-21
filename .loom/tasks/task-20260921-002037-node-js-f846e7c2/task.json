@@ -3,9 +3,9 @@
   "job_id": "job-20260921-002018-2026-09-node-js-472a20a6",
   "title": "연진님 팀 대화와 Node.js 세션 피드백 개별 전사",
   "description": "지정된 두 AAC 음성 전체를 로컬 OpenSuperWhisper로 구간별 전사하고 원음과 음량 보정 결과를 비교해 누락·반복·문맥 오류를 줄인다. 확정할 수 없는 발화는 표시하고 각 원본 기준 타임스탬프가 있는 별도 TXT로 저장한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-21T00:20:37+00:00",
-  "updated_at": "2026-09-21T00:20:40+00:00",
+  "updated_at": "2026-09-21T00:32:24+00:00",
   "order_index": 1,
   "assigned_agent": "codex",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "7b9756f5f734a8e27189968cfe57315e9c392f81"
+    "7b9756f5f734a8e27189968cfe57315e9c392f81",
+    "67347c1a466b71f72fb3706c0587248ba210e97d"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-09-21T00:20:40+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-09-21T00:32:24+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260921-002037-node-js-f846e7c2/agent-events.jsonl",
+    ".loom/tasks/task-20260921-002037-node-js-f846e7c2/artifacts.json",
+    ".loom/tasks/task-20260921-002037-node-js-f846e7c2/context.md",
+    ".loom/tasks/task-20260921-002037-node-js-f846e7c2/decision.md",
+    ".loom/tasks/task-20260921-002037-node-js-f846e7c2/git-snapshot.json",
+    ".loom/tasks/task-20260921-002037-node-js-f846e7c2/logs.txt",
+    ".loom/tasks/task-20260921-002037-node-js-f846e7c2/previous-results.md",
+    ".loom/tasks/task-20260921-002037-node-js-f846e7c2/prompt.md",
+    ".loom/tasks/task-20260921-002037-node-js-f846e7c2/result.md",
+    ".loom/tasks/task-20260921-002037-node-js-f846e7c2/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }
