@@ -1,0 +1,4 @@
+[2026-09-21T00:16:32+00:00] agent=codex task=task-20260921-001627-markdown-e18da76c Foreground task session started.
+[2026-09-21T09:17:00+09:00] 현재 Astro Node SSR, Sanity repository, 콘텐츠 라우트와 기존 아키텍처·배포 문서를 검토했다.
+[2026-09-21T09:20:00+09:00] Astro Content Collections 기반 목표 구조, frontmatter, 발행 승인 흐름과 마이그레이션 단계를 문서화했다.
+[2026-09-21T09:21:00+09:00] 문서 구획과 내부 링크 대상을 확인하고 git diff --check를 통과했다.

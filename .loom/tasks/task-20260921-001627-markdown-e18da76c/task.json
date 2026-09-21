@@ -1,0 +1,34 @@
+{
+  "id": "task-20260921-001627-markdown-e18da76c",
+  "job_id": "job-20260921-001619-markdown-d004d2c0",
+  "title": "개인 에이전트 블로그 Markdown 운영 구조 문서화",
+  "description": "현재 Astro·Sanity 구조를 기준으로 별도 개인 에이전트 블로그가 Sanity 없이 로컬 Markdown 콘텐츠, 썸네일 파일, Git 이력과 자동 배포로 운영되도록 목표 구조, 콘텐츠 스키마, 에이전트 발행 흐름, 전환 단계와 검증 기준을 문서화한다.",
+  "status": "RUNNING",
+  "created_at": "2026-09-21T00:16:27+00:00",
+  "updated_at": "2026-09-21T00:16:32+00:00",
+  "order_index": 1,
+  "assigned_agent": "codex",
+  "depends_on": [],
+  "expected_output": "docs/personal-agent-blog-markdown-architecture.md",
+  "done_condition": "문서에 선택 근거, 디렉터리 구조, frontmatter 예시, Astro Content Collections 스키마 방향, 글 생성부터 배포까지의 승인 흐름, Sanity 제거 대상, 단계별 마이그레이션 및 검증·롤백 기준이 포함되고 저장소 문서 링크와 Markdown 형식을 검증한 뒤 커밋한다.",
+  "in_scope": "현재 저장소 구조 조사, Astro 공식 Content Collections 기준 반영, 개인 에이전트 블로그 목표 아키텍처와 마이그레이션 계획 문서 작성",
+  "out_of_scope": "실제 프런트 복제, Sanity 코드 제거, 콘텐츠 마이그레이션, 배포 설정 변경, 기존 운영 블로그 수정",
+  "validation_hint": "문서 필수 구획과 내부 파일 경로를 확인하고 git diff --check 및 loom validate --strict를 통과한다.",
+  "required_docs": [],
+  "memory_refs": [],
+  "document_outputs": [
+    "docs/personal-agent-blog-markdown-architecture.md"
+  ],
+  "document_output_exceptions": [],
+  "run_attempts": 0,
+  "last_error": "",
+  "commit_refs": [
+    "0eb6ffc24f59e3a4dd33829ad43f51c8efc18873"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-09-21T00:16:32+00:00",
+  "artifacts": [],
+  "source_proposal_id": "",
+  "source_prompt": ""
+}
