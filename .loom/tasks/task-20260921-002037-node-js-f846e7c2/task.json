@@ -1,0 +1,32 @@
+{
+  "id": "task-20260921-002037-node-js-f846e7c2",
+  "job_id": "job-20260921-002018-2026-09-node-js-472a20a6",
+  "title": "연진님 팀 대화와 Node.js 세션 피드백 개별 전사",
+  "description": "지정된 두 AAC 음성 전체를 로컬 OpenSuperWhisper로 구간별 전사하고 원음과 음량 보정 결과를 비교해 누락·반복·문맥 오류를 줄인다. 확정할 수 없는 발화는 표시하고 각 원본 기준 타임스탬프가 있는 별도 TXT로 저장한다.",
+  "status": "RUNNING",
+  "created_at": "2026-09-21T00:20:37+00:00",
+  "updated_at": "2026-09-21T00:20:40+00:00",
+  "order_index": 1,
+  "assigned_agent": "codex",
+  "depends_on": [],
+  "expected_output": "바탕화면의 26-09-2_연진님_팀_대화_전사.txt와 26-09-20_연진님_nodejs_세션_피드백_전사.txt",
+  "done_condition": "두 원본 전체 재생 시간을 빠짐없이 구간으로 다루고 각각 비어 있지 않은 UTF-8 TXT를 바탕화면에 저장한다. 각 파일의 첫·끝 구간, 출력 크기와 사본 바이트 일치, 원본 SHA-256 불변, Loom 검증과 로컬 작업 기록 커밋을 확인한다.",
+  "in_scope": "두 지정 음성 읽기, 로컬 모델 전사, 문제 구간 재전사·비교, 문맥상 명확한 오류 교정, 타임스탬프 포함 별도 TXT 두 파일 저장, Loom 기록·검증·커밋",
+  "out_of_scope": "원본 수정·삭제, 두 전사본 통합, 블로그 게시, Sanity 발행, 다른 음성 처리, 외부 공유, 원격 push",
+  "validation_hint": "ffprobe 전체 길이와 구간 범위, 첫·끝 발화, 최종 파일 비어 있지 않음, 임시본과 바탕화면 사본 SHA-256 일치, 원본 크기·SHA-256 불변, loom validate 통과를 확인한다.",
+  "required_docs": [],
+  "memory_refs": [],
+  "document_outputs": [],
+  "document_output_exceptions": [],
+  "run_attempts": 0,
+  "last_error": "",
+  "commit_refs": [
+    "7b9756f5f734a8e27189968cfe57315e9c392f81"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-09-21T00:20:40+00:00",
+  "artifacts": [],
+  "source_proposal_id": "",
+  "source_prompt": ""
+}
