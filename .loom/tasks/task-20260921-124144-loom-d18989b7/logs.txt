@@ -1,0 +1,3 @@
+[2026-09-21T12:41:56+00:00] agent=codex task=task-20260921-124144-loom-d18989b7 Foreground task session started.
+[2026-09-21T12:50:01+00:00] agent=codex task=task-20260921-124144-loom-d18989b7 transcription=local-only candidates=90 sections=18 duration_seconds=1023.542018 output=/Users/hongyongjae/Desktop/26-09-21_연진님_Loom_피드백_전사.txt uncertainties=10
+[2026-09-21T12:50:01+00:00] agent=codex task=task-20260921-124144-loom-d18989b7 validation=pass source_sha256=45af828f2831fc10fce6ff5be6730a33e6b3d90f58086cbe6974c8d9208ea256 output_sha256=b0f7c340d865ba978b6445becd7c1b7ec4272ada0f8476783cc759f31dfb47cd bytes=12593 timestamps=18 utf8=ok
