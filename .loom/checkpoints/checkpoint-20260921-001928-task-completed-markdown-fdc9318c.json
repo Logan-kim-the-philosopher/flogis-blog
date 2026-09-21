@@ -1,0 +1,19 @@
+{
+  "id": "checkpoint-20260921-001928-task-completed-markdown-fdc9318c",
+  "created_at": "2026-09-21T00:19:28+00:00",
+  "reason": "Task completed: 개인 에이전트 블로그 Markdown 운영 구조 문서화",
+  "summary": "개인 에이전트 블로그 Markdown 운영 구조 문서화 -> DONE @ Haru2_dev/2f1aa3e2eb92",
+  "job_id": "job-20260921-001619-markdown-d004d2c0",
+  "task_id": "task-20260921-001627-markdown-e18da76c",
+  "commit_sha": "2f1aa3e2eb92853e96b5df8febcdb38715985a2f",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260921-001632-job-20260921-001619-markdown-d004d2c0-573d80ab/job-run.json",
+    ".loom/task-definitions/task-def-20260921-001627-markdown-5c545763/task-definition.json"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-09-21T00:19:28+00:00",
+  "rollback_strategy": "revert-or-branch"
+}

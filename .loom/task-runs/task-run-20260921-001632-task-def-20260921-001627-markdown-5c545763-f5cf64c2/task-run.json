@@ -2,9 +2,9 @@
   "id": "task-run-20260921-001632-task-def-20260921-001627-markdown-5c545763-f5cf64c2",
   "job_run_id": "job-run-20260921-001632-job-20260921-001619-markdown-d004d2c0-573d80ab",
   "task_definition_id": "task-def-20260921-001627-markdown-5c545763",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-21T00:16:32+00:00",
-  "updated_at": "2026-09-21T00:16:32+00:00",
+  "updated_at": "2026-09-21T00:19:28+00:00",
   "legacy_task_id": "task-20260921-001627-markdown-e18da76c",
   "attempt": 1,
   "assigned_agent": "codex",
@@ -13,13 +13,30 @@
   "lease_expires_at": "",
   "queued_at": "",
   "started_at": "2026-09-21T00:16:32+00:00",
-  "completed_at": "",
+  "completed_at": "2026-09-21T00:19:28+00:00",
   "last_error": "",
-  "commit_refs": [],
-  "branch_name": "",
-  "git_dirty": false,
-  "git_snapshot_captured_at": "",
-  "artifacts": [],
-  "checkpoint_ids": [],
+  "commit_refs": [
+    "0eb6ffc24f59e3a4dd33829ad43f51c8efc18873",
+    "2f1aa3e2eb92853e96b5df8febcdb38715985a2f"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-09-21T00:19:28+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260921-001627-markdown-e18da76c/agent-events.jsonl",
+    ".loom/tasks/task-20260921-001627-markdown-e18da76c/artifacts.json",
+    ".loom/tasks/task-20260921-001627-markdown-e18da76c/context.md",
+    ".loom/tasks/task-20260921-001627-markdown-e18da76c/decision.md",
+    ".loom/tasks/task-20260921-001627-markdown-e18da76c/git-snapshot.json",
+    ".loom/tasks/task-20260921-001627-markdown-e18da76c/logs.txt",
+    ".loom/tasks/task-20260921-001627-markdown-e18da76c/previous-results.md",
+    ".loom/tasks/task-20260921-001627-markdown-e18da76c/prompt.md",
+    ".loom/tasks/task-20260921-001627-markdown-e18da76c/result.md",
+    ".loom/tasks/task-20260921-001627-markdown-e18da76c/troubleshooting.md",
+    "docs/personal-agent-blog-markdown-architecture.md"
+  ],
+  "checkpoint_ids": [
+    "checkpoint-20260921-001928-task-completed-markdown-fdc9318c"
+  ],
   "review_required_reason": ""
 }

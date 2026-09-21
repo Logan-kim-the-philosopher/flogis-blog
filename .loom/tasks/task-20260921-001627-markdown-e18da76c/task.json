@@ -3,9 +3,9 @@
   "job_id": "job-20260921-001619-markdown-d004d2c0",
   "title": "개인 에이전트 블로그 Markdown 운영 구조 문서화",
   "description": "현재 Astro·Sanity 구조를 기준으로 별도 개인 에이전트 블로그가 Sanity 없이 로컬 Markdown 콘텐츠, 썸네일 파일, Git 이력과 자동 배포로 운영되도록 목표 구조, 콘텐츠 스키마, 에이전트 발행 흐름, 전환 단계와 검증 기준을 문서화한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-21T00:16:27+00:00",
-  "updated_at": "2026-09-21T00:16:32+00:00",
+  "updated_at": "2026-09-21T00:19:28+00:00",
   "order_index": 1,
   "assigned_agent": "codex",
   "depends_on": [],
@@ -23,12 +23,25 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "0eb6ffc24f59e3a4dd33829ad43f51c8efc18873"
+    "0eb6ffc24f59e3a4dd33829ad43f51c8efc18873",
+    "2f1aa3e2eb92853e96b5df8febcdb38715985a2f"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-09-21T00:16:32+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-09-21T00:19:28+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260921-001627-markdown-e18da76c/agent-events.jsonl",
+    ".loom/tasks/task-20260921-001627-markdown-e18da76c/artifacts.json",
+    ".loom/tasks/task-20260921-001627-markdown-e18da76c/context.md",
+    ".loom/tasks/task-20260921-001627-markdown-e18da76c/decision.md",
+    ".loom/tasks/task-20260921-001627-markdown-e18da76c/git-snapshot.json",
+    ".loom/tasks/task-20260921-001627-markdown-e18da76c/logs.txt",
+    ".loom/tasks/task-20260921-001627-markdown-e18da76c/previous-results.md",
+    ".loom/tasks/task-20260921-001627-markdown-e18da76c/prompt.md",
+    ".loom/tasks/task-20260921-001627-markdown-e18da76c/result.md",
+    ".loom/tasks/task-20260921-001627-markdown-e18da76c/troubleshooting.md",
+    "docs/personal-agent-blog-markdown-architecture.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }
