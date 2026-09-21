@@ -3,9 +3,9 @@
   "job_id": "job-20260921-124136-2026-09-21-loom-3d998dbc",
   "title": "현래님 Loom 피드백 음성 단독 전사",
   "description": "바탕화면의 26-09-21_현래님_Loom_피드백 음성 한 건을 Unicode 정규화로 확인하고 OpenSuperWhisper 다중 후보로 전사한 뒤 문맥상 명확한 부분만 교정해 별도 TXT로 저장한다.",
-  "status": "PENDING",
+  "status": "RUNNING",
   "created_at": "2026-09-21T12:41:51+00:00",
-  "updated_at": "2026-09-21T12:41:51+00:00",
+  "updated_at": "2026-09-21T12:51:57+00:00",
   "order_index": 2,
   "assigned_agent": "codex",
   "depends_on": [],
@@ -20,10 +20,12 @@
   "document_output_exceptions": [],
   "run_attempts": 0,
   "last_error": "",
-  "commit_refs": [],
-  "branch_name": "",
-  "git_dirty": false,
-  "git_snapshot_captured_at": "",
+  "commit_refs": [
+    "62c3ae439dd41cd099db4eb8564600b4d9ce8de6"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-09-21T12:51:57+00:00",
   "artifacts": [],
   "source_proposal_id": "",
   "source_prompt": ""
