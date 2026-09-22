@@ -4,7 +4,7 @@
   "title": "연진님·현래님 Loom 사업기획 회의 단독 전사",
   "description": "바탕화면의 지정 M4A 한 건을 Unicode 정규화로 확인하고 로컬 OpenSuperWhisper 다중 후보로 전사해 문맥상 명확한 부분만 교정한다.",
   "created_at": "2026-09-22T06:02:02+00:00",
-  "updated_at": "2026-09-22T06:02:08+00:00",
+  "updated_at": "2026-09-22T06:41:07+00:00",
   "order_index": 1,
   "legacy_task_id": "task-20260922-060202-loom-b41ee45b",
   "depends_on": [],

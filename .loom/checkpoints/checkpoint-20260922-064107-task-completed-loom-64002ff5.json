@@ -1,0 +1,19 @@
+{
+  "id": "checkpoint-20260922-064107-task-completed-loom-64002ff5",
+  "created_at": "2026-09-22T06:41:07+00:00",
+  "reason": "Task completed: 연진님·현래님 Loom 사업기획 회의 단독 전사",
+  "summary": "연진님·현래님 Loom 사업기획 회의 단독 전사 -> DONE @ Haru2_dev/043b21ccc926",
+  "job_id": "job-20260922-060156-2026-09-22-loom-5ee869e7",
+  "task_id": "task-20260922-060202-loom-b41ee45b",
+  "commit_sha": "043b21ccc926f8bbc3657361c385506cc8db83f1",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260922-060208-job-20260922-060156-2026-09-22-loom-5ee869e7-3b014af2/job-run.json",
+    ".loom/task-definitions/task-def-20260922-060202-loom-de9b84b1/task-definition.json"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-09-22T06:41:07+00:00",
+  "rollback_strategy": "revert-or-branch"
+}
