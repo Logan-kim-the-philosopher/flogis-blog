@@ -3,9 +3,9 @@
   "job_id": "job-20260927-094403-2026-09-27-0be7a1fd",
   "title": "정현님 사담 단독 전사",
   "description": "바탕화면의 지정 음성 파일 한 건을 Unicode 정규화로 찾아 로컬 전사 후보를 생성하고 문맥상 명확한 부분만 교정한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-27T09:44:09+00:00",
-  "updated_at": "2026-09-27T09:44:11+00:00",
+  "updated_at": "2026-09-27T10:37:31+00:00",
   "order_index": 1,
   "assigned_agent": "codex",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "d6bceb9aee86a65bb173a4efd88b8265d1ba537c"
+    "d6bceb9aee86a65bb173a4efd88b8265d1ba537c",
+    "3192b02aef226836f707c9d9b22385f5d7ee7c07"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-09-27T09:44:11+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-09-27T10:37:31+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260927-094409-task-25d97433/agent-events.jsonl",
+    ".loom/tasks/task-20260927-094409-task-25d97433/artifacts.json",
+    ".loom/tasks/task-20260927-094409-task-25d97433/context.md",
+    ".loom/tasks/task-20260927-094409-task-25d97433/decision.md",
+    ".loom/tasks/task-20260927-094409-task-25d97433/git-snapshot.json",
+    ".loom/tasks/task-20260927-094409-task-25d97433/logs.txt",
+    ".loom/tasks/task-20260927-094409-task-25d97433/previous-results.md",
+    ".loom/tasks/task-20260927-094409-task-25d97433/prompt.md",
+    ".loom/tasks/task-20260927-094409-task-25d97433/result.md",
+    ".loom/tasks/task-20260927-094409-task-25d97433/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }

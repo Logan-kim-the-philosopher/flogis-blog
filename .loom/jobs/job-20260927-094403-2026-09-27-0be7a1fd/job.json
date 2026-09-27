@@ -2,13 +2,15 @@
   "id": "job-20260927-094403-2026-09-27-0be7a1fd",
   "title": "2026-09-27 정현님 사담 전사",
   "goal": "바탕화면의 26-09-27_정현님_사담 음성 한 건을 전체 길이만큼 가능한 정확하게 한국어로 전사하고 타임스탬프 UTF-8 TXT를 같은 바탕화면에 저장한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-27T09:44:03+00:00",
-  "updated_at": "2026-09-27T09:44:11+00:00",
+  "updated_at": "2026-09-27T10:37:31+00:00",
   "context_refs": [],
   "task_ids": [
     "task-20260927-094409-task-25d97433"
   ],
   "branch_name": "Haru2_dev",
-  "checkpoint_ids": []
+  "checkpoint_ids": [
+    "checkpoint-20260927-103731-task-completed-da010ce8"
+  ]
 }
