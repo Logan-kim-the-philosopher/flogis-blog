@@ -1,0 +1,5 @@
+[2026-09-30T12:06:33+00:00] agent=codex task=task-20260930-120628-cody-stat-36091f24 Foreground task session started.
+[2026-09-30T12:07:39+00:00] agent=codex 원본 파일을 식별하고 source SHA-256 d17fb73795ec7c93073c7f976dab34bb1e8bff37816e7cc069709155ba7acca9를 기록했다.
+[2026-09-30T12:26:22+00:00] agent=codex OpenSuperWhisper local-only 다중 후보 전사를 완료했다. windows=38 candidates=190.
+[2026-09-30T12:36:10+00:00] agent=codex 후보 전수 대조와 문맥 교정을 마치고 검토본을 바탕화면 결과 파일로 교체했다. uncertaintyCount=15.
+[2026-09-30T12:36:53+00:00] agent=codex 원본 불변, 출력 해시·크기, UTF-8, 타임스탬프 38개, 전체 구간 연속성을 검증했다.
