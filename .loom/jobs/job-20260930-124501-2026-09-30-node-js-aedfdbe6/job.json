@@ -1,0 +1,14 @@
+{
+  "id": "job-20260930-124501-2026-09-30-node-js-aedfdbe6",
+  "title": "2026-09-30 Node.js 세션 발표 전사",
+  "goal": "바탕화면의 26-09-30_node.js세션_발표 음성을 전체 길이만큼 가능한 정확하게 한국어로 전사하고 타임스탬프 UTF-8 TXT를 같은 바탕화면에 저장한다.",
+  "status": "RUNNING",
+  "created_at": "2026-09-30T12:45:01+00:00",
+  "updated_at": "2026-09-30T12:45:17+00:00",
+  "context_refs": [],
+  "task_ids": [
+    "task-20260930-124512-node-js-2cc10757"
+  ],
+  "branch_name": "Haru2_dev",
+  "checkpoint_ids": []
+}

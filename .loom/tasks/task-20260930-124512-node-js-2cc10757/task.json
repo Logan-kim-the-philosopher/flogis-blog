@@ -1,0 +1,32 @@
+{
+  "id": "task-20260930-124512-node-js-2cc10757",
+  "job_id": "job-20260930-124501-2026-09-30-node-js-aedfdbe6",
+  "title": "Node.js 세션 발표 전체 전사",
+  "description": "바탕화면에서 지정 음성을 Unicode 정규화와 구두점 차이까지 고려해 찾아 로컬 다중 후보로 전체 전사하고 문맥상 명확한 부분만 교정한다.",
+  "status": "RUNNING",
+  "created_at": "2026-09-30T12:45:12+00:00",
+  "updated_at": "2026-09-30T12:45:17+00:00",
+  "order_index": 1,
+  "assigned_agent": "codex",
+  "depends_on": [],
+  "expected_output": "바탕화면의 26-09-30_node.js세션_발표_전사.txt",
+  "done_condition": "정확한 원본의 길이와 해시를 확인하고 녹음 전체를 타임스탬프 UTF-8 TXT로 저장한다. 불확실한 표현은 표시하며 원본 해시 불변, 결과 크기, 전체 구간, Loom 검증과 로컬 커밋을 확인한다.",
+  "in_scope": "지정 오디오 검색, 로컬 전사, 다중 후보 검수, TXT 저장, 검증, Loom 기록, 로컬 커밋",
+  "out_of_scope": "다른 파일 전사, 원본 변경, 블로그 작성, 외부 전송, 원격 push",
+  "validation_hint": "원본 ffprobe 길이·SHA-256 전후, TXT UTF-8·타임스탬프·크기·해시, loom task validate --strict와 loom validate --strict",
+  "required_docs": [],
+  "memory_refs": [],
+  "document_outputs": [],
+  "document_output_exceptions": [],
+  "run_attempts": 0,
+  "last_error": "",
+  "commit_refs": [
+    "1e04f772e6faef78f3f02ec8546cbecace943fd1"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-09-30T12:45:17+00:00",
+  "artifacts": [],
+  "source_proposal_id": "",
+  "source_prompt": ""
+}
