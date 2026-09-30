@@ -1,0 +1,19 @@
+{
+  "id": "checkpoint-20260930-123832-task-completed-cody-stat-3fbc6cb3",
+  "created_at": "2026-09-30T12:38:32+00:00",
+  "reason": "Task completed: Cody Stat 희성님 회의 전체 전사",
+  "summary": "Cody Stat 희성님 회의 전체 전사 -> DONE @ Haru2_dev/f52ca8d675b1",
+  "job_id": "job-20260930-120616-2026-09-30-cody-stat-a34f568b",
+  "task_id": "task-20260930-120628-cody-stat-36091f24",
+  "commit_sha": "f52ca8d675b117572f3a3c79a9db55d2ce872abc",
+  "branch_name": "Haru2_dev",
+  "dirty": true,
+  "staged_files": [],
+  "modified_files": [
+    ".loom/job-runs/job-run-20260930-120633-job-20260930-120616-2026-09-30-cody-stat-a34f568-befa2ea5/job-run.json",
+    ".loom/task-definitions/task-def-20260930-120628-cody-stat-3a5c0d39/task-definition.json"
+  ],
+  "untracked_files": [],
+  "snapshot_captured_at": "2026-09-30T12:38:32+00:00",
+  "rollback_strategy": "revert-or-branch"
+}

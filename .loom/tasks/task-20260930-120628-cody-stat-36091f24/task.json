@@ -3,9 +3,9 @@
   "job_id": "job-20260930-120616-2026-09-30-cody-stat-a34f568b",
   "title": "Cody Stat 희성님 회의 전체 전사",
   "description": "바탕화면에서 지정 음성을 Unicode 정규화와 공백 차이까지 고려해 찾아 로컬 다중 후보로 전체 전사하고 문맥상 명확한 부분만 교정한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-30T12:06:28+00:00",
-  "updated_at": "2026-09-30T12:06:33+00:00",
+  "updated_at": "2026-09-30T12:38:32+00:00",
   "order_index": 1,
   "assigned_agent": "codex",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "6753135093af4bd9aebead397f91057fde32d39b"
+    "6753135093af4bd9aebead397f91057fde32d39b",
+    "f52ca8d675b117572f3a3c79a9db55d2ce872abc"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-09-30T12:06:33+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-09-30T12:38:32+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260930-120628-cody-stat-36091f24/agent-events.jsonl",
+    ".loom/tasks/task-20260930-120628-cody-stat-36091f24/artifacts.json",
+    ".loom/tasks/task-20260930-120628-cody-stat-36091f24/context.md",
+    ".loom/tasks/task-20260930-120628-cody-stat-36091f24/decision.md",
+    ".loom/tasks/task-20260930-120628-cody-stat-36091f24/git-snapshot.json",
+    ".loom/tasks/task-20260930-120628-cody-stat-36091f24/logs.txt",
+    ".loom/tasks/task-20260930-120628-cody-stat-36091f24/previous-results.md",
+    ".loom/tasks/task-20260930-120628-cody-stat-36091f24/prompt.md",
+    ".loom/tasks/task-20260930-120628-cody-stat-36091f24/result.md",
+    ".loom/tasks/task-20260930-120628-cody-stat-36091f24/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }

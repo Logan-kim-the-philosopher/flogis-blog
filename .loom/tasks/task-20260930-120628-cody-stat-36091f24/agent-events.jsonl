@@ -1,1 +1,2 @@
 {"id": "event-94ac134d29cf", "type": "foreground_session_started", "message": "Foreground task session started.", "created_at": "2026-09-30T12:06:33+00:00", "agent": "codex", "task_id": "task-20260930-120628-cody-stat-36091f24"}
+{"id": "event-4f9be1b5efa9", "type": "foreground_session_done", "message": "바탕화면 음성 전체를 로컬 다중 후보로 전사·검토하고 UTF-8 타임스탬프 TXT 저장과 원본·결과 무결성 검증을 완료했다.", "created_at": "2026-09-30T12:38:32+00:00", "agent": "codex", "task_id": "task-20260930-120628-cody-stat-36091f24"}

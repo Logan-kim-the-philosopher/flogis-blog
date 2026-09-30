@@ -17,5 +17,17 @@
     ],
     "captured_at": "2026-09-30T12:06:33+00:00"
   },
-  "after": null
+  "after": {
+    "available": true,
+    "branch_name": "Haru2_dev",
+    "commit_sha": "f52ca8d675b117572f3a3c79a9db55d2ce872abc",
+    "dirty": true,
+    "staged_files": [],
+    "modified_files": [
+      ".loom/job-runs/job-run-20260930-120633-job-20260930-120616-2026-09-30-cody-stat-a34f568-befa2ea5/job-run.json",
+      ".loom/task-definitions/task-def-20260930-120628-cody-stat-3a5c0d39/task-definition.json"
+    ],
+    "untracked_files": [],
+    "captured_at": "2026-09-30T12:38:32+00:00"
+  }
 }
