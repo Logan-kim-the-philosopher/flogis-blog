@@ -3,9 +3,9 @@
   "job_id": "job-20260930-101512-2026-09-30-loom-2-f18f3ee1",
   "title": "현래님·연진님 Loom 피드백 각각 전사",
   "description": "바탕화면의 지정 음성 두 건을 Unicode 정규화로 각각 찾아 로컬 다중 후보로 전체 전사하고 문맥상 명확한 부분만 교정한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-09-30T10:15:24+00:00",
-  "updated_at": "2026-09-30T10:15:29+00:00",
+  "updated_at": "2026-09-30T10:40:53+00:00",
   "order_index": 1,
   "assigned_agent": "codex",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "8dad5e3fc2d4ca0aac8de1fcd0eb297512e875e6"
+    "8dad5e3fc2d4ca0aac8de1fcd0eb297512e875e6",
+    "44863c716cf46bd5f9f17529de12d0ca9829093d"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-09-30T10:15:29+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-09-30T10:40:53+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20260930-101524-loom-95d9b4db/agent-events.jsonl",
+    ".loom/tasks/task-20260930-101524-loom-95d9b4db/artifacts.json",
+    ".loom/tasks/task-20260930-101524-loom-95d9b4db/context.md",
+    ".loom/tasks/task-20260930-101524-loom-95d9b4db/decision.md",
+    ".loom/tasks/task-20260930-101524-loom-95d9b4db/git-snapshot.json",
+    ".loom/tasks/task-20260930-101524-loom-95d9b4db/logs.txt",
+    ".loom/tasks/task-20260930-101524-loom-95d9b4db/previous-results.md",
+    ".loom/tasks/task-20260930-101524-loom-95d9b4db/prompt.md",
+    ".loom/tasks/task-20260930-101524-loom-95d9b4db/result.md",
+    ".loom/tasks/task-20260930-101524-loom-95d9b4db/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }

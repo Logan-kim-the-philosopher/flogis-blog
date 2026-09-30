@@ -1,1 +1,2 @@
 {"id": "event-922519bbff46", "type": "foreground_session_started", "message": "Foreground task session started.", "created_at": "2026-09-30T10:15:29+00:00", "agent": "codex", "task_id": "task-20260930-101524-loom-95d9b4db"}
+{"id": "event-c234570cede2", "type": "foreground_session_done", "message": "현래님·연진님 Loom 피드백 두 건을 각각 로컬 다중 후보로 전체 전사·검수해 바탕화면에 저장하고 원본·결과 해시, 전체 구간, UTF-8을 검증했습니다.", "created_at": "2026-09-30T10:40:53+00:00", "agent": "codex", "task_id": "task-20260930-101524-loom-95d9b4db"}
