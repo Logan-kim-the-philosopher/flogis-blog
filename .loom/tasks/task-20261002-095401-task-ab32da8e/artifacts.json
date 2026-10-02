@@ -1,0 +1,71 @@
+{
+  "status": "RUNNING",
+  "agent": "foreground",
+  "mode": "foreground",
+  "execution_surface": "foreground",
+  "task_run_id": "task-run-20261002-095404-task-def-20261002-095401-task-def-fd688aed-97c6678a",
+  "generated_at": "2026-10-02T09:54:04+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20261002-095401-task-ab32da8e/prompt.md",
+    ".loom/tasks/task-20261002-095401-task-ab32da8e/context.md",
+    ".loom/tasks/task-20261002-095401-task-ab32da8e/previous-results.md",
+    ".loom/tasks/task-20261002-095401-task-ab32da8e/git-snapshot.json",
+    ".loom/tasks/task-20261002-095401-task-ab32da8e/result.md",
+    ".loom/tasks/task-20261002-095401-task-ab32da8e/decision.md",
+    ".loom/tasks/task-20261002-095401-task-ab32da8e/troubleshooting.md",
+    ".loom/tasks/task-20261002-095401-task-ab32da8e/logs.txt",
+    ".loom/tasks/task-20261002-095401-task-ab32da8e/agent-events.jsonl",
+    ".loom/tasks/task-20261002-095401-task-ab32da8e/artifacts.json"
+    ,
+    ".transcribe-agent/runs/20261002T095449Z-26-10-02_지환님_커피챗/review.json",
+    ".transcribe-agent/runs/20261002T095449Z-26-10-02_지환님_커피챗/result.json",
+    "/Users/hongyongjae/Desktop/26-10-02_지환님_커피챗_전사.txt"
+  ],
+  "artifact_groups": {
+    "user_outputs": [
+      ".loom/tasks/task-20261002-095401-task-ab32da8e/result.md",
+      ".loom/tasks/task-20261002-095401-task-ab32da8e/decision.md",
+      ".loom/tasks/task-20261002-095401-task-ab32da8e/troubleshooting.md"
+    ],
+    "execution_inputs": [
+      ".loom/tasks/task-20261002-095401-task-ab32da8e/prompt.md",
+      ".loom/tasks/task-20261002-095401-task-ab32da8e/context.md",
+      ".loom/tasks/task-20261002-095401-task-ab32da8e/previous-results.md"
+    ],
+    "execution_audit": [
+      ".loom/tasks/task-20261002-095401-task-ab32da8e/git-snapshot.json",
+      ".loom/tasks/task-20261002-095401-task-ab32da8e/logs.txt",
+      ".loom/tasks/task-20261002-095401-task-ab32da8e/agent-events.jsonl",
+      ".loom/tasks/task-20261002-095401-task-ab32da8e/artifacts.json"
+    ],
+    "work_products": [
+      ".transcribe-agent/runs/20261002T095449Z-26-10-02_지환님_커피챗/review.json",
+      ".transcribe-agent/runs/20261002T095449Z-26-10-02_지환님_커피챗/result.json",
+      "/Users/hongyongjae/Desktop/26-10-02_지환님_커피챗_전사.txt"
+    ]
+  },
+  "contract_snapshot": {
+    "schema_version": 1,
+    "contract_ids": [
+      "task-execution",
+      "done-guardrail"
+    ],
+    "contracts": [
+      {
+        "id": "task-execution",
+        "title": "Task Execution Context Contract",
+        "source_paths": [
+          "loom/application/context_pack.py",
+          "loom/application/team_policy.py"
+        ]
+      },
+      {
+        "id": "done-guardrail",
+        "title": "Task Completion Guardrail Contract",
+        "source_paths": [
+          "loom/application/services.py"
+        ]
+      }
+    ]
+  }
+}
