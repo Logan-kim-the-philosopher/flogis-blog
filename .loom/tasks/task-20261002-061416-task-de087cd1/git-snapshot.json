@@ -1,0 +1,21 @@
+{
+  "before": {
+    "available": true,
+    "branch_name": "Haru2_dev",
+    "commit_sha": "10f052dfd1da08e129fa9caae48fc0cac2f4ef74",
+    "dirty": true,
+    "staged_files": [],
+    "modified_files": [
+      ".loom/events.jsonl"
+    ],
+    "untracked_files": [
+      ".loom/job-runs/job-run-20261002-061419-job-20261002-061407-2026-10-02-7d805513-25bc0179/",
+      ".loom/jobs/job-20261002-061407-2026-10-02-7d805513/",
+      ".loom/task-definitions/task-def-20261002-061416-task-def-5a4b4e70/",
+      ".loom/task-runs/task-run-20261002-061419-task-def-20261002-061416-task-def-5a4b4e70-401dd482/",
+      ".loom/tasks/task-20261002-061416-task-de087cd1/"
+    ],
+    "captured_at": "2026-10-02T06:14:19+00:00"
+  },
+  "after": null
+}

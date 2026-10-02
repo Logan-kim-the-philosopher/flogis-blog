@@ -1,0 +1,5 @@
+[2026-10-02T06:14:19+00:00] agent=foreground task=task-20261002-061416-task-de087cd1 Foreground task session started.
+[2026-10-02T06:14:45+00:00] 원본 길이 1292.641655초와 SHA-256 75ca9b254c25f08aa6dc2ac7a4d59ae931a5be10a69276e3ebd9127515805bc8을 확인했다.
+[2026-10-02T06:23:07+00:00] OpenSuperWhisper 후보 110개 생성 완료 후 Pi OAuth refresh가 401 invalid_refresh_token으로 실패했다.
+[2026-10-02T06:26:15+00:00] 보존 후보 수동 교차 검수와 resume을 완료하고 바탕화면 TXT를 저장했다.
+[2026-10-02T06:26:16+00:00] UTF-8, 21,047바이트, 마지막 타임스탬프 00:21:32, 원본 해시 불변, 결과 SHA-256을 검증했다.
