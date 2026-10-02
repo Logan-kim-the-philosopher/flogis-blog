@@ -1,10 +1,10 @@
 {
-  "status": "RUNNING",
+  "status": "DONE",
   "agent": "foreground",
   "mode": "foreground",
   "execution_surface": "foreground",
   "task_run_id": "task-run-20261002-095404-task-def-20261002-095401-task-def-fd688aed-97c6678a",
-  "generated_at": "2026-10-02T09:54:04+00:00",
+  "generated_at": "2026-10-02T10:37:14+00:00",
   "artifacts": [
     ".loom/tasks/task-20261002-095401-task-ab32da8e/prompt.md",
     ".loom/tasks/task-20261002-095401-task-ab32da8e/context.md",
@@ -16,10 +16,6 @@
     ".loom/tasks/task-20261002-095401-task-ab32da8e/logs.txt",
     ".loom/tasks/task-20261002-095401-task-ab32da8e/agent-events.jsonl",
     ".loom/tasks/task-20261002-095401-task-ab32da8e/artifacts.json"
-    ,
-    ".transcribe-agent/runs/20261002T095449Z-26-10-02_지환님_커피챗/review.json",
-    ".transcribe-agent/runs/20261002T095449Z-26-10-02_지환님_커피챗/result.json",
-    "/Users/hongyongjae/Desktop/26-10-02_지환님_커피챗_전사.txt"
   ],
   "artifact_groups": {
     "user_outputs": [
@@ -38,11 +34,7 @@
       ".loom/tasks/task-20261002-095401-task-ab32da8e/agent-events.jsonl",
       ".loom/tasks/task-20261002-095401-task-ab32da8e/artifacts.json"
     ],
-    "work_products": [
-      ".transcribe-agent/runs/20261002T095449Z-26-10-02_지환님_커피챗/review.json",
-      ".transcribe-agent/runs/20261002T095449Z-26-10-02_지환님_커피챗/result.json",
-      "/Users/hongyongjae/Desktop/26-10-02_지환님_커피챗_전사.txt"
-    ]
+    "work_products": []
   },
   "contract_snapshot": {
     "schema_version": 1,
