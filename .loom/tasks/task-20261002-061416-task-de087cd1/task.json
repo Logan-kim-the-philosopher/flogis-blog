@@ -3,9 +3,9 @@
   "job_id": "job-20261002-061407-2026-10-02-7d805513",
   "title": "정현님 코디스텟 의견 정리 전체 전사",
   "description": "바탕화면에서 지정 녹음을 Unicode 정규화를 고려해 정확히 찾고, accurate 모드의 다중 후보와 Pi 문맥 검수로 전체 발화를 전사한다.",
-  "status": "RUNNING",
+  "status": "REVIEW_REQUIRED",
   "created_at": "2026-10-02T06:14:16+00:00",
-  "updated_at": "2026-10-02T06:14:19+00:00",
+  "updated_at": "2026-10-02T06:27:28+00:00",
   "order_index": 1,
   "assigned_agent": "foreground",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "10f052dfd1da08e129fa9caae48fc0cac2f4ef74"
+    "10f052dfd1da08e129fa9caae48fc0cac2f4ef74",
+    "1591bed79bb2cd660be7e9d5d8a092a3b59b96e2"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-10-02T06:14:19+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-10-02T06:27:28+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20261002-061416-task-de087cd1/agent-events.jsonl",
+    ".loom/tasks/task-20261002-061416-task-de087cd1/artifacts.json",
+    ".loom/tasks/task-20261002-061416-task-de087cd1/context.md",
+    ".loom/tasks/task-20261002-061416-task-de087cd1/decision.md",
+    ".loom/tasks/task-20261002-061416-task-de087cd1/git-snapshot.json",
+    ".loom/tasks/task-20261002-061416-task-de087cd1/logs.txt",
+    ".loom/tasks/task-20261002-061416-task-de087cd1/previous-results.md",
+    ".loom/tasks/task-20261002-061416-task-de087cd1/prompt.md",
+    ".loom/tasks/task-20261002-061416-task-de087cd1/result.md",
+    ".loom/tasks/task-20261002-061416-task-de087cd1/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }
