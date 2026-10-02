@@ -3,3 +3,4 @@
 [2026-10-02T06:31:17+00:00] OpenSuperWhisper 후보 45개 생성 완료 후 Pi OAuth refresh가 401 invalid_refresh_token으로 실패했다.
 [2026-10-02T06:32:47+00:00] 보존 후보 수동 교차 검수와 resume을 완료하고 바탕화면의 별도 TXT를 저장했다.
 [2026-10-02T06:32:48+00:00] UTF-8, 8,689바이트, 마지막 타임스탬프 00:08:31, 원본 해시 불변, 결과 SHA-256을 검증했다.
+[2026-10-02T06:33:47+00:00] agent=foreground task=task-20261002-062806-task-2a1cc2f8 Foreground task session completed.
