@@ -3,9 +3,9 @@
   "job_id": "job-20261006-141227-2026-10-05-06-e68f276f",
   "title": "이은서님 FDE 대화 전체 전사",
   "description": "바탕화면에서 지정 녹음을 Unicode 정규화를 고려해 정확히 찾고, accurate 모드 다중 후보를 생성해 전체 발화를 검수한 뒤 독립 TXT로 저장한다.",
-  "status": "RUNNING",
+  "status": "REVIEW_REQUIRED",
   "created_at": "2026-10-06T14:12:38+00:00",
-  "updated_at": "2026-10-06T14:22:22+00:00",
+  "updated_at": "2026-10-06T14:40:40+00:00",
   "order_index": 2,
   "assigned_agent": "foreground",
   "depends_on": [],
@@ -21,12 +21,24 @@
   "run_attempts": 0,
   "last_error": "",
   "commit_refs": [
-    "b594240c214e7a3df7b721a81df5ad0c3ee5ee95"
+    "b594240c214e7a3df7b721a81df5ad0c3ee5ee95",
+    "745177d3011f87c7c1ee73d90f17c08e4673d0a7"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-10-06T14:22:22+00:00",
-  "artifacts": [],
+  "git_snapshot_captured_at": "2026-10-06T14:40:40+00:00",
+  "artifacts": [
+    ".loom/tasks/task-20261006-141238-fde-ec42e89d/agent-events.jsonl",
+    ".loom/tasks/task-20261006-141238-fde-ec42e89d/artifacts.json",
+    ".loom/tasks/task-20261006-141238-fde-ec42e89d/context.md",
+    ".loom/tasks/task-20261006-141238-fde-ec42e89d/decision.md",
+    ".loom/tasks/task-20261006-141238-fde-ec42e89d/git-snapshot.json",
+    ".loom/tasks/task-20261006-141238-fde-ec42e89d/logs.txt",
+    ".loom/tasks/task-20261006-141238-fde-ec42e89d/previous-results.md",
+    ".loom/tasks/task-20261006-141238-fde-ec42e89d/prompt.md",
+    ".loom/tasks/task-20261006-141238-fde-ec42e89d/result.md",
+    ".loom/tasks/task-20261006-141238-fde-ec42e89d/troubleshooting.md"
+  ],
   "source_proposal_id": "",
   "source_prompt": ""
 }

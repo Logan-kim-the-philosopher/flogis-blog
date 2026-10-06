@@ -1,10 +1,10 @@
 {
-  "status": "RUNNING",
+  "status": "DONE",
   "agent": "foreground",
   "mode": "foreground",
   "execution_surface": "foreground",
   "task_run_id": "task-run-20261006-142222-task-def-20261006-141238-fde-ee982f31-65d294a1",
-  "generated_at": "2026-10-06T14:22:22+00:00",
+  "generated_at": "2026-10-06T14:40:40+00:00",
   "artifacts": [
     ".loom/tasks/task-20261006-141238-fde-ec42e89d/prompt.md",
     ".loom/tasks/task-20261006-141238-fde-ec42e89d/context.md",
@@ -16,10 +16,6 @@
     ".loom/tasks/task-20261006-141238-fde-ec42e89d/logs.txt",
     ".loom/tasks/task-20261006-141238-fde-ec42e89d/agent-events.jsonl",
     ".loom/tasks/task-20261006-141238-fde-ec42e89d/artifacts.json"
-    ,
-    ".transcribe-agent/runs/20261006T142242Z-26-10-05_이은서님_FDE_대화/review.json",
-    ".transcribe-agent/runs/20261006T142242Z-26-10-05_이은서님_FDE_대화/result.json",
-    "/Users/hongyongjae/Desktop/26-10-05_이은서님_FDE_대화_전사.txt"
   ],
   "artifact_groups": {
     "user_outputs": [
@@ -38,11 +34,7 @@
       ".loom/tasks/task-20261006-141238-fde-ec42e89d/agent-events.jsonl",
       ".loom/tasks/task-20261006-141238-fde-ec42e89d/artifacts.json"
     ],
-    "work_products": [
-      ".transcribe-agent/runs/20261006T142242Z-26-10-05_이은서님_FDE_대화/review.json",
-      ".transcribe-agent/runs/20261006T142242Z-26-10-05_이은서님_FDE_대화/result.json",
-      "/Users/hongyongjae/Desktop/26-10-05_이은서님_FDE_대화_전사.txt"
-    ]
+    "work_products": []
   },
   "contract_snapshot": {
     "schema_version": 1,
