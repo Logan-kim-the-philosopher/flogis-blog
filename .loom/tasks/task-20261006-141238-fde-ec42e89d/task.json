@@ -3,9 +3,9 @@
   "job_id": "job-20261006-141227-2026-10-05-06-e68f276f",
   "title": "이은서님 FDE 대화 전체 전사",
   "description": "바탕화면에서 지정 녹음을 Unicode 정규화를 고려해 정확히 찾고, accurate 모드 다중 후보를 생성해 전체 발화를 검수한 뒤 독립 TXT로 저장한다.",
-  "status": "PENDING",
+  "status": "RUNNING",
   "created_at": "2026-10-06T14:12:38+00:00",
-  "updated_at": "2026-10-06T14:12:38+00:00",
+  "updated_at": "2026-10-06T14:22:22+00:00",
   "order_index": 2,
   "assigned_agent": "foreground",
   "depends_on": [],
@@ -20,10 +20,12 @@
   "document_output_exceptions": [],
   "run_attempts": 0,
   "last_error": "",
-  "commit_refs": [],
-  "branch_name": "",
-  "git_dirty": false,
-  "git_snapshot_captured_at": "",
+  "commit_refs": [
+    "b594240c214e7a3df7b721a81df5ad0c3ee5ee95"
+  ],
+  "branch_name": "Haru2_dev",
+  "git_dirty": true,
+  "git_snapshot_captured_at": "2026-10-06T14:22:22+00:00",
   "artifacts": [],
   "source_proposal_id": "",
   "source_prompt": ""
