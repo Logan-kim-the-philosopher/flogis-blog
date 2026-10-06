@@ -3,9 +3,9 @@
   "job_id": "job-20261006-144756-2026-10-06-53-d4e33aca",
   "title": "코디스텟 팀 의견 회의 53분 구간 전사",
   "description": "바탕화면에서 지정 녹음을 Unicode 정규화를 고려해 정확히 찾고, 원본을 변경하지 않은 채 시작부터 정확히 00:53:00까지만 추출해 accurate 모드 다중 후보를 생성·검수하고 독립 TXT로 저장한다.",
-  "status": "RUNNING",
+  "status": "DONE",
   "created_at": "2026-10-06T14:48:04+00:00",
-  "updated_at": "2026-10-06T15:23:01+00:00",
+  "updated_at": "2026-10-06T15:23:44+00:00",
   "order_index": 1,
   "assigned_agent": "foreground",
   "depends_on": [],
@@ -22,11 +22,12 @@
   "last_error": "",
   "commit_refs": [
     "f9220c122841a62a7babbe26cb9cae19a867a386",
-    "2f00ac16af7c54f43095db25547bddfd9f592b2f"
+    "2f00ac16af7c54f43095db25547bddfd9f592b2f",
+    "cd02959a6dc9fa4d0b99771a418a95813dff9b66"
   ],
   "branch_name": "Haru2_dev",
   "git_dirty": true,
-  "git_snapshot_captured_at": "2026-10-06T15:23:01+00:00",
+  "git_snapshot_captured_at": "2026-10-06T15:23:44+00:00",
   "artifacts": [
     ".loom/tasks/task-20261006-144804-53-6da98b4b/agent-events.jsonl",
     ".loom/tasks/task-20261006-144804-53-6da98b4b/artifacts.json",
