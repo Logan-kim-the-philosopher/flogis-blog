@@ -52,7 +52,7 @@ Loom 프로젝트 메모리 루트입니다.
 - Document outputs: -
 - Document output exceptions: -
 - Source proposal: `-`
-- Status: PENDING
+- Status: REVIEW_REQUIRED
 - Assigned agent: foreground
 
 ## Advisor Source Prompt

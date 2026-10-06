@@ -24,7 +24,7 @@ Keep code identifiers, file paths, shell commands, URLs, commit hashes, and orig
 - Job ID: `job-20261006-144756-2026-10-06-53-d4e33aca`
 - Title: 2026-10-06 코디스텟 팀 의견 회의 53분 전사
 - Goal: 바탕화면의 26-10-06_코디스텟_팀_의견_회의 녹음에서 시작부터 00:53:00까지만 정확하게 한국어로 전사하고, 타임스탬프 UTF-8 TXT를 바탕화면에 저장한다.
-- Status: `PENDING`
+- Status: `REVIEW_REQUIRED`
 - Required branch: `Haru2_dev`
 - Task count: `1`
 
@@ -41,7 +41,7 @@ Keep code identifiers, file paths, shell commands, URLs, commit hashes, and orig
 - Document outputs: -
 - Document output exceptions: -
 - Source proposal: `-`
-- Status: `PENDING`
+- Status: `REVIEW_REQUIRED`
 - Agent: `foreground`
 - Order: `1`
 - Depends on: None

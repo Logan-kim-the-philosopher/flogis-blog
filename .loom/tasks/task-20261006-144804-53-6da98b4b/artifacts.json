@@ -4,7 +4,7 @@
   "mode": "foreground",
   "execution_surface": "foreground",
   "task_run_id": "task-run-20261006-144812-task-def-20261006-144804-53-3112ee11-dcd80e06",
-  "generated_at": "2026-10-06T15:21:34+00:00",
+  "generated_at": "2026-10-06T15:23:01+00:00",
   "artifacts": [
     ".loom/tasks/task-20261006-144804-53-6da98b4b/prompt.md",
     ".loom/tasks/task-20261006-144804-53-6da98b4b/context.md",
@@ -15,11 +15,7 @@
     ".loom/tasks/task-20261006-144804-53-6da98b4b/troubleshooting.md",
     ".loom/tasks/task-20261006-144804-53-6da98b4b/logs.txt",
     ".loom/tasks/task-20261006-144804-53-6da98b4b/agent-events.jsonl",
-    ".loom/tasks/task-20261006-144804-53-6da98b4b/artifacts.json",
-    ".transcribe-agent/runs/20261006T144850Z-26-10-06_코디스텟_팀_의견_회의_53분까지/candidates.json",
-    ".transcribe-agent/runs/20261006T144850Z-26-10-06_코디스텟_팀_의견_회의_53분까지/review.json",
-    ".transcribe-agent/runs/20261006T144850Z-26-10-06_코디스텟_팀_의견_회의_53분까지/result.json",
-    "/Users/hongyongjae/Desktop/26-10-06_코디스텟_팀_의견_회의_53분까지_전사.txt"
+    ".loom/tasks/task-20261006-144804-53-6da98b4b/artifacts.json"
   ],
   "artifact_groups": {
     "user_outputs": [
@@ -38,12 +34,7 @@
       ".loom/tasks/task-20261006-144804-53-6da98b4b/agent-events.jsonl",
       ".loom/tasks/task-20261006-144804-53-6da98b4b/artifacts.json"
     ],
-    "work_products": [
-      ".transcribe-agent/runs/20261006T144850Z-26-10-06_코디스텟_팀_의견_회의_53분까지/candidates.json",
-      ".transcribe-agent/runs/20261006T144850Z-26-10-06_코디스텟_팀_의견_회의_53분까지/review.json",
-      ".transcribe-agent/runs/20261006T144850Z-26-10-06_코디스텟_팀_의견_회의_53분까지/result.json",
-      "/Users/hongyongjae/Desktop/26-10-06_코디스텟_팀_의견_회의_53분까지_전사.txt"
-    ]
+    "work_products": []
   },
   "contract_snapshot": {
     "schema_version": 1,

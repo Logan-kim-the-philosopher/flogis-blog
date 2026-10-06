@@ -2,20 +2,24 @@
   "before": {
     "available": true,
     "branch_name": "Haru2_dev",
-    "commit_sha": "f9220c122841a62a7babbe26cb9cae19a867a386",
+    "commit_sha": "2f00ac16af7c54f43095db25547bddfd9f592b2f",
     "dirty": true,
     "staged_files": [],
     "modified_files": [
-      ".loom/events.jsonl"
+      ".loom/events.jsonl",
+      ".loom/job-runs/job-run-20261006-144812-job-20261006-144756-2026-10-06-53-d4e33aca-5ed5b021/job-run.json",
+      ".loom/jobs/job-20261006-144756-2026-10-06-53-d4e33aca/job.json",
+      ".loom/task-definitions/task-def-20261006-144804-53-3112ee11/task-definition.json",
+      ".loom/task-runs/task-run-20261006-144812-task-def-20261006-144804-53-3112ee11-dcd80e06/task-run.json",
+      ".loom/tasks/task-20261006-144804-53-6da98b4b/agent-events.jsonl",
+      ".loom/tasks/task-20261006-144804-53-6da98b4b/artifacts.json",
+      ".loom/tasks/task-20261006-144804-53-6da98b4b/git-snapshot.json",
+      ".loom/tasks/task-20261006-144804-53-6da98b4b/logs.txt",
+      ".loom/tasks/task-20261006-144804-53-6da98b4b/task.json",
+      ".loom/tasks/task-20261006-144804-53-6da98b4b/troubleshooting.md"
     ],
-    "untracked_files": [
-      ".loom/job-runs/job-run-20261006-144812-job-20261006-144756-2026-10-06-53-d4e33aca-5ed5b021/",
-      ".loom/jobs/job-20261006-144756-2026-10-06-53-d4e33aca/",
-      ".loom/task-definitions/task-def-20261006-144804-53-3112ee11/",
-      ".loom/task-runs/task-run-20261006-144812-task-def-20261006-144804-53-3112ee11-dcd80e06/",
-      ".loom/tasks/task-20261006-144804-53-6da98b4b/"
-    ],
-    "captured_at": "2026-10-06T14:48:12+00:00"
+    "untracked_files": [],
+    "captured_at": "2026-10-06T15:23:01+00:00"
   },
   "after": null
 }
